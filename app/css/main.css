@@ -1,0 +1,53 @@
+.topmenu > li{
+    float: left;
+    list-style: none;
+    padding: 15px 25px;
+}
+.topmenu{
+    float: left;
+}
+/*.businessImg {
+  float: left;
+  width: 20%;
+}*/
+.businessImg img {
+  width: 100%;
+}
+/*.businessInfo {
+  float: right;
+  width: 80%;
+}*/
+.businessListing::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.businessListing.ng-scope {
+  padding: 15px 0;
+  border-top: 1px solid;
+}
+.menuUl > li{
+    list-style: none;
+    display: inline;
+    padding-right: 20px;
+}
+.menuUl{
+    padding: 0;
+}
+
+
+.has-error select{
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.errorBlock{
+    border: 1px solid #a94442;
+    color: #a94442; 
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+
+/* for date and time section in add event form */

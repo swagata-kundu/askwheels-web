@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 ">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p ng-show="showErrors" class="errorBlock">{{errors}}</p>
+                <form name="reservationForm" ng-submit="makeReservation()" novalidate>
+                    <!--First Name-->
+                    <div ng-class="{'form-group':true,'has-error':reservationForm.name.$invalid && reservationForm.$submitted}">
+                        <label>Name <span class="warning-text">*</span></label>
+                        <input maxlength="50" type="text" class="form-control" ng-change="" name="name" placeholder="Name" data-ng-model="user.name"
+                               ng-pattern="/^[a-zA-Z ]*$/" required no-special-char autofocus>
+                        <p ng-show="reservationForm.name.$error.required && reservationForm.$submitted" class="help-block">Name is required.</p>
+                        <p ng-show="reservationForm.name.$error.pattern && reservationForm.$submitted" class="help-block">Only Alphabets Are Allowed</p>
+                    </div>
+                    <!--Email-->
+                    <div ng-class="{'form-group':true,'has-error':(reservationForm.email.$invalid || reservationForm.email.$error.emailExists) && reservationForm.$submitted }">
+                        <label>Email <span class="warning-text">*</span></label>
+                        <input type="email" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i"
+                               class="form-control" maxlength="100" name="email" placeholder="Email" data-ng-model="user.email"
+                               required>
+                        <p ng-show="reservationForm.email.$error.required && reservationForm.$submitted" class="help-block">Email is required.</p>
+                        <p ng-show="reservationForm.email.$error.pattern && reservationForm.$submitted" class="help-block">Email is not valid.</p>
+                    </div>
+                    <!--Contact Number-->
+                    <div ng-class="{'form-group':true,'has-error':reservationForm.Phonenumber.$invalid && reservationForm.$submitted}">
+                        <label>Contact number <span class="warning-text">*</span></label>
+                        <input maxlength="50" type="text" class="form-control" name="Phonenumber" placeholder="Contact number" data-ng-model="user.contactNo"
+                               ng-pattern="/^[0-9]{1,10}$/" required no-special-char autofocus>
+                        <p ng-show="reservationForm.Phonenumber.$error.required && reservationForm.$submitted" class="help-block">Contact number is required.</p>
+                        <p ng-show="reservationForm.Phonenumber.$error.pattern && reservationForm.$submitted" class="help-block">Contact number is not valid.</p>
+                    </div>
+                    <!--date--><!--ng-controller="datePickerController"-->
+                    <div ng-controller="datePickerController" ng-class="{'form-group':true,'has-error':reservationForm.rsvDate.$invalid && reservationForm.$submitted}">
+                        <label>Date <span class="warning-text">*</span></label>
+                        <input name="rsvDate" type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                               data-ng-model="user.date" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <p ng-show="reservationForm.rsvDate.$error.required && reservationForm.$submitted" class="help-block">Date is required.</p>
+                    </div>
+
+                    <!--time-->
+                    <!--<div ng-class="{'form-group':true,'has-error':reservationForm.time.$invalid && reservationForm.$submitted}">
+                        <label>Time <span class="warning-text">*</span></label>
+                        <input maxlength="50" type="text" class="form-control" name="time" placeholder="Choose Time" data-ng-model="user.time" ng-pattern="/^([0-9]+)?\:([0-5][0-9])\:?([0-9]{3})?$/"
+                               required no-special-char autofocus>
+                        <p ng-show="reservationForm.time.$error.required && reservationForm.$submitted" class="help-block">Time is required.</p>
+                        <p ng-show="reservationForm.time.$error.pattern && reservationForm.$submitted" class="help-block">Time is not valid.</p>
+                    </div>-->
+
+                    <div ng-controller="TimePickerController" ng-class="{'form-group':true,'has-error':reservationForm.time.$invalid && reservationForm.$submitted}">
+                        <label>Time <span class="warning-text">*</span></label>
+                        <uib-timepicker required no-special-char autofocus ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep"
+                                        show-meridian="ismeridian"></uib-timepicker>
+                        <p ng-hide="mytime" class="help-block">Time is not in a valid format.</p>
+                    </div>
+
+                    <!--number of guest -->
+                    <div ng-class="{'form-group':true,'has-error':reservationForm.numOfGuests.$invalid && reservationForm.$submitted}">
+                        <label>Number Of Guests <span class="warning-text">*</span></label>
+                        <input maxlength="50" type="text" class="form-control" name="numOfGuests" placeholder="Number Of Guests" data-ng-model="user.numOfGuests"
+                               ng-pattern="/^[0-9]{1,10}$/" required no-special-char autofocus>
+                        <p ng-show="reservationForm.numOfGuests.$error.required && reservationForm.$submitted" class="help-block">Number Of Guests is required.</p>
+                        <p ng-show="reservationForm.numOfGuests.$error.pattern && reservationForm.$submitted" class="help-block">Not a Valid Input </p>
+                    </div>
+
+                    <!--submit-->
+                    <button class="btn btn-md btn-info btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
