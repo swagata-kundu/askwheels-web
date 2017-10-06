@@ -9,7 +9,7 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
 
     var loadData = function () {
         $rootScope.userProfile = localStorageService.get('userProfile') || authentication;
-    }
+    };
 
     var logout = function () {
         authentication = {};
@@ -17,36 +17,39 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
         localStorageService.remove('userProfile');
         loadData();
         $rootScope.$emit('showHideLogOut');
-    }
+    };
 
     this.login = function (loginRequest) {
         var deferred = $q.defer();
-        return $http({
+        $http({
             method: "POST",
             url: serviceURI.loginURI,
             data: loginRequest,
-            headers: { 'Content-Type': 'application/json' }
-        })
-            .success(function (data, status, headers, config) {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function ({
+            data,
+            headers,
+        }) {
+            authentication.isAuth = true;
+            authentication.token = headers('sessionId');
+            authentication.userId = data.data.userId;
+            authentication.email = data.data.email;
+            authentication.firstName = data.data.firstName;
+            authentication.lastName = data.data.lastName;
+            authentication.contactNo = data.data.contactNo;
+            authentication.roleId = data.data.roleId;
+            localStorageService.set('userProfile', authentication);
 
-                authentication.isAuth = true;
-                authentication.token = headers('sessionId');
-                authentication.userId = data.data.userId;
-                authentication.email = data.data.email;
-                authentication.firstName = data.data.firstName;
-                authentication.lastName = data.data.lastName;
-                authentication.contactNo = data.data.contactNo;
-                authentication.roleId = data.data.roleId;
+            loadData();
 
-                localStorageService.set('userProfile', authentication);
-
-                loadData();
-
-                deferred.resolve(data);
-            })
-            .error(function (data, status, headers, config) {
-                deferred.reject(data);
-            });
+            deferred.resolve(data);
+        }, function ({
+            data
+        }) {
+            deferred.reject(data);
+        });
         return deferred.promise;
     };
 
@@ -55,7 +58,9 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
             method: "POST",
             url: serviceURI.signUpURI,
             data: requestParams,
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
     };
 
@@ -65,19 +70,23 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
 
         var deferred = $q.defer();
         $http({
-            method: "GET",
-            url: urlToService,
-            data: '',
-            headers: { 'Content-Type': 'application/json' }
+                method: "GET",
+                url: urlToService,
+                data: '',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
 
-        })
-            .success(function (data, status, headers, config) {
-                deferred.resolve(data);
             })
-            .error(function (data, status, headers, config) {
-                deferred.reject(data);
+            .then(
+                function (data) {
+                    deferred.resolve(data);
+                },
+                function (data) {
+                    deferred.reject(data);
 
-            });
+                });
+                
         return deferred.promise;
     };
 

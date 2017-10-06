@@ -11,9 +11,8 @@ app.controller('loginController', ['$scope', 'authService', '$state', '$location
             var loginData = $scope.loginData;
             var loginRequstParams = {
                 "email": loginData.emailId,
-                "password": loginData.password,
-                "domainId": siteInfo.siteID
-            }
+                "password": loginData.password
+            };
 
             authService.login(loginRequstParams).then(function (response) {
                     $rootScope.$emit('showHideLogOut');

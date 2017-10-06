@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-var domain = 'http://api.yourcitynightout.com/';
+var domain = 'http://13.126.216.190:5000/';
 
 app.constant('serviceURI', {
     loginURI: domain + "login",
