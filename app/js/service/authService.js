@@ -12,7 +12,6 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
     }
 
     var logout = function () {
-        debugger;
         authentication = {};
         authentication.isAuth = false;
         localStorageService.remove('userProfile');
@@ -21,7 +20,6 @@ app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', 
     }
 
     this.login = function (loginRequest) {
-        alert(JSON.stringify(loginRequest));
         var deferred = $q.defer();
         return $http({
             method: "POST",

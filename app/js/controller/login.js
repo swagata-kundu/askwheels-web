@@ -16,30 +16,30 @@ app.controller('loginController', ['$scope', 'authService', '$state', '$location
             }
 
             authService.login(loginRequstParams).then(function (response) {
-                debugger
-                $rootScope.$emit('showHideLogOut');
-                $scope.showErrors = false;
-                var returnUrl = $rootScope.returnToUrl;
-                $rootScope.returnToUrl = null;
-                if (returnUrl != null) {
-                    $location.path(returnUrl);
-                }
-                else {
-                    if ($rootScope.userProfile.roleId == 2) { $location.path('/businessuserdashboard'); }
-                    else { $location.path('/'); }
-                }
-            })
-            .catch(function (response) {
-                debugger
-                if (response.status == 400) {
-                    $scope.errors = response.data.message;
-                    $scope.showErrors = true;
-                }
-                if (response.status == 401) {
-                    $scope.errors = response.data.details[0];
-                    $scope.showErrors = true;
-                }
-            });
+                    $rootScope.$emit('showHideLogOut');
+                    $scope.showErrors = false;
+                    var returnUrl = $rootScope.returnToUrl;
+                    $rootScope.returnToUrl = null;
+                    if (returnUrl != null) {
+                        $location.path(returnUrl);
+                    } else {
+                        if ($rootScope.userProfile.roleId == 2) {
+                            $location.path('/businessuserdashboard');
+                        } else {
+                            $location.path('/');
+                        }
+                    }
+                })
+                .catch(function (response) {
+                    if (response.status == 400) {
+                        $scope.errors = response.data.message;
+                        $scope.showErrors = true;
+                    }
+                    if (response.status == 401) {
+                        $scope.errors = response.data.details[0];
+                        $scope.showErrors = true;
+                    }
+                });
         }
     }
 
@@ -53,11 +53,9 @@ app.controller('loginController', ['$scope', 'authService', '$state', '$location
     $scope.forgetPassword = function () {
         if ($scope.forgetPassForm.$valid) {
             authService.isEmailExist($scope.forgetData.email).then(function (response) {
-                alert(response.data.isExists);
                 if (!response.data.isExists) {
                     $scope.forgetPassForm.email.$error.emailExists = true;
-                }
-                else {
+                } else {
                     $scope.forgetPassForm.email.$error.emailExists = false;
                 }
             });
@@ -70,7 +68,7 @@ app.controller('loginController', ['$scope', 'authService', '$state', '$location
 app.controller('signUp', ['$scope', 'authService', '$state', function ($scope, authService, $state) {
     $scope.user = {};
 
-    $scope.signUp = function () {      
+    $scope.signUp = function () {
 
         if ($scope.user.repeatPassword != undefined && $scope.user.password != undefined && $scope.user.repeatPassword.length > 0 && $scope.user.password.length > 0) {
             $scope.signupForm.confirmPass.$error.noMatch = $scope.user.password !== $scope.user.repeatPassword;
@@ -90,16 +88,15 @@ app.controller('signUp', ['$scope', 'authService', '$state', function ($scope, a
             }
 
             authService.isEmailExist($scope.user.email).then(function (response) {
-                
+
                 if (response.data.isExists) {
                     $scope.signupForm.email.$error.emailExists = true;
-                }
-                else {
-                    authService.signUp(requestParams).then(function (response) {                     
+                } else {
+                    authService.signUp(requestParams).then(function (response) {
                         $state.go('home.login');
                     }, function (response) {
-                     
-                    });                   
+
+                    });
                 }
             });
         }
@@ -107,4 +104,3 @@ app.controller('signUp', ['$scope', 'authService', '$state', function ($scope, a
     }
 
 }]);
-
