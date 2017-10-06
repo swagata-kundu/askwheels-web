@@ -57,7 +57,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('sellerListing', {
             url: '/admin/sellers',
             templateUrl: 'views/admin/sellerlisting.html',
-            controller: '',
+            controller: 'sellerListing',
+            resolve: {
+                access: ["Access", function (Access) {
+                    return Access.hasRole(4);
+                }]
+            }
+        })
+        .state('subSellerListing', {
+            url: '/admin/:sellerId/subseller',
+            templateUrl: 'views/admin/subsellerlisting.html',
+            controller: 'subSellerListing',
             resolve: {
                 access: ["Access", function (Access) {
                     return Access.hasRole(4);

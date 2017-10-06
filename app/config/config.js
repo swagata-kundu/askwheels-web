@@ -11,11 +11,6 @@ app.constant('serviceURI', {
     categoriesURI: domain + "categories",
     changePasswordPublicUserURI: domain + "changepassword",
     updateUserProfile: domain + "secure/user",
+    getSubSellerList: domain + "secure/user/subseller/listing",
+    getSellerList: domain + "secure/user/seller/listing"
 });
-
-app.constant('siteInfo', {
-    siteID: 1,
-    siteName: "My Nightout"
-});
-
-

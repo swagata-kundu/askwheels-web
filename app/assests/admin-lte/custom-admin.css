@@ -204,8 +204,7 @@ ul.pagination li a {
 .styled-select {
     height: 34px;
     overflow: hidden;
-    /*background: url(../img/select-drop-arrow.png) no-repeat right ;*/
-    background: url('/app/img/select-drop-arrow.png') no-repeat right;
+    background: url('/img/select-drop-arrow.png') no-repeat right;
 }
 
 .border-bottom-o-class select {
