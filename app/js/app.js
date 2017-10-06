@@ -14,7 +14,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('login', {
             url: '/login',
             templateUrl: 'views/login.html',
-            controller: 'loginController'
+            controller: 'loginController',
+            resolve: {
+                access: ["Access", function (Access) {
+                    return Access.isAnonymous();
+                }]
+            },
         })
         .state('signup', {
             url: '/signup',
@@ -43,6 +48,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }]
             }
         })
+        .state('adminDashBoard', {
+            url: '/admin',
+            templateUrl: 'views/admin/dashboard.html',
+            controller: '',
+            resolve: {
+                access: ["Access", function (Access) {
+                    return Access.hasRole(4);
+                }]
+            }
+        })
 
 });
 
@@ -52,23 +67,16 @@ app.config(function ($httpProvider) {
 
 app.run(['$rootScope', 'authService', '$state', 'Access', function ($rootScope, authService, $state, Access) {
 
-    //debugger
     authService.loadData();
-
+    console.log('here');
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        // debugger
-
         if (error == Access.UNAUTHORIZED) {
-            event.preventDefault();
-            $state.go('login', {
+            $state.go('home', {
                 notify: false
             });
         }
         if (error == Access.FORBIDDEN) {
-            event.preventDefault();
-            $state.go('home', {
-                notify: false
-            });
+
         }
     });
 

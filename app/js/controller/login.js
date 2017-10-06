@@ -22,8 +22,8 @@ app.controller('loginController', ['$scope', 'authService', '$state', '$location
                     if (returnUrl != null) {
                         $location.path(returnUrl);
                     } else {
-                        if ($rootScope.userProfile.roleId == 2) {
-                            $location.path('/businessuserdashboard');
+                        if ($rootScope.userProfile.roleId == 4) {
+                            $location.path('/admin');
                         } else {
                             $location.path('/');
                         }
