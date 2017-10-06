@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('loginController', ['$scope', 'authService', '$state', '$location', 'localStorageService', '$rootScope', 'siteInfo', function ($scope, authService, $state, $location, localStorageService, $rootScope, siteInfo) {
+app.controller('loginController', ['$scope', 'authService', '$state', '$location', 'localStorageService', '$rootScope', function ($scope, authService, $state, $location, localStorageService, $rootScope) {
 
     $scope.forgetData = {};
     $scope.loginData = {};
