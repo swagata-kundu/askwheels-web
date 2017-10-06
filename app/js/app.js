@@ -21,11 +21,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }]
             },
         })
-        .state('signup', {
-            url: '/signup',
-            templateUrl: 'views/signup.html',
-            controller: 'signUp'
-        })
+
 
         .state('changePassword', {
             url: '/changepassword',
@@ -58,6 +54,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }]
             }
         })
+        .state('sellerListing', {
+            url: '/admin/sellers',
+            templateUrl: 'views/admin/sellerlisting.html',
+            controller: '',
+            resolve: {
+                access: ["Access", function (Access) {
+                    return Access.hasRole(4);
+                }]
+            }
+        })
 
 });
 
@@ -68,7 +74,6 @@ app.config(function ($httpProvider) {
 app.run(['$rootScope', 'authService', '$state', 'Access', function ($rootScope, authService, $state, Access) {
 
     authService.loadData();
-    console.log('here');
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         if (error == Access.UNAUTHORIZED) {
             $state.go('home', {

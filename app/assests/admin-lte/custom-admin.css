@@ -178,7 +178,7 @@ ul.pagination li a {
     position: absolute;
     right: 0;
     top: 0;
-    background: #2277dd;
+    background: #b43411;
     padding: 14px;
 }
 
@@ -205,7 +205,7 @@ ul.pagination li a {
     height: 34px;
     overflow: hidden;
     /*background: url(../img/select-drop-arrow.png) no-repeat right ;*/
-    background: url('/admin/app/img/select-drop-arrow.png') no-repeat right;
+    background: url('/app/img/select-drop-arrow.png') no-repeat right;
 }
 
 .border-bottom-o-class select {
@@ -269,7 +269,7 @@ ul.pagination li a {
 .Add-business-btn {
     /*width: 204px;*/
     height: 48px;
-    background: #2277dd;
+    background: #b43411;
     border: none;
     border-radius: 0;
     font-family: 'Conv_Roboto-Light';
@@ -280,7 +280,7 @@ ul.pagination li a {
 }
 
 .Add-business-btn:hover {
-    background: #2277dd;
+    background: #b43411;
 }
 
 .Add-business-btn:focus {
@@ -354,7 +354,7 @@ a.Add-business-btn {
     position: absolute;
     right: 4px;
     top: 12px;
-    background: #2277dd;
+    background: #b43411;
     padding: 8px;
     border-radius: 5px;
 }
@@ -385,7 +385,7 @@ a.Add-business-btn {
 }
 
 .resetSection {
-    background: #2277dd;
+    background: #b43411;
     padding: 8px;
     border-radius: 5px;
 }
@@ -437,7 +437,7 @@ a.Add-business-btn {
 
 .modal-header.adminDeleteConfirmationBoxHeader {
     padding: 10px;
-    background: #2277dd;
+    background: #b43411;
     color: #fff;
 }
 
@@ -480,7 +480,7 @@ a.Add-business-btn {
 .adminProfileImage {
     width: 120px;
     height: 120px;
-    border: 4px solid #2277dd;
+    border: 4px solid #b43411;
 }
 
 .tablefilter-class {
@@ -568,7 +568,7 @@ a.Add-business-btn {
 
 #confirm .modal-header {
     padding: 10px;
-    background: #2277dd;
+    background: #b43411;
     color: #fff;
 }
 
@@ -590,7 +590,7 @@ div.bootbox.modal.fade.bootbox-alert.in>div>div>div.modal-body {
 }
 
 li.open .dropdown-toggle {
-    color: #2277dd !important;
+    color: #b43411 !important;
 }
 
 
@@ -706,7 +706,7 @@ li.open>a:focus {
     font-size: 14px;
     text-transform: lowercase;
     font-weight: normal;
-    color: #2277dd;
+    color: #b43411;
     display: inline-block;
     width: auto;
 }
@@ -720,7 +720,7 @@ li.open>a:focus {
 }
 
 .sidebar-menu-active {
-    color: #2277dd !important;
+    color: #b43411 !important;
 }
 
 .hrDesign {
@@ -1343,7 +1343,7 @@ ul.innerContentSideBar li:last-child {
     font-size: 14px;
     text-transform: lowercase;
     font-weight: normal;
-    color: #2277dd;
+    color: #b43411;
     display: inline-block;
     width: auto;
 }
@@ -1607,14 +1607,14 @@ ul.innerContentSideBar li:last-child {
 }
 
 .modal-header {
-    background: #2277dd !important;
+    background: #b43411 !important;
     color: white;
     font-size: 3px !important;
 }
 
 #confirm .modal-header {
     padding: 10px;
-    background: #2277dd;
+    background: #b43411;
     color: #fff;
 }
 
