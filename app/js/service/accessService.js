@@ -34,7 +34,6 @@ app.factory("Access", ["$q", "$rootScope", function ($q, $rootScope) {
 
         isAnonymous: function () {
             var deferred = $q.defer();
-            debugger;
             if ($rootScope.userProfile != undefined && !$rootScope.userProfile.isAuth) {
                 deferred.resolve(Access.OK);
             } else {

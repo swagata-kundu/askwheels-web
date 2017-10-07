@@ -12,5 +12,6 @@ app.constant('serviceURI', {
     changePasswordPublicUserURI: domain + "changepassword",
     updateUserProfile: domain + "secure/user",
     getSubSellerList: domain + "secure/user/subseller/listing",
-    getSellerList: domain + "secure/user/seller/listing"
+    getSellerList: domain + "secure/user/seller/listing",
+    forgetPassword: domain + "forgetpassword"
 });

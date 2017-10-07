@@ -1,14 +1,19 @@
+<div class="admin-header" ng-if=showHeader>
+    <uib-tabset active="active">
+        <uib-tab ui-sref="sellerListing" index="0" heading="Sellers"></uib-tab>
+        <uib-tab index="1" heading="Auctions"></uib-tab>
 
-<nav class="navbar" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#/">{{siteName}}</a>
-    </div>
-   
+        <span class="info" uib-dropdown>
+            <a href id="simple-dropdown" uib-dropdown-toggle>
+                {{email}}
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li>
+                    <a href ng-click="logOut()">Log Out</a>
+                </li>
+            </ul>
+        </span>
 
-    <div>
-        <a ng-show="showLogout" class="" ng-click="logOut()">LogOut</a>
-        <span ng-show="showLogout">Welcome {{userName}}</span>
-        <a ng-show="showLogout" class="" href="#/changepassword">Change Password</a>
-        </div>
+    </uib-tabset>
 
-</nav>
+</div>

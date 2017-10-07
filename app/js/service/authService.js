@@ -1,98 +1,101 @@
 'use strict';
 
+app.service('authService', [
+    '$http',
+    'serviceURI',
+    'localStorageService',
+    '$q',
+    '$rootScope',
+    '$state',
+    function ($http, serviceURI, localStorageService, $q, $rootScope, $state) {
 
-app.service('authService', ['$http', 'serviceURI', 'localStorageService', '$q', '$rootScope', function ($http, serviceURI, localStorageService, $q, $rootScope) {
+        var authentication = {
+            isAuth: false
+        };
 
-    var authentication = {
-        isAuth: false
-    };
+        var loadData = function () {
+            $rootScope.userProfile = localStorageService.get('userProfile') || authentication;
+        };
 
-    var loadData = function () {
-        $rootScope.userProfile = localStorageService.get('userProfile') || authentication;
-    };
-
-    var logout = function () {
-        authentication = {};
-        authentication.isAuth = false;
-        localStorageService.remove('userProfile');
-        loadData();
-        $rootScope.$emit('showHideLogOut');
-    };
-
-    this.login = function (loginRequest) {
-        var deferred = $q.defer();
-        $http({
-            method: "POST",
-            url: serviceURI.loginURI,
-            data: loginRequest,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function ({
-            data,
-            headers,
-        }) {
-            authentication.isAuth = true;
-            authentication.token = headers('sessionId');
-            authentication.userId = data.data.userId;
-            authentication.email = data.data.email;
-            authentication.firstName = data.data.firstName;
-            authentication.lastName = data.data.lastName;
-            authentication.contactNo = data.data.contactNo;
-            authentication.roleId = data.data.roleId;
-            localStorageService.set('userProfile', authentication);
-
+        var logout = function () {
+            authentication = {};
+            authentication.isAuth = false;
+            localStorageService.remove('userProfile');
             loadData();
+            $rootScope.$emit('showHideLogOut');
+            $state.go('login');
+        };
 
-            deferred.resolve(data);
-        }, function ({
-            data
-        }) {
-            deferred.reject(data);
-        });
-        return deferred.promise;
-    };
+        this.login = function (loginRequest) {
+            var deferred = $q.defer();
+            $http({
+                    method: "POST",
+                    url: serviceURI.loginURI,
+                    data: loginRequest,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function ({data, headers}) {
+                authentication.isAuth = true;
+                authentication.token = headers('sessionId');
+                authentication.userId = data.data.userId;
+                authentication.email = data.data.email;
+                authentication.firstName = data.data.firstName;
+                authentication.lastName = data.data.lastName;
+                authentication.contactNo = data.data.contactNo;
+                authentication.roleId = data.data.roleId;
+                localStorageService.set('userProfile', authentication);
+                $rootScope.$emit('showHideLogOut');
+                loadData();
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        };
 
-    this.signUp = function (requestParams) {
-        return $http({
-            method: "POST",
-            url: serviceURI.signUpURI,
-            data: requestParams,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    };
+        this.signUp = function (requestParams) {
+            return $http({
+                method: "POST",
+                url: serviceURI.signUpURI,
+                data: requestParams,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        };
 
-    this.isEmailExist = function (emailId) {
+        this.isEmailExist = function (emailId) {
 
-        var urlToService = serviceURI.checkEmailExistsURI + "/" + emailId;
-
-        var deferred = $q.defer();
-        $http({
+            var urlToService = serviceURI.checkEmailExistsURI + "/" + emailId;
+            return $http({
                 method: "GET",
                 url: urlToService,
                 data: '',
                 headers: {
                     'Content-Type': 'application/json'
                 }
+            });
+        };
 
-            })
-            .then(
-                function (data) {
-                    deferred.resolve(data);
+        this.forgetPassword = function (emailId) {
+
+            var urlToService = serviceURI.forgetPassword;
+            return $http({
+                method: "POST",
+                url: urlToService,
+                data: {
+                    email: emailId
                 },
-                function (data) {
-                    deferred.reject(data);
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        };
 
-                });
-                
-        return deferred.promise;
-    };
+        this.loadData = loadData;
 
-    this.loadData = loadData;
+        this.logout = logout;
 
-    this.logout = logout;
-
-
-}]);
+    }
+]);
