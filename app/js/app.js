@@ -26,18 +26,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             ]
         }
-    }).state('changePassword', {
-        url: '/changepassword',
-        templateUrl: 'views/changePassword.html',
-        controller: 'changePassword',
-        resolve: {
-            access: [
-                "Access",
-                function (Access) {
-                    return Access.isAuthenticated();
-                }
-            ]
-        }
     }).state('userProfile', {
         url: '/userprofile',
         templateUrl: 'views/userProfile.html',
@@ -86,8 +74,31 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             ]
         }
+    }).state('auctionListing', {
+        url: '/admin/auctions',
+        templateUrl: 'views/admin/auctionlist.html',
+        controller: 'auctionList',
+        resolve: {
+            access: [
+                "Access",
+                function (Access) {
+                    return Access.hasRole(4);
+                }
+            ]
+        }
+    }).state('changePassword', {
+        url: '/admin/changepassword',
+        templateUrl: 'views/changepassword.html',
+        controller: 'changePassword',
+        resolve: {
+            access: [
+                "Access",
+                function (Access) {
+                    return Access.isAuthenticated();
+                }
+            ]
+        }
     })
-
 });
 
 app.config(function ($httpProvider) {

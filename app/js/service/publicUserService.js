@@ -14,7 +14,7 @@
     }
 
     this.editUserProfile = function (profile) {
-        var uri = serviceURI.updateUserProfile;
+        var uri = serviceURI.userBase;
 
         return $http({
             method: "PATCH",

@@ -1,0 +1,137 @@
+<div class="toptable-wrappe">
+    <h3 class="nightout-admin-heading">
+        <a href="/" target="_blank">AskWheels</a>
+    </h3>
+    <h3>Auction Management</h3>
+    <!-- <div class="table-btn-section">
+        <a class="Add-business-btn">Create Seller</a>
+    </div> -->
+<!-- 
+    <div class="tablefilter-class">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <div class="styled-select searchbyName margin-10-bottom">
+                    <form name="searchForm" ng-submit="searchByInputText(searchText)">
+                        <input type="text" ng-model="searchText" class="form-control" placeholder="Name, mobile and email...">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="pull-left resetSectionContainer mt10">
+                <a href="" ng-click="getVehicleList(1,numPerPage)" class="btn btn-primary">Filter</a>
+            </div>
+
+        </div>
+    </div> -->
+
+    <div class="table-responsive">
+
+
+        <table class="table table-bordered hide-td-border">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="" ng-click="sortType = 'vehicle_name'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Vehicle Name
+                            <span ng-show="sortType == 'vehicle_name' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'vehicle_name' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="sortType = 'uploaded_by'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Uploaded By
+                            <span ng-show="sortType == 'uploaded_by' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'uploaded_by' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="sortType = 'registration_number'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Reg no
+                            <span ng-show="sortType == 'registration_number' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'registration_number' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="sortType = 'start_bid'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Start Bid
+                            <span ng-show="sortType == 'start_bid' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'start_bid' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="sortType = 'model'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Model
+                            <span ng-show="sortType == 'model' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'model' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+
+                    <th>
+                        <a href="" ng-click="sortType = 'evaluation_date'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Evaluation Date
+                            <span ng-show="sortType == 'evaluation_date' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'model' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Upload Date
+                            <span ng-show="sortType == 'creationDate' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'creationDate' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                    <th class="table-center">
+                        <a href="" ng-click="sortType = 'isLive'; sortReverse = !sortReverse;getVehicleList(currentPage,numPerPage)">
+                            Live
+                            <span ng-show="sortType == 'isLive' && sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'isLive' && !sortReverse" class="fa fa-caret-up"></span>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vehicle in vehicles">
+                    <td>{{vehicle.vehicle_name}}</td>
+                    <td>{{vehicle.uploaded_by}}</td>
+                    <td>{{vehicle.registration_number}}</td>
+                    <td>{{vehicle.start_bid}}</td>
+                    <td>{{vehicle.model}}</td>
+                    <td>{{vehicle.evaluation_date}}</td>
+                    <td>{{vehicle.creationDate}}</td>
+                    <td class="table-center">
+                        <a href="" ng-if="vehicle.isLive == 1">
+                            <i class="fa fa-check fa-2x" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,false)" confirm-title="Confirm"
+                                confirm="Are you sure you want to live this vehicle?" con confirm-ok="Yes" confirm-cancel="No"
+                                title="Click to unblock">
+                            </i>
+                        </a>
+                        <a href="" ng-if="vehicle.isLive  == 0">
+                            <i class="fa fa-times fa-2x" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,true)" confirm-title="Confirm"
+                                confirm="Are you sure you want to live this vehicle?" con confirm-ok="Yes" confirm-cancel="No"
+                                title="Click to block"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="pull-left">
+                <label>
+                    <span class="total-search-class">total search : {{totalValues}}</span>
+                </label>
+            </div>
+            <div class="pull-right" ng-show="true">
+                <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getEndUserList(page,numPerPage)">
+                </paging>
+            </div>
+
+        </div>
+    </div>
+</div>
