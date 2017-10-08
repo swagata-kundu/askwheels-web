@@ -88,7 +88,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     }).state('changePassword', {
         url: '/admin/changepassword',
-        templateUrl: 'views/changepassword.html',
+        templateUrl: 'views/changeadminpassword.html',
         controller: 'changePassword',
         resolve: {
             access: [
