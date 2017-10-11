@@ -15,7 +15,7 @@ app.constant('serviceURI', {
     blockUser: domain + "secure/user/block",
     getSubSellerList: domain + "secure/user/subseller/listing",
     getSellerList: domain + "secure/user/seller/listing",
-    vehicleListAdmin: domain + "secure/auction/vehicle/list",
-    vehicleStatusChange: domain + "secure/auction/vehicle/status"
+    vehicleListAdmin: domain + "secure/auction/vehicle/admin/list",
+    vehicleStatusChange: domain + "secure/auction/vehicle/admin/status"
 
 });
