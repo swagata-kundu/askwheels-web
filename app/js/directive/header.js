@@ -21,6 +21,9 @@
                             if ($rootScope.userProfile.isAuth == true) {
                                 $scope.email = $rootScope.userProfile.email;
                                 $scope.showHeader = true;
+                            }else{
+                                $scope.showHeader = false;
+
                             }
                         });
 

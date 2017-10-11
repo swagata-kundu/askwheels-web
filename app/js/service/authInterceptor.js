@@ -31,6 +31,7 @@ app.factory('interceptorFactory', ['$q', '$rootScope', 'localStorageService', '$
             localStorageService.set('userProfile', _authentication);
             $rootScope.userProfile = _authentication;
             $rootScope.returnToUrl = $location.path();
+            $rootScope.$emit('showHideLogOut');
             var stateService = $injector.get('$state');
             stateService.go('login');
 
