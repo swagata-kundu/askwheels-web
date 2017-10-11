@@ -24,9 +24,9 @@ app.controller('sellerListing', [
                 'pageNo': pageNo,
                 'pageSize': pageSize,
                 'sortBy': $scope.sortType,
-                'sortOrder': $scope.sortReverse == true
-                    ? "DESC"
-                    : "ASC",
+                'sortOrder': $scope.sortReverse == true ?
+                    "DESC" :
+                    "ASC",
                 'searchText': $scope.searchText
             };
             sellerService
@@ -47,9 +47,9 @@ app.controller('sellerListing', [
         $scope.blockUnblockEndUser = function (id, status) {
             var blockParams = {
                 "userId": parseInt(id),
-                "flag": status == 0
-                    ? false
-                    : true
+                "flag": status == 0 ?
+                    false :
+                    true
             };
 
             sellerService
@@ -118,6 +118,7 @@ app.controller('subSellerListing', [
 
         var sellerId = $state.params.sellerId;
 
+        $scope.sellerName = $state.params.sellerName;
         $scope.admin = {};
         $scope.admin.allEndUsers = [];
 
@@ -134,9 +135,9 @@ app.controller('subSellerListing', [
                 'pageNo': pageNo,
                 'pageSize': pageSize,
                 'sortBy': $scope.sortType,
-                'sortOrder': $scope.sortReverse == true
-                    ? "DESC"
-                    : "ASC",
+                'sortOrder': $scope.sortReverse == true ?
+                    "DESC" :
+                    "ASC",
                 'searchText': $scope.searchText,
                 'sellerId': sellerId
             };
@@ -175,9 +176,9 @@ app.controller('subSellerListing', [
         $scope.blockUnblockEndUser = function (id, status) {
             var blockParams = {
                 "userId": parseInt(id),
-                "flag": status == 0
-                    ? false
-                    : true
+                "flag": status == 0 ?
+                    false :
+                    true
             };
 
             sellerService

@@ -63,7 +63,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             ]
         }
     }).state('subSellerListing', {
-        url: '/admin/:sellerId/subsellers',
+        url: '/admin/:sellerId/:sellerName/subsellers',
         templateUrl: 'views/admin/subsellerlisting.html',
         controller: 'subSellerListing',
         resolve: {
