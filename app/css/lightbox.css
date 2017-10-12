@@ -33,12 +33,12 @@
 }
 
 #overlay {
-	background-image: url(../images/overlay.png)
+	background-image: url(..img/overlay.png)
 }
 
 * html #overlay {
 	background-color: #333;
 	background-color: transparent;
-	background-image: url(..images/blank.gif);
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/overlay.png", sizingMethod="scale");
+	background-image: url(..img/blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/overlay.png", sizingMethod="scale");
 }
