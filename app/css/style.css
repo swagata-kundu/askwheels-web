@@ -1,0 +1,244 @@
+body {
+	margin: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-image: url(../images/bg.jpg);
+	background-attachment: cover;
+	font-size: 14px;
+	color: #6f6f6f;
+}
+
+a {
+	color: #ee5027;
+}
+
+.header-top {
+	width: 100%;
+	background-color: #fff;
+	margin: auto;
+	padding: 5px 0px 10px 0px;
+}
+
+.logo {
+	padding-bottom: 8%;
+	padding-top: 4%;
+	text-align: center;
+}
+
+.forms {
+	margin: auto;
+	width: 100%;
+}
+
+.forget p {
+	color: #ee5027;
+}
+
+.sign {
+	float: left;
+	padding-top: 5px;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.forget {
+	float: left;
+	padding-top: 5px;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.form-box {
+	background: #fff;
+	width: 40%;
+	margin: auto;
+	min-height: 250px;
+	padding: 2%;
+	border: solid 1px #e8e8e8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=90, Color=#a1a1a1)";
+	/*IE 8*/
+	-moz-box-shadow: 1px 0px 8px #a1a1a1;
+	/*FF 3.5+*/
+	-webkit-box-shadow: 1px 0px 8px #a1a1a1;
+	/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+	box-shadow: 1px 0px 8px #a1a1a1;
+	/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=90, Color=#a1a1a1);
+	/*IE 5.5-7*/
+	margin-top: 9%;
+	margin-bottom: 9%;
+}
+
+.form-box input[type="checkbox"] {
+	border: solid 1px #dedede;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+.form-box select {
+	border-bottom: solid 1px #dedede;
+	height: 35px;
+	width: 100%;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	margin-bottom: 40px;
+}
+
+select:focus {
+	outline: none;
+}
+
+.form-button {
+	background: #ee5027;
+	color: #ccc;
+	line-height: 40px;
+	padding: 0px 25px;
+	float: right;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.form-button a {
+	color: #fff;
+	display: block;
+}
+
+.terms {
+	float: left;
+	padding-top: 5px;
+	padding-left: 15px;
+	margin-bottom: 25px;
+}
+
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	border-bottom: solid 1px #ccc;
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+.input__field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none;
+	/* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+	outline: none;
+}
+
+.input__label {
+	display: inline-block;
+	float: right;
+	width: 40%;
+	color: #777;
+	font-weight: normal;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input__label-content {
+	position: relative;
+	display: block;
+	/*	padding: 1.6em 0;*/
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.input__field--haruki {
+	padding: 0.4em 0.25em;
+	width: 100%;
+	background: transparent;
+	color: #777;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.input__label--haruki {
+	position: absolute;
+	width: 100%;
+	text-align: left;
+	pointer-events: none;
+}
+
+.input__label-content--haruki {
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.input__label--haruki::before,
+.input__label--haruki::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.input__label--haruki::before {
+	top: 0;
+}
+
+.input__label--haruki::after {
+	bottom: 0;
+}
+
+.input__field--haruki:focus+.input__label--haruki .input__label-content--haruki,
+.input--filled .input__label-content--haruki {
+	-webkit-transform: translate3d(0, -90%, 0);
+	transform: translate3d(0, -90%, 0);
+}
+
+.input__field--haruki:focus+.input__label--haruki::before,
+.input--filled .input__label--haruki::before {
+	-webkit-transform: translate3d(0, -0.5em, 0);
+	transform: translate3d(0, -0.5em, 0);
+}
+
+.input__field--haruki:focus+.input__label--haruki::after,
+.input--filled .input__label--haruki::after {
+	-webkit-transform: translate3d(0, 0.5em, 0);
+	transform: translate3d(0, 0.5em, 0);
+}
+
+@media (max-width: 768px) {
+	.form-box {
+		width: 60%;
+		padding: 5%;
+	}
+}
+
+@media (max-width: 767px) {
+	.form-box {
+		width: 100%;
+		padding: 5%;
+	}
+	.sign {
+		width: auto;
+	}
+}
