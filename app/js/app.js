@@ -40,6 +40,19 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 ]
             }
         })
+        .state('signup', {
+            url: '/signup',
+            templateUrl: 'views/signup.html',
+            controller: '',
+            resolve: {
+                access: [
+                    "Access",
+                    function (Access) {
+                        return Access.isAnonymous();
+                    }
+                ]
+            }
+        })
         .state('userProfile', {
             url: '/userprofile',
             templateUrl: 'views/userProfile.html',
