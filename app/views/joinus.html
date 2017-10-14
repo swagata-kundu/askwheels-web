@@ -1,0 +1,108 @@
+<div class="forms">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-box">
+                    <p>
+                        <img src="img/logo.PNG" class="logo">
+                    </p>
+                    <form name="signupForm" ng-submit="signUp()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-6">
+
+                                    <div class="form__wrapper">
+                                        <input type="text" class="form__input" id="name" name="name" required maxlength="250" data-ng-model="user.name">
+                                        <label class="form__label" for="name">
+                                            <span class="form__label-content">Full Name</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="email" class="form__input" id="email" name="email" required ng-maxlength="250" data-ng-model="user.email">
+                                        <label class="form__label" for="email">
+                                            <span class="form__label-content">Email</span>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="text" class="form__input" id="number" name="number" required maxlength="10" data-ng-model="user.contactNo">
+                                        <label class="form__label" for="number">
+                                            <span class="form__label-content">Mobile Number</span>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="text" class="form__input" id="address" name="address" required maxlength="250"  data-ng-model="user.address">
+                                        <label class="form__label" for="address">
+                                            <span class="form__label-content">Address</span>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="password" class="form__input" id="password" name="password" required maxlength="250"  data-ng-model="user.password">
+                                        <label class="form__label" for="password">
+                                            <span class="form__label-content">Password</span>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="password" class="form__input" id="repeatPassword" name="repeatPassword" required maxlength="250"  data-ng-model="user.repeatPassword">
+                                        <label class="form__label" for="repeatPassword">
+                                            <span class="form__label-content">Confirm Password</span>
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <select class="form__input" data-ng-model="user.roleId" required>
+                                            <option value="">Select</option>
+                                            <option value=1>Seller</option>
+                                            <option value=3>Deaker</option>
+                                        </select>
+                                        <label class="form__label" for="Password">
+                                            <span class="form__label-content">Type of User</span>
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <input type="checkbox" id="checkbox1" required>
+                                    <div class="terms">I Accept The Terms and Conditions</div>
+                                </div>
+                                <div class="col-6">
+                                    <input type="submit" value="Submit" class="form-button" id="contact_form_submit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

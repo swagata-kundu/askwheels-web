@@ -24,8 +24,6 @@ app.controller('loginController', [
                 authService
                     .login(loginRequstParams)
                     .then(function (response) {
-                        $rootScope.$emit('showHideLogOut');
-                        $scope.showErrors = false;
                         var returnUrl = $rootScope.returnToUrl;
                         $rootScope.returnToUrl = null;
                         if (returnUrl != null) {
@@ -42,7 +40,7 @@ app.controller('loginController', [
                         showErrorMessage(error);
                     });
             }
-        }
+        };
 
         $scope.showForgotPassword = function () {
             if ($scope.showForgotPasswordSection == true) 
@@ -57,7 +55,7 @@ app.controller('loginController', [
                     .forgetPassword($scope.forgetData.email)
                     .then(function (response) {
                         bootbox.alert('New password sent to your registered email');
-                    },function(error){
+                    }, function (error) {
                         showErrorMessage(error);
                     });
             }
@@ -66,49 +64,67 @@ app.controller('loginController', [
     }
 ]);
 
-app.controller('signUp', [
+app.controller('joinus', [
     '$scope',
     'authService',
     '$state',
-    function ($scope, authService, $state) {
+    '$location',
+    '$rootScope',
+    function ($scope, authService, $state, $location, $rootScope) {
         $scope.user = {};
 
         $scope.signUp = function () {
 
-            if ($scope.user.repeatPassword != undefined && $scope.user.password != undefined && $scope.user.repeatPassword.length > 0 && $scope.user.password.length > 0) {
-                $scope.signupForm.confirmPass.$error.noMatch = $scope.user.password !== $scope.user.repeatPassword;
-                if ($scope.signupForm.confirmPass.$error.noMatch) {
-                    $scope.signupForm.$valid = false;
-                }
-            }
+            // if ($scope.user.repeatPassword != undefined && $scope.user.password !=
+            // undefined && $scope.user.repeatPassword.length > 0 &&
+            // $scope.user.password.length > 0) {
+            // $scope.signupForm.confirmPass.$error.noMatch = $scope.user.password !==
+            // $scope.user.repeatPassword;     if
+            // ($scope.signupForm.confirmPass.$error.noMatch) { $scope.signupForm.$valid =
+            // false;     } }
 
             if ($scope.signupForm.$valid) {
+                let names = $scope
+                    .user
+                    .name
+                    .split(' ');
+                let firstName = names[0];
+                let lastName = names.length > 1
+                    ? names[1]
+                    : '';
+
                 var requestParams = {
-                    'firstName': $scope.user.firstName,
-                    'lastName': $scope.user.lastName,
+                    'firstName': firstName,
+                    'lastName': lastName,
                     'email': $scope.user.email,
                     'contactNo': $scope.user.contactNo,
                     'password': $scope.user.password,
-                    'userType': 1
-                }
+                    'roleId': parseInt($scope.user.roleId),
+                    'address': $scope.user.address
+                };
 
                 authService
                     .isEmailExist($scope.user.email)
                     .then(function (response) {
 
-                        if (response.data.isExists) {
-                            $scope.signupForm.email.$error.emailExists = true;
-                        } else {
+                        if (response.data.isExists) {} else {
                             authService
                                 .signUp(requestParams)
                                 .then(function (response) {
-                                    $state.go('home.login');
-                                }, function (response) {});
+                                    if ($rootScope.userProfile.roleId == 4) {
+                                        $location.path('/admin/sellers');
+                                    } else {
+                                        $location.path('/');
+                                    }
+                                })
+                                .catch(function (error) {
+                                    showErrorMessage(error);
+                                });
                         }
                     });
             }
 
-        }
+        };
 
     }
 ]);

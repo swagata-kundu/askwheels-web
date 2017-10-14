@@ -2,13 +2,18 @@ body {
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
 	background-image: url(../img/bg.jpg);
-	background-attachment: cover;
+	background-repeat: repeat-y;
+	background-size: cover;
 	font-size: 14px;
 	color: #6f6f6f;
 }
 
 a {
 	color: #ee5027;
+}
+
+a:hover {
+	color: #fbaf3c;
 }
 
 .header-top {
@@ -80,7 +85,7 @@ a {
 }
 
 .form-box select {
-	border-bottom: solid 1px #dedede;
+	border-botom: solid 1px #dedede;
 	height: 35px;
 	width: 100%;
 	border-left: 0px;
@@ -101,6 +106,8 @@ select:focus {
 	float: right;
 	font-size: 16px;
 	text-transform: uppercase;
+	border: 0;
+	color: #fff;
 }
 
 .form-button a {
@@ -126,104 +133,124 @@ select:focus {
 	margin-bottom: 25px;
 }
 
-.input__field {
+.form__wrapper {
+	overflow: hidden;
 	position: relative;
-	display: block;
-	float: right;
-	padding: 0.8em;
-	width: 60%;
-	border: none;
-	border-radius: 0;
-	background: #f0f0f0;
-	color: #aaa;
-	font-weight: bold;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	-webkit-appearance: none;
-	/* for box shadows to show on iOS */
-}
-
-.input__field:focus {
-	outline: none;
-}
-
-.input__label {
+	z-index: 1;
 	display: inline-block;
-	float: right;
-	width: 40%;
-	color: #777;
-	font-weight: normal;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+	margin-bottom: 7px;
+	width: 100%;
+	vertical-align: top;
 }
 
-.input__label-content {
-	position: relative;
+.form__input {
 	display: block;
-	/*	padding: 1.6em 0;*/
+	position: relative;
+	padding: 0;
+	height: 41px;
 	width: 100%;
-	padding-bottom: 10px;
-}
-
-.input__field--haruki {
-	padding: 0.4em 0.25em;
-	width: 100%;
-	background: transparent;
-	color: #777;
+	box-sizing: border-box;
+	outline: 0;
+	border: none !important;
+	border-bottom: solid 1px #dedede !important;
+	-webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-moz-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-o-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fbaf3c 4%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fbaf3c 4%);
+	background-position: -1000px 0;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	font-size: 15px;
+	color: #405364;
+	margin-top: 32px;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: normal;
-	font-size: 14px;
 }
 
-.input__label--haruki {
+.form__input.message {
+	height: 100%;
+	resize: none;
+	background-size: 100% 102%;
+	margin-top: 32px;
+}
+
+.form__input.login_field {
+	height: 32px;
+}
+
+.login_contant .form__wrapper {
+	margin-bottom: -3px;
+}
+
+.form__input:focus {
+	background-position: 0 0;
+	color: #405364;
+	-webkit-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-moz-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-o-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.form__label {
 	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 0;
 	width: 100%;
+	height: calc(115% - 2.7em);
 	text-align: left;
 	pointer-events: none;
+	color: #777;
 }
 
-.input__label-content--haruki {
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
-
-.input__label--haruki::before,
-.input__label--haruki::after {
-	content: '';
+.form__label-content {
 	position: absolute;
-	left: 0;
-	z-index: -1;
-	width: 100%;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
+	-webkit-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-moz-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-o-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
 }
 
-.input__label--haruki::before {
-	top: 0;
+.form__input:focus~.form__label .form__label-content,
+.form--filled .form__label-content {
+	font-size: 15px;
+	-webkit-transform: translate3d(0, -65%, 0);
+	-moz-transform: translate3d(0, -65%, 0);
+	transform: translate3d(0, -65%, 0);
+	color: #fbaf3c;
+	font-weight: 600;
 }
 
-.input__label--haruki::after {
+.form__label1 {
+	position: absolute;
 	bottom: 0;
+	left: 0;
+	padding: 0;
+	width: 100%;
+	height: calc(125% - 2.7em);
+	text-align: left;
+	pointer-events: none;
+	color: #777;
 }
 
-.input__field--haruki:focus+.input__label--haruki .input__label-content--haruki,
-.input--filled .input__label-content--haruki {
-	-webkit-transform: translate3d(0, -90%, 0);
-	transform: translate3d(0, -90%, 0);
+.form__label1-content {
+	position: absolute;
+	-webkit-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-moz-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	-o-transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: transform 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
 }
 
-.input__field--haruki:focus+.input__label--haruki::before,
-.input--filled .input__label--haruki::before {
-	-webkit-transform: translate3d(0, -0.5em, 0);
-	transform: translate3d(0, -0.5em, 0);
-}
-
-.input__field--haruki:focus+.input__label--haruki::after,
-.input--filled .input__label--haruki::after {
-	-webkit-transform: translate3d(0, 0.5em, 0);
-	transform: translate3d(0, 0.5em, 0);
+.form__input:focus~.form__label1 .form__label1-content,
+.form--filled .form__label1-content {
+	font-size: 15px;
+	-webkit-transform: translate3d(0, -65%, 0);
+	-moz-transform: translate3d(0, -65%, 0);
+	transform: translate3d(0, -65%, 0);
+	color: #b3c0b2;
+	font-weight: 600;
 }
 
 @media (max-width: 768px) {

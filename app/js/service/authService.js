@@ -36,17 +36,7 @@ app.service('authService', [
                         'Content-Type': 'application/json'
                     }
                 }).then(function ({data, headers}) {
-                authentication.isAuth = true;
-                authentication.token = headers('sessionId');
-                authentication.userId = data.data.userId;
-                authentication.email = data.data.email;
-                authentication.firstName = data.data.firstName;
-                authentication.lastName = data.data.lastName;
-                authentication.contactNo = data.data.contactNo;
-                authentication.roleId = data.data.roleId;
-                localStorageService.set('userProfile', authentication);
-                $rootScope.$emit('showHideLogOut');
-                loadData();
+                saveSession(data, headers);
                 deferred.resolve(data);
             }, function (error) {
                 deferred.reject(error);
@@ -55,14 +45,21 @@ app.service('authService', [
         };
 
         this.signUp = function (requestParams) {
-            return $http({
-                method: "POST",
-                url: serviceURI.signUpURI,
-                data: requestParams,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+            var deferred = $q.defer();
+            $http({
+                    method: "POST",
+                    url: serviceURI.signUpURI,
+                    data: requestParams,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function ({data, headers}) {
+                saveSession(data, headers);
+                deferred.resolve(data);
+            }, function (error) {
+                deferred.reject(error);
             });
+            return deferred.promise;
         };
 
         this.isEmailExist = function (emailId) {
@@ -96,6 +93,20 @@ app.service('authService', [
         this.loadData = loadData;
 
         this.logout = logout;
+
+        function saveSession(data, headers) {
+            authentication.isAuth = true;
+            authentication.token = headers('sessionId');
+            authentication.userId = data.data.userId;
+            authentication.email = data.data.email;
+            authentication.firstName = data.data.firstName;
+            authentication.lastName = data.data.lastName;
+            authentication.contactNo = data.data.contactNo;
+            authentication.roleId = data.data.roleId;
+            localStorageService.set('userProfile', authentication);
+            $rootScope.$emit('showHideLogOut');
+            loadData();
+        }
 
     }
 ]);

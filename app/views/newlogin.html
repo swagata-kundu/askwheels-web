@@ -6,41 +6,47 @@
                     <p>
                         <img src="img/logo.PNG" class="logo">
                     </p>
-                    <form>
-                        <p>
-                            <span class="input input--haruki">
-                                <input class="input__field input__field--haruki" type="text" id="input-1" />
-                                <label class="input__label input__label--haruki" for="input-1">
-                                    <span class="input__label-content input__label-content--haruki">Email</span>
-                                </label>
-                            </span>
-                        </p>
-                        <p>
-                            <span class="input input--haruki">
-                                <input class="input__field input__field--haruki" type="text" id="input-1" />
-                                <label class="input__label input__label--haruki" for="input-1">
-                                    <span class="input__label-content input__label-content--haruki">Password</span>
-                                </label>
-                            </span>
-                        </p>
-                        <p>
-                            <div class="forget">
-                                <a href="">Forget Password?</a>
-                            </div>
-                        </p>
-                        <p>
-                            <div class="col-md-6">
-                                <div class="sign">
-                                    <a href="">Sign Up</a>
+                    <form name="loginForm" ng-submit="login()" class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-6">
+
+                                    <div class="form__wrapper">
+
+                                        <input type="email" required class="form__input" id="Email" name="Email" data-ng-model="loginData.emailId">
+
+                                        <label class="form__label" for="Email">
+                                            <span class="form__label-content">Email</span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-button">
-                                    <a href="">Login</a>
+                                <div class="col-6">
+                                    <div class="form__wrapper">
+                                        <input type="password" required class="form__input" id="Password" name="Password" data-ng-model="loginData.password">
+                                        <label class="form__label" for="Password">
+                                            <span class="form__label-content">Password</span>
+                                        </label>
+
+                                    </div>
                                 </div>
+
+                                <p>
+                                    <div class="forget">
+                                        <a href="">Forget Password?</a>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="col-md-6" style="padding-left: 0px;">
+                                        <div class="sign">
+                                            <a href="">Sign Up</a>
+                                        </div>
+                                    </div>
+                                </p>
+                                    <div class="col-6">
+                                        <input type="submit" value="Login" class="form-button" id="contact_form_submit">
+                                    </div>
                             </div>
-                        </p>
-                        <div class="clearfix"></div>
+                        </div>
                     </form>
                 </div>
 
