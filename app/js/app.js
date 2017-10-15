@@ -21,8 +21,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/',
         templateUrl: 'views/login.html',
         controller: 'loginController',
-        // resolve: {     access: [         "Access",         function (Access) {
-        // return Access.isAnonymous();         }     ] }
+        // resolve: {     access: [         "Access",         function (Access) { return
+        // Access.isAnonymous();         }     ] }
     })
         .state('joinus', {
             url: '/join-us',
@@ -33,58 +33,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     "Access",
                     function (Access) {
                         return Access.isAnonymous();
-                    }
-                ]
-            }
-        })
-        .state('adminDashBoard', {
-            url: '/admin',
-            templateUrl: 'views/admin/dashboard.html',
-            controller: '',
-            resolve: {
-                access: [
-                    "Access",
-                    function (Access) {
-                        return Access.hasRole(4);
-                    }
-                ]
-            }
-        })
-        .state('sellerListing', {
-            url: '/admin/sellers',
-            templateUrl: 'views/admin/sellerlisting.html',
-            controller: 'sellerListing',
-            resolve: {
-                access: [
-                    "Access",
-                    function (Access) {
-                        return Access.hasRole(4);
-                    }
-                ]
-            }
-        })
-        .state('subSellerListing', {
-            url: '/admin/:sellerId/:sellerName/subsellers',
-            templateUrl: 'views/admin/subsellerlisting.html',
-            controller: 'subSellerListing',
-            resolve: {
-                access: [
-                    "Access",
-                    function (Access) {
-                        return Access.hasRole(4);
-                    }
-                ]
-            }
-        })
-        .state('auctionListing', {
-            url: '/admin/auctions',
-            templateUrl: 'views/admin/auctionlist.html',
-            controller: 'auctionList',
-            resolve: {
-                access: [
-                    "Access",
-                    function (Access) {
-                        return Access.hasRole(4);
                     }
                 ]
             }
@@ -101,7 +49,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     }
                 ]
             }
-        })
+        });
 });
 
 app.config(function ($httpProvider) {

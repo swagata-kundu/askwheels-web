@@ -7,7 +7,8 @@ app.controller('loginController', [
     '$location',
     'localStorageService',
     '$rootScope',
-    function ($scope, authService, $state, $location, localStorageService, $rootScope) {
+    '$window',
+    function ($scope, authService, $state, $location, localStorageService, $rootScope, $window) {
 
         $scope.forgetData = {};
         $scope.loginData = {};
@@ -30,7 +31,9 @@ app.controller('loginController', [
                             $location.path(returnUrl);
                         } else {
                             if ($rootScope.userProfile.roleId == 4) {
-                                $location.path('/admin/sellers');
+                                $window
+                                    .location
+                                    .assign('admin/');
                             } else {
                                 $location.path('/');
                             }
@@ -72,7 +75,7 @@ app.controller('joinus', [
     '$rootScope',
     function ($scope, authService, $state, $location, $rootScope) {
         $scope.user = {};
-        $scope.user.roleId='1';
+        $scope.user.roleId = '1';
         $scope.signUp = function () {
 
             if ($scope.signupForm.$valid) {

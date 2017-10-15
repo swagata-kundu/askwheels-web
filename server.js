@@ -3,9 +3,15 @@ var path = require('path');
 
 var app = express();
 
-app.use('/', express.static(path.join(__dirname, 'app')));
+app.use(express.static(path.join(__dirname, 'app')));
+app.use(express.static(path.join(__dirname, 'admin')));
 
-app.get('/*', function (req, res, next) {
+
+app.get('/admin*', function (req, res, next) {
+    res.sendfile(path.join(__dirname, 'admin', 'index.html'));
+});
+
+app.get('/', function (req, res, next) {
     res.sendfile(path.join(__dirname, 'app', 'index.html'));
 });
 
