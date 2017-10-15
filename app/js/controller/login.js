@@ -72,16 +72,8 @@ app.controller('joinus', [
     '$rootScope',
     function ($scope, authService, $state, $location, $rootScope) {
         $scope.user = {};
-
+        $scope.user.roleId='1';
         $scope.signUp = function () {
-
-            // if ($scope.user.repeatPassword != undefined && $scope.user.password !=
-            // undefined && $scope.user.repeatPassword.length > 0 &&
-            // $scope.user.password.length > 0) {
-            // $scope.signupForm.confirmPass.$error.noMatch = $scope.user.password !==
-            // $scope.user.repeatPassword;     if
-            // ($scope.signupForm.confirmPass.$error.noMatch) { $scope.signupForm.$valid =
-            // false;     } }
 
             if ($scope.signupForm.$valid) {
                 let names = $scope
@@ -107,15 +99,14 @@ app.controller('joinus', [
                     .isEmailExist($scope.user.email)
                     .then(function (response) {
 
-                        if (response.data.isExists) {} else {
+                        if (response.data.isExists) {
+                            bootbox.alert('User already registered with this email id');
+                        } else {
                             authService
                                 .signUp(requestParams)
                                 .then(function (response) {
-                                    if ($rootScope.userProfile.roleId == 4) {
-                                        $location.path('/admin/sellers');
-                                    } else {
-                                        $location.path('/');
-                                    }
+                                    bootbox.alert('Sign up successfully');
+                                    if ($rootScope.userProfile.roleId == 4) {} else {}
                                 })
                                 .catch(function (error) {
                                     showErrorMessage(error);
