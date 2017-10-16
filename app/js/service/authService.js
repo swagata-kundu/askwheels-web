@@ -7,7 +7,8 @@ app.service('authService', [
     '$q',
     '$rootScope',
     '$state',
-    function ($http, serviceURI, localStorageService, $q, $rootScope, $state) {
+    '$window',
+    function ($http, serviceURI, localStorageService, $q, $rootScope, $state, $window) {
 
         var authentication = {
             isAuth: false
@@ -23,19 +24,24 @@ app.service('authService', [
             localStorageService.remove('userProfile');
             loadData();
             $rootScope.$emit('showHideLogOut');
-            $state.go('login');
+            $window
+                .location
+                .assign('/');
         };
 
         this.login = function (loginRequest) {
             var deferred = $q.defer();
             $http({
-                    method: "POST",
-                    url: serviceURI.loginURI,
-                    data: loginRequest,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then(function ({data, headers}) {
+                method: "POST",
+                url: serviceURI.loginURI,
+                data: loginRequest,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function ({
+                data,
+                headers
+            }) {
                 saveSession(data, headers);
                 deferred.resolve(data);
             }, function (error) {
@@ -47,14 +53,17 @@ app.service('authService', [
         this.signUp = function (requestParams) {
             var deferred = $q.defer();
             $http({
-                    method: "POST",
-                    url: serviceURI.signUpURI,
-                    data: requestParams,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then(function ({data, headers}) {
-                saveSession(data, headers);
+                method: "POST",
+                url: serviceURI.signUpURI,
+                data: requestParams,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function ({
+                data,
+                headers
+            }) {
+                // saveSession(data, headers);
                 deferred.resolve(data);
             }, function (error) {
                 deferred.reject(error);

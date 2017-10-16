@@ -8,7 +8,11 @@ app
                 'authService',
                 '$state',
                 '$rootScope',
-                function ($scope, authService, $state, $rootScope) {}
+                function ($scope, authService, $state, $rootScope) {
+                    $scope.logout = function () {
+                        authService.logout();
+                    };
+                }
             ]
         };
     });

@@ -72,12 +72,11 @@ app.controller('userProfile', [
                 publicUserService
                     .editUserProfile($scope.user)
                     .then(function (response) {
-                        debugger
                         var updatedProfile = {
                             firstName: $scope.user.firstName,
                             lastName: $scope.user.lastName,
                             contactNo: $scope.user.contactNo
-                        }
+                        };
                         updateLocalStorage(updatedProfile);
                         alert("Profile Updated Successfully");
                     }, function (response) {});

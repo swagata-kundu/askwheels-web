@@ -10,21 +10,18 @@ var app = angular.module('askwheelsAdmin', [
     'angular-confirm'
 ]);
 
-app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpLoadingBarProvider) {
 
     $locationProvider.html5Mode(true);
 
     $urlRouterProvider.otherwise('/admin');
 
+
+
     $stateProvider
-        .state('dashboard', {
-        url: '/admin',
-        templateUrl: 'views/navigation.html',
-        controller: ''
-    })
         .state('adminDashBoard', {
             url: '/admin',
-            templateUrl: 'views/admin/dashboard.html',
+            templateUrl: 'views/dashboard.html',
             controller: '',
             resolve: {
                 access: [
@@ -37,7 +34,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('sellerListing', {
             url: '/admin/sellers',
-            templateUrl: 'views/admin/sellerlisting.html',
+            templateUrl: 'views/admin/sellerlistingnew.html',
             controller: 'sellerListing',
             resolve: {
                 access: [
@@ -93,11 +90,15 @@ app.run([
         authService.loadData();
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             if (error == Access.UNAUTHORIZED) {
-                $state.go('login', {notify: false});
+                $state.go('login', {
+                    notify: false
+                });
             }
             if (error == Access.FORBIDDEN) {
                 event.preventDefault();
-                $state.go('sellerListing', {notify: false});
+                $state.go('sellerListing', {
+                    notify: false
+                });
 
             }
         });
