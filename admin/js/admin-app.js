@@ -70,6 +70,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
                     }
                 ]
             }
+        }).state('changePassword', {
+            url: '/admin/change-password',
+            templateUrl: 'views/admin/changepassword.html',
+            controller: '',
+            resolve: {
+                access: [
+                    "Access",
+                    function (Access) {
+                        return Access.isAuthenticated();
+                    }
+                ]
+            }
         })
 
 });

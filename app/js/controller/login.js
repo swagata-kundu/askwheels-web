@@ -44,26 +44,6 @@ app.controller('loginController', [
                     });
             }
         };
-
-        $scope.showForgotPassword = function () {
-            if ($scope.showForgotPasswordSection == true) 
-                $scope.showForgotPasswordSection = false;
-            else 
-                $scope.showForgotPasswordSection = true;
-            }
-        
-        $scope.forgetPassword = function () {
-            if ($scope.forgetPassForm.$valid) {
-                authService
-                    .forgetPassword($scope.forgetData.email)
-                    .then(function (response) {
-                        bootbox.alert('New password sent to your registered email');
-                    }, function (error) {
-                        showErrorMessage(error);
-                    });
-            }
-        };
-
     }
 ]);
 
@@ -84,9 +64,9 @@ app.controller('joinus', [
                     .name
                     .split(' ');
                 let firstName = names[0];
-                let lastName = names.length > 1
-                    ? names[1]
-                    : '';
+                let lastName = names.length > 1 ?
+                    names[1] :
+                    '';
 
                 var requestParams = {
                     'firstName': firstName,
@@ -120,5 +100,27 @@ app.controller('joinus', [
 
         };
 
+    }
+]);
+
+
+app.controller('forgetpassword', [
+    '$scope',
+    'authService',
+    '$state',
+    function ($scope, authService, $state) {
+
+        $scope.forgetPassword = function () {
+            if ($scope.forgetPassForm.$valid) {
+                authService
+                    .forgetPassword($scope.emailId)
+                    .then(function (response) {
+                        bootbox.alert('New password sent to your registered email');
+                        $state.go('login');
+                    }, function (error) {
+                        showErrorMessage(error);
+                    });
+            }
+        };
     }
 ]);

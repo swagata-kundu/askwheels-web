@@ -34,16 +34,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     }
                 ]
             }
-        })
-        .state('changePassword', {
-            url: '/admin/changepassword',
-            templateUrl: 'views/changeadminpassword.html',
-            controller: 'changePassword',
+        }).state('forget', {
+            url: '/forget-password',
+            templateUrl: 'views/forgetpassword.html',
+            controller: 'forgetpassword',
             resolve: {
                 access: [
                     "Access",
                     function (Access) {
-                        return Access.isAuthenticated();
+                        return Access.isAnonymous();
                     }
                 ]
             }
