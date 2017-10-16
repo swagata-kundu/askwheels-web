@@ -18,9 +18,8 @@ app.controller('auctionList', [
                 'pageNo': pageNo,
                 'pageSize': pageSize,
                 'sortBy': $scope.sortType,
-                'sortOrder': $scope.sortReverse == true
-                    ? "DESC"
-                    : "ASC",
+                'sortOrder': $scope.sortReverse == true ?
+                    "DESC" : "ASC",
                 'searchText': $scope.searchText
             };
             auctionService
@@ -40,27 +39,33 @@ app.controller('auctionList', [
 
         //change vehicle status To block/unblock junior admin
         $scope.changeVehicleStatus = function (id, status) {
-            var blockParams = {
-                "vehicleId": parseInt(id),
-                "status": status
-            };
+            bootbox.confirm('Are you sure you want to change this vehicle status?', function (checked) {
 
-            auctionService
-                .changeVehicleStatus(blockParams)
-                .then(function (response) {
-                    bootbox.alert(response.data.message);
-                    var pageNo = $scope.currentPage;
-                    if ($scope.vehicles.length == 1) {
-                        if ($scope.currentPage != 1) {
-                            pageNo = pageNo - 1;
-                        } else {
-                            pageNo = 1
-                        }
-                    }
-                    $scope.getVehicleList(pageNo, $scope.numPerPage);
-                }, function (error) {
-                    showErrorMessage(error);
-                });
+                if (checked) {
+
+                    var blockParams = {
+                        "vehicleId": parseInt(id),
+                        "status": status ? true : false
+                    };
+
+                    auctionService
+                        .changeVehicleStatus(blockParams)
+                        .then(function (response) {
+                            bootbox.alert(response.data.message);
+                            var pageNo = $scope.currentPage;
+                            if ($scope.vehicles.length == 1) {
+                                if ($scope.currentPage != 1) {
+                                    pageNo = pageNo - 1;
+                                } else {
+                                    pageNo = 1;
+                                }
+                            }
+                            $scope.getVehicleList(pageNo, $scope.numPerPage);
+                        }, function (error) {
+                            showErrorMessage(error);
+                        });
+                }
+            });
         };
 
     }

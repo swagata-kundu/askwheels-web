@@ -58,18 +58,8 @@
                                     <td>{{vehicle.model}}</td>
                                     <td>{{vehicle.evaluation_date}}</td>
                                     <td>{{vehicle.creationDate}}</td>
-                                    <td class="table-center">
-                                        <a href="" ng-if="vehicle.isLive == 1">
-                                            <i class="fa fa-check fa-2x" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,false)" confirm-title="Confirm"
-                                                confirm="Are you sure you want to live this vehicle?" con confirm-ok="Yes" confirm-cancel="No"
-                                                title="Click to unblock">
-                                            </i>
-                                        </a>
-                                        <a href="" ng-if="vehicle.isLive  == 0">
-                                            <i class="fa fa-times fa-2x" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,true)" confirm-title="Confirm"
-                                                confirm="Are you sure you want to live this vehicle?" con confirm-ok="Yes" confirm-cancel="No"
-                                                title="Click to block"></i>
-                                        </a>
+                                    <td>
+                                        <i ng-class="vehicle.isLive?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,vehicle.isLive)"></i>
                                     </td>
                                 </tr>
                             </tbody>

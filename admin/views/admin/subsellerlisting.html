@@ -20,6 +20,23 @@
             <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
 
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="">
+                            <label>Search:
+                                <input type="search" ng-model="searchText" class="form-control form-control-sm" placeholder="email,name...">
+                            </label>
+                            <label>
+                                <button ng-click="searchByInputText()" class="btn btn-primary form-control form-control-sm">Apply</button>
+                            </label>
+                            <label>
+                                <button ng-click="clearFilters()" class="btn btn-danger form-control form-control-sm">Reset</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -36,6 +53,9 @@
                                     <th ng-class="sortType!='creationDate'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
                                         Registration Date
                                     </th>
+                                    <th>Live</th>
+                                    <th>Delete</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,6 +64,12 @@
                                     <td>{{enduser.email}}</td>
                                     <td>{{enduser.phone}}</td>
                                     <td>{{enduser.creationDate}}</td>
+                                    <td>
+                                        <i ng-class="enduser.status?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="blockUnblockEndUser(enduser.userId,enduser.status)"></i>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -490,4 +490,6 @@ footer.sticky-footer {
   }
 }
 
-
+.table i:hover {
+  cursor: pointer
+}
