@@ -70,3 +70,18 @@ app.service('dealerService', ['$http', 'serviceURI', function ($http, serviceURI
         });
     };
 }]);
+
+
+app.service('dashBoardService', ['$http', 'serviceURI', function ($http, serviceURI) {
+
+    this.getDashBoardInfo = function () {
+        var uri = serviceURI.getDashBoardInfo;
+        return $http({
+            method: "POST",
+            url: uri,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    };
+}]);

@@ -22,7 +22,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
         .state('adminDashBoard', {
             url: '/admin',
             templateUrl: 'views/dashboard.html',
-            controller: '',
+            controller: 'dashboard',
             resolve: {
                 access: [
                     "Access",

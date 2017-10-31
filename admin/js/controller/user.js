@@ -250,8 +250,8 @@ app.controller('dealerListing', [
     'authService',
     '$state',
     '$rootScope',
-    'dealerService', '$uibModal', '$document',
-    function ($scope, authService, $state, $rootScope, dealerService, $uibModal, $document) {
+    'dealerService', 'sellerService',
+    function ($scope, authService, $state, $rootScope, dealerService, sellerService) {
 
         var sellerId = $state.params.sellerId;
 
@@ -381,9 +381,6 @@ app.controller('changePassword', [
         $scope.user = {};
 
         $scope.changePassword = function () {
-
-
-debugger;
             if ($scope.changePasswordFrm.$valid) {
 
                 var requestParams = {
@@ -402,7 +399,25 @@ debugger;
 
             }
 
-        }
+        };
 
+    }
+]);
+
+
+app.controller('dashboard', [
+    '$scope',
+    'dashBoardService',
+    function ($scope, dashBoardService) {
+        $scope.info = {
+            "pendingAuctions": 0,
+            "pendingSellers": 0,
+            "pendingDealers": 0
+        };
+
+        dashBoardService.getDashBoardInfo().then(function (response) {
+            $scope.info = response.data.data;
+            console.log($scope.info);
+        });
     }
 ]);

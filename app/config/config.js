@@ -18,6 +18,7 @@ app.constant('serviceURI', {
     getSellerList: domain + "secure/user/seller/listing",
     vehicleListAdmin: domain + "secure/auction/vehicle/admin/list",
     vehicleStatusChange: domain + "secure/auction/vehicle/admin/status",
-    getDealerList: domain + 'secure/user/dealer/listing'
+    getDealerList: domain + 'secure/user/dealer/listing',
+    getDashBoardInfo: domain + 'secure/user/admin/dashboard'
 
 });
