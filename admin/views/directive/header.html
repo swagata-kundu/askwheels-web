@@ -15,13 +15,21 @@
                 </a>
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sellers">
                 <a class="nav-link" ui-sref="sellerListing">
                     <i class="fa fa-fw fa-users"></i>
                     <span class="nav-link-text">Sellers</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dealers">
+                <a class="nav-link" ui-sref="dealerListing">
+                    <i class="fa fa-fw fa-user-plus"></i>
+                    <span class="nav-link-text">Dealers</span>
+                </a>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Auctions">
                 <a class="nav-link" ui-sref="auctionListing">
                     <i class="fa fa-fw fa-car"></i>
                     <span class="nav-link-text">Auctions</span>
@@ -103,6 +111,7 @@
     </div>
 </nav>
 
+<div id="modalDiv"></div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

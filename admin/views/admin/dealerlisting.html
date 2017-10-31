@@ -2,15 +2,15 @@
     <li class="breadcrumb-item">
         <a ui-sref="adminDashBoard">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Sellers</li>
+    <li class="breadcrumb-item active">Dealers</li>
 </ol>
 
-<h1>Sellers</h1>
+<h1>Dealers</h1>
 <hr>
 
 <div class="card mb-3">
     <div class="card-header">
-        <i class="fa fa-table"></i> Seller List</div>
+        <i class="fa fa-table"></i> Dealer List</div>
     <div class="card-body">
         <div class="table-responsive">
 
@@ -50,9 +50,9 @@
                                     <th ng-class="sortType!='creationDate'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
                                         Registration Date
                                     </th>
-                                    <th>Live</th>
-                                    <th>Delete</th>
-                                    <th>Subsellers</th>
+                                    <th class="wd-7">Limit</th>
+                                    <th class="wd-7">Approve</th>
+                                    <th class="wd-7">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,15 +61,15 @@
                                     <td>{{enduser.email}}</td>
                                     <td>{{enduser.phone}}</td>
                                     <td>{{enduser.creationDate}}</td>
+                                    <td>{{enduser.biddingLimit}}</td>
+
                                     <td>
                                         <i ng-class="enduser.status?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="blockUnblockEndUser(enduser.userId,enduser.status)"></i>
                                     </td>
                                     <td>
                                         <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
                                     </td>
-                                    <td>
-                                        <a ui-sref="subSellerListing({sellerId:'{{enduser.userId}}',sellerName:'{{enduser.firstName+' '+enduser.lastName}}'})">View</a>
-                                    </td>
+
 
                                 </tr>
                             </tbody>
@@ -95,3 +95,13 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/ng-template" id="stackedModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body-{{name}}">
+        Having multiple modals open at once is probably bad UX but it's technically possible.
+    </div>
+</script>

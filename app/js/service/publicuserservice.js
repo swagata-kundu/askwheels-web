@@ -1,4 +1,4 @@
-﻿app.service('publicUserService', ['$http', 'serviceURI', 'localStorageService', '$q', '$rootScope', function ($http, serviceURI, localStorageService, $q, $rootScope) {
+﻿app.service('publicUserService', ['$http', 'serviceURI', function ($http, serviceURI) {
 
     this.changePassword = function (params) {
         var uri = serviceURI.changePasswordPublicUserURI;
@@ -11,7 +11,7 @@
                 'Content-Type': 'application/json'
             }
         });
-    }
+    };
 
     this.editUserProfile = function (profile) {
         var uri = serviceURI.userBase;
@@ -24,6 +24,6 @@
                 'Content-Type': 'application/json'
             }
         });
-    }
+    };
 
 }]);

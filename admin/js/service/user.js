@@ -39,13 +39,29 @@ app.service('sellerService', ['$http', 'serviceURI', function ($http, serviceURI
                 'Content-Type': 'application/json'
             }
         });
-    }
+    };
 
     this.deleteUser = function (params) {
         var uri = serviceURI.userBase;
 
         return $http({
             method: "DELETE",
+            url: uri,
+            data: params,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    };
+}]);
+
+app.service('dealerService', ['$http', 'serviceURI', function ($http, serviceURI) {
+
+    this.getDealerList = function (params) {
+        var uri = serviceURI.getDealerList;
+
+        return $http({
+            method: "POST",
             url: uri,
             data: params,
             headers: {

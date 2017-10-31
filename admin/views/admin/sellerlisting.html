@@ -1,129 +1,95 @@
-<div class="toptable-wrappe">
-    <h3 class="nightout-admin-heading">
-        <a href="/" target="_blank">AskWheels</a>
-    </h3>
-    <h3>Seller Management</h3>
-    <!-- <div class="table-btn-section">
-        <a class="Add-business-btn">Create Seller</a>
-    </div> -->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a ui-sref="adminDashBoard">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Sellers</li>
+</ol>
 
-    <div class="tablefilter-class">
-        <div class="row">
+<h1>Sellers</h1>
+<hr>
 
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Seller List</div>
+    <div class="card-body">
+        <div class="table-responsive">
 
-            <div class="col-md-4">
-                <div class="styled-select searchbyName margin-10-bottom">
-                    <form name="searchForm" ng-submit="searchByInputText(searchText)">
-                        <input type="text" ng-model="searchText" class="form-control" placeholder="Name, mobile and email...">
-                    </form>
+            <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="">
+                            <label>Search:
+                                <input type="search" ng-model="searchText" class="form-control form-control-sm" placeholder="email,name...">
+                            </label>
+                            <label>
+                                <button ng-click="searchByInputText()" class="btn btn-primary form-control form-control-sm">Apply</button>
+                            </label>
+                            <label>
+                                <button ng-click="clearFilters()" class="btn btn-danger form-control form-control-sm">Reset</button>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr role="row">
+                                    <th ng-class="sortType!='firstName'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'firstName'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
+                                        Name
+                                    </th>
+                                    <th ng-class="sortType!='email'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'email'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
+                                        Email
+                                    </th>
+                                    <th>
+                                        Number
+                                    </th>
+                                    <th ng-class="sortType!='creationDate'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
+                                        Registration Date
+                                    </th>
+                                    <th>Approve</th>
+                                    <th>Delete</th>
+                                    <th>Subsellers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="enduser in admin.allEndUsers">
+                                    <td>{{enduser.firstName + ' '+ enduser.lastName}}</td>
+                                    <td>{{enduser.email}}</td>
+                                    <td>{{enduser.phone}}</td>
+                                    <td>{{enduser.creationDate}}</td>
+                                    <td>
+                                        <i ng-class="enduser.status?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="blockUnblockEndUser(enduser.userId,enduser.status)"></i>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
+                                    </td>
+                                    <td>
+                                        <a ui-sref="subSellerListing({sellerId:'{{enduser.userId}}',sellerName:'{{enduser.firstName+' '+enduser.lastName}}'})">View</a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing {{totalValues}} entries</div>
+                    </div>
+                    <div class="col-sm-12 col-md-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
 
 
-        <div class="pull-right resetSectionContainer mt10">
-            <a href="" ng-click="getSellerList(1,numPerPage)" class="btn btn-primary">Filter</a>
-        </div>
+                            <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getEndUserList(page,numPerPage)">
+                            </paging>
 
-        </div>
-    </div>
-
-    <div class="table-responsive">
-
-
-        <table class="table table-bordered hide-td-border">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="" ng-click="sortType = 'firstName'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                            First Name
-                            <span ng-show="sortType == 'firstName' && sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'firstName' && !sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </th>
-                    <th>
-                        <a href="" ng-click="sortType = 'lastName'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                            Last Name
-                            <span ng-show="sortType == 'lastName' && sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'lastName' && !sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </th>
-                    <th>Mobile Number</th>
-                    <th>
-                        <a href="" ng-click="sortType = 'email'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                            Email
-                            <span ng-show="sortType == 'email' && sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'email' && !sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </th>
-                    <th>
-                        <a href="" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                            Registration Date
-                            <span ng-show="sortType == 'creationDate' && sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'creationDate' && !sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </th>
-                    <th class="table-center">
-                        <a href="" ng-click="sortType = 'status'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                            Live
-                            <span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-up"></span>
-                        </a>
-                    </th>
-                    <!-- <th class="table-center">Edit</th> -->
-                    <th class="table-center">Delete</th>
-                    <th class="table-center">Subsellers</th>                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="endUSer in admin.allEndUsers">
-                    <td>{{endUSer.firstName}}</td>
-                    <td>{{endUSer.lastName}}</td>
-                    <td>{{endUSer.phone}}</td>
-                    <td>{{endUSer.email}}</td>
-                    <td>{{endUSer.creationDate}}</td>
-                    <td class="table-center">
-                        <a href="" ng-if="endUSer.status == 1">
-                            <i class="fa fa-check fa-2x" aria-hidden="true" ng-click="blockUnblockEndUser(endUSer.userId,endUSer.status)" confirm-title="Confirm"
-                                confirm="Are you sure you want to live this seller?" con confirm-ok="Yes" confirm-cancel="No"
-                                title="Click to unblock">
-                            </i>
-                        </a>
-                        <a href="" ng-if="endUSer.status  == 0">
-                            <i class="fa fa-times fa-2x" aria-hidden="true" ng-click="blockUnblockEndUser(endUSer.userId,endUSer.status)" confirm-title="Confirm"
-                                confirm="Are you sure you want to live this seller?" con confirm-ok="Yes" confirm-cancel="No"
-                                title="Click to block"></i>
-                        </a>
-                    </td>
-                    <!-- <td class="table-center">
-                        <a ui-sref="editendUSer({userId:{{endUSer.userId}}})" title="Edit">
-                            <img src="/img/edit-icon.png" />
-                        </a>
-                    </td> -->
-                    <td class="table-center">
-                        <a href="" ng-click="deleteEndUser(endUSer.userId)" confirm-title="Confirm" confirm="Are you sure you want to delete this Seller?"
-                            con confirm-ok="Yes" confirm-cancel="No" title="Delete">
-                            <img src="/img/delete-icon.png" />
-                        </a>
-                    </td>
-                    <td class="table-center">
-                        <a ui-sref="subSellerListing({sellerId:'{{endUSer.userId}}',sellerName:'{{endUSer.firstName+' '+endUSer.lastName}}'})">View</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="pull-left">
-                <label>
-                    <span class="total-search-class">total search : {{totalValues}}</span>
-                </label>
-            </div>
-            <div class="pull-right" ng-show="true">
-                <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getEndUserList(page,numPerPage)">
-                </paging>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

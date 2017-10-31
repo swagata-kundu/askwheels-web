@@ -34,7 +34,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
         })
         .state('sellerListing', {
             url: '/admin/sellers',
-            templateUrl: 'views/admin/sellerlistingnew.html',
+            templateUrl: 'views/admin/sellerlisting.html',
             controller: 'sellerListing',
             resolve: {
                 access: [
@@ -49,6 +49,19 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
             url: '/admin/:sellerId/:sellerName/subsellers',
             templateUrl: 'views/admin/subsellerlisting.html',
             controller: 'subSellerListing',
+            resolve: {
+                access: [
+                    "Access",
+                    function (Access) {
+                        return Access.hasRole(4);
+                    }
+                ]
+            }
+        })
+        .state('dealerListing', {
+            url: '/admin/dealers',
+            templateUrl: 'views/admin/dealerlisting.html',
+            controller: 'dealerListing',
             resolve: {
                 access: [
                     "Access",
@@ -73,7 +86,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
         }).state('changePassword', {
             url: '/admin/change-password',
             templateUrl: 'views/admin/changepassword.html',
-            controller: '',
+            controller: 'changePassword',
             resolve: {
                 access: [
                     "Access",
