@@ -95,7 +95,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, cfpL
                     }
                 ]
             }
-        })
+        });
 
 });
 
@@ -110,18 +110,22 @@ app.run([
     'authService',
     '$state',
     'Access',
-    function ($rootScope, authService, $state, Access) {
+    '$window',
+    function ($rootScope, authService, $state, Access, $window) {
 
         authService.loadData();
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+
+            debugger;
             if (error == Access.UNAUTHORIZED) {
-                $state.go('login', {
-                    notify: false
-                });
+                $window
+                    .location
+                    .assign('/');
             }
             if (error == Access.FORBIDDEN) {
+                debugger;
                 event.preventDefault();
-                $state.go('sellerListing', {
+                $state.go('adminDashBoard', {
                     notify: false
                 });
 
