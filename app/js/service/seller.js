@@ -1,27 +1,24 @@
-﻿app.service("publicUserService", [
+app.service("sellerService", [
   "$http",
   "serviceURI",
   function($http, serviceURI) {
-    this.changePassword = function(params) {
-      var uri = serviceURI.changePasswordPublicUserURI;
-
+    this.getDashboardInfo = function() {
+      var uri = serviceURI.getDashBoardInfoSeller;
       return $http({
         method: "POST",
         url: uri,
-        data: params,
+        data: {},
         headers: {
           "Content-Type": "application/json"
         }
       });
     };
-
-    this.editUserProfile = function(profile) {
-      var uri = serviceURI.userBase;
-
+    this.getAuctionList = function(params) {
+      var uri = serviceURI.auctionListSeller;
       return $http({
-        method: "PATCH",
+        method: "POST",
         url: uri,
-        data: profile,
+        data: params,
         headers: {
           "Content-Type": "application/json"
         }

@@ -3,7 +3,8 @@
 var app = angular.module("askwheels", [
   "ui.router",
   "LocalStorageModule",
-  "ui.bootstrap"
+  "ui.bootstrap",
+  "angularjs-dropdown-multiselect"
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {

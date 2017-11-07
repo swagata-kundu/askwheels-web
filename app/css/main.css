@@ -1,30 +1,48 @@
-
-
-
-.has-error select{
-    border-color: #a94442;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+.has-error select {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.admin-header{
-    padding: 25px;
-    font-size: 20px;
+.admin-header {
+  padding: 25px;
+  font-size: 20px;
 }
 
-.admin-header .info{
-    float: right;
-    font-size: 15px;
+.admin-header .info {
+  float: right;
+  font-size: 15px;
 }
-.login-screen{
-    padding: 8%;
-}
-
-.login-screen .btn-section{
-    text-align: center;
+.login-screen {
+  padding: 8%;
 }
 
-.uib-tab-active{
-    background: #006fb5 !important;
-	color: #fff !important;
+.login-screen .btn-section {
+  text-align: center;
+}
+
+.nav-tabs > li.active > a {
+  background: #006fb5 !important;
+  color: #fff !important;
+}
+
+.nav-tabs > li > a {
+  font-weight: 400;
+  font-size: 15px;
+  display: inline-block;
+  padding: 13px 15px;
+  margin: 0 15px 0 0;
+  list-style: none;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  float: left;
+  border-top: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  color: #bcbcbc;
+}
+
+.nav.nav-tabs {
+  margin-bottom: 10px;
 }
