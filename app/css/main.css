@@ -23,3 +23,8 @@
 .login-screen .btn-section{
     text-align: center;
 }
+
+.uib-tab-active{
+    background: #006fb5 !important;
+	color: #fff !important;
+}

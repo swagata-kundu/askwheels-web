@@ -1,0 +1,224 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <seller-sidemenu></seller-sidemenu>
+
+        <div class="col-lg-9 col-md-9 col-sm-8 col-lg-12">
+
+            <seller-header></seller-header>
+
+            <div class="right_data_main">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ol>
+
+                <h1>
+                    Heading
+                    <span>
+                        <a href="#">
+                            <i class="fa fa-plus-circle"></i>
+                            <span>add new vehicle</span>
+                        </a>
+                    </span>
+                    <div class="clearfix"></div>
+                </h1>
+
+                <div class="filter_main">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Filters:</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <span class="heading">Uploaded By</span>
+                            <div class="wrapMulDrop">
+                                <button type="button" class="multiDrop">Select User
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="list1">
+                                        <label for="list1">User Name 1</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="list2">
+                                        <label for="list2">User Name 2</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="list3">
+                                        <label for="list3">User Name 3</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="list4">
+                                        <label for="list4">User Name 4</label>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                            <div class="priceRange">
+                                <span class="heading">Price Range</span>
+                                <select>
+                                    <option>Min Price</option>
+                                </select>
+
+                                <select>
+                                    <option>Max Price</option>
+                                </select>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                            <div class="FuelType">
+                                <span class="heading">Fuel Type</span>
+                                <select>
+                                    <option>Petrol</option>
+                                    <option>Diesel</option>
+                                </select>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                            <div class="FuelType">
+                                <span class="heading">Owner</span>
+                                <select>
+                                    <option>First Owner</option>
+                                    <option>Secound Owner</option>
+                                </select>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                            <div class="FuelType">
+                                <span class="heading">Transmission Type</span>
+                                <select>
+                                    <option>Automatic</option>
+                                </select>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div id="parentHorizontalTab">
+                            <!-- <ul class="resp-tabs-list hor_1">
+                                <li>Live Actions
+                                    <span>(9)</span>
+                                </li>
+                                <li>Upcoming Actions</li>
+                                <li>Pending Auctions</li>
+                                <li>Rejected Auctions</li>
+
+                            </ul> -->
+
+                            <uib-tabset active="uib-tab-active">
+                                <uib-tab index="0">
+                                    <uib-tab-heading>
+                                        Live Actions
+                                        <span>(9)</span>
+                                    </uib-tab-heading>
+
+                                    <div class="resp-tabs-container">
+                                        <div class="resp-tab-content resp-tab-content-active">
+                                            <div class="row">
+
+                                                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="auction_box">
+                                                        <div class="imag">
+                                                            <div class="heartIcon">
+                                                                <a href="#" class="fa fa-heart"></a>
+                                                            </div>
+                                                            <div class="timing">
+                                                                <span>End Time</span>
+                                                                <time>
+                                                                    <i class="fa fa-clock-o"></i>
+                                                                    <span>3:00 Hrs</span>
+                                                                </time>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <img src="img/car.jpg">
+                                                        </div>
+                                                        <h2>
+                                                            <a href="#">Hyundai i10 zxi</a>
+                                                        </h2>
+                                                        <h3>
+                                                            <span class="bidHeading">Highest Bid :</span>
+                                                            <span class="bidBy">
+                                                                <i class="fa fa-rupee"></i>5000/- By Shashi kant Kahndelwal</span>
+                                                        </h3>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="name">Added By</div>
+                                                                <div class="Coll">:</div>
+                                                                <div class="NameData">Shashi Kant</div>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-map-marker"></i>
+                                                                <span class="smlData">Delhi</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <li>
+                                                                <i>
+                                                                    <img src="img/fuel-icon.jpg">
+                                                                </i>
+                                                                <span class="smlData">Petrol</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <div class="clearfix"></div>
+                                                            <li>
+                                                                <i class="fa fa-tachometer"></i>
+                                                                <span class="smlData">50000 KM</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-calendar"></i>
+                                                                <span class="smlData">2016</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <div class="clearfix"></div>
+                                                            <li>
+                                                                <i class="fa fa-car"></i>
+                                                                <span class="smlData">Automatic</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-shield"></i>
+                                                                <span class="smlData">first party</span>
+                                                                <div class="clearfix"></div>
+                                                            </li>
+                                                            <div class="clearfix"></div>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
