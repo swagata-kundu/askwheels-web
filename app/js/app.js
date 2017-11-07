@@ -46,6 +46,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     }
                 ]
             }
+        }).state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'views/dashboard.html',
+            controller: ''
         });
 });
 
