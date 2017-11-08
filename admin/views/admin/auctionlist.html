@@ -47,6 +47,10 @@
                                     <th>
                                         Approve
                                     </th>
+                                    <th>
+                                        Reject
+                                    </th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,7 +63,12 @@
                                     <td>{{vehicle.evaluation_date}}</td>
                                     <td>{{vehicle.creationDate}}</td>
                                     <td>
-                                        <i ng-class="vehicle.isLive?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,vehicle.isLive)"></i>
+                                        <i ng-if="vehicle.vehicle_status!=2" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,2)">Approve</i>
+                                        <i ng-if="vehicle.vehicle_status==2" class="fa fa-check" aria-hidden="true" />
+                                    </td>
+                                    <td>
+                                        <i ng-if="vehicle.vehicle_status!=3" aria-hidden="true" ng-click="changeVehicleStatus(vehicle.vehicleId,3)">Reject</i>
+                                        <i ng-if="vehicle.vehicle_status==3" class="fa fa-remove" aria-hidden="true" />
                                     </td>
                                 </tr>
                             </tbody>

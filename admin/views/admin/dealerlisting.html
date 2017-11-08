@@ -48,10 +48,10 @@
                                         Number
                                     </th>
                                     <th ng-class="sortType!='creationDate'?'sorting':sortReverse?'sorting_asc':'sorting_desc'" ng-click="sortType = 'creationDate'; sortReverse = !sortReverse;getSellerList(currentPage,numPerPage)">
-                                        Registration Date
+                                        Reg Date
                                     </th>
                                     <th class="wd-7">Limit</th>
-                                    <th class="wd-7">Approve</th>
+                                    <th class="wd-7">Status</th>
                                     <th class="wd-7">Delete</th>
                                 </tr>
                             </thead>
@@ -64,7 +64,7 @@
                                     <td>{{enduser.biddingLimit}}</td>
 
                                     <td>
-                                        <i ng-class="enduser.status?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="blockUnblockEndUser(enduser.userId,enduser.status)"></i>
+                                        <i ng-class="enduser.status?'fa fa-check':'fa fa-remove'" aria-hidden="true" ng-click="changeDealerStatus(enduser)"></i>
                                     </td>
                                     <td>
                                         <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
@@ -97,11 +97,26 @@
 </div>
 
 
-<script type="text/ng-template" id="stackedModal.html">
-    <div class="modal-header">
-        <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+<div class="modal fade" id="confirmmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change dealer status</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{selectedDealer.status==0?'Do you want to make live this dealer?':'Do you want to disable this dealer?'}}
+                <div class="form-group">
+                    <label for="password">Bidding Limit</label>
+                    <input type="number" class="form-control" ng-model="selectedDealer.biddingLimit" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" data-ng-click="changeStatus()" data-dismiss="modal">Change</button>
+            </div>
+        </div>
     </div>
-    <div class="modal-body" id="modal-body-{{name}}">
-        Having multiple modals open at once is probably bad UX but it's technically possible.
-    </div>
-</script>
+</div>
