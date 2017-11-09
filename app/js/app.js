@@ -56,6 +56,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       url: "/seller/dashboard",
       templateUrl: "views/seller/dashboard.html",
       controller: "sellerDashboard"
+    })
+    .state("sellerSubSeller", {
+      url: "/seller/subusers",
+      templateUrl: "views/seller/subseller.html",
     });
 });
 

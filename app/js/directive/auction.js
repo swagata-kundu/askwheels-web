@@ -2,6 +2,7 @@ app.directive("auctionLive", function() {
   return {
     templateUrl: "views/seller/auctionlive.html",
     restrict: "E",
+    replace: true,
     scope: {
       vehicle: "=vehicle"
     },
@@ -10,8 +11,6 @@ app.directive("auctionLive", function() {
       "$state",
       "$rootScope",
       function($scope, $state, $rootScope) {
-        console.log($scope.vehicle);
-        
         if ($scope.vehicle) {
         }
       }

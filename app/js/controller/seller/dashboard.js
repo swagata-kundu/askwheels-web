@@ -6,29 +6,52 @@ app.controller("sellerDashboard", [
     $scope.tabinfo = {
       liveAuctions: [],
       pendingAuctions: [],
-      upcomingAuctions: []
+      upcomingAuctions: [],
+      rejectedAuctions: []
     };
 
     $scope.auctions = [];
-
-    $scope.example1data = [
-      { id: 1, label: "David" },
-      { id: 2, label: "Jhon" },
-      { id: 3, label: "Danny" }
-    ];
-    $scope.example1model = [];
+    $scope.subsellers = [];
+    $scope.subsellerSelections = [];
 
     sellerService.getDashboardInfo().then(
       function(result) {
-        console.log(result.data.data);
         $scope.tabinfo = result.data.data;
       },
       function(error) {}
     );
 
-    sellerService.getAuctionList().then(
+    let auctionParams = {
+      auctionType: 1
+    };
+
+    let getAuctions = function() {
+      $scope.auctions = [];
+      sellerService.getAuctionList(auctionParams).then(
+        function(result) {
+          $scope.auctions = result.data.data;
+        },
+        function(error) {
+          $scope.auctions = [];
+        }
+      );
+    };
+
+    $scope.tabChange = function(auctionType) {
+      auctionParams.auctionType = auctionType;
+      getAuctions();
+    };
+
+    getAuctions();
+
+    sellerService.subsellerListing({}).then(
       function(result) {
-        $scope.auctions = result.data.data;
+        $scope.subsellers = result.data.data.map(function(user) {
+          return {
+            id: user.userId,
+            label: user.firstName + " " + user.lastName
+          };
+        });
       },
       function(error) {}
     );

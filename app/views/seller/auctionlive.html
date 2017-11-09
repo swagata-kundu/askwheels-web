@@ -10,7 +10,7 @@
                 </time>
                 <div class="clearfix"></div>
             </div>
-            <img src="img/car.jpg">
+            <img ng-src="{{vehicle.imageUrl}}">
         </div>
         <h2>
             <a href="#">{{vehicle.vehicle_name}}</a>
@@ -58,7 +58,7 @@
             </li>
             <li>
                 <i class="fa fa-shield"></i>
-                <span class="smlData">first party</span>
+                <span class="smlData">{{vehicle.insurance_type}}</span>
                 <div class="clearfix"></div>
             </li>
 

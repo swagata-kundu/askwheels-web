@@ -7,8 +7,7 @@ app.directive("sellerSidemenu", function() {
       "authService",
       "$state",
       "$rootScope",
-      function($scope, authService, $state, $rootScope) {
-      }
+      function($scope, authService, $state, $rootScope) {}
     ]
   };
 });
@@ -28,5 +27,13 @@ app.directive("sellerHeader", function() {
         };
       }
     ]
+  };
+});
+
+app.directive("appFooter", function() {
+  return {
+    templateUrl: "views/seller/footer.html",
+    restrict: "E",
+    controller: ["$state", "$rootScope", function($state, $rootScope) {}]
   };
 });

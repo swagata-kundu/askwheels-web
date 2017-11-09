@@ -98,78 +98,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div id="parentHorizontalTab">
-
-
-                            <uib-tabset>
-                                <!-- live -->
-                                <uib-tab index="0" select="tabChange(1)">
-                                    <uib-tab-heading>
-                                        Live Actions
-                                        <span>({{tabinfo.liveAuctions.length}})</span>
-                                    </uib-tab-heading>
-
-                                    <div class="resp-tabs-container">
-                                        <div class="resp-tab-content resp-tab-content-active">
-                                            <div class="row">
-                                                <auction-live vehicle="auction" ng-repeat="auction in auctions"></auction-live>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </uib-tab>
-                                <!-- upcoming -->
-                                <uib-tab index="1" select="tabChange(2)">
-                                    <uib-tab-heading>
-                                        Upcoming Actions
-                                        <span>({{tabinfo.upcomingAuctions.length}})</span>
-                                    </uib-tab-heading>
-
-                                    <div class="resp-tabs-container">
-                                        <div class="resp-tab-content resp-tab-content-active">
-                                            <div class="row">
-
-                                                <auction-live vehicle="auction" ng-repeat="auction in auctions"></auction-live>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </uib-tab>
-                                <!-- pending -->
-                                <uib-tab index="2" select="tabChange(3)">
-                                    <uib-tab-heading>
-                                        Pending Actions
-                                        <span>({{tabinfo.pendingAuctions.length}})</span>
-                                    </uib-tab-heading>
-
-                                    <div class="resp-tabs-container">
-                                        <div class="resp-tab-content resp-tab-content-active">
-                                            <div class="row">
-
-                                                <auction-live vehicle="auction" ng-repeat="auction in auctions"></auction-live>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </uib-tab>
-                                <!-- rejected -->
-                                <uib-tab index="3" select="tabChange(4)">
-                                    <uib-tab-heading>
-                                        Rejected Actions
-                                        <span>({{tabinfo.rejectedAuctions.length}})</span>
-                                    </uib-tab-heading>
-
-                                    <div class="resp-tabs-container">
-                                        <div class="resp-tab-content resp-tab-content-active">
-                                            <div class="row">
-
-                                                <auction-live vehicle="auction" ng-repeat="auction in auctions"></auction-live>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </uib-tab>
-                            </uib-tabset>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="clearfix"></div>
