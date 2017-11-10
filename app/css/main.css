@@ -46,3 +46,7 @@
 .nav.nav-tabs {
   margin-bottom: 10px;
 }
+.multiselect-parent .btn-group .dropdown-multiselect button {
+  width: 100%;
+}
+

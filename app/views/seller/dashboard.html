@@ -9,9 +9,6 @@
 
             <div class="right_data_main">
                 <ol class="breadcrumb">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
                     <li class="active">Dashboard</li>
                 </ol>
 
@@ -31,9 +28,9 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <span>Filters:</span>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                             <span class="heading">Uploaded By</span>
-                            <div ng-dropdown-multiselect="" options="subsellers" selected-model="subsellerSelections"></div>
+                            <div ng-dropdown-multiselect="" options="subsellers" class="multi-select" selected-model="subsellerSelections"></div>
 
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
@@ -94,7 +91,18 @@
                     <div></div>
                     <div class="clearfix"></div>
                 </div>
-
+                <div class="shortBy">
+                    <span>Sort By</span>
+                    <span class="shortD">
+                        <i class="fa fa-angle-down"></i>
+                        <select>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">

@@ -60,6 +60,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerSubSeller", {
       url: "/seller/subusers",
       templateUrl: "views/seller/subseller.html",
+      controller: "subsellerListing"      
     });
 });
 
