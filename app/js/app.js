@@ -60,7 +60,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerSubSeller", {
       url: "/seller/subusers",
       templateUrl: "views/seller/subseller.html",
-      controller: "subsellerListing"      
+      controller: "subsellerListing"
+    })
+    .state("dealerDashboard", {
+      url: "/dealer/dashboard",
+      templateUrl: "views/dealer/dashboard.html",
+      controller: "dealerDashobard"
     });
 });
 
@@ -73,7 +78,8 @@ app.run([
   "authService",
   "$state",
   "Access",
-  function($rootScope, authService, $state, Access) {
+  "$window",
+  function($rootScope, authService, $state, Access, $window) {
     authService.loadData();
     $rootScope.$on("$stateChangeError", function(
       event,
@@ -90,9 +96,15 @@ app.run([
       }
       if (error == Access.FORBIDDEN) {
         event.preventDefault();
-        $state.go("sellerListing", {
-          notify: false
-        });
+        if ($rootScope.userProfile.roleId === 4) {
+          $window.location.assign("/admin");
+        }
+        if ($rootScope.userProfile.roleId === 1) {
+          $state.go("sellerDashboard");
+        }
+        if ($rootScope.userProfile.roleId === 1) {
+          $state.go("dealerDashboard");
+        }
       }
     });
   }

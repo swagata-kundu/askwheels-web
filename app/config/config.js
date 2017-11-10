@@ -21,7 +21,9 @@ app.constant("serviceURI", {
   getDealerList: domain + "secure/user/dealer/listing",
   getDashBoardInfo: domain + "secure/user/admin/dashboard",
   getDashBoardInfoSeller: domain + "secure/user/seller/dashboard",
+  getDashBoardInfoDealer: domain + "secure/user/dealer/dashboard",  
   auctionListSeller: domain + "secure/auction/seller",
+  auctionListDealer: domain + "secure/auction/dealer",
   changeDealerStatus: domain + "secure/user/dealer/status",
   subsellerListing: domain + "secure/user/subseller/listing"
 });

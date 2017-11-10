@@ -40,6 +40,8 @@ app.controller("loginController", [
                 $window.location.assign("admin/");
               } else if ($rootScope.userProfile.roleId <= 2) {
                 $state.go("sellerDashboard");
+              }else{
+                $state.go("dealerDashboard"); 
               }
             }
           })
