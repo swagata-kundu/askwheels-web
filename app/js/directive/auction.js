@@ -21,7 +21,7 @@ app.directive("auctionSeller", function() {
 
 app.directive("auctionDealer", function() {
   return {
-    templateUrl: "views/seller/auctions.html",
+    templateUrl: "views/dealer/auctions.html",
     restrict: "E",
     replace: true,
     scope: {

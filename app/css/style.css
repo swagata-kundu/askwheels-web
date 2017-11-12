@@ -372,7 +372,7 @@ select:focus {
 .like-icon {
   width: 25px;
   height: 25px;
-  background: url(../images/like.png) no-repeat;
+  background: url(../img/like.png) no-repeat;
   position: absolute;
   left: 5px;
   top: 5px;
@@ -388,7 +388,7 @@ select:focus {
   line-height: 25px;
 }
 .like-icon a:hover {
-  background: url(../images/like-hover.png) no-repeat;
+  background: url(../img/like-hover.png) no-repeat;
   width: 25px;
   height: 25px;
   color: #ff0000;
