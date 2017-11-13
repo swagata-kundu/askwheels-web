@@ -33,6 +33,7 @@ app.controller("loginController", [
           .then(function(response) {
             var returnUrl = $rootScope.returnToUrl;
             $rootScope.returnToUrl = null;
+            returnUrl = null;
             if (returnUrl != null) {
               $location.path(returnUrl);
             } else {
@@ -40,8 +41,8 @@ app.controller("loginController", [
                 $window.location.assign("admin/");
               } else if ($rootScope.userProfile.roleId <= 2) {
                 $state.go("sellerDashboard");
-              }else{
-                $state.go("dealerDashboard"); 
+              } else {
+                $state.go("dealerDashboard");
               }
             }
           })
