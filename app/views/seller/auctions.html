@@ -2,20 +2,35 @@
     <div class="auction_box">
         <div class="imag">
 
-            <div class="timing">
+            <div class="timing" ng-if="vehicle.auctionType===1">
                 <span>End Time</span>
                 <time>
                     <i class="fa fa-clock-o"></i>
                     <span>3:00 Hrs</span>
                 </time>
                 <div class="clearfix"></div>
+
+            </div>
+            <div class="timing" ng-if="vehicle.auctionType===2">
+                <span>Start Time</span>
+                <time>
+                    <i class="fa fa-clock-o"></i>
+                    <span>3:00 Hrs</span>
+                </time>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="timing" ng-if="vehicle.auctionType===3">
+                <span>Waiting for approval</span>
+                <div class="clearfix"></div>
+
             </div>
             <img ng-src="{{vehicle.imageUrl}}">
         </div>
         <h2>
             <a href="#">{{vehicle.vehicle_name}}</a>
         </h2>
-        <h3>
+        <h3 ng-if="vehicle.auctionType===1">
             <span class="bidHeading">Highest Bid :</span>
             <span class="bidBy">
                 <i class="fa fa-rupee"></i>5000/- By Shashi kant Kahndelwal</span>
@@ -61,9 +76,10 @@
                 <span class="smlData">{{vehicle.insurance_type}}</span>
                 <div class="clearfix"></div>
             </li>
-
             <div class="clearfix"></div>
         </ul>
-
+        <div ng-if="vehicle.auctionType===4" class="reason">
+            <span>Reason:</span>
+            {{vehicle.reject_reason}}
     </div>
 </div>

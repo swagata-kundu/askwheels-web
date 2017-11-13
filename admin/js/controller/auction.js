@@ -37,6 +37,14 @@ app.controller("auctionList", [
 
     //change vehicle status To block/unblock junior admin
     $scope.changeVehicleStatus = function(id, status) {
+      if (status === 2) {
+        approveVehicle(id, status);
+      }else{
+        rejectVehicle(id,status);
+      }
+    };
+
+    var approveVehicle = function(id, status) {
       bootbox.confirm(
         "Are you sure you want to change this vehicle status?",
         function(checked) {
@@ -66,6 +74,42 @@ app.controller("auctionList", [
           }
         }
       );
+    };
+
+    var rejectVehicle = function(id, status) {
+
+      bootbox.prompt({
+        title: "Please enter the rejection reason.",
+        inputType: 'textarea',
+        callback: function (reason) {
+          if (reason) {
+            var blockParams = {
+              vehicleId: id,
+              status: status,
+              reason:reason
+            };
+
+            auctionService.changeVehicleStatus(blockParams).then(
+              function(response) {
+                bootbox.alert(response.data.message);
+                var pageNo = $scope.currentPage;
+                if ($scope.vehicles.length == 1) {
+                  if ($scope.currentPage != 1) {
+                    pageNo = pageNo - 1;
+                  } else {
+                    pageNo = 1;
+                  }
+                }
+                $scope.getVehicleList(pageNo, $scope.numPerPage);
+              },
+              function(error) {
+                showErrorMessage(error);
+              }
+            );
+          }
+        }
+    });
+    
     };
   }
 ]);

@@ -1,29 +1,29 @@
 <div class="col-md-4">
     <div class="car-detail">
         <div class="car-image">
-            <img src="img/car.jpg" class="img-responsive">
+            <img ng-src="{{vehicle.imageUrl}}" class="img-responsive">
             <div class="like-icon">
                 <a href="">like</a>
             </div>
         </div>
-        <h3> Hyundai Grand i10 Asta 1.2 Kappa VTVT [2013-2016]</h3>
+        <h3> {{vehicle.vehicle_name}}</h3>
         <p>
         </p>
         <ul>
             <li>
                 <i class="fa fa-sort-numeric-asc"></i>1565555</li>
             <li>
-                <i class="fa fa-calendar"></i> 2016 </li>
+                <i class="fa fa-calendar"></i> {{vehicle.manufacturing_year}} </li>
             <li>
-                <i class="fa fa-tint"></i> Petrol </li>
+                <i class="fa fa-tint"></i> {{vehicle.fuel_type}} </li>
             <li>
-                <i class="fa fa-tachometer"></i> 5283283km</li>
+                <i class="fa fa-tachometer"></i>{{vehicle.distance_travelled}}km</li>
             <li>
-                <i class="fa fa-file-text"></i> Rc Original</li>
+                <i class="fa fa-file-text"></i>{{vehicle.rc_status}}</li>
             <li>
-                <i class="fa fa-map-marker"></i> New Delhi</li>
+                <i class="fa fa-map-marker"></i>{{vehicle.location}}</li>
             <li>
-                <i class="fa fa-steam"></i> Automatic</li>
+                <i class="fa fa-steam"></i> {{vehicle.transmission_type}}</li>
             <li>
                 <i class="fa fa-hourglass-half"></i> 5hr 25 min</li>
         </ul>
