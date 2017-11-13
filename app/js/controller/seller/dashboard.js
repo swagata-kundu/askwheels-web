@@ -2,17 +2,25 @@ app.controller("sellerDashboard", [
   "$scope",
   "$state",
   "sellerService",
-  function($scope, $state, sellerService) {
+  "$q",
+  function($scope, $state, sellerService, $q) {
     $scope.tabinfo = {
       liveAuctions: [],
       pendingAuctions: [],
       upcomingAuctions: [],
       rejectedAuctions: []
     };
-
+    $scope.tags = [];
     $scope.auctions = [];
     $scope.subsellers = [];
     $scope.subsellerSelections = [];
+
+    $scope.loadUser = function() {
+      var deferred = $q.defer();
+      deferred.resolve($scope.subsellers);
+
+      return deferred.promise;
+    };
 
     sellerService.getDashboardInfo().then(
       function(result) {
@@ -49,7 +57,7 @@ app.controller("sellerDashboard", [
         $scope.subsellers = result.data.data.map(function(user) {
           return {
             id: user.userId,
-            label: user.firstName + " " + user.lastName
+            text: user.firstName + " " + user.lastName
           };
         });
       },

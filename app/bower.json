@@ -29,6 +29,6 @@
     "jquery": "^3.2.1",
     "angular-paging": "^2.2.2",
     "popper.js": "^1.12.5",
-    "angularjs-dropdown-multiselect": "^1.11.8"
+    "ng-tags-input": "^3.2.0"
   }
 }

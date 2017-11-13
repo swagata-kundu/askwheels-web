@@ -4,7 +4,7 @@ var app = angular.module("askwheels", [
   "ui.router",
   "LocalStorageModule",
   "ui.bootstrap",
-  "angularjs-dropdown-multiselect"
+  "ngTagsInput"
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -60,6 +60,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerSubSeller", {
       url: "/seller/subusers",
       templateUrl: "views/seller/subseller.html",
+      controller: "subsellerListing"
+    })
+    .state("sellerAddvehicle", {
+      url: "/seller/vehicle",
+      templateUrl: "views/seller/addvehicle.html",
       controller: "subsellerListing"
     })
     .state("dealerDashboard", {
