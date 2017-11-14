@@ -15,7 +15,7 @@
                 <h1>
                     Dashboard
                     <span>
-                        <a href="#">
+                        <a ui-sref="sellerAddAuction">
                             <i class="fa fa-plus-circle"></i>
                             <span>add new vehicle</span>
                         </a>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <span class="heading">Uploaded By</span>
-                            <tags-input class="seller-multi" placeholder="Select Seller" ng-model="tags" tag-class="{even: $index % 2 == 0, odd: $index % 2 != 0}">
+                            <tags-input class="seller-multi" placeholder="Select Seller" ng-model="selectedTags" tag-class="{even: $index % 2 == 0, odd: $index % 2 != 0}">
                                 <auto-complete load-on-focus="true" load-on-empty="true" source="loadUser($query)"></auto-complete>
                             </tags-input>
                         </div>
@@ -41,15 +41,15 @@
                                 <span class="heading">Price Range</span>
                                 <span class="min_price">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Min Price</option>
+                                    <select ng-model="filter.minPrice">
+                                        <option value="">Min Price</option>
                                     </select>
                                 </span>
 
                                 <span class="max-price">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Max Price</option>
+                                    <select ng-model="filter.maxPrice">
+                                        <option value="">Max Price</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>
@@ -61,9 +61,10 @@
                                 <span class="heading">Fuel Type</span>
                                 <span class="fueltp">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Petrol</option>
-                                        <option>Diesel</option>
+                                    <select ng-model="filter.fuelType">
+                                        <option value="">Select</option>
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
                                     </select>
                                 </span>
 
@@ -76,9 +77,10 @@
                                 <span class="heading">Owner</span>
                                 <span class="fueltp">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>First Owner</option>
-                                        <option>Secound Owner</option>
+                                    <select ng-model="filter.owner">
+                                        <option value="">Select</option>
+                                        <option value="1">First Owner</option>
+                                        <option value="2">Secound Owner</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>
@@ -90,8 +92,9 @@
                                 <span class="heading">Transmission Type</span>
                                 <span class="fueltp">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Automatic</option>
+                                    <select ng-model="filter.transmission">
+                                        <option value="">Select</option>
+                                        <option value="Automatic">Automatic</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>
@@ -100,8 +103,8 @@
 
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <input type="submit" value="Apply Filter">
-                            <input type="reset" value="Reset">
+                            <input ng-click="applyFilter()" type="submit" value="Apply Filter">
+                            <input ng-click="resetFilter()" type="reset" value="Reset">
                         </div>
 
                     </div>

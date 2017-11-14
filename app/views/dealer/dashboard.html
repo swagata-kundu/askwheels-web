@@ -23,64 +23,75 @@
                             <span>Filters:</span>
                         </div>
 
-                        <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="priceRange">
                                 <span class="heading">Price Range</span>
                                 <span class="min_price">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Min Price</option>
+                                    <select ng-model="filter.minPrice">
+                                        <option value="">Min Price</option>
                                     </select>
                                 </span>
 
                                 <span class="max-price">
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>Max Price</option>
+                                    <select ng-model="filter.maxPrice">
+                                        <option value="">Max Price</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="FuelType">
                                 <span class="heading">Fuel Type</span>
-                                <select>
-                                    <option>Petrol</option>
-                                    <option>Diesel</option>
-                                </select>
+                                <span class="fueltp">
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="filter.fuelType">
+                                        <option value="">Select</option>
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
+                                    </select>
+                                </span>
 
                                 <div class="clearfix"></div>
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="FuelType">
                                 <span class="heading">Owner</span>
-                                <select>
-                                    <option>First Owner</option>
-                                    <option>Secound Owner</option>
-                                </select>
-
+                                <span class="fueltp">
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="filter.owner">
+                                        <option value="">Select</option>
+                                        <option value="1">First Owner</option>
+                                        <option value="2">Secound Owner</option>
+                                    </select>
+                                </span>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="FuelType">
                                 <span class="heading">Transmission Type</span>
-                                <select>
-                                    <option>Automatic</option>
-                                </select>
-
+                                <span class="fueltp">
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="filter.transmission">
+                                        <option value="">Select</option>
+                                        <option value="Automatic">Automatic</option>
+                                    </select>
+                                </span>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
 
+
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <input type="submit" value="Apply Filter">
-                            <input type="reset" value="Reset">
+                            <input ng-click="applyFilter()" type="submit" value="Apply Filter">
+                            <input ng-click="resetFilter()" type="reset" value="Reset">
                         </div>
                     </div>
                     <div></div>

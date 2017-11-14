@@ -9,8 +9,13 @@ app.controller("dealerDashobard", [
     };
 
     $scope.auctions = [];
-    $scope.subsellers = [];
-    $scope.subsellerSelections = [];
+    $scope.filter = {
+      minPrice: "",
+      maxPrice: "",
+      fuelType: "",
+      owner: 0,
+      transmission: ""
+    };
 
     dealerService.getDashboardInfo().then(
       function(result) {
@@ -41,5 +46,17 @@ app.controller("dealerDashobard", [
     };
 
     getAuctions();
+
+    $scope.applyFilter = function() {};
+
+    $scope.resetFilter = function() {
+      $scope.filter = {
+        minPrice: "",
+        maxPrice: "",
+        fuelType: "",
+        owner: "",
+        transmission: ""
+      };
+    };
   }
 ]);
