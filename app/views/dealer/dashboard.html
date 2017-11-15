@@ -22,7 +22,6 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <span>Filters:</span>
                         </div>
-
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="priceRange">
                                 <span class="heading">Price Range</span>
@@ -30,6 +29,9 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="filter.minPrice">
                                         <option value="">Min Price</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
+
                                     </select>
                                 </span>
 
@@ -37,6 +39,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="filter.maxPrice">
                                         <option value="">Max Price</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>

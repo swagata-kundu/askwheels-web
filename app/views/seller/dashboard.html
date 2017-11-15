@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <span class="heading">Uploaded By</span>
-                            <tags-input class="seller-multi" placeholder="Select Seller" ng-model="selectedTags" tag-class="{even: $index % 2 == 0, odd: $index % 2 != 0}">
+                            <tags-input class="seller-multi" placeholder="Select Seller" ng-model="subsellerSelections" tag-class="{even: $index % 2 == 0, odd: $index % 2 != 0}">
                                 <auto-complete load-on-focus="true" load-on-empty="true" source="loadUser($query)"></auto-complete>
                             </tags-input>
                         </div>
@@ -43,6 +43,9 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="filter.minPrice">
                                         <option value="">Min Price</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
+
                                     </select>
                                 </span>
 
@@ -50,6 +53,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="filter.maxPrice">
                                         <option value="">Max Price</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
                                     </select>
                                 </span>
                                 <div class="clearfix"></div>

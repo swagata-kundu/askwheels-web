@@ -10,7 +10,7 @@ app.controller("sellerDashboard", [
       upcomingAuctions: [],
       rejectedAuctions: []
     };
-    $scope.selectedTags = [];
+
     $scope.auctions = [];
     $scope.subsellers = [];
     $scope.subsellerSelections = [];
@@ -19,7 +19,7 @@ app.controller("sellerDashboard", [
       minPrice: "",
       maxPrice: "",
       fuelType: "",
-      owner: 0,
+      owner: "",
       transmission: ""
     };
 
@@ -43,7 +43,33 @@ app.controller("sellerDashboard", [
 
     let getAuctions = function() {
       $scope.auctions = [];
-      sellerService.getAuctionList(auctionParams).then(
+      let params = {};
+
+      params.auctionType = auctionParams.auctionType;
+      
+      if ($scope.filter.minPrice) {
+        params.minPrice = parseInt($scope.filter.minPrice);
+      }
+      if ($scope.filter.maxPrice) {
+        params.maxPrice = parseInt($scope.filter.maxPrice);
+      }
+      if ($scope.filter.fuelType) {
+        params.fuel_type = $scope.filter.fuelType;
+      }
+      if ($scope.filter.owner) {
+        params.owner_type = parseInt($scope.filter.owner);
+      }
+      if ($scope.filter.transmission) {
+        params.transmission_type = $scope.filter.transmission;
+      }
+      if ($scope.subsellerSelections.length > 0) {
+        let sellerIds = $scope.subsellerSelections.map(function(i) {
+          return i.id;
+        });
+        params.sub_sellers = sellerIds.toString();
+      }
+      debugger;
+      sellerService.getAuctionList(params).then(
         function(result) {
           $scope.auctions = result.data.data;
         },
@@ -55,7 +81,7 @@ app.controller("sellerDashboard", [
 
     $scope.tabChange = function(auctionType) {
       auctionParams.auctionType = auctionType;
-      getAuctions();
+      $scope.resetFilter();
     };
 
     getAuctions();
@@ -72,7 +98,7 @@ app.controller("sellerDashboard", [
       function(error) {}
     );
     $scope.applyFilter = function() {
-      
+      getAuctions();
     };
 
     $scope.resetFilter = function() {
@@ -83,7 +109,8 @@ app.controller("sellerDashboard", [
         owner: "",
         transmission: ""
       };
-      $scope.selectedTags = [];
+      $scope.subsellerSelections = [];
+      getAuctions();
     };
   }
 ]);

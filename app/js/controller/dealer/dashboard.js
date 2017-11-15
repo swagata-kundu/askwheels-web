@@ -13,7 +13,7 @@ app.controller("dealerDashobard", [
       minPrice: "",
       maxPrice: "",
       fuelType: "",
-      owner: 0,
+      owner: "",
       transmission: ""
     };
 
@@ -30,7 +30,25 @@ app.controller("dealerDashobard", [
 
     let getAuctions = function() {
       $scope.auctions = [];
-      dealerService.getAuctionList(auctionParams).then(
+      let params = {};
+      params.auctionType = auctionParams.auctionType;
+      if ($scope.filter.minPrice) {
+        params.minPrice = parseInt($scope.filter.minPrice);
+      }
+      if ($scope.filter.maxPrice) {
+        params.maxPrice = parseInt($scope.filter.maxPrice);
+      }
+      if ($scope.filter.fuelType) {
+        params.fuel_type = $scope.filter.fuelType;
+      }
+      if ($scope.filter.owner) {
+        params.owner_type = parseInt($scope.filter.owner);
+      }
+      if ($scope.filter.transmission) {
+        params.transmission_type = $scope.filter.transmission;
+      }
+
+      dealerService.getAuctionList(params).then(
         function(result) {
           $scope.auctions = result.data.data;
         },
@@ -42,12 +60,14 @@ app.controller("dealerDashobard", [
 
     $scope.tabChange = function(auctionType) {
       auctionParams.auctionType = auctionType;
-      getAuctions();
+      $scope.resetFilter();
     };
 
     getAuctions();
 
-    $scope.applyFilter = function() {};
+    $scope.applyFilter = function() {
+      getAuctions();
+    };
 
     $scope.resetFilter = function() {
       $scope.filter = {
@@ -57,6 +77,7 @@ app.controller("dealerDashobard", [
         owner: "",
         transmission: ""
       };
+      getAuctions();
     };
   }
 ]);
