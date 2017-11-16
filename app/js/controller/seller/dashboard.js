@@ -46,7 +46,7 @@ app.controller("sellerDashboard", [
       let params = {};
 
       params.auctionType = auctionParams.auctionType;
-      
+
       if ($scope.filter.minPrice) {
         params.minPrice = parseInt($scope.filter.minPrice);
       }
@@ -68,7 +68,6 @@ app.controller("sellerDashboard", [
         });
         params.sub_sellers = sellerIds.toString();
       }
-      debugger;
       sellerService.getAuctionList(params).then(
         function(result) {
           $scope.auctions = result.data.data;
