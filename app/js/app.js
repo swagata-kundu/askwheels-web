@@ -107,7 +107,7 @@ app.run([
         if ($rootScope.userProfile.roleId === 1) {
           $state.go("sellerDashboard");
         }
-        if ($rootScope.userProfile.roleId === 1) {
+        if ($rootScope.userProfile.roleId === 3) {
           $state.go("dealerDashboard");
         }
       }
