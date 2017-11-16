@@ -55,22 +55,62 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerDashboard", {
       url: "/seller/dashboard",
       templateUrl: "views/seller/dashboard.html",
-      controller: "sellerDashboard"
+      controller: "sellerDashboard",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
     })
     .state("sellerSubSeller", {
       url: "/seller/subusers",
       templateUrl: "views/seller/subseller.html",
-      controller: "subsellerListing"
+      controller: "subsellerListing",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
     })
     .state("sellerAddAuction", {
       url: "/seller/auction",
       templateUrl: "views/seller/addvehicle.html",
-      controller: "sellerAddAuction"
+      controller: "sellerAddAuction",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
     })
     .state("dealerDashboard", {
       url: "/dealer/dashboard",
       templateUrl: "views/dealer/dashboard.html",
-      controller: "dealerDashobard"
+      controller: "dealerDashobard",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(3);
+          }
+        ]
+      }
+    })
+    .state("help", {
+      url: "/help",
+      templateUrl: "views/help.html"
+    })
+    .state("terms", {
+      url: "/terms",
+      templateUrl: "views/terms.html"
     });
 });
 

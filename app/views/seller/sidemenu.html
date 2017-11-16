@@ -34,7 +34,7 @@
                     </a>
                     <div class="clearfix"></div>
                 </li>
-                <li>
+                <li ng-if="userProfile.roleId===1">
                     <a href="#">
                         <i class="fa fa-users"></i>
                         <span>Sub User Manager</span>
@@ -42,7 +42,7 @@
                     </a>
                     <div class="clearfix"></div>
                 </li>
-                <li>
+                <li ng-if="userProfile.roleId===1">
                     <a href="#">
                         <i class="fa fa-money"></i>
                         <span>Bids</span>
@@ -50,7 +50,7 @@
                     <div class="clearfix"></div>
                     <div class="clearfix"></div>
                 </li>
-                <li>
+                <li ng-if="userProfile.roleId===1">
                     <a href="#">
                         <i class="fa fa-money"></i>
                         <span>Sale Reports</span>
@@ -98,7 +98,7 @@
                 </a>
                 <div class="clearfix"></div>
             </li>
-            <li>
+            <li ng-if="userProfile.roleId===1">
                 <a ui-sref="sellerSubSeller">
                     <i class="fa fa-users"></i>
                     <span>Sub User Manager</span>
@@ -106,7 +106,7 @@
                 </a>
                 <div class="clearfix"></div>
             </li>
-            <li>
+            <li ng-if="userProfile.roleId===1">
                 <a href="#">
                     <i class="fa fa-gavel"></i>
                     <span>Bids</span>
@@ -114,7 +114,7 @@
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
             </li>
-            <li>
+            <li ng-if="userProfile.roleId===1">
                 <a href="#">
                     <i class="fa fa-line-chart"></i>
                     <span>Sale Reports</span>
@@ -122,7 +122,7 @@
                 </a>
                 <div class="clearfix"></div>
             </li>
-            <li>
+            <li ng-if="userProfile.roleId===1">
                 <a href="#">
                     <i class="fa fa-money"></i>
                     <span>Payment Manager</span>

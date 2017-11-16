@@ -30,7 +30,7 @@
                             <br/>
                             <br/>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div ng-if="userProfile.roleId===1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <span class="heading">Uploaded By</span>
                             <tags-input class="seller-multi" placeholder="Select Seller" ng-model="subsellerSelections" tag-class="{even: $index % 2 == 0, odd: $index % 2 != 0}">
                                 <auto-complete load-on-focus="true" load-on-empty="true" source="loadUser($query)"></auto-complete>
