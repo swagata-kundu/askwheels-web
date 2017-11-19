@@ -91,6 +91,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("sellerAddSubseller", {
+      url: "/seller/subuser",
+      templateUrl: "views/seller/addsubseller.html",      
+    })
     .state("dealerDashboard", {
       url: "/dealer/dashboard",
       templateUrl: "views/dealer/dashboard.html",
@@ -103,6 +107,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
           }
         ]
       }
+    })
+    .state("dealerVehicleDetail", {
+      url: "/dealer/auction/detail",
+      templateUrl: "views/dealer/vehicledetail.html",
+      controller: "dealerAuctionDetail"
     })
     .state("help", {
       url: "/help",

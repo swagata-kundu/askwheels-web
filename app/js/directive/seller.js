@@ -7,7 +7,13 @@ app.directive("sellerSidemenu", function() {
       "authService",
       "$state",
       "$rootScope",
-      function($scope, authService, $state, $rootScope) {}
+      function($scope, authService, $state, $rootScope) {
+        $(document).ready(function() {
+          $(".burgerMenu").click(function() {
+            $("#SmlMenu").toggle("slide");
+          });
+        });
+      }
     ]
   };
 });

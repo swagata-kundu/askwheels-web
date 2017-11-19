@@ -1396,7 +1396,420 @@ select {
   height: 70px;
   border: 1px solid #ccc;
 }
+#image-gallery .lslide span {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  bottom: 0;
+  display: block;
+  padding: 5px 5px 5px 5px;
+}
+#image-gallery .lslide span a.fa-arrows-alt {
+  float: right;
+  font-size: 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+#image-gallery .lslide span a.fa-arrows-alt:hover {
+  text-decoration: none;
+}
+#image-gallery .lslide {
+  position: relative;
+  border: 1px solid #f2f2f2;
+}
+#image-gallery .lslide span .totalImageCount {
+  float: left;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+}
+#image-gallery .lslide span .totalImageCount i.fa-camera {
+  float: left;
+}
+#image-gallery .lslide span .totalImageCount span {
+  float: left;
+  display: inline-block;
+  position: static;
+  font-size: 13px;
+  width: auto;
+  margin: 0;
+  padding: 0 0 0px 5px;
+}
+#accordion {
+  width: 100%;
+  margin: 0;
+  border: 0;
+}
 
+#accordion .content {
+  background-color: #fff;
+  padding: 10px 10px 10px 10px;
+  color: black;
+  height: auto;
+  box-shadow: 0px 2px 2px #ccc;
+  margin: -4px 0 0 0;
+  font-size: 14px;
+}
+
+#accordion h3.active {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+
+#accordion div strong,
+b {
+  font-weight: 600;
+}
+#accordion div i {
+  font-style: italic;
+}
+#accordion div a {
+  display: inline-block;
+}
+#accordion h3:nth-of-type(1) {
+  margin-top: 0;
+}
+
+#accordion h3 {
+  border-top: 1px solid #ccc;
+  clear: both;
+  margin: 5px 0 5px 0;
+  display: block;
+  padding: 8px;
+  box-shadow: 0px 1px 2px #ccc;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+}
+#accordion h3::after {
+  content: "\f0dd";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 17px;
+  line-height: 10px;
+}
+
+#accordion h3.active::after {
+  content: "\f0de";
+  top: 13px;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain {
+  width: 100%;
+  border-top: 1px solid #f2f2f2;
+  margin-top: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px 0 5px 0;
+  background: #f2f2f2;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain ul li i img {
+  width: 14px;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain ul li {
+  float: left;
+  text-align: center;
+  width: 25%;
+  font-size: 14px;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain ul li i {
+  font-size: 17px;
+  display: inline-block;
+  height: 20px;
+}
+.right_data_main.addnew_vehicle .Sml_detailsMain ul li .comp {
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain {
+  border: 2px solid #f5f5f5;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .AddedBy {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .AddedBy span {
+  display: block;
+  font-weight: 600;
+  color: #006fb5;
+  margin-bottom: 5px;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .AddedBy .user_icon {
+  float: left;
+  width: 50px;
+  text-align: left;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .AddedBy .user_icon i {
+  font-size: 30px;
+  color: #ccc;
+  border: 1px solid #ccc;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  text-align: center;
+  padding-top: 3px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName {
+  float: left;
+  width: 220px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_icon
+  i.fa-calendar {
+  font-size: 24px;
+  padding-top: 6px;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .auctionDetails_Price {
+  background: #ff7700;
+  padding: 15px 20px;
+  font-size: 25px;
+  position: relative;
+  color: #fff;
+  font-weight: 600;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .auctionDetails_Price::before {
+  content: "\f0d9";
+  font-family: FontAwesome;
+  position: absolute;
+  left: -32px;
+  top: 23px;
+  font-size: 95px;
+  line-height: 10px;
+  color: #ff7700;
+}
+
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  #clockdiv {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 20px;
+}
+
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  #clockdiv
+  > div {
+  padding: 3px;
+  border-radius: 3px;
+  background: #444;
+  display: inline-block;
+  float: left;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  #clockdiv
+  > div:nth-of-type(2) {
+  margin: 0 5px 0 5px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  #clockdiv
+  > div:nth-of-type(3) {
+  margin: 0 5px 0 0px;
+}
+
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  #clockdiv
+  div
+  > span {
+  padding: 8px;
+  border-radius: 3px;
+  background: #006fb5;
+  display: inline-block;
+  color: #fff;
+}
+
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  .smalltext {
+  padding-top: 5px;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}
+
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .HighestBidBox {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .high_name
+  span {
+  display: inline-block;
+  font-weight: 600;
+  color: #006fb5;
+  margin-bottom: 5px;
+  text-align: left;
+  text-transform: capitalize;
+  float: left;
+  font-size: 19px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .high_name
+  .Hbid_price {
+  float: left;
+  margin: 0 0 0 15px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .high_name
+  .Hbid_price
+  span {
+  float: left;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .high_name
+  .Hbid_price
+  i {
+  float: left;
+  font-size: 23px;
+  color: #006fb5;
+  margin-right: 5px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .ViewMoreBids
+  a {
+  text-transform: capitalize;
+  text-decoration: underline;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 5px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content
+  ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow: auto;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content
+  ul
+  li {
+  background: #f2f2f2;
+  padding: 4px 4px 4px 4px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content
+  ul
+  li:last-child {
+  border: 0;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content
+  ul
+  li
+  i.fa-inr {
+  float: left;
+  margin: 0 3px 0 0;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  #hidden_content
+  ul
+  li:nth-of-type(2n + 2) {
+  background: #fff;
+}
+
+@media screen and (max-width: 1340px) {
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName {
+    width: 80%;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .HighestBidBox
+    .high_name
+    span {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 1300px) {
   .right_data_main .filter_main .col-lg-3 .priceRange select {
     float: left;
@@ -1432,10 +1845,87 @@ select {
     width: 70%;
   }
 }
-
+@media screen and (max-width: 1260px) {
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName {
+    width: 75%;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    .smalltext {
+    font-size: 10px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    #clockdiv {
+    font-size: 15px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .HighestBidBox
+    .high_name
+    .Hbid_price {
+    float: left;
+    margin: 0 0 0 1px;
+    display: block;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .HighestBidBox
+    .high_name
+    span {
+    margin-right: 8px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .right_data_main #parentHorizontalTab .resp-tab-content .auction_box {
     margin-bottom: 30px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName {
+    width: 72%;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    #clockdiv
+    > div {
+    width: 44%;
+    margin-bottom: 5px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    #clockdiv
+    > div:nth-of-type(2) {
+    margin: 0 5px 5px 5px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    .smalltext {
+    font-size: 12px;
+    padding: 0;
   }
 }
 
@@ -1476,6 +1966,28 @@ select {
   }
   .right_data_main .filter_main .wrapMulDrop ul li input[type="checkbox"] {
     top: 5px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .auctionDetails_Price::before {
+    display: none;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    #clockdiv
+    > div {
+    width: auto;
+  }
+  .right_data_main
+    #parentHorizontalTab.detail_smltabbing
+    .resp-tabs-list
+    .resp-tab-item {
+    font-size: 14px;
+    margin-right: 8px;
   }
 }
 
@@ -1614,14 +2126,20 @@ select {
     width: 99.5%;
     float: right;
   }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    .smalltext {
+    font-size: 9px;
+  }
+  .right_data_main.addnew_vehicle
+    .col-lg-4
+    .rightBoxMain
+    .AddedBy
+    .user_addedName
+    #clockdiv {
+    font-size: 14px;
+  }
 }
-
-footer {
-  background: #444;
-  clear: both;
-  padding: 10px;
-  color: #fff;
-  text-align: center;
-  text-transform: capitalize;
-}
-

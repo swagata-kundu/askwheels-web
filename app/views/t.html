@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Askwheel</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <script src="js/jquery-3.2.1.js"></script>
+    <link href="css/font-awesome.css" rel="stylesheet">
+
+    <!-- Tab -->
+    <script src="js/easyResponsiveTabs.js"></script>
+    <link rel="stylesheet" href="css/easy-responsive-tabs.css">
+    <!-- Tab -->
+
+    <!-- Slider Files -->
+    <link rel="stylesheet" href="js/sliderFiles/src/css/lightslider.css" />
+    <style>
+        ul {
+            list-style: none outside none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .demo .item {
+            margin-bottom: 60px;
+        }
+
+        .content-slider li {
+            background-color: #ed3020;
+            text-align: center;
+            color: #FFF;
+        }
+
+        .content-slider h3 {
+            margin: 0;
+            padding: 70px 0;
+        }
+
+        .demo {
+            width: 800px;
+        }
+    </style>
+
+    <script src="js/sliderFiles/src/js/lightslider.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#content-slider").lightSlider({
+                loop: true,
+                keyPress: true
+            });
+            $('#image-gallery').lightSlider({
+                gallery: true,
+                item: 1,
+                thumbItem: 9,
+                slideMargin: 0,
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
+    <!-- Slider Files -->
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="smlDevice">
+                <a href="#" class="burgerMenu">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="col-lg-3 col-md-3 col-sm-4" id="SmlMenu" style="display:none;">
+                    <div class="leff_main_box">
+                        <div class="logo_box">
+                            <a href="#">
+                                <img src="images/logo.PNG" class="img-responsive">
+                            </a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-tachometer"></i>
+                                    <span>Dashboard</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-handshake-o"></i>
+                                    <span>Close Deals</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-server"></i>
+                                    <span>Activity Logs (1)</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-users"></i>
+                                    <span>Sub User Manager</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-gavel"></i>
+                                    <span>Bids</span>
+                                </a>
+                                <div class="clearfix"></div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-line-chart"></i>
+                                    <span>Sale Reports</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-money"></i>
+                                    <span>Payment Manager</span>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <div class="clearfix"></div>
+                            </li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
+                <div class="leff_main_box">
+                    <div class="logo_box">
+                        <a href="#">
+                            <img src="images/logo.PNG" class="img-responsive">
+                        </a>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-handshake-o"></i>
+                                <span>Close Deals</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-server"></i>
+                                <span>Activity Logs (1)</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>Sub User Manager</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-gavel"></i>
+                                <span>Bids</span>
+                            </a>
+                            <div class="clearfix"></div>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-line-chart"></i>
+                                <span>Sale Reports</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-money"></i>
+                                <span>Payment Manager</span>
+                                <div class="clearfix"></div>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+                        <div class="clearfix"></div>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-9 col-md-9 col-sm-8 col-lg-12">
+                <div class="top_barRight">
+                    <div class="sml_dLogo">
+                        <a href="#">
+                            <img src="images/logo.PNG">
+                        </a>
+                    </div>
+
+
+                    <div class="MyAccount">
+                        <div class="dropdown">
+                            <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="images/userImage.jpg">
+                                <span>My Account</span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span>My Profile</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-cog"></i>
+                                        <span>Setting</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-info"></i>
+                                        <span>Help</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span>Logout</span>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="MyAccount notification">
+                        <div class="dropdown">
+                            <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                                <span>10</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a href="#">Lorem Ipsum, giving information on its origins
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">Lorem Ipsum, giving information on its origins
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">Lorem Ipsum, giving information on its origins
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <a href="#">View All
+                                        <div class="clearfix"></div>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="right_data_main addnew_vehicle">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+
+
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                            <h1>Vehicle Heading</h1>
+                            <div class="item">
+                                <div class="clearfix">
+                                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-1.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>1/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="img fa fa-arrows-alt" data-url="images/sliderimg/img/cS-1.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-1.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-2.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>2/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="img fa fa-arrows-alt" data-url="images/sliderimg/img/cS-2.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-2.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-3.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>3/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="img fa fa-arrows-alt" data-url="images/sliderimg/img/cS-3.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-3.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-4.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>4/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-4.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-4.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-5.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>5/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-5.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-5.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-6.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>6/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-6.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-6.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-7.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>7/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-7.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-7.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-8.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>8/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-8.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-8.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-9.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>9/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-9.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-9.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-10.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>10/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-10.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-10.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-11.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>11/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-11.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-11.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-12.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>12/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-12.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-12.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-13.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>13/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-13.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-13.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-14.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>14/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-14.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-14.jpg" />
+                                        </li>
+                                        <li data-thumb="images/sliderimg/img/thumb/cS-15.jpg">
+                                            <span>
+                                                <div class="totalImageCount">
+                                                    <i class="fa fa-camera"></i>
+                                                    <span>15/10</span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <a class="highslide fa fa-arrows-alt" href="images/sliderimg/img/cS-15.jpg"></a>
+                                            </span>
+                                            <img src="images/sliderimg/img/cS-15.jpg" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="Sml_detailsMain">
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-car"></i>
+                                        <div class="comp">Toyota</div>
+                                        <div class="model">Fortuner</div>
+                                        <div class="clearfix"></div>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-calendar"></i>
+                                        <div class="comp">2011</div>
+                                        <div class="clearfix"></div>
+                                    </li>
+
+                                    <li>
+                                        <i class="fa fa-tachometer"></i>
+                                        <div class="comp">1200 KM</div>
+                                        <div class="clearfix"></div>
+                                    </li>
+
+                                    <li>
+                                        <i>
+                                            <img src="images/fuel-icon.jpg">
+                                        </i>
+                                        <div class="comp">Petrol</div>
+                                        <div class="clearfix"></div>
+                                    </li>
+
+                                    <div class="clearfix"></div>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+
+
+                            <div id="parentHorizontalTab" class="detail_smltabbing">
+                                <ul class="resp-tabs-list hor_1">
+                                    <li>Vehicle Info</li>
+                                    <li>Inspection Report</li>
+                                </ul>
+                                <div class="resp-tabs-container hor_1">
+                                    <div>
+
+                                        <div id="accordion">
+                                            <h3>Bidding Starting Price</h3>
+                                            <div class="content">
+                                                this is some info.
+                                            </div>
+
+                                            <h3>Registration Date</h3>
+                                            <div class="content">
+                                                this is some more info.
+                                            </div>
+
+                                            <h3>Vin No</h3>
+                                            <div class="content">
+                                                this is even more info.
+                                            </div>
+                                            <h3>Engine No</h3>
+                                            <div class="content">
+                                                <b>this</b>
+                                                <i>is</i> even more info.
+                                            </div>
+
+                                            <h3>Number Of Owners</h3>
+                                            <div class="content">
+                                                1
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="rightBoxMain">
+                                <div class="AddedBy">
+                                    <div class="user_icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="user_addedName">
+                                        <span>Added By</span>
+                                        Shashi Kant Khandelwal
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="AddedBy">
+                                    <div class="user_icon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="user_addedName">
+                                        <span>Date</span>
+                                        20-Nov-2017
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="auctionDetails_Price">
+                                    <i class="fa fa-inr"></i>
+                                    <span>1587000</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="AddedBy">
+                                    <div class="user_icon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="user_addedName">
+                                        <span>Ending Soon</span>
+                                        <div id="clockdiv">
+                                            <div>
+                                                <span class="days"></span>
+                                                <div class="smalltext">Days</div>
+                                            </div>
+                                            <div>
+                                                <span class="hours"></span>
+                                                <div class="smalltext">Hours</div>
+                                            </div>
+                                            <div>
+                                                <span class="minutes"></span>
+                                                <div class="smalltext">Minutes</div>
+                                            </div>
+                                            <div>
+                                                <span class="seconds"></span>
+                                                <div class="smalltext">Seconds</div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+
+                                <div class="HighestBidBox">
+                                    <div class="high_name">
+                                        <span>highest bid :</span>
+                                        <div class="Hbid_price">
+                                            <i class="fa fa-inr"></i>
+                                            <span>2500</span>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="ViewMoreBids">
+                                        <a href="javascript: void(0);" onclick="return false;" id="viewBid">View More Bids</a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div id="hidden_content" style="display:none;">
+                                        <ul>
+                                            <li>
+                                                <i class="fa fa-inr"></i>500 by Shashi kant
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-inr"></i>800 by Nishant
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-inr"></i>1000 by User name
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-inr"></i>500 by Shashi kant
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-inr"></i>800 by Nishant
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-inr"></i>1000 by User name
+                                                <div class="clearfix"></div>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="AllHBids">
+                                        <ul>
+                                            <li>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+
+
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <footer>
+                <ul>
+                    <li>
+                        <a href="#">Terms and condition</a>
+                    </li>
+                    <div class="clearfix"></div>
+                </ul>
+                &copy; 2017 all rights reserved
+            </footer>
+
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.burgerMenu').click(function () {
+                $('#SmlMenu').toggle("slide");
+            });
+        });
+        $(document).ready(function () {
+            //Horizontal Tab
+            $('#parentHorizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                tabidentify: 'hor_1', // The tab groups identifier
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#nested-tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+
+        $(function () {
+            $('#accordion .content').hide();
+            $('#accordion h3:first').addClass('active').next().slideDown('slow');
+            $('#accordion h3').click(function () {
+                if ($(this).next().is(':hidden')) {
+                    $('#accordion h3').removeClass('active').next().slideUp('slow');
+                    $(this).toggleClass('active').next().slideDown('slow');
+                }
+            });
+        });
+
+
+        // Timer
+
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        // create deadline 24 hrs from now
+        var DAYS = 1;
+        var HOURS = 24;
+        var MINUTES = 20;
+        var SECONDS = 10;
+        var MILLISECONDS = 1000;
+        var timeInMinutes = 10;
+        var currentTime = Date.parse(new Date());
+        var deadline = new Date(currentTime + DAYS * HOURS * MINUTES * SECONDS * MILLISECONDS);
+
+        initializeClock('clockdiv', deadline);
+
+
+        // Show Hide 
+
+
+        $(document).ready(function () {
+            $("#viewBid").click(function () {
+                if ($(this).text() == 'View More Bids')
+                    $(this).text('Hide Bid');
+                else
+                    $(this).text('View More Bids');
+                $("#hidden_content").slideToggle("slow");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

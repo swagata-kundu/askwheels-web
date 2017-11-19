@@ -1,0 +1,285 @@
+<style>
+    ul {
+        list-style: none outside none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .demo .item {
+        margin-bottom: 60px;
+    }
+
+    .content-slider li {
+        background-color: #ed3020;
+        text-align: center;
+        color: #FFF;
+    }
+
+    .content-slider h3 {
+        margin: 0;
+        padding: 70px 0;
+    }
+
+    .demo {
+        width: 800px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+
+        <dealer-sidemenu></dealer-sidemenu>
+
+        <div class="col-lg-9 col-md-9 col-sm-8 col-lg-12">
+
+            <dealer-header></dealer-header>
+
+            <div class="right_data_main addnew_vehicle">
+                <ol class="breadcrumb">
+                    <li class="active">Dashboard</li>
+                </ol>
+
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h1>Vehicle Heading</h1>
+                        <div class="item">
+                            <div class="clearfix">
+                                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                    <li data-thumb="img/sliderimg/img/thumb/cS-1.jpg">
+                                        <span>
+                                            <div class="totalImageCount">
+                                                <i class="fa fa-camera"></i>
+                                                <span>1/10</span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <a class="img fa fa-arrows-alt" data-url="img/sliderimg/img/cS-1.jpg"></a>
+                                        </span>
+                                        <img src="img/sliderimg/img/cS-1.jpg" />
+                                    </li>
+                                    <li data-thumb="img/sliderimg/img/thumb/cS-1.jpg">
+                                        <span>
+                                            <div class="totalImageCount">
+                                                <i class="fa fa-camera"></i>
+                                                <span>1/10</span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <a class="img fa fa-arrows-alt" data-url="img/sliderimg/img/cS-1.jpg"></a>
+                                        </span>
+                                        <img src="img/sliderimg/img/cS-1.jpg" />
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="Sml_detailsMain">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-car"></i>
+                                    <div class="comp">Toyota</div>
+                                    <div class="model">Fortuner</div>
+                                    <div class="clearfix"></div>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-calendar"></i>
+                                    <div class="comp">2011</div>
+                                    <div class="clearfix"></div>
+                                </li>
+
+                                <li>
+                                    <i class="fa fa-tachometer"></i>
+                                    <div class="comp">1200 KM</div>
+                                    <div class="clearfix"></div>
+                                </li>
+
+                                <li>
+                                    <i>
+                                        <img src="img/fuel-icon.jpg">
+                                    </i>
+                                    <div class="comp">Petrol</div>
+                                    <div class="clearfix"></div>
+                                </li>
+
+                                <div class="clearfix"></div>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div id="parentHorizontalTab" class="detail_smltabbing">
+                            <ul class="resp-tabs-list hor_1">
+                                <li>Vehicle Info</li>
+                                <li>Inspection Report</li>
+                            </ul>
+                            <div class="resp-tabs-container hor_1">
+                                <div>
+
+                                    <div id="accordion">
+                                        <h3>Bidding Starting Price</h3>
+                                        <div class="content">
+                                            this is some info.
+                                        </div>
+
+                                        <h3>Registration Date</h3>
+                                        <div class="content">
+                                            this is some more info.
+                                        </div>
+
+                                        <h3>Vin No</h3>
+                                        <div class="content">
+                                            this is even more info.
+                                        </div>
+                                        <h3>Engine No</h3>
+                                        <div class="content">
+                                            <b>this</b>
+                                            <i>is</i> even more info.
+                                        </div>
+
+                                        <h3>Number Of Owners</h3>
+                                        <div class="content">
+                                            1
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="rightBoxMain">
+                            <div class="AddedBy">
+                                <div class="user_icon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="user_addedName">
+                                    <span>Added By</span>
+                                    Shashi Kant Khandelwal
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="AddedBy">
+                                <div class="user_icon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="user_addedName">
+                                    <span>Date</span>
+                                    20-Nov-2017
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="auctionDetails_Price">
+                                <i class="fa fa-inr"></i>
+                                <span>1587000</span>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="AddedBy">
+                                <div class="user_icon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="user_addedName">
+                                    <span>Ending Soon</span>
+                                    <div id="clockdiv">
+                                        <div>
+                                            <span class="days"></span>
+                                            <div class="smalltext">Days</div>
+                                        </div>
+                                        <div>
+                                            <span class="hours"></span>
+                                            <div class="smalltext">Hours</div>
+                                        </div>
+                                        <div>
+                                            <span class="minutes"></span>
+                                            <div class="smalltext">Minutes</div>
+                                        </div>
+                                        <div>
+                                            <span class="seconds"></span>
+                                            <div class="smalltext">Seconds</div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+
+                            <div class="HighestBidBox">
+                                <div class="high_name">
+                                    <span>highest bid :</span>
+                                    <div class="Hbid_price">
+                                        <i class="fa fa-inr"></i>
+                                        <span>2500</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="ViewMoreBids">
+                                    <a href="javascript: void(0);" onclick="return false;" id="viewBid">View More Bids</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="hidden_content" style="display:none;">
+                                    <ul>
+                                        <li>
+                                            <i class="fa fa-inr"></i>500 by Shashi kant
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-inr"></i>800 by Nishant
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-inr"></i>1000 by User name
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-inr"></i>500 by Shashi kant
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-inr"></i>800 by Nishant
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-inr"></i>1000 by User name
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="AllHBids">
+                                    <ul>
+                                        <li>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+</div>
