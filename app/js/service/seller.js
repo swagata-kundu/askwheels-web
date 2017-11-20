@@ -35,5 +35,16 @@ app.service("sellerService", [
         }
       });
     };
+    this.addSubseller = function(params) {
+      var uri = serviceURI.addSubSeller;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
   }
 ]);

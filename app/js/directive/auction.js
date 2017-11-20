@@ -55,3 +55,25 @@ app.directive("auctionDealer", function() {
     ]
   };
 });
+app.directive("ngDate", function() {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function(scope, element, attrs, ctrl) {
+      $(element).datepicker({
+        dateFormat: "yy-mm-dd",
+        onSelect: function(date) {
+          ctrl.$setViewValue(date);
+          if (attrs.hasOwnProperty("futureDate")) {
+            var dateToCompare = scope.$eval(attrs.futuredate);
+            if (!dateToCompare) dateToCompare = new Date();
+            date > dateToCompare
+              ? ctrl.$setValidity("future", true)
+              : ctrl.$setValidity("future", false);
+          }
+          scope.$apply();
+        }
+      });
+    }
+  };
+});

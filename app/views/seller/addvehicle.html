@@ -66,39 +66,39 @@
                                     <div class="names">Bidding Starting Price
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="number" data-ng-model="addVehicle.basic_info.start_bid" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Vehicle Name
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.vehicle_name" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Registration Date
                                         <span>*</span>
                                     </div>
-                                    <input type="text" class="datepicker">
+                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.reg_date' class="datepicker">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Vin No</div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.vin_number">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Engine No
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.engine_number" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Number of Owners</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model="addVehicle.basic_info.previous_owners">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -111,7 +111,7 @@
                                 <li>
                                     <div class="names">Fuel Type</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model="addVehicle.basic_info.fuel_type">
                                         <option>petrol</option>
                                         <option>diesel</option>
                                         <option>Hybrid</option>
@@ -121,26 +121,26 @@
                                 </li>
                                 <li>
                                     <div class="names">Color</div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.color">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Model</div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.model">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Variant
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.variant">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Evaluation Date
                                         <span>*</span>
                                     </div>
-                                    <input type="text" class="datepicker">
+                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.evaluation_date' class="datepicker" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -148,7 +148,7 @@
                                         <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model="addVehicle.basic_info.manufacturing_year">
                                         <option>2017</option>
                                         <option>2016</option>
                                         <option>2015</option>
@@ -158,20 +158,20 @@
                                 </li>
                                 <li>
                                     <div class="names">Rc Status</div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.rc_status">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Current Sity
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="text" data-ng-model="addVehicle.basic_info.location">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Passengers</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model="addVehicle.basic_info.passengers">
                                         <option>2</option>
                                         <option>4</option>
                                         <option>5</option>
@@ -185,7 +185,7 @@
                                         <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model="addVehicle.basic_info.transition_type" required>
                                         <option>manual</option>
                                         <option>automatic</option>
                                     </select>
@@ -196,7 +196,7 @@
                                     <div class="names">Distance Travelled by Vehicle
                                         <span>*</span>
                                     </div>
-                                    <input type="text">
+                                    <input type="number" data-ng-model="addVehicle.basic_info.distance_travelled">
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -216,7 +216,7 @@
                                     <div class="names">Insurance Validation
                                         <span>*</span>
                                     </div>
-                                    <input type="text" class="datepicker">
+                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.insurance_policy.insurance_validation' class="datepicker" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -224,7 +224,7 @@
                                         <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model='addVehicle.insurance_policy.insurance_type' required>
                                         <option>Third Party</option>
                                         <option>Zero Depth</option>
                                         <option>Compheriencive</option>
@@ -236,7 +236,7 @@
                                         <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select data-ng-model='addVehicle.insurance_policy.hpa_status' required>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
@@ -1584,4 +1584,3 @@
         </div>
     </div>
 </div>
-

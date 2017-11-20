@@ -9,168 +9,45 @@
 
             <div class="right_data_main addnew_vehicle">
                 <ol class="breadcrumb">
-                    <li class="active">Dashboard</li>
+                    <li>
+                        <a ui-sref="sellerDashboard">Dashboard</a>
+                    </li>
+                    <li class="active">Add Sub User</li>
                 </ol>
 
                 <div class="steps_formMain">
-                    <!-- MultiStep Form -->
+                    <form class="form-horizontal" name="addSubUser" ng-submit="save()">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="name">Full Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="user.name" id="name" placeholder="Enter Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="phone">Phone No:</label>
+                            <div class="col-sm-10">
+                                <input type="text" ng-model="user.contactNo" class="form-control" id="phone" placeholder="Enter Phone No" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pwd">Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" ng-model="user.password" class="form-control" id="pwd" placeholder="Enter password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rpwd">Repeat Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="rpwd" placeholder="Enter password" required>
+                            </div>
+                        </div>
 
-                    <form id="msform">
-                        <!-- fieldsets -->
-                        <fieldset>
-                            <h2 class="fs-title">Vehicle basic and registration details </h2>
-                            <ul class="stepone">
-
-                                <li>
-                                    <div class="names">Bidding Starting Price
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Vehicle Name
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Registration Date
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text" class="datepicker">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Vin No</div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Engine No
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Number of Owners</div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <div class="clearfix"></div>
-                                <li>
-                                    <div class="names">Fuel Type</div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>petrol</option>
-                                        <option>diesel</option>
-                                        <option>Hybrid</option>
-                                        <option>CNG</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Color</div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Model</div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Variant
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Evaluation Date
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text" class="datepicker">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Manufacturing Year
-                                        <span>*</span>
-                                    </div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>2017</option>
-                                        <option>2016</option>
-                                        <option>2015</option>
-                                        <option>2014</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Rc Status</div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Current Sity
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Passengers</div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>2</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">Transition Type
-                                        <span>*</span>
-                                    </div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select>
-                                        <option>manual</option>
-                                        <option>automatic</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-
-                                <li>
-                                    <div class="names">Distance Travelled by Vehicle
-                                        <span>*</span>
-                                    </div>
-                                    <input type="text">
-                                    <div class="clearfix"></div>
-                                </li>
-
-
-
-                                <div class="clearfix"></div>
-                            </ul>
-
-                            <input type="button" name="next" id="next" class="next action-button" value="Next" />
-                        </fieldset>
-
-
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-info">Save</button>
+                            </div>
+                        </div>
                     </form>
-
-                    <!-- /.MultiStep Form -->
                     <div class="clearfix"></div>
                 </div>
 

@@ -227,5 +227,135 @@ app.controller("sellerAddAuction", [
         return false;
       });
     });
+
+    $scope.addVehicle = {
+      basic_info: {
+        start_bid: 0,
+        vehicle_name: "",
+        reg_date: "",
+        vin_number: "",
+        engine_number: "",
+        fuel_type: "petrol",
+        color: "",
+        model: "",
+        variant: "",
+        evaluation_date: "",
+        manufacturing_year: "",
+        rc_status: "",
+        location: "",
+        passengers: 2,
+        transition_type: "manual",
+        distance_travelled: 0,
+        insurance_policy: {
+          hpa_status: "Yes",
+          insurance_type: "",
+          insurance_validation: ""
+        },
+        inspection_report: {
+          breaks: {
+            grinding_noise: {},
+            pbedf: {},
+            vss: {},
+            wlaab: {}
+          },
+          engine: {
+            battery_terminals_corrision: {},
+            exhaust_pipe_emission: {},
+            fluid_leaks: {},
+            no_black_dark_oil: {},
+            no_odors: {},
+            oil_filler: {}
+          },
+          exterior: {
+            body_type: {
+              description: "Sehdhhd",
+              value: "Sedan"
+            },
+            boot_bumper: {},
+            bpiller_driver_side: {},
+            bpiller_passanger_side: {},
+            door_fender_aligned: {},
+            driver_side_apron: {},
+            front_bumper: {},
+            front_driver_side_door: {},
+            front_driver_side_fender: {},
+            front_passanger_side_fender: {},
+            front_passanger_side_piller: {},
+            hood: {
+              description: "Susudidi",
+              value: "Original"
+            },
+            lights_functional: {},
+            roof: {},
+            passanger_side_apron: {},
+            rear_door_driver_side: {},
+            rear_door_passanger_side: {},
+            rear_driver_side_quarter_paner: {},
+            rear_passanger_side_quarter_paner: {},
+            trunk_boot: {},
+            trunk_hood_aligned: {},
+            windshield_no_cracks: {},
+            wiper_blades_functional: {}
+          },
+          frame: {
+            chassis_ok: {},
+            hole_without_scratches: {},
+            no_crumpling_inside_trunk: {}
+          },
+          interior: {
+            ac_works: {},
+            all_gauge_works: {},
+            car_alarm_works: {},
+            doors_open_close_freely: {},
+            hazard_lights_function_properly: {},
+            head_lights_work_properly: {},
+            heater_works: {},
+            lacks_air_freshner_scent: {},
+            no_warning_light_remian_illuminated: {},
+            power_windows_operates_properly: {},
+            seats_adjust_properly: {},
+            seats_equipped_seatbelt: {},
+            seats_unworn_no_cracks: {},
+            stereo_works: {},
+            sunroof_open_close_properly: {},
+            trunk_driver_door_lock_with_key: {},
+            trunk_open_close_freely: {},
+            windshiels_wiper_works: {},
+            wiper_fluid_dispenses_properly: {}
+          },
+          automatic_tansmission: {
+            fluid_clean: {},
+            no_slips_delays: {}
+          },
+          manual_transmission: {
+            gear_shifts_smoothly: {},
+            grinding_noise: {}
+          },
+          miscellaneous: {
+            car_manual: {},
+            instructions: {},
+            owner_title: {}
+          },
+          steering: {
+            clunking: {},
+            no_drift: {},
+            resistance: {},
+            stable: {}
+          },
+          suspension: {
+            cracking_noise: {},
+            same_bouncing: {},
+            vehicle_rest_levelly: {}
+          },
+          tyres: {
+            no_cuts_cracks: {},
+            same_make: {},
+            spare_tyre: {},
+            spare_tyre_inflated: {},
+            thread_worn: {}
+          }
+        }
+      }
+    };
   }
 ]);

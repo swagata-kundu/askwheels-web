@@ -93,7 +93,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state("sellerAddSubseller", {
       url: "/seller/subuser",
-      templateUrl: "views/seller/addsubseller.html",      
+      templateUrl: "views/seller/addsubseller.html",
+      controller: "subsellerAdd"
     })
     .state("dealerDashboard", {
       url: "/dealer/dashboard",
