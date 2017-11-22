@@ -259,43 +259,128 @@ app.controller("sellerAddAuction", [
             wlaab: {}
           },
           engine: {
-            battery_terminals_corrision: {},
-            exhaust_pipe_emission: {},
-            fluid_leaks: {},
-            no_black_dark_oil: {},
-            no_odors: {},
-            oil_filler: {}
+            battery_terminals_corrision: {
+              description: "",
+              value: ""
+            },
+            exhaust_pipe_emission: {
+              description: "",
+              value: ""
+            },
+            fluid_leaks: {
+              description: "",
+              value: ""
+            },
+            no_black_dark_oil: {
+              description: "",
+              value: ""
+            },
+            no_odors: {
+              description: "",
+              value: ""
+            },
+            oil_filler: {
+              description: "",
+              value: ""
+            }
           },
           exterior: {
             body_type: {
-              description: "Sehdhhd",
-              value: "Sedan"
+              description: "",
+              value: ""
             },
-            boot_bumper: {},
-            bpiller_driver_side: {},
-            bpiller_passanger_side: {},
-            door_fender_aligned: {},
-            driver_side_apron: {},
-            front_bumper: {},
-            front_driver_side_door: {},
-            front_driver_side_fender: {},
-            front_passanger_side_fender: {},
-            front_passanger_side_piller: {},
+            boot_bumper: {
+              description: "",
+              value: ""
+            },
+            bpiller_driver_side: {
+              description: "",
+              value: ""
+            },
+            bpiller_passanger_side: {
+              description: "",
+              value: ""
+            },
+            door_fender_aligned: {
+              description: "",
+              value: ""
+            },
+            driver_side_apron: {
+              description: "",
+              value: ""
+            },
+            front_bumper: {
+              description: "",
+              value: ""
+            },
+            front_driver_side_door: {
+              description: "",
+              value: ""
+            },
+            front_driver_side_fender: {
+              description: "",
+              value: ""
+            },
+            front_passanger_side_fender: {
+              description: "",
+              value: ""
+            },
+            front_passanger_side_piller: {
+              description: "",
+              value: ""
+            },
+            front_driver_side_piller: {
+              description: "",
+              value: ""
+            },
             hood: {
-              description: "Susudidi",
-              value: "Original"
+              description: "",
+              value: ""
             },
-            lights_functional: {},
-            roof: {},
-            passanger_side_apron: {},
-            rear_door_driver_side: {},
-            rear_door_passanger_side: {},
-            rear_driver_side_quarter_paner: {},
-            rear_passanger_side_quarter_paner: {},
-            trunk_boot: {},
-            trunk_hood_aligned: {},
-            windshield_no_cracks: {},
-            wiper_blades_functional: {}
+            lights_functional: {
+              description: "",
+              value: ""
+            },
+            roof: {
+              description: "",
+              value: ""
+            },
+            passanger_side_apron: {
+              description: "",
+              value: ""
+            },
+            rear_door_driver_side: {
+              description: "",
+              value: ""
+            },
+            rear_door_passanger_side: {
+              description: "",
+              value: ""
+            },
+            rear_driver_side_quarter_paner: {
+              description: "",
+              value: ""
+            },
+            rear_passanger_side_quarter_paner: {
+              description: "",
+              value: ""
+            },
+            trunk_boot: {
+              description: "",
+              value: ""
+            },
+            trunk_hood_aligned: {
+              description: "",
+              value: ""
+            },
+            windshield_no_cracks: {
+              description: "",
+              value: ""
+            },
+            wiper_blades_functional: {
+              description: "",
+              value: ""
+            }
           },
           frame: {
             chassis_ok: {},
@@ -343,16 +428,40 @@ app.controller("sellerAddAuction", [
             stable: {}
           },
           suspension: {
-            cracking_noise: {},
-            same_bouncing: {},
-            vehicle_rest_levelly: {}
+            cracking_noise: {
+              description: "",
+              value: ""
+            },
+            same_bouncing: {
+              description: "",
+              value: ""
+            },
+            vehicle_rest_levelly: {
+              description: "",
+              value: ""
+            }
           },
           tyres: {
-            no_cuts_cracks: {},
-            same_make: {},
-            spare_tyre: {},
-            spare_tyre_inflated: {},
-            thread_worn: {}
+            no_cuts_cracks: {
+              description: "",
+              value: ""
+            },
+            same_make: {
+              description: "",
+              value: ""
+            },
+            spare_tyre: {
+              description: "",
+              value: ""
+            },
+            spare_tyre_inflated: {
+              description: "",
+              value: ""
+            },
+            thread_worn: {
+              description: "",
+              value: ""
+            }
           }
         }
       }
