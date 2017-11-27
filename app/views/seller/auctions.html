@@ -28,7 +28,7 @@
             <img ng-src="{{vehicle.imageUrl}}">
         </div>
         <h2>
-            <a href="#">{{vehicle.vehicle_name}}</a>
+            <a ui-sref="sellerAuctionDetail({vehicleId:'{{vehicle.vehicleId}}',model:'{{vehicle.vehicle_name}}'})">{{vehicle.vehicle_name}}</a>
         </h2>
         <h3 ng-if="vehicle.auctionType===1">
             <span class="bidHeading">Highest Bid :</span>

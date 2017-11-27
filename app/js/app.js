@@ -109,10 +109,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
-    .state("dealerVehicleDetail", {
-      url: "/dealer/auction/detail",
-      templateUrl: "views/dealer/vehicledetail.html",
-      controller: "dealerAuctionDetail"
+    .state("sellerAuctionDetail", {
+      url: "/seller/auction/{vehicleId:int}/{model}",
+      templateUrl: "views/seller/vehicledetail.html",
+      controller: "sellerAuctionDetail"
     })
     .state("help", {
       url: "/help",
