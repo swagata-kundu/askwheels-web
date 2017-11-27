@@ -184,13 +184,13 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div ng-if="auction.bids.length>0">
+                                <div>
                                     <div class="ViewMoreBids">
                                         <a href="javascript: void(0);" onclick="return false;" id="viewBid">View More Bids</a>
                                         <div class="clearfix"></div>
                                     </div>
                                     <div id="hidden_content" style="display:none;">
-                                        <ul>
+                                        <ul ng-if="auction.bids.length>0">
                                             <li ng-repeat="bid in auction.bids">
                                                 <i class="fa fa-inr"></i>{{bid.amount}} by {{bid.bidBy}}
                                                 <div class="clearfix"></div>

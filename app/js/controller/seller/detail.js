@@ -3,23 +3,7 @@ app.controller("sellerAuctionDetail", [
   "$state",
   "auctionService",
   function($scope, $state, auctionService) {
-    function resetSlider() {
-      $("#content-slider").lightSlider({
-        loop: true,
-        keyPress: true
-      });
-      $("#image-gallery").lightSlider({
-        gallery: true,
-        item: 1,
-        thumbItem: 5,
-        slideMargin: 0,
-        speed: 300,
-        auto: true,
-        loop: true,
-        onSliderLoad: function() {
-          $("#image-gallery").removeClass("cS-hidden");
-        }
-      });
+    function setPlugins() {
       $("#parentHorizontalTab").easyResponsiveTabs({
         type: "default", //Types: default, vertical, accordion
         width: "auto", //auto or any width like 600px
@@ -64,7 +48,7 @@ app.controller("sellerAuctionDetail", [
       });
     }
     $(document).ready(function() {
-      resetSlider();
+      setPlugins();
     });
 
     let vehicleId = $state.params.vehicleId;
@@ -74,8 +58,22 @@ app.controller("sellerAuctionDetail", [
     };
     auctionService.getAuctionDetail(vehicleId).then(function(result) {
       console.log(result.data.data);
-      resetSlider();
       $scope.auction = result.data.data;
+      setSlider();
     });
+    function setSlider() {
+      $("#image-gallery").lightSlider({
+        gallery: true,
+        item: 1,
+        thumbItem: 5,
+        slideMargin: 0,
+        speed: 500,
+        auto: true,
+        loop: true,
+        onSliderLoad: function() {
+          $("#image-gallery").removeClass("cS-hidden");
+        }
+      });
+    }
   }
 ]);
