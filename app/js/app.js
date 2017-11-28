@@ -114,6 +114,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "views/seller/vehicledetail.html",
       controller: "sellerAuctionDetail"
     })
+    .state("userProfile", {
+      url: "/profile",
+      templateUrl: "views/profile.html",
+      controller: "userProfile"
+    })
+    .state("changeUserPassword", {
+      url: "/profile/changepassword",
+      templateUrl: "views/changepassword.html",
+      controller: "changePassword"
+    })
     .state("help", {
       url: "/help",
       templateUrl: "views/help.html"
