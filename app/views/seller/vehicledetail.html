@@ -54,7 +54,7 @@
 
                                 <li>
                                     <i class="fa fa-tachometer"></i>
-                                    <div class="comp">{{auction.distance_travelled}} KM</div>
+                                    <div class="comp">{{auction.distance_travelled.toLocaleString()}} KM</div>
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -78,36 +78,135 @@
                                 <li>Inspection Report</li>
                             </ul>
                             <div class="resp-tabs-container hor_1">
+                                <!-- Basic Info -->
                                 <div>
-
-                                    <div id="accordion">
-                                        <h3>Bidding Starting Price</h3>
-                                        <div class="content">
-                                            {{auction.start_bid}}
-                                        </div>
-
-                                        <h3>Registration Date</h3>
-                                        <div class="content">
-                                            {{auction.reg_date}}
-                                        </div>
-
-                                        <h3>Vin No</h3>
-                                        <div class="content">
-                                            {{auction.vin_number}}
-                                        </div>
-                                        <h3>Engine No</h3>
-                                        <div class="content">
-                                            {{auction.engine_number}}
-                                        </div>
-
-                                        <h3>Number Of Owners</h3>
-                                        <div class="content">
-                                            {{auction.previous_owners}}
-                                        </div>
-
+                                    <div class="overView_main">
+                                        <ul>
+                                            <li>
+                                                <span class="Headings">Price</span>
+                                                <span class="Headings_data">
+                                                    <i class="fa fa-inr"></i> {{auction.start_bid.toLocaleString()}}</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <span class="Headings">Year</span>
+                                                <span class="Headings_data">{{auction.manufacturing_year}}</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <span class="Headings">Kilometer</span>
+                                                <span class="Headings_data">{{auction.distance_travelled.toLocaleString()}} Km</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <span class="Headings">Fuel Type</span>
+                                                <span class="Headings_data">{{auction.fuel_type}}</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <span class="Headings">Transmission</span>
+                                                <span class="Headings_data">{{auction.transition_type}}</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li>
+                                                <span class="Headings">Car Available at</span>
+                                                <span class="Headings_data">{{auction.location}}</span>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                <!-- Inspection Report -->
+                                <div>
+                                    <div id="wrapper">
+                                        <div class="accordionButton">Button 1 Content</div>
+                                        <div class="accordionContent">
+                                            <div class="overView_main">
+                                                <ul>
+                                                    <li>
+                                                        <span class="Headings">Price</span>
+                                                        <span class="Headings_data">
+                                                            <i class="fa fa-inr"></i> 4.50L</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Year</span>
+                                                        <span class="Headings_data">Jun 2015</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Kilometer</span>
+                                                        <span class="Headings_data">17,288 km</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Fuel Type</span>
+                                                        <span class="Headings_data">Petrol</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Transmission</span>
+                                                        <span class="Headings_data">Manual</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Car Available at</span>
+                                                        <span class="Headings_data">Jmd Regent, Gurgaon</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <div class="clearfix"></div>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
 
+                                        <div class="accordionButton">Button 2 Content</div>
+                                        <div class="accordionContent">
+                                            <div class="overView_main">
+                                                <ul>
+                                                    <li>
+                                                        <span class="Headings">Price</span>
+                                                        <span class="Headings_data">
+                                                            <i class="fa fa-inr"></i> 4.50L</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Year</span>
+                                                        <span class="Headings_data">Jun 2015</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Kilometer</span>
+                                                        <span class="Headings_data">17,288 km</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Fuel Type</span>
+                                                        <span class="Headings_data">Petrol</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Transmission</span>
+                                                        <span class="Headings_data">Manual</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <li>
+                                                        <span class="Headings">Car Available at</span>
+                                                        <span class="Headings_data">Jmd Regent, Gurgaon</span>
+                                                        <div class="clearfix"></div>
+                                                    </li>
+                                                    <div class="clearfix"></div>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
 
                             </div>
                         </div>
@@ -140,32 +239,51 @@
                                 <div class="clearfix"></div>
                             </div>
 
-                            <div class="auctionDetails_Price">
-                                <i class="fa fa-inr"></i>
-                                <span>{{auction.start_bid}}</span>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="AddedBy">
                                 <div class="user_icon">
-                                    <i class="fa fa-calendar"></i>
+                                    <i>
+                                        <img src="img/insuranceIcon.jpg">
+                                    </i>
                                 </div>
                                 <div class="user_addedName">
-                                    <span>Ending Soon</span>
+                                    <span>Insurance</span>
+                                    <span class="tillDate">
+                                        <strong>Till Date:</strong> {{auction.insurance_validation}}</span>
+                                    <span class="tillDate">
+                                        <strong>Insurance Type:</strong> {{auction.insurance_type}}</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="auctionDetails_Price">
+                                <i class="fa fa-inr"></i>
+                                <span>{{auction.start_bid.toLocaleString()}}</span>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Timer Side -->
+                            <div class="AddedBy" ng-if="auction.auctionType<=2">
+                                <div class="user_icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <div class="user_addedName">
+                                    <span ng-if="auction.auctionType==1">Ending Soon</span>
+                                    <span ng-if="auction.auctionType==2">Comming Soon</span>
                                     <div id="clockdiv">
                                         <div>
-                                            <span class="days"></span>
+                                            <span class="days">{{timings.day}}</span>
                                             <div class="smalltext">Days</div>
                                         </div>
                                         <div>
-                                            <span class="hours"></span>
+                                            <span class="hours">{{timings.hour}}</span>
                                             <div class="smalltext">Hours</div>
                                         </div>
                                         <div>
-                                            <span class="minutes"></span>
+                                            <span class="minutes">{{timings.min}}</span>
                                             <div class="smalltext">Minutes</div>
                                         </div>
                                         <div>
-                                            <span class="seconds"></span>
+                                            <span class="seconds">{{timings.sec}}</span>
                                             <div class="smalltext">Seconds</div>
                                         </div>
                                     </div>
@@ -175,21 +293,23 @@
                             </div>
 
 
-                            <div class="HighestBidBox">
+                            <div ng-if="auction.highestBid" class="HighestBidBox">
                                 <div class="high_name">
                                     <span>highest bid :</span>
                                     <div class="Hbid_price">
                                         <i class="fa fa-inr"></i>
-                                        <span>{{auction.highestBid}}</span>
+                                        <span>{{auction.highestBid}} By {{auction.highestBidBy}}</span>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div>
                                     <div class="ViewMoreBids">
-                                        <a href="javascript: void(0);" onclick="return false;" id="viewBid">View More Bids</a>
+                                        <a ng-if="!viewBid" ng-click="toggleViewBid()">View More Bids</a>
+                                        <a ng-if="viewBid" ng-click="toggleViewBid()">Hide Bid</a>                                        
+                                        <span class="noBids">({{auction.bids.length}})</span>
                                         <div class="clearfix"></div>
                                     </div>
-                                    <div id="hidden_content" style="display:none;">
+                                    <div ng-if="viewBid">
                                         <ul ng-if="auction.bids.length>0">
                                             <li ng-repeat="bid in auction.bids">
                                                 <i class="fa fa-inr"></i>{{bid.amount}} by {{bid.bidBy}}

@@ -30,10 +30,10 @@
         <h2>
             <a ui-sref="sellerAuctionDetail({vehicleId:'{{vehicle.vehicleId}}',model:'{{vehicle.vehicle_name}}'})">{{vehicle.vehicle_name}}</a>
         </h2>
-        <h3 ng-if="vehicle.auctionType===1">
+        <h3 ng-if="vehicle.auctionType===1 && vehicle.highestBid">
             <span class="bidHeading">Highest Bid :</span>
             <span class="bidBy">
-                <i class="fa fa-rupee"></i>5000/- By Shashi kant Kahndelwal</span>
+                <i class="fa fa-rupee"></i>{{vehicle.highestBid.toLocaleString()}}/- By {{vehicle.highestBidBy}}</span>
         </h3>
         <ul>
             <li>
@@ -57,7 +57,7 @@
             <div class="clearfix"></div>
             <li>
                 <i class="fa fa-tachometer"></i>
-                <span class="smlData">{{vehicle.distance_travelled}} KM</span>
+                <span class="smlData">{{vehicle.distance_travelled.toLocaleString()}} KM</span>
                 <div class="clearfix"></div>
             </li>
             <li>
@@ -81,5 +81,5 @@
         <div ng-if="vehicle.auctionType===4" class="reason">
             <span>Reason:</span>
             {{vehicle.reject_reason}}
+        </div>
     </div>
-</div>

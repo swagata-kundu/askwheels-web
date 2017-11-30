@@ -2,7 +2,8 @@ app.controller("sellerAuctionDetail", [
   "$scope",
   "$state",
   "auctionService",
-  function($scope, $state, auctionService) {
+  "$interval",
+  function($scope, $state, auctionService, $interval) {
     function setPlugins() {
       $("#parentHorizontalTab").easyResponsiveTabs({
         type: "default", //Types: default, vertical, accordion
@@ -18,34 +19,29 @@ app.controller("sellerAuctionDetail", [
           $info.show();
         }
       });
-      $(function() {
-        $("#accordion .content").hide();
-        $("#accordion h3:first")
-          .addClass("active")
-          .next()
-          .slideDown("slow");
-        $("#accordion h3").click(function() {
-          if (
-            $(this)
-              .next()
-              .is(":hidden")
-          ) {
-            $("#accordion h3")
-              .removeClass("active")
-              .next()
-              .slideUp("slow");
-            $(this)
-              .toggleClass("active")
-              .next()
-              .slideDown("slow");
-          }
+      $(".accordionButton").click(function() {
+        $(".accordionButton").removeClass("on");
+        $(".accordionContent").slideUp("normal");
+        if (
+          $(this)
+            .next()
+            .is(":hidden") == true
+        ) {
+          $(this).addClass("on");
+          $(this)
+            .next()
+            .slideDown("normal");
+        }
+      });
+      $(".accordionButton")
+        .mouseover(function() {
+          $(this).addClass("over");
+        })
+        .mouseout(function() {
+          $(this).removeClass("over");
         });
-      });
-      $("#viewBid").click(function() {
-        if ($(this).text() == "View More Bids") $(this).text("Hide Bid");
-        else $(this).text("View More Bids");
-        $("#hidden_content").slideToggle("slow");
-      });
+      $(".accordionContent").hide();
+     
     }
     $(document).ready(function() {
       setPlugins();
@@ -56,16 +52,31 @@ app.controller("sellerAuctionDetail", [
       images: [],
       bids: []
     };
+
+    $scope.viewBid = false;
+
+    $scope.timings = {
+      day: "",
+      hour: "",
+      min: "",
+      sec: ""
+    };
+    var clockInterval;
     auctionService.getAuctionDetail(vehicleId).then(function(result) {
       console.log(result.data.data);
       $scope.auction = result.data.data;
       setSlider();
+      clockInterval = $interval(calculateTime, 1000);
     });
     function setSlider() {
+      $("#content-slider").lightSlider({
+        loop: true,
+        keyPress: true
+      });
       $("#image-gallery").lightSlider({
         gallery: true,
         item: 1,
-        thumbItem: 5,
+        thumbItem: 9,
         slideMargin: 0,
         speed: 500,
         auto: true,
@@ -75,5 +86,31 @@ app.controller("sellerAuctionDetail", [
         }
       });
     }
+
+    function calculateTime() {
+      var vehicle = $scope.auction;
+      if (vehicle.auction_start_date && vehicle.auctionType <= 2) {
+        var startDate = moment(vehicle.auction_start_date);
+        var now = moment();
+        var duration;
+        if (startDate.isBefore(now)) {
+          var newStart = startDate.add(1, "d");
+          duration = moment.duration(newStart.diff(now));
+        } else {
+          duration = moment.duration(startDate.diff(now));
+        }
+        if (moment.duration().milliseconds() < 0) {
+          $interval.cancel(clockInterval);
+        }
+        $scope.timings.day = duration.days();
+        $scope.timings.hour = duration.hours();
+        $scope.timings.min = duration.minutes();
+        $scope.timings.sec = duration.seconds();
+      }
+    }
+
+    $scope.toggleViewBid = function() {
+      $scope.viewBid = !$scope.viewBid;
+    };
   }
 ]);

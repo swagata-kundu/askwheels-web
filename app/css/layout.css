@@ -173,7 +173,6 @@ body {
 .leff_main_box {
   width: 100%;
   position: relative;
-  height: 100vh;
   padding: 15px 15px 15px 15px;
   background: #fff;
 }
@@ -1556,6 +1555,33 @@ b {
   border-radius: 100%;
   text-align: center;
   padding-top: 3px;
+  display: inline-block;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_icon
+  i
+  img {
+  width: 22px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .ViewMoreBids
+  a {
+  font-size: 14px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .ViewMoreBids
+  span.noBids {
+  font-size: 13px;
+  margin-left: 4px;
 }
 .right_data_main.addnew_vehicle
   .col-lg-4
@@ -1687,7 +1713,7 @@ b {
   text-align: left;
   text-transform: capitalize;
   float: left;
-  font-size: 19px;
+  font-size: 18px;
 }
 .right_data_main.addnew_vehicle
   .col-lg-4
@@ -1696,7 +1722,19 @@ b {
   .high_name
   .Hbid_price {
   float: left;
-  margin: 0 0 0 15px;
+  margin: 0 0 0 0;
+  width: 100%;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .HighestBidBox
+  .high_name
+  .Hbid_price
+  span {
+  float: left;
+  font-size: 16px;
+  margin-top: 4px;
 }
 .right_data_main.addnew_vehicle
   .col-lg-4
@@ -1715,10 +1753,12 @@ b {
   .Hbid_price
   i {
   float: left;
-  font-size: 23px;
+  font-size: 18px;
   color: #006fb5;
   margin-right: 5px;
+  margin-top: 5px;
 }
+
 .right_data_main.addnew_vehicle
   .col-lg-4
   .rightBoxMain
@@ -1792,6 +1832,74 @@ b {
   li:nth-of-type(2n + 2) {
   background: #fff;
 }
+.leff_main_box.leftFixed {
+  position: fixed;
+  max-width: 307px;
+}
+.lSSlideOuter .lSPager.lSGallery li.active img {
+  border: 1px solid #000;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  span.tillDate {
+  color: #444;
+  font-weight: normal;
+}
+.right_data_main.addnew_vehicle .col-lg-4 .rightBoxMain .AddedBy span strong {
+  font-weight: 600;
+}
+.overView_main {
+  width: 100%;
+}
+.overView_main ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.overView_main ul li {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.overView_main ul li span {
+  display: inline-block;
+  width: 50%;
+  float: left;
+  word-wrap: break-word;
+}
+
+.overView_main ul li span.Headings {
+  color: #82888b;
+}
+
+.overView_main ul li span.Headings_data {
+  color: #565a5c;
+}
+.resp-tabs-container .resp-tab-content .accordionButton {
+  padding: 5px;
+  background: #f2f2f2;
+  border: 1px solid #f1f1f1;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 5px;
+}
+.resp-tabs-container .resp-tab-content .accordionButton::after {
+  content: "\f0dd";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 17px;
+  line-height: 10px;
+}
+.resp-tabs-container .resp-tab-content .accordionButton.on::after {
+  content: "\f0de";
+  top: 13px;
+}
 
 @media screen and (max-width: 1340px) {
   .right_data_main.addnew_vehicle
@@ -1844,6 +1952,9 @@ b {
     .NameData {
     width: 70%;
   }
+  .leff_main_box.leftFixed {
+    max-width: 288px;
+  }
 }
 @media screen and (max-width: 1260px) {
   .right_data_main.addnew_vehicle
@@ -1887,6 +1998,9 @@ b {
     span {
     margin-right: 8px;
   }
+  .leff_main_box.leftFixed {
+    max-width: 277px;
+  }
 }
 @media screen and (max-width: 1200px) {
   .right_data_main #parentHorizontalTab .resp-tab-content .auction_box {
@@ -1926,6 +2040,20 @@ b {
     .smalltext {
     font-size: 12px;
     padding: 0;
+  }
+  .leff_main_box.leftFixed {
+    max-width: 267px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .leff_main_box.leftFixed {
+    max-width: 248px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .leff_main_box.leftFixed {
+    max-width: 230px;
   }
 }
 
@@ -1988,6 +2116,20 @@ b {
     .resp-tab-item {
     font-size: 14px;
     margin-right: 8px;
+  }
+  .leff_main_box.leftFixed {
+    max-width: 290px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .leff_main_box.leftFixed {
+    max-width: 260px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .leff_main_box.leftFixed {
+    max-width: 230px;
   }
 }
 
@@ -2099,6 +2241,13 @@ b {
   }
   .right_data_main #parentHorizontalTab .resp-tab-content .auction_box ul li {
     width: 100%;
+  }
+  .overView_main ul li span {
+    display: block;
+    width: 100%;
+  }
+  .overView_main ul li span.Headings {
+    margin-bottom: 5px;
   }
 }
 
