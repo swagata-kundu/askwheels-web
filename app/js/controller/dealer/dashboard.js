@@ -79,5 +79,49 @@ app.controller("dealerDashobard", [
       };
       getAuctions();
     };
+
+    $scope.$on("resetDealerList", function() {
+      getAuctions();
+    });
+  }
+]);
+
+app.controller("dealerWatchList", [
+  "$scope",
+  "$state",
+  "dealerService",
+  function($scope, $state, dealerService) {
+    $scope.auctions = [];
+    dealerService.getWishList().then(function(result) {
+      $scope.auctions = result.data.data;
+    });
+  }
+]);
+
+app.controller("dealerBid", [
+  "$scope",
+  "$state",
+  "dealerService",
+  "$uibModalInstance",
+  "vehicle",
+  function($scope, $state, dealerService, $uibModalInstance, vehicle) {
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss("cancel");
+    };
+    $scope.amount = vehicle.highestBid ? vehicle.highestBid + 1 : 0;
+    $scope.submitBid = function() {
+      dealerService
+        .submitBit({ vehicleId: vehicle.vehicleId, amount: $scope.amount })
+        .then(
+          function(response) {
+            $uibModalInstance.close("ok");
+            bootbox.alert(response.data.message);
+          },
+          function(error) {
+            $uibModalInstance.dismiss("cancel");
+            showErrorMessage(error);
+          }
+        );
+    };
   }
 ]);

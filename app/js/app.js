@@ -94,7 +94,15 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerAddSubseller", {
       url: "/seller/subuser",
       templateUrl: "views/seller/addsubseller.html",
-      controller: "subsellerAdd"
+      controller: "subsellerAdd",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
     })
     .state("dealerDashboard", {
       url: "/dealer/dashboard",
@@ -112,7 +120,41 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     .state("sellerAuctionDetail", {
       url: "/seller/auction/{vehicleId:int}/{model}",
       templateUrl: "views/seller/vehicledetail.html",
-      controller: "sellerAuctionDetail"
+      controller: "sellerAuctionDetail",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
+    })
+    .state("dealerAuctionDetail", {
+      url: "/dealer/auction/{vehicleId:int}/{model}",
+      templateUrl: "views/seller/vehicledetail.html",
+      controller: "sellerAuctionDetail",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(3);
+          }
+        ]
+      }
+    })
+    .state("dealerWatchList", {
+      url: "/dealer/watch",
+      templateUrl: "views/dealer/wishlist.html",
+      controller: "dealerWatchList",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(3);
+          }
+        ]
+      }
     })
     .state("userProfile", {
       url: "/profile",

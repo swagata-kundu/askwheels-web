@@ -72,14 +72,12 @@ a:hover {
   margin-top: 9%;
   margin-bottom: 9%;
 }
-
 .form-box input[type="checkbox"] {
   border: solid 1px #dedede;
   height: 25px;
   width: 25px;
   float: left;
 }
-
 .form-box select {
   border-botom: solid 1px #dedede;
   height: 35px;
@@ -103,12 +101,10 @@ select:focus {
   border: 0;
   color: #fff;
 }
-
 .form-button a {
   color: #fff;
   display: block;
 }
-
 .form-button-2 {
   background: #006fb5;
   color: #ccc;
@@ -120,7 +116,6 @@ select:focus {
   border: 0;
   color: #fff;
 }
-
 .form-button-2 a {
   color: #fff;
   display: block;
@@ -141,7 +136,6 @@ select:focus {
   margin-top: 15px;
   margin-bottom: 25px;
 }
-
 .form__wrapper {
   overflow: hidden;
   position: relative;
@@ -151,7 +145,6 @@ select:focus {
   width: 100%;
   vertical-align: top;
 }
-
 .form__input {
   display: block;
   position: relative;
@@ -197,7 +190,6 @@ select:focus {
 .login_contant .form__wrapper {
   margin-bottom: -3px;
 }
-
 .form__input:focus {
   background-position: 0 0;
   color: #405364;
@@ -233,7 +225,6 @@ select:focus {
   color: #00aeef;
   font-weight: 600;
 }
-
 .form__label1 {
   position: absolute;
   bottom: 0;
@@ -261,7 +252,7 @@ select:focus {
   color: #b3c0b2;
   font-weight: 600;
 }
-/**********************************30/10/17***********************************/
+/* *********************************30/10/17********************************** */
 .forms .col-md-3 {
   padding: 0%;
   margin-top: 0%;
@@ -387,7 +378,8 @@ select:focus {
   text-align: center;
   line-height: 25px;
 }
-.like-icon a:hover {
+.like-icon a:hover,
+.like-icon .wish {
   background: url(../img/like-hover.png) no-repeat;
   width: 25px;
   height: 25px;
@@ -397,23 +389,21 @@ select:focus {
   height: 40px;
   width: 50%;
 }
-
 @media (max-width: 768px) {
   .form-box {
     width: 60%;
     padding: 5%;
   }
 }
-
 @media (max-width: 767px) {
   .form-box {
     width: 100%;
     padding: 5%;
   }
-
   .sign {
     width: auto;
   }
+
   .forms .col-md-9 {
     padding-left: 0px;
   }

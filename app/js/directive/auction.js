@@ -48,9 +48,42 @@ app.directive("auctionDealer", function() {
       "$scope",
       "$state",
       "$rootScope",
-      function($scope, $state, $rootScope) {
+      "dealerService",
+      "$uibModal",
+      function($scope, $state, $rootScope, dealerService, $uibModal) {
         if ($scope.vehicle) {
         }
+
+        $scope.addWatchList = function() {
+          dealerService
+            .addWishList({ vehicleId: $scope.vehicle.vehicleId })
+            .then(function(result) {
+              if ($scope.vehicle.isWatchList == 1) {
+                $scope.vehicle.isWatchList = 0;
+              } else {
+                $scope.vehicle.isWatchList = 1;
+              }
+            });
+        };
+
+        $scope.submitBid = function() {
+          var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: "views/dealer/bid.html",
+            controller: "dealerBid",
+            resolve: {
+              vehicle: function() {
+                return $scope.vehicle;
+              }
+            }
+          });
+          modalInstance.result.then(
+            function() {
+              $scope.$emit("resetDealerList");
+            },
+            function() {}
+          );
+        };
       }
     ]
   };

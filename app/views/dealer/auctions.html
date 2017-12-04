@@ -2,11 +2,13 @@
     <div class="car-detail">
         <div class="car-image">
             <img ng-src="{{vehicle.imageUrl}}" class="img-responsive">
-            <div class="like-icon">
-                <a href="">like</a>
+            <div class="like-icon" ng-click="addWatchList()">
+                <a ng-class="{'wish':vehicle.isWatchList==1}" href="">like</a>
             </div>
         </div>
-        <h3> {{vehicle.vehicle_name}}</h3>
+        <h3>
+            <a ui-sref="dealerAuctionDetail({vehicleId:'{{vehicle.vehicleId}}',model:'{{vehicle.vehicle_name}}'})">{{vehicle.vehicle_name}}</a>
+        </h3>
         <p>
         </p>
         <ul>
@@ -29,16 +31,16 @@
         </ul>
         <p></p>
         <p> Highest bid :
-            <span> 300000 </span>
+            <span> {{vehicle.highestBid}} </span>
         </p>
         <p>My last bid :
-            <span> 500000</span>
+            <span> {{vehicle.lastBid}}</span>
         </p>
         <p>
             <label> - </label>
             <input type="text" class="text-field">
             <label> + </label>
-            <input type="submit" value="Bid" class="form-button">
+            <input ng-click="submitBid()" type="submit" value="Bid" class="form-button">
         </p>
     </div>
 </div>
