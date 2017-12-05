@@ -118,7 +118,8 @@ app.controller("sellerAddAuction", [
   "$scope",
   "$state",
   "sellerService",
-  function($scope, $state, sellerService) {
+  "auctionService",
+  function($scope, $state, sellerService, auctionService) {
     $(function() {
       //jQuery time
       var current_fs, next_fs, previous_fs; //fieldsets
@@ -576,6 +577,32 @@ app.controller("sellerAddAuction", [
           }
         }
       }
+    };
+
+    $scope.selectedFiles = [];
+
+    $scope.uploadFiles = function(files) {
+      angular.forEach(files, function(file) {
+        $scope.selectedFiles.push(file);
+      });
+    };
+
+    $scope.removeFile = function(index) {
+      $scope.selectedFiles = [
+        ...$scope.selectedFiles.slice(0, index),
+        ...$scope.selectedFiles.slice(index + 1)
+      ];
+    };
+
+    $scope.uploadToServer = function() {
+      auctionService.uploadFiles($scope.selectedFiles).then(
+        function(result) {
+          console.log(result.data.data);
+        },
+        function(error) {
+          console.log(error);
+        }
+      );
     };
   }
 ]);

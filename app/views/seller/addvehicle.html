@@ -44,23 +44,14 @@
                                     <div class="names">Add Vehicle Images
                                         <span>*</span>
                                     </div>
-                                    <input type="file">
+                                    <input type="file" ngf-select="uploadFiles($files)" multiple ngf-accept="'image/*'" />
                                     <ul>
-                                        <li>
-                                            <a href="#" class="fa fa-close"></a>
-                                            <img src="img/car.jpg">
+                                        <li ng-repeat="file in selectedFiles">
+                                            <a href="#" class="fa fa-close" ng-click="removeFile($index)"></a>
+                                            <img ngf-src="file">
                                             <div class="clearfix"></div>
                                         </li>
-                                        <li>
-                                            <a href="#" class="fa fa-close"></a>
-                                            <img src="img/car.jpg">
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="fa fa-close"></a>
-                                            <img src="img/car.jpg">
-                                            <div class="clearfix"></div>
-                                        </li>
+
                                         <div class="clearfix"></div>
                                     </ul>
                                     <div class="clearfix"></div>
@@ -207,6 +198,7 @@
 
                                 <div class="clearfix"></div>
                             </ul>
+                            <input type="button" ng-click="uploadToServer()" value="Upload" />
 
                             <input type="button" name="next" id="next" class="next action-button" value="Next" />
                         </fieldset>
@@ -240,8 +232,8 @@
                                     </div>
                                     <i class="fa fa-angle-down"></i>
                                     <select data-ng-model='addVehicle.insurance_policy.hpa_status' required>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -556,8 +548,8 @@
                                     <div class="names">Windshield Free of Cracks</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.windshield_no_cracks.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                         <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
@@ -599,8 +591,8 @@
                                     <div class="names">Seams Where The Trunk and Hood Close Are Properly Aligned</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -614,8 +606,8 @@
                                     <div class="names">Seams Where Doors and Fenders Meet Are Properly Aligned</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -629,8 +621,8 @@
                                     <div class="names">Windshields Wipers and Blades Fully Functional</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -644,8 +636,8 @@
                                     <div class="names">Headlights and Directional Lights Intact and Full Functional</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select>
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -687,8 +679,8 @@
                                     <div class="names">Tyres are all of the same make</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.same_make.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -702,8 +694,8 @@
                                     <div class="names">Tyres Are of Free of Any Cuts, Bubbles or Cracks</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.no_cuts_cracks.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -717,8 +709,8 @@
                                     <div class="names">Spare Tyre, Jack and Lug Wrench on Car And Fully Functional</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.spare_tyre.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -732,8 +724,8 @@
                                     <div class="names">Spare Tyres Inflated</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.spare_tyre_inflated.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -747,8 +739,8 @@
                                     <div class="names">Tread Worn Evenly (uneven wear indicates alignment and suspension problems)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.thread_worn.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -777,8 +769,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.fluid_leaks.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -791,8 +783,8 @@
                                     <div class="names">Oil Filler Neck Not Coated With Thick, Black Deposits</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.oil_filler.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -806,8 +798,8 @@
                                     <div class="names">Battery Terminals Free of Corrosion</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.battery_terminals_corrision.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -821,8 +813,8 @@
                                     <div class="names">Oil Dip Stick Free of Dark, Black Oil</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.no_black_dark_oil.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -836,8 +828,8 @@
                                     <div class="names">Free of Odors While Engine is Running</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.no_odors.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -853,8 +845,8 @@
                                     </div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine.exhaust_pipe_emission.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -883,8 +875,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.suspension.vehicle_rest_levelly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -897,8 +889,8 @@
                                     <div class="names">When Bouncing The Vehicle's Corners, No Creaking Noises Are Made</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.suspension.cracking_noise.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -912,8 +904,8 @@
                                     <div class="names">All Corners Respond The Same When Bouncing</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.suspension.same_bouncing.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -941,8 +933,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.seats_unworn_no_cracks.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -955,8 +947,8 @@
                                     <div class="names">All Doors Open and Close Freely</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.doors_open_close_freely.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -970,8 +962,8 @@
                                     <div class="names">All Gauges Work</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.all_gauge_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -985,8 +977,8 @@
                                     <div class="names">No Dashboard Warning Lights Remain Illuminated</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.no_warning_light_remian_illuminated.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1000,8 +992,8 @@
                                     <div class="names">Stereo Works</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.stereo_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1015,8 +1007,8 @@
                                     <div class="names">Heater Works</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.heater_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1030,8 +1022,8 @@
                                     <div class="names">Air Conditioner Works</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.ac_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1045,8 +1037,8 @@
                                     <div class="names">Windshield Wipers Work</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.windshiels_wiper_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1060,8 +1052,8 @@
                                     <div class="names">Windshield Wiper Fluid Dispenses Properly</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.wiper_fluid_dispenses_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1075,8 +1067,8 @@
                                     <div class="names">All Seats Equipped With Functional Seat Belts</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.seats_equipped_seatbelt.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1090,8 +1082,8 @@
                                     <div class="names">All Seats Adjust Properly</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.seats_adjust_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1105,8 +1097,8 @@
                                     <div class="names">Power Windows Operate Properly</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1120,8 +1112,8 @@
                                     <div class="names">Sunroof Opens and Closes Properly (If Applicable)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.sunroof_open_close_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1135,8 +1127,8 @@
                                     <div class="names">Car Alarm Works (If Applicable)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.car_alarm_works.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1150,8 +1142,8 @@
                                     <div class="names">Trunk And Driver-Dide Door Lock And Unlock With Key</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.trunk_driver_door_lock_with_key.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1166,8 +1158,8 @@
                                     <div class="names">Hazard Lights Function Properly</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.hazard_lights_function_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1182,8 +1174,8 @@
                                     <div class="names">Headlights, Including Bright, Work Properly</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.head_lights_work_properly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1197,8 +1189,8 @@
                                     <div class="names">Lacks a Heavy Scent of Air Freshener (May Indicate Something Is Being Concealed)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.lacks_air_freshner_scent.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1227,8 +1219,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.frame.chassis_ok.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1241,8 +1233,8 @@
                                     <div class="names">Signs of Crumpling or Straightening Inside The Trunk</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.frame.no_crumpling_inside_trunk.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1256,8 +1248,8 @@
                                     <div class="names">Frame Holes Just Inside Outer Edge Clean And Free of Scratches</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.frame.hole_without_scratches.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1286,8 +1278,8 @@
                                     <div class="names">Transmission Neither Slips Nor Delays When Driving</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.automatic_tansmission.no_slips_delays.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1304,8 +1296,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.automatic_tansmission.fluid_clean.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1333,8 +1325,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.manual_transmission.gear_shifts_smoothly.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1347,8 +1339,8 @@
                                     <div class="names">Grinding Noises When In Reverse</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.manual_transmission.grinding_noise.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1373,8 +1365,8 @@
                                     <div class="names">Parking Brake Engages and Disengages Freely</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.breaks.pbedf.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1388,8 +1380,8 @@
                                     <div class="names">Grinding Noises When Applying</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.breaks.grinding_noise.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1403,8 +1395,8 @@
                                     <div class="names">Wheels Lock When Applying Antilock Brakes (If applicable)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.breaks.wlaab.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1418,8 +1410,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.breaks.vss.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1447,8 +1439,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering.no_drift.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1461,8 +1453,8 @@
                                     <div class="names">Vehicle is Stable; Any Shaking or Vibrating</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering.stable.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1476,8 +1468,8 @@
                                     <div class="names">Resistance in The Steering Wheel When Turning</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering.resistance.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1491,8 +1483,8 @@
                                     <div class="names">Clicking or Clunking When Turning</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering.clunking.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1520,8 +1512,8 @@
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1534,8 +1526,8 @@
                                     <div class="names">Instructions Included For Any Accessories</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.miscellaneous.instructions.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1549,8 +1541,8 @@
                                     <div class="names">Service And Repair Records Available</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1564,8 +1556,8 @@
                                     <div class="names">Owner Has Title</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.miscellaneous.owner_title.value">
-                                        <option>Yes</option>
-                                        <option>No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">Yes</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>

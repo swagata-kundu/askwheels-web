@@ -4,7 +4,8 @@ var app = angular.module("askwheels", [
   "ui.router",
   "LocalStorageModule",
   "ui.bootstrap",
-  "ngTagsInput"
+  "ngTagsInput",
+  "ngFileUpload"
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {

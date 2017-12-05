@@ -1,7 +1,8 @@
 app.service("auctionService", [
   "$http",
   "serviceURI",
-  function($http, serviceURI) {
+  "Upload",
+  function($http, serviceURI, Upload) {
     this.getVehicleList = function(params) {
       var uri = serviceURI.vehicleListAdmin;
 
@@ -33,6 +34,30 @@ app.service("auctionService", [
       return $http({
         method: "GET",
         url: uri,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+
+    this.uploadFiles = function(files) {
+      var uri = serviceURI.upload;
+
+      return Upload.upload({
+        url: uri,
+        arrayKey: "",
+        data: {
+          files: files
+        }
+      });
+    };
+
+    this.addAuction = function(params) {
+      var uri = serviceURI.addAuction;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: params,
         headers: {
           "Content-Type": "application/json"
         }
