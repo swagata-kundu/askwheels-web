@@ -156,15 +156,44 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("dealerBidList", {
+      url: "/dealer/bids",
+      templateUrl: "views/dealer/bids.html",
+      controller: "dealerBids",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(3);
+          }
+        ]
+      }
+    })
     .state("userProfile", {
       url: "/profile",
       templateUrl: "views/profile.html",
-      controller: "userProfile"
+      controller: "userProfile",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.isAuthenticated();
+          }
+        ]
+      }
     })
     .state("changeUserPassword", {
       url: "/profile/changepassword",
       templateUrl: "views/changepassword.html",
-      controller: "changePassword"
+      controller: "changePassword",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.isAuthenticated();
+          }
+        ]
+      }
     })
     .state("help", {
       url: "/help",

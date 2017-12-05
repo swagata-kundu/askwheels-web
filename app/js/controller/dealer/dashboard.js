@@ -98,6 +98,18 @@ app.controller("dealerWatchList", [
   }
 ]);
 
+app.controller("dealerBids", [
+  "$scope",
+  "$state",
+  "dealerService",
+  function($scope, $state, dealerService) {
+    $scope.auctions = [];
+    dealerService.dealerBidList().then(function(result) {
+      $scope.auctions = result.data.data;
+    });
+  }
+]);
+
 app.controller("dealerBid", [
   "$scope",
   "$state",
@@ -111,7 +123,7 @@ app.controller("dealerBid", [
     $scope.amount = vehicle.highestBid ? vehicle.highestBid + 1 : 0;
     $scope.submitBid = function() {
       dealerService
-        .submitBit({ vehicleId: vehicle.vehicleId, amount: $scope.amount })
+        .submitBid({ vehicleId: vehicle.vehicleId, amount: $scope.amount })
         .then(
           function(response) {
             $uibModalInstance.close("ok");

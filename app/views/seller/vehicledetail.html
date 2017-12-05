@@ -1,11 +1,13 @@
 <div class="container-fluid">
     <div class="row">
 
-        <seller-sidemenu></seller-sidemenu>
+        <seller-sidemenu ng-if="userProfile.roleId<=2"></seller-sidemenu>
+        <dealer-sidemenu ng-if="userProfile.roleId===3"></dealer-sidemenu>
 
         <div class="col-lg-9 col-md-9 col-sm-8 col-lg-12">
 
-            <seller-header></seller-header>
+            <seller-header ng-if="userProfile.roleId<=2"></seller-header>
+            <dealer-header ng-if="userProfile.roleId===3"></dealer-header>
 
             <div class="right_data_main addnew_vehicle">
                 <ol class="breadcrumb">
@@ -305,7 +307,7 @@
                                 <div>
                                     <div class="ViewMoreBids">
                                         <a ng-if="!viewBid" ng-click="toggleViewBid()">View More Bids</a>
-                                        <a ng-if="viewBid" ng-click="toggleViewBid()">Hide Bid</a>                                        
+                                        <a ng-if="viewBid" ng-click="toggleViewBid()">Hide Bid</a>
                                         <span class="noBids">({{auction.bids.length}})</span>
                                         <div class="clearfix"></div>
                                     </div>

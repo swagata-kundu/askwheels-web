@@ -45,12 +45,23 @@ app.service("dealerService", [
         }
       });
     };
-    this.submitBit = function(params) {
-      var uri = serviceURI.dealerBid;
+    this.submitBid = function(params) {
+      var uri = serviceURI.submitBid;
       return $http({
         method: "POST",
         url: uri,
         data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+    this.dealerBidList = function() {
+      var uri = serviceURI.dealerBid;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: {},
         headers: {
           "Content-Type": "application/json"
         }

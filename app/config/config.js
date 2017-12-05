@@ -29,5 +29,6 @@ app.constant("serviceURI", {
   addSubSeller: domain + "secure/user/subseller",
   vehicle: domain + "secure/auction/vehicle",
   wishlist: domain + "secure/auction/dealer/wishlist",
-  dealerBid: domain + "secure/bid"
+  submitBid: domain + "secure/bid",
+  dealerBid: domain + "secure/bid/dealer"  
 });

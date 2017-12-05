@@ -253,10 +253,22 @@ app.controller("sellerAddAuction", [
         },
         inspection_report: {
           breaks: {
-            grinding_noise: {},
-            pbedf: {},
-            vss: {},
-            wlaab: {}
+            grinding_noise: {
+              description: "",
+              value: ""
+            },
+            pbedf: {
+              description: "",
+              value: ""
+            },
+            vss: {
+              description: "",
+              value: ""
+            },
+            wlaab: {
+              description: "",
+              value: ""
+            }
           },
           engine: {
             battery_terminals_corrision: {
@@ -383,49 +395,148 @@ app.controller("sellerAddAuction", [
             }
           },
           frame: {
-            chassis_ok: {},
-            hole_without_scratches: {},
-            no_crumpling_inside_trunk: {}
+            chassis_ok: {
+              description: "",
+              value: ""
+            },
+            hole_without_scratches: {
+              description: "",
+              value: ""
+            },
+            no_crumpling_inside_trunk: {
+              description: "",
+              value: ""
+            }
           },
           interior: {
-            ac_works: {},
-            all_gauge_works: {},
-            car_alarm_works: {},
-            doors_open_close_freely: {},
-            hazard_lights_function_properly: {},
-            head_lights_work_properly: {},
-            heater_works: {},
-            lacks_air_freshner_scent: {},
-            no_warning_light_remian_illuminated: {},
-            power_windows_operates_properly: {},
-            seats_adjust_properly: {},
-            seats_equipped_seatbelt: {},
-            seats_unworn_no_cracks: {},
-            stereo_works: {},
-            sunroof_open_close_properly: {},
-            trunk_driver_door_lock_with_key: {},
-            trunk_open_close_freely: {},
-            windshiels_wiper_works: {},
-            wiper_fluid_dispenses_properly: {}
+            ac_works: {
+              description: "",
+              value: ""
+            },
+            all_gauge_works: {
+              description: "",
+              value: ""
+            },
+            car_alarm_works: {
+              description: "",
+              value: ""
+            },
+            doors_open_close_freely: {
+              description: "",
+              value: ""
+            },
+            hazard_lights_function_properly: {
+              description: "",
+              value: ""
+            },
+            head_lights_work_properly: {
+              description: "",
+              value: ""
+            },
+            heater_works: {
+              description: "",
+              value: ""
+            },
+            lacks_air_freshner_scent: {
+              description: "",
+              value: ""
+            },
+            no_warning_light_remian_illuminated: {
+              description: "",
+              value: ""
+            },
+            power_windows_operates_properly: {
+              description: "",
+              value: ""
+            },
+            seats_adjust_properly: {
+              description: "",
+              value: ""
+            },
+            seats_equipped_seatbelt: {
+              description: "",
+              value: ""
+            },
+            seats_unworn_no_cracks: {
+              description: "",
+              value: ""
+            },
+            stereo_works: {
+              description: "",
+              value: ""
+            },
+            sunroof_open_close_properly: {
+              description: "",
+              value: ""
+            },
+            trunk_driver_door_lock_with_key: {
+              description: "",
+              value: ""
+            },
+            trunk_open_close_freely: {
+              description: "",
+              value: ""
+            },
+            windshiels_wiper_works: {
+              description: "",
+              value: ""
+            },
+            wiper_fluid_dispenses_properly: {
+              description: "",
+              value: ""
+            }
           },
           automatic_tansmission: {
-            fluid_clean: {},
-            no_slips_delays: {}
+            fluid_clean: {
+              description: "",
+              value: ""
+            },
+            no_slips_delays: {
+              description: "",
+              value: ""
+            }
           },
           manual_transmission: {
-            gear_shifts_smoothly: {},
-            grinding_noise: {}
+            gear_shifts_smoothly: {
+              description: "",
+              value: ""
+            },
+            grinding_noise: {
+              description: "",
+              value: ""
+            }
           },
           miscellaneous: {
-            car_manual: {},
-            instructions: {},
-            owner_title: {}
+            car_manual: {
+              description: "",
+              value: ""
+            },
+            instructions: {
+              description: "",
+              value: ""
+            },
+            owner_title: {
+              description: "",
+              value: ""
+            }
           },
           steering: {
-            clunking: {},
-            no_drift: {},
-            resistance: {},
-            stable: {}
+            clunking: {
+              description: "",
+              value: ""
+            },
+            no_drift: {
+              description: "",
+              value: ""
+            },
+            resistance: {
+              description: "",
+              value: ""
+            },
+            stable: {
+              description: "",
+              value: ""
+            }
           },
           suspension: {
             cracking_noise: {
