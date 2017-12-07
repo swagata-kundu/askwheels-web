@@ -56,3 +56,14 @@
   border-radius: 4px;
   color: #555;
 }
+
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .heartIcon
+  a.wish {
+  text-decoration: none;
+  color: red;
+}

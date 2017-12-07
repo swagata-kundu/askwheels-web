@@ -1,46 +1,108 @@
-<div class="col-md-4">
-    <div class="car-detail">
-        <div class="car-image">
-            <img ng-src="{{vehicle.imageUrl}}" class="img-responsive">
-            <div class="like-icon" ng-click="addWatchList()">
-                <a ng-class="{'wish':vehicle.isWatchList==1}" href="">like</a>
+<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+    <div class="auction_box">
+        <div class="imag">
+            <div class="heartIcon" ng-click="addWatchList()">
+                <a ng-class="{'wish':vehicle.isWatchList==1}" href="#" class="fa fa-heart"></a>
             </div>
+            <div class="timing">
+                <div ng-if="vehicle.auctionType===1">
+                    <span>End Time</span>
+                    <time>
+                        <i class="fa fa-clock-o"></i>
+                        <span>{{timings}} Hrs</span>
+                    </time>
+                </div>
+                <div ng-if="vehicle.auctionType===2">
+                    <span>Start Time</span>
+                    <time>
+                        <i class="fa fa-clock-o"></i>
+                        <span>{{timings}} Hrs</span>
+                    </time>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="winning_los" ng-if="vehicle.lastBid">
+                <div ng-if="vehicle.lastBid===vehicle.highestBid">
+                    <span>Winning</span>
+                    <i class="fa fa-thumbs-up"></i>
+                </div>
+                <div ng-if="vehicle.lastBid<vehicle.highestBid">
+                    <span>Loosing</span>
+                    <i class="fa fa-thumbs-down"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <img ng-src="{{vehicle.imageUrl}}">
         </div>
-        <h3>
+        <h2>
             <a ui-sref="dealerAuctionDetail({vehicleId:'{{vehicle.vehicleId}}',model:'{{vehicle.vehicle_name}}'})">{{vehicle.vehicle_name}}</a>
+        </h2>
+        <h3>
+            <span class="bidHeading">Highest Bid :</span>
+            <span class="bidBy">
+                <i class="fa fa-rupee"></i>{{vehicle.highestBid}}/- By {{vehicle.highestBidBy}}</span>
         </h3>
-        <p>
-        </p>
         <ul>
             <li>
-                <i class="fa fa-sort-numeric-asc"></i>1565555</li>
+                <div class="name">Added By</div>
+                <div class="Coll">:</div>
+                <div class="NameData">{{vehicle.uploadedBy}}</div>
+                <div class="clearfix"></div>
+            </li>
             <li>
-                <i class="fa fa-calendar"></i> {{vehicle.manufacturing_year}} </li>
+                <i class="fa fa-map-marker"></i>
+                <span class="smlData">{{vehicle.location}}</span>
+                <div class="clearfix"></div>
+            </li>
             <li>
-                <i class="fa fa-tint"></i> {{vehicle.fuel_type}} </li>
+                <i>
+                    <img src="img/fuel-icon.jpg">
+                </i>
+                <span class="smlData">{{vehicle.fuel_type}}</span>
+                <div class="clearfix"></div>
+            </li>
+            <div class="clearfix"></div>
             <li>
-                <i class="fa fa-tachometer"></i>{{vehicle.distance_travelled}}km</li>
+                <i class="fa fa-tachometer"></i>
+                <span class="smlData">{{vehicle.distance_travelled}} KM</span>
+                <div class="clearfix"></div>
+            </li>
             <li>
-                <i class="fa fa-file-text"></i>{{vehicle.rc_status}}</li>
+                <i class="fa fa-calendar"></i>
+                <span class="smlData">{{vehicle.manufacturing_year}}</span>
+                <div class="clearfix"></div>
+            </li>
+            <div class="clearfix"></div>
             <li>
-                <i class="fa fa-map-marker"></i>{{vehicle.location}}</li>
+                <i>
+                    <img src="img/gear-icon.jpg">
+                </i>
+                <span class="smlData">{{vehicle.transition_type}}</span>
+                <div class="clearfix"></div>
+            </li>
             <li>
-                <i class="fa fa-steam"></i> {{vehicle.transition_type}}</li>
-            <li>
-                <i class="fa fa-hourglass-half"></i> 5hr 25 min</li>
+                <i class="fa fa-shield"></i>
+                <span class="smlData">{{vehicle.insurance_type}}</span>
+                <div class="clearfix"></div>
+            </li>
+            <div class="clearfix"></div>
+            <div class="lastBids">
+                <span>My Previous Bid</span>
+                <div class="last_bidPrice">
+                    <i class="fa fa-inr"></i>{{vehicle.lastBid}}</div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="BidOpton" ng-if="vehicle.auctionType===1">
+                <span>My Bid</span>
+                <input type="text">
+                <a ng-click="submitBid()" href="#">Place My Bid</a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
         </ul>
-        <p></p>
-        <p> Highest bid :
-            <span> {{vehicle.highestBid}} </span>
-        </p>
-        <p>My last bid :
-            <span> {{vehicle.lastBid}}</span>
-        </p>
-        <p>
-            <label> - </label>
-            <input type="text" class="text-field">
-            <label> + </label>
-            <input ng-click="submitBid()" type="submit" value="Bid" class="form-button">
-        </p>
+
     </div>
 </div>

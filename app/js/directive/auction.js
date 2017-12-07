@@ -51,7 +51,25 @@ app.directive("auctionDealer", function() {
       "dealerService",
       "$uibModal",
       function($scope, $state, $rootScope, dealerService, $uibModal) {
+        $scope.timings = "";        
         if ($scope.vehicle) {
+          var vehicle = $scope.vehicle;
+          if (vehicle.auction_start_date && vehicle.auctionType <= 2) {
+            var startDate = moment(vehicle.auction_start_date);
+            var now = moment();
+            if (startDate.isBefore(now)) {
+              var newStart = startDate.add(1, "d");
+              var duration = moment.duration(newStart.diff(now));
+              var hour = duration.hours();
+              var minutes = duration.minutes();
+              $scope.timings = hour.toString() + ":" + minutes.toString();
+            } else {
+              var duration = moment.duration(startDate.diff(now));
+              var hour = duration.hours();
+              var minutes = duration.minutes();
+              $scope.timings = hour.toString() + ":" + minutes.toString();
+            }
+          }
         }
 
         $scope.addWatchList = function() {

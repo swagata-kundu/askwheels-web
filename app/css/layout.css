@@ -152,6 +152,9 @@ body {
 * {
   outline: 0 !important;
 }
+a:hover {
+  text-decoration: none;
+}
 body {
   background: #f2f2f2;
 }
@@ -634,6 +637,7 @@ body {
   text-decoration: none;
   color: red;
 }
+
 .right_data_main #parentHorizontalTab .resp-tab-content .auction_box h2 {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -1899,6 +1903,147 @@ b {
 .resp-tabs-container .resp-tab-content .accordionButton.on::after {
   content: "\f0de";
   top: 13px;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .BidOpton {
+  clear: both;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .BidOpton
+  input {
+  width: auto;
+  padding: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .BidOpton
+  span {
+  float: left;
+  display: inline-block;
+  padding: 5px;
+}
+
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .winning_los {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  text-shadow: 0px 2px 2px #000;
+  bottom: 5px;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .winning_los
+  span {
+  color: #fff;
+  font-size: 14px;
+  float: left;
+  display: inline-block;
+  padding: 5px;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .winning_los
+  i {
+  font-size: 22px;
+  float: left;
+  margin-right: 7px;
+  color: #45e100;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .lastBids {
+  width: 100%;
+  padding: 0 0 10px 0;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .winning_los
+  i.fa.fa-thumbs-down {
+  color: #fff;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .lastBids
+  span {
+  float: left;
+  font-weight: 600;
+  margin: 0 5px 0 0;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .lastBids
+  .last_bidPrice {
+  float: left;
+  font-weight: normal;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .lastBids
+  .last_bidPrice
+  i {
+  margin: 0 5px 0 0;
+}
+
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  ul
+  .BidOpton
+  a {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #006fb5;
+  padding: 8px 5px;
+  color: #fff;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
 }
 
 @media screen and (max-width: 1340px) {
