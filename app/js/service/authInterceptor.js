@@ -17,7 +17,7 @@ app.factory('interceptorFactory', ['$q', '$rootScope', 'localStorageService', '$
     var _responseError = function (response) {
 
         if (response.status == 500) {
-            alert('Internal server error');
+            // alert('Internal server error');
         }
 
         if (response.status == 401) {

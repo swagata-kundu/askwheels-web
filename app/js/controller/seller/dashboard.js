@@ -251,334 +251,337 @@ app.controller("sellerAddAuction", [
           hpa_status: "Yes",
           insurance_type: "",
           insurance_validation: ""
+        }
+      },
+      inspection_report: {
+        breaks: {
+          grinding_noise: {
+            description: "",
+            value: ""
+          },
+          pbedf: {
+            description: "",
+            value: ""
+          },
+          vss: {
+            description: "",
+            value: ""
+          },
+          wlaab: {
+            description: "",
+            value: ""
+          }
         },
-        inspection_report: {
-          breaks: {
-            grinding_noise: {
-              description: "",
-              value: ""
-            },
-            pbedf: {
-              description: "",
-              value: ""
-            },
-            vss: {
-              description: "",
-              value: ""
-            },
-            wlaab: {
-              description: "",
-              value: ""
-            }
+        engine: {
+          battery_terminals_corrision: {
+            description: "",
+            value: ""
           },
-          engine: {
-            battery_terminals_corrision: {
-              description: "",
-              value: ""
-            },
-            exhaust_pipe_emission: {
-              description: "",
-              value: ""
-            },
-            fluid_leaks: {
-              description: "",
-              value: ""
-            },
-            no_black_dark_oil: {
-              description: "",
-              value: ""
-            },
-            no_odors: {
-              description: "",
-              value: ""
-            },
-            oil_filler: {
-              description: "",
-              value: ""
-            }
+          exhaust_pipe_emission: {
+            description: "",
+            value: ""
           },
-          exterior: {
-            body_type: {
-              description: "",
-              value: ""
-            },
-            boot_bumper: {
-              description: "",
-              value: ""
-            },
-            bpiller_driver_side: {
-              description: "",
-              value: ""
-            },
-            bpiller_passanger_side: {
-              description: "",
-              value: ""
-            },
-            door_fender_aligned: {
-              description: "",
-              value: ""
-            },
-            driver_side_apron: {
-              description: "",
-              value: ""
-            },
-            front_bumper: {
-              description: "",
-              value: ""
-            },
-            front_driver_side_door: {
-              description: "",
-              value: ""
-            },
-            front_driver_side_fender: {
-              description: "",
-              value: ""
-            },
-            front_passanger_side_fender: {
-              description: "",
-              value: ""
-            },
-            front_passanger_side_piller: {
-              description: "",
-              value: ""
-            },
-            front_driver_side_piller: {
-              description: "",
-              value: ""
-            },
-            hood: {
-              description: "",
-              value: ""
-            },
-            lights_functional: {
-              description: "",
-              value: ""
-            },
-            roof: {
-              description: "",
-              value: ""
-            },
-            passanger_side_apron: {
-              description: "",
-              value: ""
-            },
-            rear_door_driver_side: {
-              description: "",
-              value: ""
-            },
-            rear_door_passanger_side: {
-              description: "",
-              value: ""
-            },
-            rear_driver_side_quarter_paner: {
-              description: "",
-              value: ""
-            },
-            rear_passanger_side_quarter_paner: {
-              description: "",
-              value: ""
-            },
-            trunk_boot: {
-              description: "",
-              value: ""
-            },
-            trunk_hood_aligned: {
-              description: "",
-              value: ""
-            },
-            windshield_no_cracks: {
-              description: "",
-              value: ""
-            },
-            wiper_blades_functional: {
-              description: "",
-              value: ""
-            }
+          fluid_leaks: {
+            description: "",
+            value: ""
           },
-          frame: {
-            chassis_ok: {
-              description: "",
-              value: ""
-            },
-            hole_without_scratches: {
-              description: "",
-              value: ""
-            },
-            no_crumpling_inside_trunk: {
-              description: "",
-              value: ""
-            }
+          no_black_dark_oil: {
+            description: "",
+            value: ""
           },
-          interior: {
-            ac_works: {
-              description: "",
-              value: ""
-            },
-            all_gauge_works: {
-              description: "",
-              value: ""
-            },
-            car_alarm_works: {
-              description: "",
-              value: ""
-            },
-            doors_open_close_freely: {
-              description: "",
-              value: ""
-            },
-            hazard_lights_function_properly: {
-              description: "",
-              value: ""
-            },
-            head_lights_work_properly: {
-              description: "",
-              value: ""
-            },
-            heater_works: {
-              description: "",
-              value: ""
-            },
-            lacks_air_freshner_scent: {
-              description: "",
-              value: ""
-            },
-            no_warning_light_remian_illuminated: {
-              description: "",
-              value: ""
-            },
-            power_windows_operates_properly: {
-              description: "",
-              value: ""
-            },
-            seats_adjust_properly: {
-              description: "",
-              value: ""
-            },
-            seats_equipped_seatbelt: {
-              description: "",
-              value: ""
-            },
-            seats_unworn_no_cracks: {
-              description: "",
-              value: ""
-            },
-            stereo_works: {
-              description: "",
-              value: ""
-            },
-            sunroof_open_close_properly: {
-              description: "",
-              value: ""
-            },
-            trunk_driver_door_lock_with_key: {
-              description: "",
-              value: ""
-            },
-            trunk_open_close_freely: {
-              description: "",
-              value: ""
-            },
-            windshiels_wiper_works: {
-              description: "",
-              value: ""
-            },
-            wiper_fluid_dispenses_properly: {
-              description: "",
-              value: ""
-            }
+          no_odors: {
+            description: "",
+            value: ""
           },
-          automatic_tansmission: {
-            fluid_clean: {
-              description: "",
-              value: ""
-            },
-            no_slips_delays: {
-              description: "",
-              value: ""
-            }
+          oil_filler: {
+            description: "",
+            value: ""
+          }
+        },
+        exterior: {
+          body_type: {
+            description: "",
+            value: ""
           },
-          manual_transmission: {
-            gear_shifts_smoothly: {
-              description: "",
-              value: ""
-            },
-            grinding_noise: {
-              description: "",
-              value: ""
-            }
+          boot_bumper: {
+            description: "",
+            value: ""
           },
-          miscellaneous: {
-            car_manual: {
-              description: "",
-              value: ""
-            },
-            instructions: {
-              description: "",
-              value: ""
-            },
-            owner_title: {
-              description: "",
-              value: ""
-            }
+          bpiller_driver_side: {
+            description: "",
+            value: ""
           },
-          steering: {
-            clunking: {
-              description: "",
-              value: ""
-            },
-            no_drift: {
-              description: "",
-              value: ""
-            },
-            resistance: {
-              description: "",
-              value: ""
-            },
-            stable: {
-              description: "",
-              value: ""
-            }
+          bpiller_passanger_side: {
+            description: "",
+            value: ""
           },
-          suspension: {
-            cracking_noise: {
-              description: "",
-              value: ""
-            },
-            same_bouncing: {
-              description: "",
-              value: ""
-            },
-            vehicle_rest_levelly: {
-              description: "",
-              value: ""
-            }
+          door_fender_aligned: {
+            description: "",
+            value: ""
           },
-          tyres: {
-            no_cuts_cracks: {
-              description: "",
-              value: ""
-            },
-            same_make: {
-              description: "",
-              value: ""
-            },
-            spare_tyre: {
-              description: "",
-              value: ""
-            },
-            spare_tyre_inflated: {
-              description: "",
-              value: ""
-            },
-            thread_worn: {
-              description: "",
-              value: ""
-            }
+          driver_side_apron: {
+            description: "",
+            value: ""
+          },
+          front_bumper: {
+            description: "",
+            value: ""
+          },
+          front_driver_side_door: {
+            description: "",
+            value: ""
+          },
+          front_driver_side_fender: {
+            description: "",
+            value: ""
+          },
+          front_passanger_side_fender: {
+            description: "",
+            value: ""
+          },
+          front_passanger_side_piller: {
+            description: "",
+            value: ""
+          },
+          front_driver_side_piller: {
+            description: "",
+            value: ""
+          },
+          hood: {
+            description: "",
+            value: ""
+          },
+          lights_functional: {
+            description: "",
+            value: ""
+          },
+          roof: {
+            description: "",
+            value: ""
+          },
+          passanger_side_apron: {
+            description: "",
+            value: ""
+          },
+          rear_door_driver_side: {
+            description: "",
+            value: ""
+          },
+          rear_door_passanger_side: {
+            description: "",
+            value: ""
+          },
+          rear_driver_side_quarter_paner: {
+            description: "",
+            value: ""
+          },
+          rear_passanger_side_quarter_paner: {
+            description: "",
+            value: ""
+          },
+          trunk_boot: {
+            description: "",
+            value: ""
+          },
+          trunk_hood_aligned: {
+            description: "",
+            value: ""
+          },
+          windshield_no_cracks: {
+            description: "",
+            value: ""
+          },
+          wiper_blades_functional: {
+            description: "",
+            value: ""
+          }
+        },
+        frame: {
+          chassis_ok: {
+            description: "",
+            value: ""
+          },
+          hole_without_scratches: {
+            description: "",
+            value: ""
+          },
+          no_crumpling_inside_trunk: {
+            description: "",
+            value: ""
+          }
+        },
+        interior: {
+          ac_works: {
+            description: "",
+            value: ""
+          },
+          all_gauge_works: {
+            description: "",
+            value: ""
+          },
+          car_alarm_works: {
+            description: "",
+            value: ""
+          },
+          doors_open_close_freely: {
+            description: "",
+            value: ""
+          },
+          hazard_lights_function_properly: {
+            description: "",
+            value: ""
+          },
+          head_lights_work_properly: {
+            description: "",
+            value: ""
+          },
+          heater_works: {
+            description: "",
+            value: ""
+          },
+          lacks_air_freshner_scent: {
+            description: "",
+            value: ""
+          },
+          no_warning_light_remian_illuminated: {
+            description: "",
+            value: ""
+          },
+          power_windows_operates_properly: {
+            description: "",
+            value: ""
+          },
+          seats_adjust_properly: {
+            description: "",
+            value: ""
+          },
+          seats_equipped_seatbelt: {
+            description: "",
+            value: ""
+          },
+          seats_unworn_no_cracks: {
+            description: "",
+            value: ""
+          },
+          stereo_works: {
+            description: "",
+            value: ""
+          },
+          sunroof_open_close_properly: {
+            description: "",
+            value: ""
+          },
+          trunk_driver_door_lock_with_key: {
+            description: "",
+            value: ""
+          },
+          trunk_open_close_freely: {
+            description: "",
+            value: ""
+          },
+          windshiels_wiper_works: {
+            description: "",
+            value: ""
+          },
+          wiper_fluid_dispenses_properly: {
+            description: "",
+            value: ""
+          }
+        },
+        automatic_tansmission: {
+          fluid_clean: {
+            description: "",
+            value: ""
+          },
+          no_slips_delays: {
+            description: "",
+            value: ""
+          }
+        },
+        manual_transmission: {
+          gear_shifts_smoothly: {
+            description: "",
+            value: ""
+          },
+          grinding_noise: {
+            description: "",
+            value: ""
+          }
+        },
+        miscellaneous: {
+          car_manual: {
+            description: "",
+            value: ""
+          },
+          instructions: {
+            description: "",
+            value: ""
+          },
+          owner_title: {
+            description: "",
+            value: ""
+          }
+        },
+        steering: {
+          clunking: {
+            description: "",
+            value: ""
+          },
+          no_drift: {
+            description: "",
+            value: ""
+          },
+          resistance: {
+            description: "",
+            value: ""
+          },
+          stable: {
+            description: "",
+            value: ""
+          }
+        },
+        suspension: {
+          cracking_noise: {
+            description: "",
+            value: ""
+          },
+          same_bouncing: {
+            description: "",
+            value: ""
+          },
+          vehicle_rest_levelly: {
+            description: "",
+            value: ""
+          }
+        },
+        tyres: {
+          no_cuts_cracks: {
+            description: "",
+            value: ""
+          },
+          same_make: {
+            description: "",
+            value: ""
+          },
+          spare_tyre: {
+            description: "",
+            value: ""
+          },
+          spare_tyre_inflated: {
+            description: "",
+            value: ""
+          },
+          thread_worn: {
+            description: "",
+            value: ""
           }
         }
       }
     };
-
+    $scope.timings = {
+      date: "",
+      time: new Date(1970, 0, 1, 0, 0, 0)
+    };
     $scope.selectedFiles = [];
 
     $scope.uploadFiles = function(files) {
@@ -594,13 +597,56 @@ app.controller("sellerAddAuction", [
       ];
     };
 
-    $scope.uploadToServer = function() {
-      auctionService.uploadFiles($scope.selectedFiles).then(
-        function(result) {
-          console.log(result.data.data);
-        },
-        function(error) {
-          console.log(error);
+    $scope.saveVehicle = function() {
+      if (!$scope.addVehicleForm.$valid) {
+        bootbox.alert("Please fill all required information");
+        return;
+      }
+
+      var images = [];
+      async.series(
+        [
+          function(cb) {
+            if ($scope.selectedFiles.length == 0) {
+              return cb("No vehicle image is selected");
+            }
+            auctionService.uploadFiles($scope.selectedFiles).then(
+              function(result) {
+                images = result.data.data;
+                return cb(null);
+              },
+              function(error) {
+                return cb("Error occoured while uploading image");
+              }
+            );
+          },
+          function(cb) {
+            var vehicleObject = {};
+            vehicleObject = angular.copy($scope.addVehicle);
+            vehicleObject.basic_info.images = images;
+            vehicleObject.basic_info.auction_start_date =
+              $scope.timings.date +
+              " " +
+              $scope.timings.time.getHours() +
+              ":" +
+              $scope.timings.time.getMinutes();
+            auctionService.addAuction(vehicleObject).then(
+              function(result) {
+                return cb(null);
+              },
+              function(error) {
+                return cb("Error occoured while adding new vehicle");
+              }
+            );
+          }
+        ],
+        function(err) {
+          if (err) {
+            bootbox.alert(err);
+          } else {
+            bootbox.alert("Vehicle added successfully");
+            $state.go("sellerDashboard");
+          }
         }
       );
     };
