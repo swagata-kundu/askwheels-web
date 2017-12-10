@@ -652,3 +652,15 @@ app.controller("sellerAddAuction", [
     };
   }
 ]);
+
+app.controller("sellerNotification", [
+  "$scope",
+  "$state",
+  "sellerService",
+  function($scope, $state, sellerService) {
+    $scope.notifications = [];
+    sellerService.getNotification({}).then(function(result) {
+      console.log(result.data.data);
+    });
+  }
+]);

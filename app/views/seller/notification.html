@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <seller-sidemenu></seller-sidemenu>
+
+        <div class="col-lg-9 col-md-9 col-sm-8 col-lg-12">
+
+            <seller-header></seller-header>
+
+            <div class="right_data_main">
+                <ol class="breadcrumb">
+                    <li>
+                        <a ui-sref="sellerDashboard">Dashboard</a>
+                    </li>
+                    <li class="active">Notifications</li>
+                </ol>
+
+                <h1>
+                     Notifications
+                    <div class="clearfix"></div>
+                </h1>
+
+
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr role="row">
+                                       
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="subseller in subsellers">
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+</div>

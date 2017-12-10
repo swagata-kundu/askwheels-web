@@ -45,6 +45,9 @@
                                             Number
                                         </th>
                                         <th>
+                                            Auctions
+                                        </th>
+                                        <th>
                                             Registration Date
                                         </th>
 
@@ -55,6 +58,9 @@
                                         <td>{{subseller.firstName + ' '+ subseller.lastName}}</td>
                                         <td>{{subseller.email}}</td>
                                         <td>{{subseller.phone}}</td>
+                                        <td>
+                                            <a ui-sref="subsellerAuctions({subsellerId:'{{subseller.userId}}',name:'{{subseller.firstName}}'})">{{subseller.vehicle_count}}</a>
+                                        </td>
                                         <td>{{subseller.creationDate}}</td>
                                     </tr>
                                 </tbody>

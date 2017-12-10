@@ -137,3 +137,15 @@ app.controller("dealerBid", [
     };
   }
 ]);
+
+app.controller("sellerNotification", [
+  "$scope",
+  "$state",
+  "dealerService",
+  function($scope, $state, dealerService) {
+    $scope.notifications = [];
+    dealerService.getNotification({}).then(function(result) {
+      console.log(result.data.data);
+    });
+  }
+]);

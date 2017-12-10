@@ -32,5 +32,7 @@ app.constant("serviceURI", {
   submitBid: domain + "secure/bid",
   dealerBid: domain + "secure/bid/dealer",
   upload: domain + "secure/upload",
-  addAuction: domain + "secure/auction/vehicle"
+  addAuction: domain + "secure/auction/vehicle",
+  sellerNotification: domain + "secure/notification/seller",
+  dealerNotification: domain + "secure/notification/dealer"
 });

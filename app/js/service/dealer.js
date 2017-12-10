@@ -67,5 +67,16 @@ app.service("dealerService", [
         }
       });
     };
+    this.getNotification = function(params) {
+      var uri = serviceURI.dealerNotification;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
   }
 ]);

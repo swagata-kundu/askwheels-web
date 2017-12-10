@@ -66,6 +66,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("subsellerAuctions", {
+      url: "/seller/subuser/{subsellerId:int}/{name}/auctions",
+      templateUrl: "views/seller/subsellerauctions.html",
+      controller: "subsellerAuctions",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(1);
+          }
+        ]
+      }
+    })
     .state("sellerSubSeller", {
       url: "/seller/subusers",
       templateUrl: "views/seller/subseller.html",
@@ -166,6 +179,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
           "Access",
           function(Access) {
             return Access.hasRole(3);
+          }
+        ]
+      }
+    })
+    .state("sellerNotification", {
+      url: "/seller/notofications",
+      templateUrl: "views/seller/notification.html",
+      controller: "sellerNotification",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(1);
           }
         ]
       }
