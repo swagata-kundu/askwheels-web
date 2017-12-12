@@ -51,7 +51,8 @@ app.directive("auctionDealer", function() {
       "dealerService",
       "$uibModal",
       function($scope, $state, $rootScope, dealerService, $uibModal) {
-        $scope.timings = "";        
+        $scope.stateName = $state.current.name;
+        $scope.timings = "";
         if ($scope.vehicle) {
           var vehicle = $scope.vehicle;
           if (vehicle.auction_start_date && vehicle.auctionType <= 2) {
@@ -76,6 +77,7 @@ app.directive("auctionDealer", function() {
           dealerService
             .addWishList({ vehicleId: $scope.vehicle.vehicleId })
             .then(function(result) {
+              $scope.$emit("resetWishList");
               if ($scope.vehicle.isWatchList == 1) {
                 $scope.vehicle.isWatchList = 0;
               } else {
@@ -83,7 +85,7 @@ app.directive("auctionDealer", function() {
               }
             });
         };
-
+        $scope.bidAmount = 0;
         $scope.submitBid = function() {
           var modalInstance = $uibModal.open({
             animation: true,
@@ -92,14 +94,20 @@ app.directive("auctionDealer", function() {
             resolve: {
               vehicle: function() {
                 return $scope.vehicle;
+              },
+              bidAmount: function() {
+                return $scope.bidAmount;
               }
             }
           });
           modalInstance.result.then(
             function() {
               $scope.$emit("resetDealerList");
+              $scope.bidAmount = 0;
             },
-            function() {}
+            function() {
+              $scope.bidAmount = 0;
+            }
           );
         };
       }

@@ -92,8 +92,14 @@ app.controller("dealerWatchList", [
   "dealerService",
   function($scope, $state, dealerService) {
     $scope.auctions = [];
-    dealerService.getWishList().then(function(result) {
-      $scope.auctions = result.data.data;
+    var getWishList = function() {
+      dealerService.getWishList().then(function(result) {
+        $scope.auctions = result.data.data;
+      });
+    };
+    getWishList();
+    $scope.$on("resetWishList", function() {
+      getWishList();
     });
   }
 ]);
@@ -116,14 +122,21 @@ app.controller("dealerBid", [
   "dealerService",
   "$uibModalInstance",
   "vehicle",
-  function($scope, $state, dealerService, $uibModalInstance, vehicle) {
+  "bidAmount",
+  function(
+    $scope,
+    $state,
+    dealerService,
+    $uibModalInstance,
+    vehicle,
+    bidAmount
+  ) {
     $scope.cancel = function() {
       $uibModalInstance.dismiss("cancel");
     };
-    $scope.amount = vehicle.highestBid ? vehicle.highestBid + 1 : 0;
     $scope.submitBid = function() {
       dealerService
-        .submitBid({ vehicleId: vehicle.vehicleId, amount: $scope.amount })
+        .submitBid({ vehicleId: vehicle.vehicleId, amount: bidAmount })
         .then(
           function(response) {
             $uibModalInstance.close("ok");

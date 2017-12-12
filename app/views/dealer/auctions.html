@@ -95,9 +95,9 @@
 
                 <div class="clearfix"></div>
             </div>
-            <div class="BidOpton" ng-if="vehicle.auctionType===1">
+            <div class="BidOpton" ng-if="vehicle.auctionType===1 && stateName==='dealerDashboard'">
                 <span>My Bid</span>
-                <input type="text">
+                <input type="number" ng-model="bidAmount">
                 <a ng-click="submitBid()" href="#">Place My Bid</a>
                 <div class="clearfix"></div>
             </div>

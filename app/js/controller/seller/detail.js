@@ -3,7 +3,16 @@ app.controller("sellerAuctionDetail", [
   "$state",
   "auctionService",
   "$interval",
-  function($scope, $state, auctionService, $interval) {
+  "$uibModal",
+  "dealerService",
+  function(
+    $scope,
+    $state,
+    auctionService,
+    $interval,
+    $uibModal,
+    dealerService
+  ) {
     function setPlugins() {
       $("#parentHorizontalTab").easyResponsiveTabs({
         type: "default", //Types: default, vertical, accordion
@@ -41,7 +50,6 @@ app.controller("sellerAuctionDetail", [
           $(this).removeClass("over");
         });
       $(".accordionContent").hide();
-     
     }
     $(document).ready(function() {
       setPlugins();
@@ -111,6 +119,43 @@ app.controller("sellerAuctionDetail", [
 
     $scope.toggleViewBid = function() {
       $scope.viewBid = !$scope.viewBid;
+    };
+
+    $scope.bidAmount = 0;
+    $scope.submitBid = function() {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: "views/dealer/bid.html",
+        controller: "dealerBid",
+        resolve: {
+          vehicle: function() {
+            return $scope.vehicle;
+          },
+          bidAmount: function() {
+            return $scope.bidAmount;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function() {
+          $scope.bidAmount = 0;
+        },
+        function() {
+          $scope.bidAmount = 0;
+        }
+      );
+    };
+
+    $scope.addWatchList = function() {
+      dealerService
+        .addWishList({ vehicleId:vehicleId })
+        .then(function(result) {
+          if ($scope.auction.isWatchList == 1) {
+            $scope.auction.isWatchList = 0;
+          } else {
+            $scope.auction.isWatchList = 1;
+          }
+        });
     };
   }
 ]);

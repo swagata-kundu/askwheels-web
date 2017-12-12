@@ -491,6 +491,123 @@ body {
   top: 5px;
   z-index: 1;
 }
+.right_data_main.addnew_vehicle .row .col-lg-8 .item {
+  position: relative;
+}
+.right_data_main.addnew_vehicle .row .col-lg-8 .item .heartIcon {
+  position: absolute;
+  z-index: 11;
+  top: 5px;
+  left: 5px;
+}
+.right_data_main.addnew_vehicle .row .col-lg-8 .item .heartIcon a.fa-heart {
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0px 2px 2px #000;
+}
+.right_data_main.addnew_vehicle
+  .row
+  .col-lg-8
+  .item
+  .heartIcon
+  a.fa-heart:hover {
+  color: red;
+}
+.right_data_main.addnew_vehicle .row .col-lg-8 .item .winning_los {
+  position: absolute;
+  right: 50px;
+  bottom: 58px;
+  z-index: 11;
+  color: #fff;
+  text-shadow: 0px 2px 2px #000;
+  font-size: 15px;
+}
+.right_data_main.addnew_vehicle .row .col-lg-8 .item .winning_los i {
+  font-size: 22px;
+  color: #45e100;
+  float: left;
+}
+.right_data_main.addnew_vehicle
+  .row
+  .col-lg-8
+  .item
+  .winning_los
+  i.fa-thumbs-down {
+  color: red;
+}
+.right_data_main.addnew_vehicle .row .col-lg-8 .item .winning_los span {
+  float: left;
+  margin-right: 5px;
+  display: inline-block;
+  margin-top: 3px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  i.fa-rupee {
+  float: left;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 14px;
+}
+.right_data_main.addnew_vehicle
+  .col-lg-4
+  .rightBoxMain
+  .AddedBy
+  .user_addedName
+  a {
+  padding: 8px 5px;
+  font-size: 14px;
+  display: block;
+  color: #fff;
+  background: #006fb5;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+.show_alThis ul li {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  margin: 0 0 10px 0;
+}
+.show_alThis ul li:nth-of-type(2n + 2) {
+  background: #fff;
+}
+.show_alThis ul li h3 {
+  font-weight: 600;
+  padding: 5px;
+  text-transform: capitalize;
+}
+.show_alThis ul li .selectTxt {
+  font-weight: 400;
+  padding: 0px 5px 2px 5px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+.show_alThis ul li .TxtDis {
+  font-weight: 400;
+  padding: 5px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.right_data_main.addnew_vehicle .row .col-lg-8 .item li.lslide img {
+  width: 100%;
+}
 .right_data_main
   #parentHorizontalTab
   .resp-tab-content
@@ -501,6 +618,15 @@ body {
   font-size: 20px;
   text-shadow: 0px 2px 2px #000;
   color: #fff;
+}
+.right_data_main
+  #parentHorizontalTab
+  .resp-tab-content
+  .auction_box
+  .imag
+  .heartIcon
+  a:focus {
+  text-decoration: none;
 }
 .right_data_main #parentHorizontalTab .resp-tab-content .auction_box h2 a {
   color: #006fb5;
@@ -637,7 +763,6 @@ body {
   text-decoration: none;
   color: red;
 }
-
 .right_data_main #parentHorizontalTab .resp-tab-content .auction_box h2 {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -1991,7 +2116,7 @@ b {
   .imag
   .winning_los
   i.fa.fa-thumbs-down {
-  color: #fff;
+  color: red;
 }
 .right_data_main
   #parentHorizontalTab
