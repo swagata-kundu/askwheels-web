@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-var domain = "http://52.163.123.122:5000/";
+var domain = "http://13.126.165.127:5000/";
 // var domain = 'http://localhost:5100/';
 
 app.constant("serviceURI", {
