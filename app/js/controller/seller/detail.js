@@ -122,17 +122,17 @@ app.controller("sellerAuctionDetail", [
     };
 
     $scope.bidAmount = 0;
-    $scope.submitBid = function() {
+    $scope.submitBid = function(bidAmount) {
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: "views/dealer/bid.html",
         controller: "dealerBid",
         resolve: {
           vehicle: function() {
-            return $scope.vehicle;
+            return { vehicleId: vehicleId };
           },
           bidAmount: function() {
-            return $scope.bidAmount;
+            return bidAmount;
           }
         }
       });
@@ -148,7 +148,7 @@ app.controller("sellerAuctionDetail", [
 
     $scope.addWatchList = function() {
       dealerService
-        .addWishList({ vehicleId:vehicleId })
+        .addWishList({ vehicleId: vehicleId })
         .then(function(result) {
           if ($scope.auction.isWatchList == 1) {
             $scope.auction.isWatchList = 0;

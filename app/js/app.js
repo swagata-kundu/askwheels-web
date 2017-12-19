@@ -184,7 +184,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state("sellerNotification", {
-      url: "/seller/notofications",
+      url: "/seller/notifications",
       templateUrl: "views/seller/notification.html",
       controller: "sellerNotification",
       resolve: {
@@ -192,6 +192,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
           "Access",
           function(Access) {
             return Access.hasRole(1);
+          }
+        ]
+      }
+    })
+    .state("dealerNotification", {
+      url: "/dealer/notifications",
+      templateUrl: "views/dealer/notification.html",
+      controller: "dealerNotification",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasRole(3);
           }
         ]
       }

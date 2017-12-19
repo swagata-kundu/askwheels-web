@@ -135,6 +135,7 @@ app.controller("dealerBid", [
       $uibModalInstance.dismiss("cancel");
     };
     $scope.submitBid = function() {
+      debugger;
       dealerService
         .submitBid({ vehicleId: vehicle.vehicleId, amount: bidAmount })
         .then(
@@ -151,14 +152,14 @@ app.controller("dealerBid", [
   }
 ]);
 
-app.controller("sellerNotification", [
+app.controller("dealerNotification", [
   "$scope",
   "$state",
   "dealerService",
   function($scope, $state, dealerService) {
     $scope.notifications = [];
     dealerService.getNotification({}).then(function(result) {
-      console.log(result.data.data);
+      $scope.notifications = result.data.data;
     });
   }
 ]);

@@ -85,8 +85,9 @@ app.directive("auctionDealer", function() {
               }
             });
         };
+        
         $scope.bidAmount = 0;
-        $scope.submitBid = function() {
+        $scope.submitBid = function(bidAmount) {
           var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/dealer/bid.html",
@@ -96,7 +97,7 @@ app.directive("auctionDealer", function() {
                 return $scope.vehicle;
               },
               bidAmount: function() {
-                return $scope.bidAmount;
+                return bidAmount;
               }
             }
           });

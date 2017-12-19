@@ -47,6 +47,7 @@ app.service("sellerService", [
       });
     };
     this.getNotification = function(params) {
+      debugger;
       var uri = serviceURI.sellerNotification;
       return $http({
         method: "POST",
