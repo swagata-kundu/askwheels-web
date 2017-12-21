@@ -660,7 +660,19 @@ app.controller("sellerNotification", [
   function($scope, $state, sellerService) {
     $scope.notifications = [];
     sellerService.getNotification({}).then(function(result) {
-      console.log(result.data.data);
+      $scope.notifications = result.data.data;
+    });
+  }
+]);
+
+app.controller("sellerBids", [
+  "$scope",
+  "$state",
+  "sellerService",
+  function($scope, $state, sellerService) {
+    $scope.bids = [];
+    sellerService.getBids({}).then(function(result) {
+      $scope.bids = result.data.data;
     });
   }
 ]);

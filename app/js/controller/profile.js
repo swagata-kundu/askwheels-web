@@ -6,8 +6,6 @@
     $scope.user = {};
 
     $scope.changePassword = function() {
-      var newPassword = $scope.user.newPassword;
-      var confirmPassword = $scope.user.confirmNewPassword;
 
       if ($scope.changePasswordFrm.$valid) {
         var requestParams = {

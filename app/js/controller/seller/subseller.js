@@ -1,8 +1,9 @@
 app.controller("subsellerListing", [
   "$scope",
   "$state",
+  "$uibModal",
   "sellerService",
-  function($scope, $state, sellerService) {
+  function($scope, $state, $uibModal, sellerService) {
     $scope.subsellers = [];
     sellerService.subsellerListing({}).then(
       function(result) {
@@ -12,6 +13,20 @@ app.controller("subsellerListing", [
         $scope.subsellers = [];
       }
     );
+
+    $scope.changePassword = function(userId) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: "views/seller/subuserpassword.html",
+        controller: "changeSubUserPassword",
+        resolve: {
+          userId: function() {
+            return userId;
+          }
+        }
+      });
+      modalInstance.result.then(function() {}, function() {});
+    };
   }
 ]);
 
@@ -116,6 +131,41 @@ app.controller("subsellerAuctions", [
         transmission: ""
       };
       getAuctions();
+    };
+  }
+]);
+
+app.controller("changeSubUserPassword", [
+  "$scope",
+  "publicUserService",
+  "$state",
+  "$uibModalInstance",
+  "userId",
+  function($scope, publicUserService, $state, $uibModalInstance, userId) {
+    $scope.user = {};
+    var subUserId = userId;
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss("cancel");
+    };
+
+    $scope.changePassword = function() {
+      if ($scope.changePasswordFrm.$valid) {
+        var requestParams = {
+          newPassword: $scope.user.newPassword,
+          userId: subUserId
+        };
+        publicUserService
+          .changePassword(requestParams)
+          .then(function(response) {
+            bootbox.alert(response.data.message, function() {
+              $uibModalInstance.close("ok");
+            });
+          })
+          .catch(function(error) {
+            $uibModalInstance.dismiss("cancel");
+            showErrorMessage(error);
+          });
+      }
     };
   }
 ]);

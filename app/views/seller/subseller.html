@@ -50,6 +50,7 @@
                                         <th>
                                             Registration Date
                                         </th>
+                                        <th>Change Password</th>
 
                                     </tr>
                                 </thead>
@@ -62,6 +63,9 @@
                                             <a ui-sref="subsellerAuctions({subsellerId:'{{subseller.userId}}',name:'{{subseller.firstName}}'})">{{subseller.vehicle_count}}</a>
                                         </td>
                                         <td>{{subseller.creationDate}}</td>
+                                        <td>
+                                            <a class="btn btn-info" ng-click="changePassword(subseller.userId)">Change</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

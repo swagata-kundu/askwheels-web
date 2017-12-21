@@ -31,6 +31,7 @@ app.constant("serviceURI", {
   wishlist: domain + "secure/auction/dealer/wishlist",
   submitBid: domain + "secure/bid",
   dealerBid: domain + "secure/bid/dealer",
+  sellerBid: domain + "secure/bid/seller",
   upload: domain + "secure/upload",
   addAuction: domain + "secure/auction/vehicle",
   sellerNotification: domain + "secure/notification/seller",

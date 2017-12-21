@@ -47,8 +47,18 @@ app.service("sellerService", [
       });
     };
     this.getNotification = function(params) {
-      debugger;
       var uri = serviceURI.sellerNotification;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+    this.getBids = function(params) {
+      var uri = serviceURI.sellerBid;
       return $http({
         method: "POST",
         url: uri,

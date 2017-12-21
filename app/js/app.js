@@ -53,6 +53,32 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("userProfile", {
+      url: "/profile",
+      templateUrl: "views/profile.html",
+      controller: "userProfile",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.isAuthenticated();
+          }
+        ]
+      }
+    })
+    .state("changeUserPassword", {
+      url: "/profile/changepassword",
+      templateUrl: "views/changepassword.html",
+      controller: "changePassword",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.isAuthenticated();
+          }
+        ]
+      }
+    })
     .state("sellerDashboard", {
       url: "/seller/dashboard",
       templateUrl: "views/seller/dashboard.html",
@@ -183,6 +209,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("sellerBids", {
+      url: "/seller/bids",
+      templateUrl: "views/seller/bids.html",
+      controller: "sellerBids",
+      resolve: {
+        access: [
+          "Access",
+          function(Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
+    })
     .state("sellerNotification", {
       url: "/seller/notifications",
       templateUrl: "views/seller/notification.html",
@@ -191,7 +230,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         access: [
           "Access",
           function(Access) {
-            return Access.hasRole(1);
+            return Access.hasAnyRole([1, 2]);
           }
         ]
       }
@@ -209,32 +248,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
-    .state("userProfile", {
-      url: "/profile",
-      templateUrl: "views/profile.html",
-      controller: "userProfile",
-      resolve: {
-        access: [
-          "Access",
-          function(Access) {
-            return Access.isAuthenticated();
-          }
-        ]
-      }
-    })
-    .state("changeUserPassword", {
-      url: "/profile/changepassword",
-      templateUrl: "views/changepassword.html",
-      controller: "changePassword",
-      resolve: {
-        access: [
-          "Access",
-          function(Access) {
-            return Access.isAuthenticated();
-          }
-        ]
-      }
-    })
+
     .state("help", {
       url: "/help",
       templateUrl: "views/help.html"
