@@ -137,85 +137,22 @@
                                 <!-- Inspection Report -->
                                 <div>
                                     <div id="wrapper">
-                                        <div class="accordionButton">Button 1 Content</div>
-                                        <div class="accordionContent">
-                                            <div class="overView_main">
-                                                <ul>
-                                                    <li>
-                                                        <span class="Headings">Price</span>
-                                                        <span class="Headings_data">
-                                                            <i class="fa fa-inr"></i> 4.50L</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Year</span>
-                                                        <span class="Headings_data">Jun 2015</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Kilometer</span>
-                                                        <span class="Headings_data">17,288 km</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Fuel Type</span>
-                                                        <span class="Headings_data">Petrol</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Transmission</span>
-                                                        <span class="Headings_data">Manual</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Car Available at</span>
-                                                        <span class="Headings_data">Jmd Regent, Gurgaon</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <div class="clearfix"></div>
-                                                </ul>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
+                                        <div ng-repeat="r in reports">
+                                            <div class="accordionButton">{{r.header}}</div>
+                                            <div class="accordionContent">
+                                                <div class="overView_main">
+                                                    <ul>
 
-                                        <div class="accordionButton">Button 2 Content</div>
-                                        <div class="accordionContent">
-                                            <div class="overView_main">
-                                                <ul>
-                                                    <li>
-                                                        <span class="Headings">Price</span>
-                                                        <span class="Headings_data">
-                                                            <i class="fa fa-inr"></i> 4.50L</span>
+                                                        <li ng-repeat="sec in r.subsections">
+                                                            <span class="Headings">{{sec.header}}</span>
+                                                            <span class="Headings_data">{{sec.value}} / {{sec.desc}}</span>
+                                                            <div class="clearfix"></div>
+                                                        </li>
+
                                                         <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Year</span>
-                                                        <span class="Headings_data">Jun 2015</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Kilometer</span>
-                                                        <span class="Headings_data">17,288 km</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Fuel Type</span>
-                                                        <span class="Headings_data">Petrol</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Transmission</span>
-                                                        <span class="Headings_data">Manual</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
-                                                    <li>
-                                                        <span class="Headings">Car Available at</span>
-                                                        <span class="Headings_data">Jmd Regent, Gurgaon</span>
-                                                        <div class="clearfix"></div>
-                                                    </li>
+                                                    </ul>
                                                     <div class="clearfix"></div>
-                                                </ul>
-                                                <div class="clearfix"></div>
+                                                </div>
                                             </div>
                                         </div>
 

@@ -28,28 +28,6 @@ app.controller("sellerAuctionDetail", [
           $info.show();
         }
       });
-      $(".accordionButton").click(function() {
-        $(".accordionButton").removeClass("on");
-        $(".accordionContent").slideUp("normal");
-        if (
-          $(this)
-            .next()
-            .is(":hidden") == true
-        ) {
-          $(this).addClass("on");
-          $(this)
-            .next()
-            .slideDown("normal");
-        }
-      });
-      $(".accordionButton")
-        .mouseover(function() {
-          $(this).addClass("over");
-        })
-        .mouseout(function() {
-          $(this).removeClass("over");
-        });
-      $(".accordionContent").hide();
     }
     $(document).ready(function() {
       setPlugins();
@@ -73,6 +51,7 @@ app.controller("sellerAuctionDetail", [
     auctionService.getAuctionDetail(vehicleId).then(function(result) {
       console.log(result.data.data);
       $scope.auction = result.data.data;
+      createInsPectionReport(result.data.data.inspection_report);
       setSlider();
       clockInterval = $interval(calculateTime, 1000);
     });
@@ -157,5 +136,51 @@ app.controller("sellerAuctionDetail", [
           }
         });
     };
+    $scope.reports = [];
+    let reports = [];
+
+    function createInsPectionReport(report) {
+      _.forEach(report, function(value, key) {
+        let obj = { header: "", subsections: [] };
+        obj.header = _.startCase(_.replace(key, new RegExp("_", "g"), " "));
+        _.forEach(value, function(value1, key1) {
+          let obj2 = { header: "", value: "", desc: "" };
+          obj2.header = _.startCase(_.replace(key1, new RegExp("_", "g"), " "));
+          obj2.value = value1.value ? value1.value : "NA";
+          obj2.desc = value1.description ? value1.description : "NA";
+          obj.subsections.push(obj2);
+        });
+        reports.push(obj);
+      });
+      $scope.reports = reports;
+      accordionButtonSet();
+    }
+
+    function accordionButtonSet() {
+      setTimeout(function() {
+        $(".accordionButton").click(function() {
+          $(".accordionButton").removeClass("on");
+          $(".accordionContent").slideUp("normal");
+          if (
+            $(this)
+              .next()
+              .is(":hidden") == true
+          ) {
+            $(this).addClass("on");
+            $(this)
+              .next()
+              .slideDown("normal");
+          }
+        });
+        $(".accordionButton")
+          .mouseover(function() {
+            $(this).addClass("over");
+          })
+          .mouseout(function() {
+            $(this).removeClass("over");
+          });
+        $(".accordionContent").hide();
+      }, 1000);
+    }
   }
 ]);
