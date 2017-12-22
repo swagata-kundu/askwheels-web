@@ -11,7 +11,7 @@
             </div>
             <ul>
                 <li>
-                    <a href="#">
+                    <a ui-sref="sellerDashboard">
                         <i class="fa fa-tachometer"></i>
                         <span>Dashboard</span>
                         <div class="clearfix"></div>
@@ -35,7 +35,7 @@
                     <div class="clearfix"></div>
                 </li>
                 <li ng-if="userProfile.roleId===1">
-                    <a href="#">
+                    <a ui-sref="sellerSubSeller">
                         <i class="fa fa-users"></i>
                         <span>Sub User Manager</span>
                         <div class="clearfix"></div>
@@ -44,7 +44,7 @@
                 </li>
                 <li ng-if="userProfile.roleId===1">
                     <a ui-sref="sellerBids">
-                        <i class="fa fa-money"></i>
+                        <i class="fa fa-gavel"></i>
                         <span>Bids</span>
                     </a>
                     <div class="clearfix"></div>
@@ -52,8 +52,16 @@
                 </li>
                 <li ng-if="userProfile.roleId===1">
                     <a href="#">
-                        <i class="fa fa-money"></i>
+                        <i class="fa fa-line-chart"></i>
                         <span>Sale Reports</span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+                <li ng-if="userProfile.roleId===1">
+                    <a href="#">
+                        <i class="fa fa-money"></i>
+                        <span>Payment Manager</span>
                         <div class="clearfix"></div>
                     </a>
                     <div class="clearfix"></div>
