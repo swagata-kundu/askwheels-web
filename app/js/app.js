@@ -132,7 +132,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     })
     .state("sellerAddSubseller", {
-      url: "/seller/subuser",
+      url: "/seller/subuser/:id",
       templateUrl: "views/seller/addsubseller.html",
       controller: "subsellerAdd",
       resolve: {

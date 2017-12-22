@@ -27,5 +27,12 @@
         }
       });
     };
+    this.getUserDetail = function(id) {
+      var uri = serviceURI.userBase + "/" + id;
+      return $http({
+        method: "GET",
+        url: uri
+      });
+    };
   }
 ]);

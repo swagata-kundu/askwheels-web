@@ -56,22 +56,24 @@ app.controller("sellerAuctionDetail", [
       clockInterval = $interval(calculateTime, 1000);
     });
     function setSlider() {
-      $("#content-slider").lightSlider({
-        loop: true,
-        keyPress: true
-      });
-      $("#image-gallery").lightSlider({
-        gallery: true,
-        item: 1,
-        thumbItem: 9,
-        slideMargin: 0,
-        speed: 500,
-        auto: true,
-        loop: true,
-        onSliderLoad: function() {
-          $("#image-gallery").removeClass("cS-hidden");
-        }
-      });
+      setTimeout(function() {
+        $("#content-slider").lightSlider({
+          loop: true,
+          keyPress: true
+        });
+        $("#image-gallery").lightSlider({
+          gallery: true,
+          item: 1,
+          thumbItem: $scope.auction.images.length,
+          slideMargin: 0,
+          speed: 500,
+          auto: true,
+          loop: true,
+          onSliderLoad: function() {
+            $("#image-gallery").removeClass("cS-hidden");
+          }
+        });
+      }, 1000);
     }
 
     function calculateTime() {
@@ -139,6 +141,31 @@ app.controller("sellerAuctionDetail", [
     $scope.reports = [];
     let reports = [];
 
+    $scope.viewImage = function(index) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: "views/seller/imgviewer.html",
+        controller: "imageViewer",
+        size: "lg",
+        resolve: {
+          images: function() {
+            return $scope.auction.images;
+          },
+          index: function() {
+            return index;
+          }
+        }
+      });
+      modalInstance.result.then(
+        function() {
+          $scope.bidAmount = 0;
+        },
+        function() {
+          $scope.bidAmount = 0;
+        }
+      );
+    };
+
     function createInsPectionReport(report) {
       _.forEach(report, function(value, key) {
         let obj = { header: "", subsections: [] };
@@ -182,5 +209,19 @@ app.controller("sellerAuctionDetail", [
         $(".accordionContent").hide();
       }, 1000);
     }
+  }
+]);
+
+app.controller("imageViewer", [
+  "$scope",
+  "$uibModalInstance",
+  "images",
+  "index",
+  function($scope, $uibModalInstance, images, index) {
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss("cancel");
+    };
+    $scope.selectedImage = "";
+    $scope.selectedImage = images[index];
   }
 ]);

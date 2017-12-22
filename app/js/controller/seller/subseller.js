@@ -34,7 +34,22 @@ app.controller("subsellerAdd", [
   "$scope",
   "$state",
   "sellerService",
-  function($scope, $state, sellerService) {
+  "publicUserService",
+  function($scope, $state, sellerService, publicUserService) {
+    $scope.isEdit = false;
+    var id = "";
+    $scope.user = {};
+
+    if ($state.params.id) {
+      id = $state.params.id;
+      $scope.isEdit = true;
+      publicUserService.getUserDetail(id).then(function(data) {
+        var user = data.data.data;
+        $scope.user.contactNo = user.phone;
+        $scope.user.name = user.firstName + " " + user.lastName;
+      });
+    }
+
     $scope.save = function() {
       if ($scope.addSubUser.$valid) {
         let names = $scope.user.name.split(" ");

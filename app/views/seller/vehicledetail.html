@@ -30,7 +30,7 @@
                                         <span>Winning</span>
                                         <i class="fa fa-thumbs-up"></i>
                                     </div>
-                                    <div ng-if="auction.lastBid<auction.highestBid">
+                                    <div ng-if="auction.lastBid < auction.highestBid">
                                         <span>Loosing</span>
                                         <i class="fa fa-thumbs-down"></i>
                                     </div>
@@ -44,7 +44,7 @@
                                                 <span>{{$index+1}}/{{auction.images.length}}</span>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <a class="img fa fa-arrows-alt" href="{{image}}"></a>
+                                            <a class="img fa fa-arrows-alt" ng-click="viewImage($index)"></a>
                                         </span>
                                         <img src="{{image}}" />
                                     </li>

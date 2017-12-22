@@ -135,7 +135,6 @@ app.controller("dealerBid", [
       $uibModalInstance.dismiss("cancel");
     };
     $scope.submitBid = function() {
-      debugger;
       dealerService
         .submitBid({ vehicleId: vehicle.vehicleId, amount: bidAmount })
         .then(
