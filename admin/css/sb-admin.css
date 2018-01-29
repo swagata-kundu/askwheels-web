@@ -466,6 +466,10 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   max-width: 25rem;
 }
 
+.card-detail {
+  max-width: 50rem;
+}
+
 .card-register {
   max-width: 40rem;
 }
@@ -494,4 +498,8 @@ footer.sticky-footer {
 
 .table i:hover {
   cursor: pointer
+}
+
+#detail .names {
+  text-transform: capitalize
 }

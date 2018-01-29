@@ -11,7 +11,7 @@ var app = angular.module("askwheelsAdmin", [
   "ngFileUpload"
 ]);
 
-app.config(function(
+app.config(function (
   $stateProvider,
   $urlRouterProvider,
   $locationProvider,
@@ -29,7 +29,7 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(4);
           }
         ]
@@ -42,7 +42,7 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(4);
           }
         ]
@@ -55,7 +55,7 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(4);
           }
         ]
@@ -68,7 +68,7 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(4);
           }
         ]
@@ -81,7 +81,19 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
+            return Access.hasRole(4);
+          }
+        ]
+      }
+    }).state("auctionDetail", {
+      url: "/admin/auctions/{vehicleId:int}/{model}",
+      controller: 'auctionDetail',
+      templateUrl: "views/admin/detail.html",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
             return Access.hasRole(4);
           }
         ]
@@ -94,7 +106,7 @@ app.config(function(
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAuthenticated();
           }
         ]
@@ -102,7 +114,7 @@ app.config(function(
     });
 });
 
-app.config(function($httpProvider) {
+app.config(function ($httpProvider) {
   $httpProvider.interceptors.push("interceptorFactory");
 });
 
@@ -112,9 +124,9 @@ app.run([
   "$state",
   "Access",
   "$window",
-  function($rootScope, authService, $state, Access, $window) {
+  function ($rootScope, authService, $state, Access, $window) {
     authService.loadData();
-    $rootScope.$on("$stateChangeError", function(
+    $rootScope.$on("$stateChangeError", function (
       event,
       toState,
       toParams,

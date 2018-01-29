@@ -50,12 +50,13 @@
                                     <th>
                                         Reject
                                     </th>
-
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="vehicle in vehicles">
-                                    <td>{{vehicle.vehicle_name}}</td>
+                                    <td>
+                                        <a ui-sref="auctionDetail({vehicleId:'{{vehicle.vehicleId}}',model:'{{vehicle.vehicle_name}}'})">{{vehicle.vehicle_name}}</a>
+                                    </td>
                                     <td>{{vehicle.uploaded_by}}</td>
                                     <td>{{vehicle.registration_number}}</td>
                                     <td>{{vehicle.start_bid}}</td>
@@ -83,7 +84,7 @@
                         <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
 
 
-                            <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getEndUserList(page,numPerPage)">
+                            <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getVehicleList(page,numPerPage)">
                             </paging>
 
                         </div>

@@ -3,7 +3,7 @@ app.controller("auctionList", [
   "$state",
   "$rootScope",
   "auctionService",
-  function($scope, $state, $rootScope, auctionService) {
+  function ($scope, $state, $rootScope, auctionService) {
     //pagination variables
     $scope.sortType = "evaluation_date";
     $scope.sortReverse = false;
@@ -11,7 +11,7 @@ app.controller("auctionList", [
     $scope.currentPage = 1;
     $scope.searchText = "";
 
-    $scope.getVehicleList = function(pageNo, pageSize) {
+    $scope.getVehicleList = function (pageNo, pageSize) {
       var endUserListParams = {
         pageNo: pageNo,
         pageSize: pageSize,
@@ -20,12 +20,12 @@ app.controller("auctionList", [
         searchText: $scope.searchText
       };
       auctionService.getVehicleList(endUserListParams).then(
-        function(endUserSuccess) {
+        function (endUserSuccess) {
           $scope.vehicles = endUserSuccess.data.data;
           $scope.currentPage = pageNo;
           $scope.totalValues = endUserSuccess.data.count;
         },
-        function(endUserError) {
+        function (endUserError) {
           $scope.vehicles = [];
           $scope.totalValues = 0;
         }
@@ -36,18 +36,18 @@ app.controller("auctionList", [
     $scope.getVehicleList($scope.currentPage, $scope.numPerPage);
 
     //change vehicle status To block/unblock junior admin
-    $scope.changeVehicleStatus = function(id, status) {
+    $scope.changeVehicleStatus = function (id, status) {
       if (status === 2) {
         approveVehicle(id, status);
-      }else{
-        rejectVehicle(id,status);
+      } else {
+        rejectVehicle(id, status);
       }
     };
 
-    var approveVehicle = function(id, status) {
+    var approveVehicle = function (id, status) {
       bootbox.confirm(
         "Are you sure you want to change this vehicle status?",
-        function(checked) {
+        function (checked) {
           if (checked) {
             var blockParams = {
               vehicleId: id,
@@ -55,7 +55,7 @@ app.controller("auctionList", [
             };
 
             auctionService.changeVehicleStatus(blockParams).then(
-              function(response) {
+              function (response) {
                 bootbox.alert(response.data.message);
                 var pageNo = $scope.currentPage;
                 if ($scope.vehicles.length == 1) {
@@ -67,7 +67,7 @@ app.controller("auctionList", [
                 }
                 $scope.getVehicleList(pageNo, $scope.numPerPage);
               },
-              function(error) {
+              function (error) {
                 showErrorMessage(error);
               }
             );
@@ -76,7 +76,7 @@ app.controller("auctionList", [
       );
     };
 
-    var rejectVehicle = function(id, status) {
+    var rejectVehicle = function (id, status) {
 
       bootbox.prompt({
         title: "Please enter the rejection reason.",
@@ -86,11 +86,11 @@ app.controller("auctionList", [
             var blockParams = {
               vehicleId: id,
               status: status,
-              reason:reason
+              reason: reason
             };
 
             auctionService.changeVehicleStatus(blockParams).then(
-              function(response) {
+              function (response) {
                 bootbox.alert(response.data.message);
                 var pageNo = $scope.currentPage;
                 if ($scope.vehicles.length == 1) {
@@ -102,14 +102,31 @@ app.controller("auctionList", [
                 }
                 $scope.getVehicleList(pageNo, $scope.numPerPage);
               },
-              function(error) {
+              function (error) {
                 showErrorMessage(error);
               }
             );
           }
         }
-    });
-    
+      });
+
     };
   }
 ]);
+
+app.controller("auctionDetail", ["$scope",
+  "$state",
+  "$rootScope",
+  "auctionService",
+  function ($scope, $state, $rootScope, auctionService) {
+    var auctionId = $state.params.vehicleId
+    $scope.vehicleName = $state.params.model;
+    $scope.addVehicle = {
+      inspection_report: {}
+    }
+    auctionService.getAuctionDetail(auctionId).then(function (data) {
+      $scope.addVehicle = data.data.data;
+    }, function (err) {})
+
+  }
+])
