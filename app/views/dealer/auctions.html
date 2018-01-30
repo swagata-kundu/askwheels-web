@@ -24,7 +24,8 @@
 
             <div class="winning_los" ng-if="vehicle.lastBid">
                 <div ng-if="vehicle.lastBid===vehicle.highestBid">
-                    <span>Winning</span>
+                    <span ng-if="vehicle.auctionType!==5">Winning</span>
+                    <span ng-if="vehicle.auctionType===5">Won</span>
                     <i class="fa fa-thumbs-up"></i>
                 </div>
                 <div ng-if="vehicle.lastBid<vehicle.highestBid">

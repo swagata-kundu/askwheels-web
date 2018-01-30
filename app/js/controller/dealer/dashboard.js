@@ -2,7 +2,7 @@ app.controller("dealerDashobard", [
   "$scope",
   "$state",
   "dealerService",
-  function($scope, $state, dealerService) {
+  function ($scope, $state, dealerService) {
     $scope.tabinfo = {
       liveAuctions: [],
       upcomingAuctions: []
@@ -18,17 +18,17 @@ app.controller("dealerDashobard", [
     };
 
     dealerService.getDashboardInfo().then(
-      function(result) {
+      function (result) {
         $scope.tabinfo = result.data.data;
       },
-      function(error) {}
+      function (error) {}
     );
 
     let auctionParams = {
       auctionType: 1
     };
 
-    let getAuctions = function() {
+    let getAuctions = function () {
       $scope.auctions = [];
       let params = {};
       params.auctionType = auctionParams.auctionType;
@@ -49,27 +49,27 @@ app.controller("dealerDashobard", [
       }
 
       dealerService.getAuctionList(params).then(
-        function(result) {
+        function (result) {
           $scope.auctions = result.data.data;
         },
-        function(error) {
+        function (error) {
           $scope.auctions = [];
         }
       );
     };
 
-    $scope.tabChange = function(auctionType) {
+    $scope.tabChange = function (auctionType) {
       auctionParams.auctionType = auctionType;
       $scope.resetFilter();
     };
 
     getAuctions();
 
-    $scope.applyFilter = function() {
+    $scope.applyFilter = function () {
       getAuctions();
     };
 
-    $scope.resetFilter = function() {
+    $scope.resetFilter = function () {
       $scope.filter = {
         minPrice: "",
         maxPrice: "",
@@ -80,7 +80,7 @@ app.controller("dealerDashobard", [
       getAuctions();
     };
 
-    $scope.$on("resetDealerList", function() {
+    $scope.$on("resetDealerList", function () {
       getAuctions();
     });
   }
@@ -90,15 +90,15 @@ app.controller("dealerWatchList", [
   "$scope",
   "$state",
   "dealerService",
-  function($scope, $state, dealerService) {
+  function ($scope, $state, dealerService) {
     $scope.auctions = [];
-    var getWishList = function() {
-      dealerService.getWishList().then(function(result) {
+    var getWishList = function () {
+      dealerService.getWishList().then(function (result) {
         $scope.auctions = result.data.data;
       });
     };
     getWishList();
-    $scope.$on("resetWishList", function() {
+    $scope.$on("resetWishList", function () {
       getWishList();
     });
   }
@@ -108,9 +108,9 @@ app.controller("dealerBids", [
   "$scope",
   "$state",
   "dealerService",
-  function($scope, $state, dealerService) {
+  function ($scope, $state, dealerService) {
     $scope.auctions = [];
-    dealerService.dealerBidList().then(function(result) {
+    dealerService.dealerBidList().then(function (result) {
       $scope.auctions = result.data.data;
     });
   }
@@ -123,7 +123,7 @@ app.controller("dealerBid", [
   "$uibModalInstance",
   "vehicle",
   "bidAmount",
-  function(
+  function (
     $scope,
     $state,
     dealerService,
@@ -131,18 +131,21 @@ app.controller("dealerBid", [
     vehicle,
     bidAmount
   ) {
-    $scope.cancel = function() {
+    $scope.cancel = function () {
       $uibModalInstance.dismiss("cancel");
     };
-    $scope.submitBid = function() {
+    $scope.submitBid = function () {
       dealerService
-        .submitBid({ vehicleId: vehicle.vehicleId, amount: bidAmount })
+        .submitBid({
+          vehicleId: vehicle.vehicleId,
+          amount: bidAmount
+        })
         .then(
-          function(response) {
+          function (response) {
             $uibModalInstance.close("ok");
             bootbox.alert(response.data.message);
           },
-          function(error) {
+          function (error) {
             $uibModalInstance.dismiss("cancel");
             showErrorMessage(error);
           }
@@ -155,10 +158,25 @@ app.controller("dealerNotification", [
   "$scope",
   "$state",
   "dealerService",
-  function($scope, $state, dealerService) {
+  function ($scope, $state, dealerService) {
     $scope.notifications = [];
-    dealerService.getNotification({}).then(function(result) {
+    dealerService.getNotification({}).then(function (result) {
       $scope.notifications = result.data.data;
     });
+  }
+]);
+
+app.controller("dealerWins", [
+  "$scope",
+  "$state",
+  "dealerService",
+  function ($scope, $state, dealerService) {
+    $scope.auctions = [];
+    var getWins = function () {
+      dealerService.getWins().then(function (result) {
+        $scope.auctions = result.data.data;
+      });
+    };
+    getWins();
   }
 ]);

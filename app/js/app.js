@@ -8,7 +8,7 @@ var app = angular.module("askwheels", [
   "ngFileUpload"
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise("/");
@@ -21,7 +21,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAnonymous();
           }
         ]
@@ -34,7 +34,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAnonymous();
           }
         ]
@@ -47,7 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAnonymous();
           }
         ]
@@ -60,7 +60,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAuthenticated();
           }
         ]
@@ -73,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.isAuthenticated();
           }
         ]
@@ -86,7 +86,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -99,7 +99,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(1);
           }
         ]
@@ -112,7 +112,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -125,7 +125,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -138,7 +138,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -151,7 +151,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(3);
           }
         ]
@@ -164,7 +164,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -177,7 +177,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(3);
           }
         ]
@@ -190,7 +190,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
+            return Access.hasRole(3);
+          }
+        ]
+      }
+    }).state("dealerWins", {
+      url: "/dealer/wins",
+      templateUrl: "views/dealer/wins.html",
+      controller: "dealerWins",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
             return Access.hasRole(3);
           }
         ]
@@ -203,7 +215,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(3);
           }
         ]
@@ -216,7 +228,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -229,7 +241,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasAnyRole([1, 2]);
           }
         ]
@@ -242,7 +254,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         access: [
           "Access",
-          function(Access) {
+          function (Access) {
             return Access.hasRole(3);
           }
         ]
@@ -259,7 +271,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     });
 });
 
-app.config(function($httpProvider) {
+app.config(function ($httpProvider) {
   $httpProvider.interceptors.push("interceptorFactory");
 });
 
@@ -269,9 +281,9 @@ app.run([
   "$state",
   "Access",
   "$window",
-  function($rootScope, authService, $state, Access, $window) {
+  function ($rootScope, authService, $state, Access, $window) {
     authService.loadData();
-    $rootScope.$on("$stateChangeError", function(
+    $rootScope.$on("$stateChangeError", function (
       event,
       toState,
       toParams,
