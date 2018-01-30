@@ -119,13 +119,27 @@ app.controller("auctionDetail", ["$scope",
   "$rootScope",
   "auctionService",
   function ($scope, $state, $rootScope, auctionService) {
+
     var auctionId = $state.params.vehicleId
+    var startTime = "";
+
+    $scope.timings = {}
+
     $scope.vehicleName = $state.params.model;
+
     $scope.addVehicle = {
       inspection_report: {}
     }
     auctionService.getAuctionDetail(auctionId).then(function (data) {
       $scope.addVehicle = data.data.data;
+
+      startTime = moment($scope.addVehicle.auction_start_date);
+      $scope.timings = {
+        date: startTime.format('YYYY-MM-DD'),
+        time: startTime.format('HH:MM')
+      }
+
+
     }, function (err) {})
 
   }

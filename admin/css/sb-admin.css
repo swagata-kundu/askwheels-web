@@ -503,3 +503,9 @@ footer.sticky-footer {
 #detail .names {
   text-transform: capitalize
 }
+
+#detail h2,
+#detail h4 {
+  padding-top: 5px;
+  color: #007BFF;
+}
