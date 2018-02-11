@@ -208,6 +208,11 @@ body {
 .leff_main_box ul li a:hover {
   color: #f05c26;
 }
+
+.leff_main_box ul li .active {
+  color: #f05c26;
+}
+
 .top_barRight {
   background: #fff;
   padding: 10px;
