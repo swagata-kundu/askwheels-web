@@ -79,23 +79,27 @@ app.controller("joinus", [
           address: $scope.user.address
         };
 
-        authService.isEmailExist($scope.user.email).then(function(response) {
-          if (response.data.isExists) {
-            bootbox.alert("User already registered with this email id");
-          } else {
-            authService
-              .signUp(requestParams)
-              .then(function(response) {
-                bootbox.alert("Sign up successfully");
-                if ($rootScope.userProfile.roleId == 4) {
-                } else {
-                }
-              })
-              .catch(function(error) {
-                showErrorMessage(error);
-              });
-          }
-        });
+        authService
+          .isEmailExist($scope.user.email)
+          .then(function(response) {
+            if (response.data.isExists) {
+              bootbox.alert("User already registered with this email id");
+            } else {
+              authService
+                .signUp(requestParams)
+                .then(function(response) {
+                  bootbox.alert("Sign up successfully", function() {
+                    $state.go('login');
+                  });
+                })
+                .catch(function(error) {
+                  showErrorMessage(error);
+                });
+            }
+          })
+          .catch(function(error) {
+            showErrorMessage(error);
+          });
       }
     };
   }

@@ -31,7 +31,7 @@
 
                                 <div class="col-6">
                                     <div class="form__wrapper">
-                                        <input type="text" class="form__input" id="number" name="number" required maxlength="10" data-ng-model="user.contactNo">
+                                        <input type="text" class="form__input" id="number" minlength="10" maxlength="10" name="number" required maxlength="10" pattern="^[789]\d{9}$" data-ng-model="user.contactNo">
                                         <label class="form__label" for="number">
                                             <span class="form__label-content">Mobile Number</span>
                                         </label>
@@ -42,7 +42,7 @@
 
                                 <div class="col-6">
                                     <div class="form__wrapper">
-                                        <input type="text" class="form__input" id="address" name="address" required maxlength="250" data-ng-model="user.address">
+                                        <input type="text" class="form__input" id="address" name="address" required maxlength="250" minlength="10" data-ng-model="user.address">
                                         <label class="form__label" for="address">
                                             <span class="form__label-content">Address</span>
                                         </label>
@@ -54,7 +54,7 @@
 
                                 <div class="col-6">
                                     <div class="form__wrapper">
-                                        <input type="password" class="form__input" id="password" name="password" required maxlength="250" data-ng-model="user.password">
+                                        <input type="password" class="form__input" id="password" name="password" required maxlength="250" minlength="8" data-ng-model="user.password">
                                         <label class="form__label" for="password">
                                             <span class="form__label-content">Password</span>
                                         </label>
@@ -66,7 +66,7 @@
 
                                 <div class="col-6">
                                     <div class="form__wrapper">
-                                        <input type="password" class="form__input" id="repeatPassword" name="repeatPassword" required maxlength="250" data-ng-model="user.repeatPassword">
+                                        <input type="password" class="form__input" id="repeatPassword" name="repeatPassword" required maxlength="250" minlength="8" data-ng-model="user.repeatPassword">
                                         <label class="form__label" for="repeatPassword">
                                             <span class="form__label-content">Confirm Password</span>
                                         </label>

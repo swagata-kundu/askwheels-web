@@ -6,7 +6,6 @@
     $scope.user = {};
 
     $scope.changePassword = function() {
-
       if ($scope.changePasswordFrm.$valid) {
         var requestParams = {
           oldPassword: $scope.user.oldPassword,
@@ -36,6 +35,8 @@ app.controller("userProfile", [
   function($scope, publicUserService, $state, localStorageService) {
     $scope.user = {};
 
+    $scope.isEditEnabled = false;
+
     var fillUserProfileData = function(userProfileData) {
       $scope.user.name =
         userProfileData.firstName + " " + userProfileData.lastName;
@@ -62,20 +63,25 @@ app.controller("userProfile", [
         var updatedProfile = {
           firstName: firstName,
           lastName: lastName,
-          contactNo: $scope.user.contactNo,
           address: $scope.user.address
         };
 
         publicUserService.editUserProfile(updatedProfile).then(
           function(response) {
+            updatedProfile.contactNo = $scope.user.contactNo;
             updateLocalStorage(updatedProfile);
             bootbox.alert("Profile Updated Successfully");
+            $scope.changeProfileFlag();
           },
           function(error) {
             showErrorMessage(error);
           }
         );
       }
+    };
+
+    $scope.changeProfileFlag = function() {
+      $scope.isEditEnabled = !$scope.isEditEnabled;
     };
   }
 ]);

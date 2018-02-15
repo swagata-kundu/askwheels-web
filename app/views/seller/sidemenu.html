@@ -11,7 +11,7 @@
             </div>
             <ul>
                 <li>
-                    <a ui-sref="sellerDashboard">
+                    <a ui-sref="sellerDashboard" ui-sref-active="active">
                         <i class="fa fa-tachometer"></i>
                         <span>Dashboard</span>
                         <div class="clearfix"></div>
@@ -27,7 +27,7 @@
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <a ui-sref="sellerNotification">
+                    <a ui-sref="sellerNotification" ui-sref-active="active">
                         <i class="fa fa-server"></i>
                         <span>Activity Logs (1)</span>
                         <div class="clearfix"></div>
@@ -35,7 +35,7 @@
                     <div class="clearfix"></div>
                 </li>
                 <li ng-if="userProfile.roleId===1">
-                    <a ui-sref="sellerSubSeller">
+                    <a ui-sref="sellerSubSeller" ui-sref-active="active">
                         <i class="fa fa-users"></i>
                         <span>Sub User Manager</span>
                         <div class="clearfix"></div>
@@ -43,7 +43,7 @@
                     <div class="clearfix"></div>
                 </li>
                 <li ng-if="userProfile.roleId===1">
-                    <a ui-sref="sellerBids">
+                    <a ui-sref="sellerBids" ui-sref-active="active">
                         <i class="fa fa-gavel"></i>
                         <span>Bids</span>
                     </a>
@@ -83,7 +83,7 @@
         </div>
         <ul>
             <li>
-                <a ui-sref="sellerDashboard">
+                <a ui-sref="sellerDashboard" ui-sref-active="active">
                     <i class="fa fa-tachometer"></i>
                     <span>Dashboard</span>
                     <div class="clearfix"></div>
@@ -99,7 +99,7 @@
                 <div class="clearfix"></div>
             </li>
             <li>
-                <a ui-sref="sellerNotification">
+                <a ui-sref="sellerNotification" ui-sref-active="active">
                     <i class="fa fa-server"></i>
                     <span>Activity Logs (1)</span>
                     <div class="clearfix"></div>
@@ -107,7 +107,7 @@
                 <div class="clearfix"></div>
             </li>
             <li ng-if="userProfile.roleId===1">
-                <a ui-sref="sellerSubSeller">
+                <a ui-sref="sellerSubSeller" ui-sref-active="active">
                     <i class="fa fa-users"></i>
                     <span>Sub User Manager</span>
                     <div class="clearfix"></div>
@@ -115,7 +115,7 @@
                 <div class="clearfix"></div>
             </li>
             <li ng-if="userProfile.roleId===1">
-                <a ui-sref="sellerBids">
+                <a ui-sref="sellerBids" ui-sref-active="active">
                     <i class="fa fa-gavel"></i>
                     <span>Bids</span>
                 </a>

@@ -32,7 +32,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-bordered" width="100%" cellspacing="0">
+                            <table class="table table-bordered" width="100%" cellspacing="0" ng-if="subsellers.length>0">
                                 <thead>
                                     <tr role="row">
                                         <th>
@@ -75,6 +75,8 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div ng-if="subsellers.length==0">
+                                You dont have any subuser. Please click on "Add new subuser" </div>
                         </div>
                     </div>
                 </div>

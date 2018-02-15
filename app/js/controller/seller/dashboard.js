@@ -131,6 +131,7 @@ app.controller("sellerAddAuction", [
         animating = true;
 
         current_fs = $(this).parent();
+        debugger;
         next_fs = $(this)
           .parent()
           .next();
