@@ -246,6 +246,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
           }
         ]
       }
+    }).state("sellerClosedDeals", {
+      url: "/seller/closed-bids",
+      templateUrl: "views/seller/closeddeals.html",
+      controller: "sellerClosedDeals",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
     })
     .state("dealerNotification", {
       url: "/dealer/notifications",

@@ -2,8 +2,8 @@
 
 var app = app || {};
 
-var domain = "http://13.126.196.103:5000/";
-// var domain = 'http://localhost:5100/';
+// var domain = "http://13.126.196.103:5000/";
+var domain = 'http://localhost:5100/';
 
 app.constant("serviceURI", {
   loginURI: domain + "login",
@@ -36,5 +36,7 @@ app.constant("serviceURI", {
   addAuction: domain + "secure/auction/vehicle",
   sellerNotification: domain + "secure/notification/seller",
   dealerNotification: domain + "secure/notification/dealer",
-  dealerWins: domain + "secure/auction/dealer/win"
+  dealerWins: domain + "secure/auction/dealer/win",
+  sellerClosed: domain + "secure/auction/seller/closed"
+
 });
