@@ -53,6 +53,8 @@
                                     <th class="wd-7">Limit</th>
                                     <th class="wd-7">Status</th>
                                     <th class="wd-7">Delete</th>
+                                    <th>Password</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +71,9 @@
                                     <td>
                                         <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
                                     </td>
-
+                                    <td>
+                                        <button ng-click="changePassword(enduser.userId)">Change</button>
+                                    </td>
 
                                 </tr>
                             </tbody>

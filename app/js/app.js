@@ -259,6 +259,19 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("sellerPayments", {
+      url: "/seller/payments",
+      templateUrl: "views/seller/payments.html",
+      controller: "sellerPayments",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
+    })
     .state("dealerNotification", {
       url: "/dealer/notifications",
       templateUrl: "views/dealer/notification.html",

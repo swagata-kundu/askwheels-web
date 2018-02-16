@@ -62,8 +62,9 @@ app.controller("sellerDashboard", [
       if ($scope.filter.transmission) {
         params.transmission_type = $scope.filter.transmission;
       }
+      let sellerIds = [];
       if ($scope.subsellerSelections.length > 0) {
-        let sellerIds = $scope.subsellerSelections.map(function (i) {
+        sellerIds = $scope.subsellerSelections.map(function (i) {
           return i.id;
         });
         params.sub_sellers = sellerIds.toString();
@@ -677,9 +678,77 @@ app.controller("sellerClosedDeals", [
   "$state",
   "sellerService",
   function ($scope, $state, sellerService) {
-    $scope.bids = [];
+    $scope.notifications = [];
     sellerService.getClosedBids({}).then(function (result) {
       $scope.notifications = result.data.data;
     });
+  }
+]);
+
+app.controller("sellerPayments", [
+  "$scope",
+  "$state",
+  "sellerService", "$q",
+  function ($scope, $state, sellerService, $q) {
+    $scope.payments = [];
+    $scope.subsellers = [];
+    $scope.subsellerSelections = [];
+
+    $scope.filter = {
+      startDate: "",
+      endDate: ""
+    }
+
+    function loadDate() {
+      let params = {};
+
+      angular.copy($scope.filter, params);
+
+      let sellerIds = [];
+      if ($scope.subsellerSelections.length > 0) {
+        sellerIds = $scope.subsellerSelections.map(function (i) {
+          return i.id;
+        });
+      }
+      params.subSellers = sellerIds;
+
+      sellerService.getPayments(params).then(function (result) {
+        $scope.payments = result.data.data;
+      });
+    }
+
+    loadDate()
+
+    sellerService.subsellerListing({}).then(
+      function (result) {
+        $scope.subsellers = result.data.data.map(function (user) {
+          return {
+            id: user.userId,
+            text: user.firstName + " " + user.lastName
+          };
+        });
+      },
+      function (error) {}
+    );
+    $scope.loadUser = function () {
+      var deferred = $q.defer();
+      deferred.resolve($scope.subsellers);
+
+      return deferred.promise;
+    };
+
+    $scope.applyFlter = function () {
+      loadDate()
+    }
+
+    $scope.resetFilter = function () {
+      $scope.filter = {
+        startDate: "",
+        endDate: ""
+      }
+      $scope.subsellerSelections = [];
+      loadDate()
+    }
+
   }
 ]);

@@ -55,6 +55,7 @@
                                     </th>
                                     <th>Live</th>
                                     <th>Delete</th>
+                                    <th>Password</th>
 
                                 </tr>
                             </thead>
@@ -69,6 +70,9 @@
                                     </td>
                                     <td>
                                         <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
+                                    </td>
+                                    <td>
+                                        <button ng-click="changePassword(enduser.userId)">Change</button>
                                     </td>
                                 </tr>
                             </tbody>

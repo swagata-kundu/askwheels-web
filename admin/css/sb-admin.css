@@ -509,3 +509,20 @@ footer.sticky-footer {
   padding-top: 5px;
   color: #007BFF;
 }
+
+.custom-modal {
+  opacity: 1;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.custom-modal.fade .modal-dialog {
+  transform: translate(0, 40%);
+  -webkit-transform: translate(0, 40%)
+}
+
+.modal.custom-modal.fade .modal-dialog {
+  transition: -webkit-transform 0.3s ease-out !important;
+  transition: transform 0.3s ease-out !important;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out !important;
+}

@@ -1,4 +1,4 @@
-app.directive("auctionSeller", function() {
+app.directive("auctionSeller", function () {
   return {
     templateUrl: "views/seller/auctions.html",
     restrict: "E",
@@ -10,7 +10,7 @@ app.directive("auctionSeller", function() {
       "$scope",
       "$state",
       "$rootScope",
-      function($scope, $state, $rootScope) {
+      function ($scope, $state, $rootScope) {
         $scope.timings = "";
         if ($scope.vehicle) {
           var vehicle = $scope.vehicle;
@@ -36,7 +36,7 @@ app.directive("auctionSeller", function() {
   };
 });
 
-app.directive("auctionDealer", function() {
+app.directive("auctionDealer", function () {
   return {
     templateUrl: "views/dealer/auctions.html",
     restrict: "E",
@@ -50,7 +50,7 @@ app.directive("auctionDealer", function() {
       "$rootScope",
       "dealerService",
       "$uibModal",
-      function($scope, $state, $rootScope, dealerService, $uibModal) {
+      function ($scope, $state, $rootScope, dealerService, $uibModal) {
         $scope.stateName = $state.current.name;
         $scope.timings = "";
         if ($scope.vehicle) {
@@ -73,10 +73,12 @@ app.directive("auctionDealer", function() {
           }
         }
 
-        $scope.addWatchList = function() {
+        $scope.addWatchList = function () {
           dealerService
-            .addWishList({ vehicleId: $scope.vehicle.vehicleId })
-            .then(function(result) {
+            .addWishList({
+              vehicleId: $scope.vehicle.vehicleId
+            })
+            .then(function (result) {
               $scope.$emit("resetWishList");
               if ($scope.vehicle.isWatchList == 1) {
                 $scope.vehicle.isWatchList = 0;
@@ -85,28 +87,28 @@ app.directive("auctionDealer", function() {
               }
             });
         };
-        
+
         $scope.bidAmount = 0;
-        $scope.submitBid = function(bidAmount) {
+        $scope.submitBid = function (bidAmount) {
           var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/dealer/bid.html",
             controller: "dealerBid",
             resolve: {
-              vehicle: function() {
+              vehicle: function () {
                 return $scope.vehicle;
               },
-              bidAmount: function() {
+              bidAmount: function () {
                 return bidAmount;
               }
             }
           });
           modalInstance.result.then(
-            function() {
+            function () {
               $scope.$emit("resetDealerList");
               $scope.bidAmount = 0;
             },
-            function() {
+            function () {
               $scope.bidAmount = 0;
             }
           );
@@ -115,22 +117,17 @@ app.directive("auctionDealer", function() {
     ]
   };
 });
-app.directive("ngDate", function() {
+app.directive("ngDate", function () {
   return {
     restrict: "A",
     require: "ngModel",
-    link: function(scope, element, attrs, ctrl) {
+    link: function (scope, element, attrs, ctrl) {
+      var d = moment().subtract(1, 'days').toDate();
       $(element).datepicker({
         dateFormat: "yy-mm-dd",
-        onSelect: function(date) {
+        maxDate: attrs.hasOwnProperty("futuredate") ? d : null,
+        onSelect: function (date) {
           ctrl.$setViewValue(date);
-          if (attrs.hasOwnProperty("futureDate")) {
-            var dateToCompare = scope.$eval(attrs.futuredate);
-            if (!dateToCompare) dateToCompare = new Date();
-            date > dateToCompare
-              ? ctrl.$setValidity("future", true)
-              : ctrl.$setValidity("future", false);
-          }
           scope.$apply();
         }
       });

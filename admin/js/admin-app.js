@@ -98,6 +98,18 @@ app.config(function (
           }
         ]
       }
+    }).state("payments", {
+      url: "/admin/payment",
+      templateUrl: "views/admin/payment.html",
+      controller: "payments",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
+            return Access.hasRole(4);
+          }
+        ]
+      }
     })
     .state("changePassword", {
       url: "/admin/change-password",

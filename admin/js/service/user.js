@@ -1,8 +1,8 @@
 app.service("sellerService", [
   "$http",
   "serviceURI",
-  function($http, serviceURI) {
-    this.getSellerList = function(params) {
+  function ($http, serviceURI) {
+    this.getSellerList = function (params) {
       var uri = serviceURI.getSellerList;
 
       return $http({
@@ -15,7 +15,7 @@ app.service("sellerService", [
       });
     };
 
-    this.getSubSellerList = function(params) {
+    this.getSubSellerList = function (params) {
       var uri = serviceURI.getSubSellerList;
 
       return $http({
@@ -28,7 +28,7 @@ app.service("sellerService", [
       });
     };
 
-    this.blockUser = function(params) {
+    this.blockUser = function (params) {
       var uri = serviceURI.blockUser;
 
       return $http({
@@ -41,11 +41,22 @@ app.service("sellerService", [
       });
     };
 
-    this.deleteUser = function(params) {
+    this.deleteUser = function (params) {
       var uri = serviceURI.userBase;
 
       return $http({
         method: "DELETE",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+    this.getPayments = function (params) {
+      var uri = serviceURI.sellerPayment;
+      return $http({
+        method: "POST",
         url: uri,
         data: params,
         headers: {
@@ -59,8 +70,8 @@ app.service("sellerService", [
 app.service("dealerService", [
   "$http",
   "serviceURI",
-  function($http, serviceURI) {
-    this.getDealerList = function(params) {
+  function ($http, serviceURI) {
+    this.getDealerList = function (params) {
       var uri = serviceURI.getDealerList;
 
       return $http({
@@ -73,7 +84,7 @@ app.service("dealerService", [
       });
     };
 
-    this.changeDealerStatus = function(params) {
+    this.changeDealerStatus = function (params) {
       var uri = serviceURI.changeDealerStatus;
       return $http({
         method: "PUT",
@@ -90,8 +101,8 @@ app.service("dealerService", [
 app.service("dashBoardService", [
   "$http",
   "serviceURI",
-  function($http, serviceURI) {
-    this.getDashBoardInfo = function() {
+  function ($http, serviceURI) {
+    this.getDashBoardInfo = function () {
       var uri = serviceURI.getDashBoardInfo;
       return $http({
         method: "POST",

@@ -52,6 +52,7 @@
                                     </th>
                                     <th>Approve</th>
                                     <th>Delete</th>
+                                    <th>Password</th>
                                     <th>Subsellers</th>
                                 </tr>
                             </thead>
@@ -66,6 +67,9 @@
                                     </td>
                                     <td>
                                         <i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteEndUser(enduser.userId)"></i>
+                                    </td>
+                                    <td>
+                                        <button ng-click="changePassword(enduser.userId)">Change</button>
                                     </td>
                                     <td>
                                         <a ui-sref="subSellerListing({sellerId:'{{enduser.userId}}',sellerName:'{{enduser.firstName+' '+enduser.lastName}}'})">View</a>

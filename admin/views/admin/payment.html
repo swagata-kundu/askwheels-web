@@ -1,0 +1,65 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a ui-sref="adminDashBoard">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">Payments</li>
+</ol>
+
+<h1>Payments</h1>
+<hr>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Payment</div>
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr role="row">
+                                    <th>Vehicle</th>
+                                    <th>Amount</th>
+                                    <th>Name</th>
+                                    <th>Model</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="pay in payments">
+                                    <td>
+                                        <a ui-sref="sellerAuctionDetail({vehicleId:'{{pay.vehicleId}}',model:'{{pay.vehicle_name}}'})">
+                                            {{pay.vehicle_name}}
+                                        </a>
+                                    </td>
+                                    <td>{{pay.comission}}</td>
+                                    <td>{{pay.paymentFor?pay.paymentFor:'ASKWHEELS'}}</td>
+                                    <td>{{pay.model}}</td>
+                                    <td>{{pay.dateOfPayment}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing {{totalValues}} entries</div>
+                    </div>
+                    <!-- <div class="col-sm-12 col-md-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+
+
+                            <paging page="currentPage" page-size="numPerPage" total="totalValues" show-prev-next="true" show-first-last="true" paging-action="getVehicleList(page,numPerPage)">
+                            </paging>
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

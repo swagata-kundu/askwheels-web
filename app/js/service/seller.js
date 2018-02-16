@@ -79,5 +79,16 @@ app.service("sellerService", [
         }
       });
     };
+    this.getPayments = function (params) {
+      var uri = serviceURI.sellerPayment;
+      return $http({
+        method: "POST",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
   }
 ]);

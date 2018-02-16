@@ -38,6 +38,7 @@ app.constant("serviceURI", {
   sellerNotification: domain + "secure/notification/seller",
   dealerNotification: domain + "secure/notification/dealer",
   dealerWins: domain + "secure/auction/dealer/win",
-  sellerClosed: domain + "secure/auction/seller/closed"
+  sellerClosed: domain + "secure/auction/seller/closed",
+  sellerPayment: domain + "secure/auction/seller/payment"
 
 });

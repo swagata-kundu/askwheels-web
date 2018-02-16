@@ -74,7 +74,7 @@
                                     <div class="names">Registration Date
                                         <span>*</span>
                                     </div>
-                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.reg_date' class="datepicker">
+                                    <input type="text" data-ng-date futureDate="{{false}}" data-ng-model='addVehicle.basic_info.reg_date' class="datepicker">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -134,7 +134,7 @@
                                     <div class="names">Evaluation Date
                                         <span>*</span>
                                     </div>
-                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.evaluation_date' class="datepicker" required>
+                                    <input type="text" data-ng-date futureDate data-ng-model='addVehicle.basic_info.evaluation_date' class="datepicker" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -175,7 +175,7 @@
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
-                                    <div class="names">Transition Type
+                                    <div class="names">Transmission Type
                                         <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
@@ -274,7 +274,9 @@
                                         <option>sedan</option>
                                         <option>coupe</option>
                                         <option>convertible</option>
-                                        <option>other</option>
+                                        <option>Suv/Muv</option>
+                                        <option>Suv/Muv</option>
+                                        <option>Hatchback</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
