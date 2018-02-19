@@ -23,7 +23,8 @@
                     <a ui-sref="dealerWins" ui-sref-active="active">Your Wins</a>
                 </li>
                 <li>
-                    <a ui-sref="dealerNotification" ui-sref-active="active">Activity Logs</a>
+                    <a ui-sref="dealerNotification" ng-if="notification.unread" ui-sref-active="active">Notifications ({{notification.unread}})</a>
+                    <a ui-sref="dealerNotification" ng-if="!notification.unread" ui-sref-active="active">Notifications</a>
                 </li>
             </ul>
             <div class="clearfix"></div>
@@ -53,7 +54,8 @@
                 <a ui-sref="dealerWins" ui-sref-active="active">Your Wins</a>
             </li>
             <li>
-                <a ui-sref="dealerNotification" ui-sref-active="active">Activity Logs</a>
+                <a ui-sref="dealerNotification" ng-if="notification.unread" ui-sref-active="active">Notifications ({{notification.unread}})</a>
+                <a ui-sref="dealerNotification" ng-if="!notification.unread" ui-sref-active="active">Notifications</a>
             </li>
         </ul>
         <div class="clearfix"></div>

@@ -1,8 +1,8 @@
 ﻿app.service("publicUserService", [
   "$http",
   "serviceURI",
-  function($http, serviceURI) {
-    this.changePassword = function(params) {
+  function ($http, serviceURI) {
+    this.changePassword = function (params) {
       var uri = serviceURI.changePasswordPublicUserURI;
 
       return $http({
@@ -15,7 +15,7 @@
       });
     };
 
-    this.editUserProfile = function(profile) {
+    this.editUserProfile = function (profile) {
       var uri = serviceURI.userBase;
 
       return $http({
@@ -27,7 +27,7 @@
         }
       });
     };
-    this.getUserDetail = function(id) {
+    this.getUserDetail = function (id) {
       var uri = serviceURI.userBase + "/" + id;
       return $http({
         method: "GET",
@@ -36,3 +36,22 @@
     };
   }
 ]);
+
+
+app.directive("ngDate", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, element, attrs, ctrl) {
+      var d = moment().subtract(1, 'days').toDate();
+      $(element).datepicker({
+        dateFormat: "yy-mm-dd",
+        maxDate: attrs.hasOwnProperty("futuredate") ? d : null,
+        onSelect: function (date) {
+          ctrl.$setViewValue(date);
+          scope.$apply();
+        }
+      });
+    }
+  };
+});

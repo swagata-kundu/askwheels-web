@@ -22,7 +22,7 @@
                     </a>
                     <div class="clearfix"></div>
                 </li>
-                
+
                 <li>
                     <a ui-sref="help" target="_blank">
                         <i class="fa fa-info"></i>
@@ -47,30 +47,18 @@
     <div class="MyAccount notification">
         <div class="dropdown">
             <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-bell"></i>
-                <span>10</span>
+                <i class="fa fa-bell" /></i>
+                <span ng-if="notification.unread">{{notification.unread}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
-                <li>
-                    <a href="#">Lorem Ipsum, giving information on its origins
+                <li ng-repeat="noti in notification.data">
+                    <a ui-sref="sellerNotification">{{noti}}
                         <div class="clearfix"></div>
                     </a>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <a href="#">Lorem Ipsum, giving information on its origins
-                        <div class="clearfix"></div>
-                    </a>
-                    <div class="clearfix"></div>
-                </li>
-                <li>
-                    <a href="#">Lorem Ipsum, giving information on its origins
-                        <div class="clearfix"></div>
-                    </a>
-                    <div class="clearfix"></div>
-                </li>
-                <li>
-                    <a href="#">View All
+                    <a ui-sref="sellerNotification">View All
                         <div class="clearfix"></div>
                     </a>
                     <div class="clearfix"></div>

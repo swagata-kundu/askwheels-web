@@ -117,20 +117,3 @@ app.directive("auctionDealer", function () {
     ]
   };
 });
-app.directive("ngDate", function () {
-  return {
-    restrict: "A",
-    require: "ngModel",
-    link: function (scope, element, attrs, ctrl) {
-      var d = moment().subtract(1, 'days').toDate();
-      $(element).datepicker({
-        dateFormat: "yy-mm-dd",
-        maxDate: attrs.hasOwnProperty("futuredate") ? d : null,
-        onSelect: function (date) {
-          ctrl.$setViewValue(date);
-          scope.$apply();
-        }
-      });
-    }
-  };
-});

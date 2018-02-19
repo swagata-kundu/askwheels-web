@@ -29,7 +29,8 @@
                 <li>
                     <a ui-sref="sellerNotification" ui-sref-active="active">
                         <i class="fa fa-server"></i>
-                        <span>Activity Logs (1)</span>
+                        <span ng-if="notification.unread">Notifications ({{notification.unread}})</span>
+                        <span ng-if="!notification.unread">Notifications</span>
                         <div class="clearfix"></div>
                     </a>
                     <div class="clearfix"></div>
@@ -101,7 +102,8 @@
             <li>
                 <a ui-sref="sellerNotification" ui-sref-active="active">
                     <i class="fa fa-server"></i>
-                    <span>Activity Logs (1)</span>
+                    <span ng-if="notification.unread">Notifications ({{notification.unread}})</span>
+                    <span ng-if="!notification.unread">Notifications</span>
                     <div class="clearfix"></div>
                 </a>
                 <div class="clearfix"></div>

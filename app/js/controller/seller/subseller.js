@@ -3,29 +3,29 @@ app.controller("subsellerListing", [
   "$state",
   "$uibModal",
   "sellerService",
-  function($scope, $state, $uibModal, sellerService) {
+  function ($scope, $state, $uibModal, sellerService) {
     $scope.subsellers = [];
     sellerService.subsellerListing({}).then(
-      function(result) {
+      function (result) {
         $scope.subsellers = result.data.data;
       },
-      function(error) {
+      function (error) {
         $scope.subsellers = [];
       }
     );
 
-    $scope.changePassword = function(userId) {
+    $scope.changePassword = function (userId) {
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: "views/seller/subuserpassword.html",
         controller: "changeSubUserPassword",
         resolve: {
-          userId: function() {
+          userId: function () {
             return userId;
           }
         }
       });
-      modalInstance.result.then(function() {}, function() {});
+      modalInstance.result.then(function () {}, function () {});
     };
   }
 ]);
@@ -35,7 +35,7 @@ app.controller("subsellerAdd", [
   "$state",
   "sellerService",
   "publicUserService",
-  function($scope, $state, sellerService, publicUserService) {
+  function ($scope, $state, sellerService, publicUserService) {
     $scope.isEdit = false;
     var id = "";
     $scope.user = {};
@@ -43,14 +43,14 @@ app.controller("subsellerAdd", [
     if ($state.params.id) {
       id = $state.params.id;
       $scope.isEdit = true;
-      publicUserService.getUserDetail(id).then(function(data) {
+      publicUserService.getUserDetail(id).then(function (data) {
         var user = data.data.data;
         $scope.user.contactNo = user.phone;
         $scope.user.name = user.firstName + " " + user.lastName;
       });
     }
 
-    $scope.save = function() {
+    $scope.save = function () {
       if ($scope.addSubUser.$valid) {
         let names = $scope.user.name.split(" ");
         let firstName = names[0];
@@ -64,12 +64,12 @@ app.controller("subsellerAdd", [
         };
         sellerService
           .addSubseller(requestParams)
-          .then(function(response) {
-            bootbox.alert("Sub user added successfully", function() {
+          .then(function (response) {
+            bootbox.alert("Sub user added successfully", function () {
               $state.go("sellerSubSeller");
             });
           })
-          .catch(function(error) {
+          .catch(function (error) {
             showErrorMessage(error);
           });
       }
@@ -82,7 +82,7 @@ app.controller("subsellerAuctions", [
   "$state",
   "sellerService",
   "$q",
-  function($scope, $state, sellerService, $q) {
+  function ($scope, $state, sellerService, $q) {
     $scope.auctions = [];
     $scope.params = $state.params;
     $scope.filter = {
@@ -90,14 +90,15 @@ app.controller("subsellerAuctions", [
       maxPrice: "",
       fuelType: "",
       owner: "",
-      transmission: ""
+      transmission: "",
+      sortBy: ""
     };
 
     let auctionParams = {
       auctionType: 0
     };
 
-    let getAuctions = function() {
+    let getAuctions = function () {
       $scope.auctions = [];
       let params = {};
 
@@ -119,13 +120,15 @@ app.controller("subsellerAuctions", [
         params.transmission_type = $scope.filter.transmission;
       }
 
+      params.sortBy = $scope.filter.sortBy;
+
       params.sub_sellers = $scope.params.subsellerId.toString();
 
       sellerService.getAuctionList(params).then(
-        function(result) {
+        function (result) {
           $scope.auctions = result.data.data;
         },
-        function(error) {
+        function (error) {
           $scope.auctions = [];
         }
       );
@@ -133,17 +136,18 @@ app.controller("subsellerAuctions", [
 
     getAuctions();
 
-    $scope.applyFilter = function() {
+    $scope.applyFilter = function () {
       getAuctions();
     };
 
-    $scope.resetFilter = function() {
+    $scope.resetFilter = function () {
       $scope.filter = {
         minPrice: "",
         maxPrice: "",
         fuelType: "",
         owner: "",
-        transmission: ""
+        transmission: "",
+        sortBy: ""
       };
       getAuctions();
     };
@@ -156,14 +160,14 @@ app.controller("changeSubUserPassword", [
   "$state",
   "$uibModalInstance",
   "userId",
-  function($scope, publicUserService, $state, $uibModalInstance, userId) {
+  function ($scope, publicUserService, $state, $uibModalInstance, userId) {
     $scope.user = {};
     var subUserId = userId;
-    $scope.cancel = function() {
+    $scope.cancel = function () {
       $uibModalInstance.dismiss("cancel");
     };
 
-    $scope.changePassword = function() {
+    $scope.changePassword = function () {
       if ($scope.changePasswordFrm.$valid) {
         var requestParams = {
           newPassword: $scope.user.newPassword,
@@ -171,12 +175,12 @@ app.controller("changeSubUserPassword", [
         };
         publicUserService
           .changePassword(requestParams)
-          .then(function(response) {
-            bootbox.alert(response.data.message, function() {
+          .then(function (response) {
+            bootbox.alert(response.data.message, function () {
               $uibModalInstance.close("ok");
             });
           })
-          .catch(function(error) {
+          .catch(function (error) {
             $uibModalInstance.dismiss("cancel");
             showErrorMessage(error);
           });

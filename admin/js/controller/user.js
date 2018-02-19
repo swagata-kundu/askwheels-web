@@ -467,10 +467,32 @@ app.controller("payments", [
     sellerService
   ) {
     $scope.payments = [];
-    sellerService.getPayments({}).then(function (result) {
-      $scope.payments = result.data.data;
-      $scope.totalValues = result.data.count;
-    });
+    $scope.filter = {
+      startDate: "",
+      endDate: ""
+    }
+
+    function loadDate() {
+      sellerService.getPayments($scope.filter).then(function (result) {
+        $scope.payments = result.data.data;
+        $scope.totalValues = result.data.count;
+      });
+    }
+
+    loadDate();
+
+    $scope.applyFilter = function () {
+      loadDate();
+    }
+
+    $scope.resetFilter = function () {
+      $scope.filter = {
+        startDate: "",
+        endDate: ""
+      }
+      $scope.subsellerSelections = [];
+      loadDate()
+    }
   }
 ])
 

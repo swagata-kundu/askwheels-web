@@ -20,7 +20,8 @@ app.controller("sellerDashboard", [
       maxPrice: "",
       fuelType: "",
       owner: "",
-      transmission: ""
+      transmission: "",
+      sortBy: ""
     };
 
     $scope.loadUser = function () {
@@ -62,6 +63,7 @@ app.controller("sellerDashboard", [
       if ($scope.filter.transmission) {
         params.transmission_type = $scope.filter.transmission;
       }
+      params.sortBy = $scope.filter.sortBy;
       let sellerIds = [];
       if ($scope.subsellerSelections.length > 0) {
         sellerIds = $scope.subsellerSelections.map(function (i) {
@@ -107,7 +109,8 @@ app.controller("sellerDashboard", [
         maxPrice: "",
         fuelType: "",
         owner: "",
-        transmission: ""
+        transmission: "",
+        sortBy: ""
       };
       $scope.subsellerSelections = [];
       getAuctions();
@@ -482,9 +485,13 @@ app.controller("sellerAddAuction", [
           wiper_fluid_dispenses_properly: {
             description: "",
             value: ""
+          },
+          keys_available: {
+            description: "",
+            value: ""
           }
         },
-        automatic_tansmission: {
+        transmission: {
           fluid_clean: {
             description: "",
             value: ""
@@ -492,14 +499,16 @@ app.controller("sellerAddAuction", [
           no_slips_delays: {
             description: "",
             value: ""
-          }
-        },
-        manual_transmission: {
+          },
           gear_shifts_smoothly: {
             description: "",
             value: ""
           },
           grinding_noise: {
+            description: "",
+            value: ""
+          },
+          clatch_working: {
             description: "",
             value: ""
           }
@@ -568,6 +577,10 @@ app.controller("sellerAddAuction", [
             value: ""
           },
           thread_worn: {
+            description: "",
+            value: ""
+          },
+          percentage_tyre: {
             description: "",
             value: ""
           }
@@ -655,7 +668,9 @@ app.controller("sellerNotification", [
   "sellerService",
   function ($scope, $state, sellerService) {
     $scope.notifications = [];
-    sellerService.getNotification({}).then(function (result) {
+    sellerService.getNotification({
+      markRead: true
+    }).then(function (result) {
       $scope.notifications = result.data.data;
     });
   }

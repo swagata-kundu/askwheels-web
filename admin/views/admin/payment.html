@@ -17,6 +17,26 @@
             <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
 
                 <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="">
+                            <label>Start Date:
+                                <input type="search" data-ng-date ng-model="filter.startDate" class="datepicker form-control form-control-sm" placeholder="Start Date">
+                            </label>
+                            <label>End Date:
+                                <input type="search" data-ng-date ng-model="filter.endDate" class="datepicker form-control form-control-sm" placeholder="End Date">
+                            </label>
+                            <label>
+                                <button ng-click="applyFilter()" class="btn btn-primary form-control form-control-sm">Apply</button>
+                            </label>
+                            <label>
+                                <button ng-click="resetFilter()" class="btn btn-danger form-control form-control-sm">Reset</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0">
                             <thead>

@@ -120,10 +120,13 @@
                     <span>Sort By</span>
                     <span class="shortD">
                         <i class="fa fa-angle-down"></i>
-                        <select>
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
+                        <select ng-model="filter.sortBy">
+                            <option value="">Select</option>
+                            <option value="newest">Newest</option>
+                            <option value="lowToHigh">Low To High</option>
+                            <option value="highToLow">High To Low</option>
+                            <option value="mostPopular">Most Pupular</option>
+                            <option value="leastPopular">Least Pupular</option>
                         </select>
                     </span>
                     <div class="clearfix"></div>

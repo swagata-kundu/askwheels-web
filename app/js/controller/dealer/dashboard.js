@@ -14,7 +14,8 @@ app.controller("dealerDashobard", [
       maxPrice: "",
       fuelType: "",
       owner: "",
-      transmission: ""
+      transmission: "",
+      sortBy: ""
     };
 
     dealerService.getDashboardInfo().then(
@@ -47,6 +48,8 @@ app.controller("dealerDashobard", [
       if ($scope.filter.transmission) {
         params.transmission_type = $scope.filter.transmission;
       }
+      params.sortBy = $scope.filter.sortBy;
+
 
       dealerService.getAuctionList(params).then(
         function (result) {
@@ -75,7 +78,8 @@ app.controller("dealerDashobard", [
         maxPrice: "",
         fuelType: "",
         owner: "",
-        transmission: ""
+        transmission: "",
+        sortBy: ""
       };
       getAuctions();
     };
@@ -160,7 +164,9 @@ app.controller("dealerNotification", [
   "dealerService",
   function ($scope, $state, dealerService) {
     $scope.notifications = [];
-    dealerService.getNotification({}).then(function (result) {
+    dealerService.getNotification({
+      markRead: true
+    }).then(function (result) {
       $scope.notifications = result.data.data;
     });
   }
