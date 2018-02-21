@@ -52,6 +52,13 @@
                                             <div class="clearfix"></div>
                                         </li>
 
+                                        <li ng-repeat="file in alreadyUploadedImages">
+                                            <a href="#" class="fa fa-close" ng-click="removeFile($index,true)"></a>
+                                            <img src="{{file}}">
+                                            <div class="clearfix"></div>
+                                        </li>
+
+
                                         <div class="clearfix"></div>
                                     </ul>
                                     <div class="clearfix"></div>
@@ -218,7 +225,7 @@
                                 <li>
                                     <div class="names">Meter seems to be tempered
                                     </div>
-                                    <select data-ng-model="addVehicle.basic_info.meter_tempered">
+                                    <select data-ng-model="addVehicle.basic_info.meter_tampered">
                                         <option value="">select</option>
                                         <option value="yes">yes</option>
                                         <option value="no">no</option>
@@ -764,7 +771,6 @@
                             <ul class="stepthree">
                                 <li>
                                     <div class="names">Tyres Are a Reputable Brand Name</div>
-                                    <i class="fa fa-angle-down"></i>
                                     <input type="text">
                                     <div class="clearfix"></div>
                                 </li>

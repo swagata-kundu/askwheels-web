@@ -132,6 +132,7 @@ app.controller("auctionDetail", ["$scope",
     }
     auctionService.getAuctionDetail(auctionId).then(function (data) {
       $scope.addVehicle = data.data.data;
+      createInsPectionReport($scope.addVehicle.inspection_report)
 
       startTime = moment($scope.addVehicle.auction_start_date);
       $scope.timings = {
@@ -142,5 +143,31 @@ app.controller("auctionDetail", ["$scope",
 
     }, function (err) {})
 
+    $scope.reports = []
+    let reports = []
+
+    function createInsPectionReport(report) {
+      _.forEach(report, function (value, key) {
+        let obj = {
+          header: "",
+          subsections: []
+        };
+        obj.header = _.startCase(_.replace(key, new RegExp("_", "g"), " "));
+        _.forEach(value, function (value1, key1) {
+          let obj2 = {
+            header: "",
+            value: "",
+            desc: ""
+          };
+          obj2.header = _.startCase(_.replace(key1, new RegExp("_", "g"), " "));
+          obj2.value = value1.value ? value1.value : "NA";
+          obj2.desc = value1.description ? value1.description : "NA";
+          obj.subsections.push(obj2);
+        });
+        reports.push(obj);
+      });
+      $scope.reports = reports;
+      console.log(JSON.stringify(reports));
+    }
   }
 ])

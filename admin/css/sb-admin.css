@@ -526,3 +526,12 @@ footer.sticky-footer {
   transition: transform 0.3s ease-out !important;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out !important;
 }
+
+.detail-image img {
+  width: 100px;
+  height: 100px;
+}
+
+.detail-image h4 {
+  color: #007BFF;
+}

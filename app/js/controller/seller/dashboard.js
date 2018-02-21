@@ -228,6 +228,11 @@ app.controller("sellerAddAuction", [
       });
     });
 
+
+    $scope.vehicleId = $state.params.vehicleId;
+
+    $scope.alreadyUploadedImages = [];
+
     $scope.addVehicle = {
       basic_info: {
         start_bid: 0,
@@ -591,6 +596,60 @@ app.controller("sellerAddAuction", [
       date: "",
       time: new Date(1970, 0, 1, 0, 0, 0)
     };
+
+    if ($scope.vehicleId) {
+      auctionService.getAuctionDetail($scope.vehicleId).then(function (data) {
+
+        let vehicle = data.data.data;
+
+        let newvehicle = {};
+
+        $scope.alreadyUploadedImages = vehicle.images;
+
+        let _t = _.omit(vehicle, ['inspection_report', 'auctionType',
+          'uploadedBy',
+          'highestBid',
+          'highestBidBy',
+          'isWatchList',
+          'lastBid',
+          'reject_reason',
+          'vehicle_status', 'isDeleted', 'dateCreated', 'dateModified',
+          'id', 'sellerId', 'subsellerId', 'auction_start_date', 'admin_live_date', 'images', 'bids', 'hpa_status', 'insurance_type', 'insurance_validation',
+        ])
+
+        _t.previous_owners = _t.previous_owners ? _t.previous_owners.toString() : '';
+        _t.manufacturing_year = _t.manufacturing_year ? _t.manufacturing_year.toString() : '';
+        _t.passengers = _t.passengers ? _t.passengers.toString() : '';
+
+
+        newvehicle.basic_info = _t;
+
+
+        newvehicle.basic_info.insurance_policy = {
+          hpa_status: vehicle.hpa_status,
+          insurance_type: vehicle.insurance_type,
+          insurance_validation: vehicle.insurance_validation
+        }
+
+        let inspection_report = Object.assign({}, vehicle.inspection_report);
+
+        let startTime = moment($scope.addVehicle.auction_start_date);
+
+        $scope.timings = {
+          date: startTime.format('YYYY-MM-DD'),
+          time: new Date(vehicle.auction_start_date)
+        }
+
+        newvehicle.inspection_report = inspection_report;
+
+        $scope.addVehicle = Object.assign({}, newvehicle);
+
+      }, function (err) {})
+
+    }
+
+
+
     $scope.selectedFiles = [];
 
     $scope.uploadFiles = function (files) {
@@ -599,11 +658,18 @@ app.controller("sellerAddAuction", [
       });
     };
 
-    $scope.removeFile = function (index) {
-      $scope.selectedFiles = [
-        ...$scope.selectedFiles.slice(0, index),
-        ...$scope.selectedFiles.slice(index + 1)
-      ];
+    $scope.removeFile = function (index, isExisting) {
+      if (!isExisting) {
+        $scope.selectedFiles = [
+          ...$scope.selectedFiles.slice(0, index),
+          ...$scope.selectedFiles.slice(index + 1)
+        ];
+      } else {
+        $scope.alreadyUploadedImages = [
+          ...$scope.alreadyUploadedImages.slice(0, index),
+          ...$scope.alreadyUploadedImages.slice(index + 1)
+        ];
+      }
     };
 
     $scope.saveVehicle = function () {
@@ -659,6 +725,62 @@ app.controller("sellerAddAuction", [
         }
       );
     };
+
+
+    var updateVehicle = function () {
+      var images = [];
+      images = _.concat(images, $scope.alreadyUploadedImages);
+
+      async.series(
+        [
+          function (cb) {
+            if ($scope.selectedFiles.length == 0 || $scope.alreadyUploadedImages.length == 0) {
+              return cb("No vehicle image is selected");
+            }
+            if ($scope.selectedFiles.length == 0) {
+              return cb(null);
+            }
+            auctionService.uploadFiles($scope.selectedFiles).then(
+              function (result) {
+                images = _.concat(images, result.data.data);
+                return cb(null);
+              },
+              function (error) {
+                return cb("Error occoured while uploading image");
+              }
+            );
+          },
+          function (cb) {
+            var vehicleObject = {};
+            vehicleObject = angular.copy($scope.addVehicle);
+            vehicleObject.basic_info.images = images;
+            vehicleObject.basic_info.auction_start_date =
+              $scope.timings.date +
+              " " +
+              $scope.timings.time.getHours() +
+              ":" +
+              $scope.timings.time.getMinutes();
+            auctionService.addAuction(vehicleObject).then(
+              function (result) {
+                return cb(null);
+              },
+              function (error) {
+                return cb("Error occoured while adding new vehicle");
+              }
+            );
+          }
+        ],
+        function (err) {
+          if (err) {
+            bootbox.alert(err);
+          } else {
+            bootbox.alert("Vehicle added successfully");
+            $state.go("sellerDashboard");
+          }
+        }
+      );
+    }
+
   }
 ]);
 

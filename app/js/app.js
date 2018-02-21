@@ -131,6 +131,19 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         ]
       }
     })
+    .state("sellerEditAuction", {
+      url: "/seller/auction/{vehicleId:int}",
+      templateUrl: "views/seller/addvehicle.html",
+      controller: "sellerAddAuction",
+      resolve: {
+        access: [
+          "Access",
+          function (Access) {
+            return Access.hasAnyRole([1, 2]);
+          }
+        ]
+      }
+    })
     .state("sellerAddSubseller", {
       url: "/seller/subuser/:id",
       templateUrl: "views/seller/addsubseller.html",

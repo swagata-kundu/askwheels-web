@@ -81,5 +81,6 @@
         <div ng-if="vehicle.auctionType===4" class="reason">
             <span>Reason:</span>
             {{vehicle.reject_reason}}
+            <a ui-sref="sellerEditAuction({vehicleId:'{{vehicle.vehicleId}}'})">Edit</a>
         </div>
     </div>
