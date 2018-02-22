@@ -324,8 +324,7 @@ app.controller("dealerListing", [
     $scope.selectedDealer = {};
     $scope.changeDealerStatus = function (user) {
       $scope.selectedDealer = user;
-      var modal = angular.element(document).find("#confirmmodal");
-      modal.modal();
+      $("#confirmmodal").modal('show');
     };
 
     $scope.changeStatus = function () {
