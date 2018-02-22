@@ -54,6 +54,7 @@
                                     <th>Delete</th>
                                     <th>Password</th>
                                     <th>Subsellers</th>
+                                    <th>Auctions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,6 +74,9 @@
                                     </td>
                                     <td>
                                         <a ui-sref="subSellerListing({sellerId:'{{enduser.userId}}',sellerName:'{{enduser.firstName+' '+enduser.lastName}}'})">View</a>
+                                    </td>
+                                    <td>
+                                        <a ui-sref="auctionListing({sellerId:'{{enduser.userId}}',name:'{{enduser.firstName+' '+enduser.lastName}}'})">View</a>
                                     </td>
 
                                 </tr>

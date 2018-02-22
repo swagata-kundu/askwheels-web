@@ -5,7 +5,9 @@
     <li class="breadcrumb-item active">Auctions</li>
 </ol>
 
-<h1>Auctions</h1>
+<h1 ng-if="params.name">{{params.name}}' Auctions</h1>
+<h1 ng-if="!params.name">Auctions</h1>
+
 <hr>
 
 <div class="card mb-3">

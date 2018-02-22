@@ -6,6 +6,7 @@ table.dataTable {
     margin-bottom: 6px !important;
     max-width: none !important;
     border-collapse: separate !important;
+    table-layout: fixed
 }
 
 table.dataTable td,

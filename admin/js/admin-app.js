@@ -75,7 +75,7 @@ app.config(function (
       }
     })
     .state("auctionListing", {
-      url: "/admin/auctions",
+      url: "/admin/auctions?sellerId&?subSellerId&?name",
       templateUrl: "views/admin/auctionlist.html",
       controller: "auctionList",
       resolve: {
