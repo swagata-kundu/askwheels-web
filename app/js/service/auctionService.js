@@ -2,8 +2,8 @@ app.service("auctionService", [
   "$http",
   "serviceURI",
   "Upload",
-  function($http, serviceURI, Upload) {
-    this.getVehicleList = function(params) {
+  function ($http, serviceURI, Upload) {
+    this.getVehicleList = function (params) {
       var uri = serviceURI.vehicleListAdmin;
 
       return $http({
@@ -16,7 +16,7 @@ app.service("auctionService", [
       });
     };
 
-    this.changeVehicleStatus = function(params) {
+    this.changeVehicleStatus = function (params) {
       var uri = serviceURI.vehicleStatusChange;
 
       return $http({
@@ -29,7 +29,7 @@ app.service("auctionService", [
       });
     };
 
-    this.getAuctionDetail = function(vehicleId) {
+    this.getAuctionDetail = function (vehicleId) {
       var uri = serviceURI.vehicle + "/" + vehicleId;
       return $http({
         method: "GET",
@@ -40,7 +40,7 @@ app.service("auctionService", [
       });
     };
 
-    this.uploadFiles = function(files) {
+    this.uploadFiles = function (files) {
       var uri = serviceURI.upload;
 
       return Upload.upload({
@@ -52,10 +52,21 @@ app.service("auctionService", [
       });
     };
 
-    this.addAuction = function(params) {
+    this.addAuction = function (params) {
       var uri = serviceURI.addAuction;
       return $http({
         method: "POST",
+        url: uri,
+        data: params,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+    this.updateAuction = function (params, vehicleId) {
+      var uri = serviceURI.addAuction + '/' + vehicleId;
+      return $http({
+        method: "PUT",
         url: uri,
         data: params,
         headers: {

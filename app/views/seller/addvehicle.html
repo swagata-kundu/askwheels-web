@@ -29,8 +29,7 @@
                             <li>SUSPENTION</li>
                             <li>INTERIOR</li>
                             <li>FRAME</li>
-                            <li>Automatic Transmission</li>
-                            <li>Manual or Standard Transmission</li>
+                            <li>Transmission</li>
                             <li>Breaks</li>
                             <li>Steering</li>
                             <li>Miscellaneous</li>
@@ -251,7 +250,7 @@
                         <!-- Insurance -->
                         <fieldset>
                             <h2 class="fs-title">Insurance Policy</h2>
-                            <h3 class="fs-subtitle">Step 1 of 12</h3>
+                            <h3 class="fs-subtitle">Step 2 of 12</h3>
                             <ul class="steptwo">
                                 <li>
                                     <div class="names">Insurance Validation
@@ -299,7 +298,7 @@
 
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 1 of 12</h3>
+                            <h3 class="fs-subtitle">Step 3 of 12</h3>
                             <h4>Exterior</h4>
                             <ul class="stepthree">
                                 <li>
@@ -766,7 +765,7 @@
                         <!-- Tyres -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 2 of 12</h3>
+                            <h3 class="fs-subtitle">Step 4 of 12</h3>
                             <h4>Tyres</h4>
                             <ul class="stepthree">
                                 <li>
@@ -889,7 +888,7 @@
 
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 3 of 12</h3>
+                            <h3 class="fs-subtitle">Step 5 of 12</h3>
                             <h4>ENGINE</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1001,7 +1000,7 @@
                         <!-- Suspention -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 4 of 12</h3>
+                            <h3 class="fs-subtitle">Step 6 of 12</h3>
                             <h4>SUSPENTION</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1062,7 +1061,7 @@
                         <!-- Interior -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 5 of 12</h3>
+                            <h3 class="fs-subtitle">Step 7 of 12</h3>
                             <h4>INTERIOR</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1378,7 +1377,7 @@
 
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 6 of 12</h3>
+                            <h3 class="fs-subtitle">Step 8 of 12</h3>
                             <h4>FRAME</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1441,7 +1440,7 @@
 
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 7 of 12</h3>
+                            <h3 class="fs-subtitle">Step 9 of 12</h3>
                             <h4>Transmission</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1535,7 +1534,7 @@
                         <!-- Breaks -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 9 of 12</h3>
+                            <h3 class="fs-subtitle">Step 10 of 12</h3>
                             <h4>Breaks</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1612,7 +1611,7 @@
 
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 10 of 12</h3>
+                            <h3 class="fs-subtitle">Step 11 of 12</h3>
                             <h4>Steering</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1688,7 +1687,7 @@
                         <!-- Miscellaneous -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
-                            <h3 class="fs-subtitle">Step 11 of 12</h3>
+                            <h3 class="fs-subtitle">Step 12 of 12</h3>
                             <h4>Miscellaneous</h4>
                             <ul class="stepthree">
                                 <li>
@@ -1758,7 +1757,11 @@
                                 <div class="clearfix"></div>
                             </ul>
                             <input type="button" name="previous" class="previous action-button" value="Previous" />
-                            <input type="submit" name="submit" class="submit action-button" value="Submit" ng-click="saveVehicle()" />
+                            <input ng-if="!vehicleId" type="submit" name="submit" class="submit action-button" value="Save" ng-click="saveVehicle()"
+                            />
+                            <input ng-if="vehicleId" type="submit" name="submit" class="submit action-button" value="Update" ng-click="updateVehicle()"
+                            />
+
                         </fieldset>
 
                     </form>

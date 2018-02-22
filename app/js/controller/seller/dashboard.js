@@ -727,7 +727,11 @@ app.controller("sellerAddAuction", [
     };
 
 
-    var updateVehicle = function () {
+    $scope.updateVehicle = function () {
+      if (!$scope.addVehicleForm.$valid) {
+        bootbox.alert("Please fill all required information");
+        return;
+      }
       var images = [];
       images = _.concat(images, $scope.alreadyUploadedImages);
 
@@ -760,7 +764,7 @@ app.controller("sellerAddAuction", [
               $scope.timings.time.getHours() +
               ":" +
               $scope.timings.time.getMinutes();
-            auctionService.addAuction(vehicleObject).then(
+            auctionService.updateAuction(vehicleObject, $scope.vehicleId).then(
               function (result) {
                 return cb(null);
               },
@@ -774,7 +778,7 @@ app.controller("sellerAddAuction", [
           if (err) {
             bootbox.alert(err);
           } else {
-            bootbox.alert("Vehicle added successfully");
+            bootbox.alert("Vehicle updated successfully");
             $state.go("sellerDashboard");
           }
         }
