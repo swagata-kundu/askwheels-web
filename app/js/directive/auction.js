@@ -88,8 +88,11 @@ app.directive("auctionDealer", function () {
             });
         };
 
-        $scope.bidAmount = 0;
+        $scope.bidAmount = '';
         $scope.submitBid = function (bidAmount) {
+
+          if(isFinite(bidAmount)){
+
           var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/dealer/bid.html",
@@ -106,14 +109,27 @@ app.directive("auctionDealer", function () {
           modalInstance.result.then(
             function () {
               $scope.$emit("resetDealerList");
-              $scope.bidAmount = 0;
+              $scope.bidAmount = '';
             },
             function () {
-              $scope.bidAmount = 0;
+              $scope.bidAmount = '';
             }
-          );
+          )
+        }
+        else{
+          bootbox.alert("Submit valid amount")
+        }
         };
       }
     ]
   };
 });
+
+function isNumber(evt) {
+  evt = (evt) ? evt : window.event;
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+  }
+  return true;
+}

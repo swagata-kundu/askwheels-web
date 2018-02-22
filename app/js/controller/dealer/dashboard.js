@@ -142,7 +142,7 @@ app.controller("dealerBid", [
       dealerService
         .submitBid({
           vehicleId: vehicle.vehicleId,
-          amount: bidAmount
+          amount: parseInt(bidAmount)
         })
         .then(
           function (response) {
@@ -150,7 +150,7 @@ app.controller("dealerBid", [
             bootbox.alert(response.data.message);
           },
           function (error) {
-            $uibModalInstance.dismiss("cancel");
+            $uibModalInstance.close("cancel");
             showErrorMessage(error);
           }
         );
