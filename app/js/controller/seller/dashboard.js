@@ -738,7 +738,7 @@ app.controller("sellerAddAuction", [
       async.series(
         [
           function (cb) {
-            if ($scope.selectedFiles.length == 0 || $scope.alreadyUploadedImages.length == 0) {
+            if ($scope.selectedFiles.length == 0 && $scope.alreadyUploadedImages.length == 0) {
               return cb("No vehicle image is selected");
             }
             if ($scope.selectedFiles.length == 0) {
