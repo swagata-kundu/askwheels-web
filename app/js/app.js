@@ -349,3 +349,10 @@ app.run([
     });
   }
 ]);
+
+$(document).ready(function () {
+  var winH = $(window).height() - 64;
+  $('.container-fluid').css({
+    'minHeight': winH
+  })
+})

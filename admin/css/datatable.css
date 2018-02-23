@@ -226,7 +226,6 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     padding-right: 0;
 }
 
-
 /* pagination css */
 
 .pagination {
@@ -341,4 +340,24 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 
 .wd-7 {
     width: 7%;
+}
+
+.wd-10 {
+    width: 10%;
+}
+
+.wd-15 {
+    width: 15%;
+}
+
+.wd-20 {
+    width: 20%;
+}
+
+.wd-25 {
+    width: 25%;
+}
+
+.wd-30 {
+    width: 30%;
 }

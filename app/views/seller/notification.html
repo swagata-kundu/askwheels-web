@@ -41,7 +41,7 @@
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="noti in notifications">
-                                        <td>{{noti.notificationType==1?'Bidding':'Add/Update'}}</td>
+                                        <td>{{noti.notificationType==1?'Bidding':noti.notificationType==2?'Add/Update':'Win'}}</td>
                                         <td>{{noti.bidAmount?noti.bidAmount:'NA'}}</td>
                                         <td>{{noti.bidBy?noti.bidBy:'NA'}}</td>
                                         <td>
@@ -57,7 +57,7 @@
                                 </tbody>
                             </table>
                             <div ng-if="notifications.length==0">
-                                You dont have any Notifications/Vehicle                            </div>
+                                You dont have any Notifications/Vehicle </div>
                         </div>
                     </div>
                 </div>
