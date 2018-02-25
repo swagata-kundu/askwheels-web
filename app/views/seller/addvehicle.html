@@ -30,7 +30,7 @@
                             <li>INTERIOR</li>
                             <li>FRAME</li>
                             <li>Transmission</li>
-                            <li>Breaks</li>
+                            <li>brakes</li>
                             <li>Steering</li>
                             <li>Miscellaneous</li>
                         </ul>
@@ -117,6 +117,7 @@
                                         <option>Petrol</option>
                                         <option>Diesel</option>
                                         <option>Hybrid</option>
+                                        <option>Lpg</option>
                                         <option>CNG</option>
                                     </select>
                                     <div class="clearfix"></div>
@@ -861,6 +862,25 @@
                                 </li>
 
 
+                                <li>
+                                    <div class="names">Percentage of Spare Tyre status</div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="addVehicle.inspection_report.tyres.spare_tyre_percentage.value">
+                                        <option value="">Select</option>
+                                        <option value="below  25%">Below 25%</option>
+                                        <option value="25% to 50%">25% to 50%</option>
+                                        <option value="50% to 75%">50% to 75%</option>
+                                        <option value="75% to 100%">75% to 100%</option>
+                                    </select>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <div class="names">description</div>
+                                    <input type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre_percentage.description">
+                                    <div class="clearfix"></div>
+                                </li>
+
+
                                 <li class="TreadWorn">
                                     <div class="names">Tread Worn Evenly (uneven wear indicates alignment and suspension problems)</div>
                                     <i class="fa fa-angle-down"></i>
@@ -1531,16 +1551,16 @@
                             <input type="button" name="next" class="next action-button" value="Next" />
                         </fieldset>
 
-                        <!-- Breaks -->
+                        <!-- brakes -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
                             <h3 class="fs-subtitle">Step 10 of 12</h3>
-                            <h4>Breaks</h4>
+                            <h4>Brakes</h4>
                             <ul class="stepthree">
                                 <li>
                                     <div class="names">Parking Brake Engages and Disengages Freely</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.breaks.pbedf.value">
+                                    <select ng-model="addVehicle.inspection_report.brakes.pbedf.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1549,14 +1569,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.breaks.pbedf.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.brakes.pbedf.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
                                     <div class="names">Grinding Noises When Applying</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.breaks.grinding_noise.value">
+                                    <select ng-model="addVehicle.inspection_report.brakes.grinding_noise.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1565,14 +1585,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.breaks.grinding_noise.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.brakes.grinding_noise.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
                                     <div class="names">Wheels Lock When Applying Antilock Brakes (If applicable)</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.breaks.wlaab.value">
+                                    <select ng-model="addVehicle.inspection_report.brakes.wlaab.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1581,14 +1601,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.breaks.wlaab.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.brakes.wlaab.description">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li class="VehicleSteers">
                                     <div class="names">Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes</div>
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.breaks.vss.value">
+                                    <select ng-model="addVehicle.inspection_report.brakes.vss.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1597,7 +1617,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.breaks.vss.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.brakes.vss.description">
                                     <div class="clearfix"></div>
                                 </li>
 

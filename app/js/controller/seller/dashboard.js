@@ -258,7 +258,7 @@ app.controller("sellerAddAuction", [
         }
       },
       inspection_report: {
-        breaks: {
+        brakes: {
           grinding_noise: {
             description: "",
             value: ""
@@ -586,6 +586,10 @@ app.controller("sellerAddAuction", [
             value: ""
           },
           percentage_tyre: {
+            description: "",
+            value: ""
+          },
+          spare_tyre_percentage:{
             description: "",
             value: ""
           }
