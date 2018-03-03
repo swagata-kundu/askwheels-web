@@ -44,9 +44,11 @@ app.directive("ngDate", function () {
     require: "ngModel",
     link: function (scope, element, attrs, ctrl) {
       var d = moment().subtract(1, 'days').toDate();
+      var toDay = moment().toDate();
+
       $(element).datepicker({
         dateFormat: "yy-mm-dd",
-        maxDate: attrs.hasOwnProperty("futuredate") ? d : null,
+        maxDate: attrs.hasOwnProperty("futuredate") ? d : attrs.hasOwnProperty("todaydate")?toDay:null,
         onSelect: function (date) {
           ctrl.$setViewValue(date);
           scope.$apply();

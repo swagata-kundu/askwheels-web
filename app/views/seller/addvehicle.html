@@ -26,7 +26,7 @@
                             <li>Inspection report</li>
                             <li>Tyres</li>
                             <li>ENGINE</li>
-                            <li>SUSPENTION</li>
+                            <li>SUSPENSION</li>
                             <li>INTERIOR</li>
                             <li>FRAME</li>
                             <li>Transmission</li>
@@ -117,7 +117,7 @@
                                         <option>Petrol</option>
                                         <option>Diesel</option>
                                         <option>Hybrid</option>
-                                        <option>Lpg</option>
+                                        <option>LPG</option>
                                         <option>CNG</option>
                                     </select>
                                     <div class="clearfix"></div>
@@ -143,7 +143,7 @@
                                     <div class="names">Evaluation Date
                                         <span>*</span>
                                     </div>
-                                    <input type="text" data-ng-date futureDate data-ng-model='addVehicle.basic_info.evaluation_date' class="datepicker" required>
+                                    <input type="text" data-ng-date todayDate data-ng-model='addVehicle.basic_info.evaluation_date' class="datepicker" required>
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -310,7 +310,6 @@
                                         <option>Sedan</option>
                                         <option>Coupe</option>
                                         <option>Convertible</option>
-                                        <option>Suv/Muv</option>
                                         <option>Suv/Muv</option>
                                         <option>Hatchback</option>
                                     </select>
@@ -479,6 +478,26 @@
                                 <li>
                                     <div class="names">description</div>
                                     <input type="text" ng-model="addVehicle.inspection_report.exterior.front_driver_side_door.description">
+                                    <div class="clearfix"></div>
+                                </li>
+
+                                <li>
+                                    <div class="names">Front Passenger Side Door</div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="addVehicle.inspection_report.exterior.front_passenger_side_door.value">
+                                        <option value="">Select</option>
+
+                                        <option>Repaired</option>
+                                        <option>Original</option>
+                                        <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
+                                    </select>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <div class="names">description</div>
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_door.description">
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -662,7 +681,7 @@
                                 <li>
                                     <div class="names">Driver Side Running Board</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.value">
 
                                         <option>Repaired</option>
                                         <option>Original</option>
@@ -676,8 +695,7 @@
                                 <li>
                                     <div class="names">Passenger Side Running Board</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
-
+                                    <select ng-model="addVehicle.inspection_report.exterior.passenger_side_running_board.value">
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
@@ -691,7 +709,7 @@
                                 <li>
                                     <div class="names">Seams Where The Trunk and Hood Close Are Properly Aligned</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select ng-model="addVehicle.inspection_report.exterior.swttahcapa.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -700,14 +718,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.swttahcapa.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
                                     <div class="names">Seams Where Doors and Fenders Meet Are Properly Aligned</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select ng-model="addVehicle.inspection_report.exterior.swdafmapa.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -716,14 +734,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.swdafmapa.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
                                     <div class="names">Windshields Wipers and Blades Fully Functional</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select ng-model="addVehicle.inspection_report.exterior.weabff.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -732,14 +750,14 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.weabff.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
                                     <div class="names">Headlights and Directional Lights Intact and Full Functional</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select>
+                                    <select ng-model="addVehicle.inspection_report.exterior.hadliaff.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -748,7 +766,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.hadliaff.description">
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -1017,11 +1035,11 @@
                         </fieldset>
 
 
-                        <!-- Suspention -->
+                        <!-- SUSPENSION -->
                         <fieldset>
                             <h2 class="fs-title">Inspection Report</h2>
                             <h3 class="fs-subtitle">Step 6 of 12</h3>
-                            <h4>SUSPENTION</h4>
+                            <h4>SUSPENSION</h4>
                             <ul class="stepthree">
                                 <li>
                                     <div class="names">Vehicle Rests Levelly</div>
@@ -1300,6 +1318,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
+                                        <option value="Not Applicable">Not Applicable</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1513,9 +1532,9 @@
                                 </li>
 
                                 <li>
-                                    <div class="names">Clatch Working</div>
+                                    <div class="names">Clutch Working</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.transmission.clatch_working.value">
+                                    <select ng-model="addVehicle.inspection_report.transmission.clutch_working.value">
                                         <option value="">Select</option>
                                         <option value="Smooth">Smooth</option>
                                         <option value="Average">Average</option>
@@ -1525,7 +1544,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.transmission.clatch_working.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.transmission.clutch_working.description">
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -1596,6 +1615,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
+                                        <option value="Not Applicable">Not Applicable</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1745,7 +1765,7 @@
                                 <li>
                                     <div class="names">Service And Repair Records Available</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
+                                    <select ng-model="addVehicle.inspection_report.miscellaneous.service_records.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1754,7 +1774,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.miscellaneous.car_manual.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.miscellaneous.service_records.description">
                                     <div class="clearfix"></div>
                                 </li>
 

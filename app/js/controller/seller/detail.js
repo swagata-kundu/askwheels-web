@@ -168,18 +168,25 @@ app.controller("sellerAuctionDetail", [
 
     function createInsPectionReport(report) {
       _.forEach(report, function(value, key) {
-        let obj = { header: "", subsections: [] };
+        let obj = { header: "", subsections: [], sortValue: 0 };
         obj.header = _.startCase(_.replace(key, new RegExp("_", "g"), " "));
+        obj.sortValue = getHeaderSort(key);
+
         _.forEach(value, function(value1, key1) {
           let obj2 = { header: "", value: "", desc: "" };
-          obj2.header = _.startCase(_.replace(key1, new RegExp("_", "g"), " "));
+          let modified_key1 = getProperKey(key1);
+          obj2.header =
+            modified_key1 == key1
+              ? _.startCase(_.replace(key1, new RegExp("_", "g"), " "))
+              : modified_key1;
           obj2.value = value1.value ? value1.value : "NA";
           obj2.desc = value1.description ? value1.description : "NA";
           obj.subsections.push(obj2);
         });
         reports.push(obj);
       });
-      $scope.reports = reports;
+      $scope.reports = _.orderBy(reports, ['sortValue'],['asc']); ;
+      console.log( $scope.reports);
       accordionButtonSet();
     }
 
@@ -225,3 +232,81 @@ app.controller("imageViewer", [
     $scope.selectedImage = images[index];
   }
 ]);
+
+function getProperKey(key) {
+  switch (key) {
+    case "wlaab": {
+      return "Wheels Lock When Applying Antilock Brakes";
+    }
+    case "pbedf": {
+      return "Parking Brake Engages and Disengages Freely";
+    }
+    case "grinding_noise": {
+      return "Grinding Noises When Applying";
+    }
+    case "vss": {
+      return "Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes";
+    }
+    case "swttahcapa": {
+      return "Seams Where The Trunk and Hood Close Are Properly Aligned";
+    }
+    case "swdafmapa": {
+      return "Seams Where Doors and Fenders Meet Are Properly Aligned";
+    }
+    case "weabff": {
+      return "Windshields Wipers and Blades Fully Functional";
+    }
+    case "hadliaff": {
+      return "Headlights and Directional Lights Intact and Full Functional";
+    }
+    case "exhaust_pipe_emission": {
+      return "Exhaust Pipe Emissions Are Neither Blue (Indicates Engine Burns Oil) or Black (Indicate Excessive Oil Consumption)";
+    }
+    case "instructions": {
+      return "Instructions Included For Any Accessories";
+    }
+    case "service_records": {
+      return "Service And Repair Records Available";
+    }
+    default:
+      return key;
+  }
+}
+
+function getHeaderSort(name) {
+  console.log(name);
+  switch (name) {
+    case "brakes": {
+      return 7;
+    }
+    case "engine": {
+      return 2;
+    }
+    case "exterior": {
+      return 0;
+    }
+    case "frame": {
+      return 5;
+    }
+    case "interior": {
+      return 4;
+    }
+    case "transmission": {
+      return 6;
+    }
+    case "miscellaneous": {
+      return 9;
+    }
+    case "steering": {
+      return 8;
+    }
+    case "suspension": {
+      return 3;
+    }
+    case "tyres": {
+      return 1;
+    }
+    default:
+      return 0;
+  }
+}

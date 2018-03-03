@@ -122,7 +122,8 @@ app.controller("auctionDetail", [
   "$state",
   "$rootScope",
   "auctionService",
-  function($scope, $state, $rootScope, auctionService) {
+  "$uibModal",
+  function($scope, $state, $rootScope, auctionService, $uibModal) {
     var auctionId = $state.params.vehicleId;
     var startTime = "";
 
@@ -141,7 +142,7 @@ app.controller("auctionDetail", [
         startTime = moment($scope.addVehicle.auction_start_date);
         $scope.timings = {
           date: startTime.format("YYYY-MM-DD"),
-          time: startTime.format("HH:MM")
+          time: startTime.format("hh:mm")
         };
       },
       function(err) {}
@@ -173,5 +174,35 @@ app.controller("auctionDetail", [
       $scope.reports = reports;
       console.log(JSON.stringify(reports));
     }
+
+    $scope.viewImage = function(image) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        template: `<div class="modal-body" style="text-align:center">
+        <img ng-src="{{selectedImage}}" />
+    </div>`,
+        controller: "imageViewer",
+        size: "lg",
+        windowClass: 'custom-modal view-image',
+        resolve: {
+          image: function() {
+            return image;
+          }
+        }
+      });
+    };
+  }
+]);
+
+app.controller("imageViewer", [
+  "$scope",
+  "$uibModalInstance",
+  "image",
+  function($scope, $uibModalInstance, image) {
+    $scope.cancel = function() {
+      $uibModalInstance.dismiss("cancel");
+    };
+    $scope.selectedImage = "";
+    $scope.selectedImage = image;
   }
 ]);
