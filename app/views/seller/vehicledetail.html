@@ -145,7 +145,7 @@
 
                                                         <li ng-repeat="sec in r.subsections">
                                                             <span class="Headings">{{sec.header}}</span>
-                                                            <span class="Headings_data">{{sec.value}} / {{sec.desc}}</span>
+                                                            <span class="Headings_data">{{sec.value}} {{sec.desc?' / '+ sec.desc:''}}</span>
                                                             <div class="clearfix"></div>
                                                         </li>
 

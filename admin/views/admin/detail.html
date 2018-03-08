@@ -41,6 +41,13 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
+                    <div class="names">Registration Number
+
+                    </div>
+                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.registration_number' class="datepicker">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
                     <div class="names">Vin No</div>
                     <input disabled class="form-control" type="text" data-ng-model="addVehicle.vin_number">
                     <div class="clearfix"></div>
@@ -503,7 +510,7 @@
                     <div class="names">Driver Side Running Board
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.value">
 
 
 
@@ -517,7 +524,7 @@
                     <div class="names">Passenger Side Running Board
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passenger_side_running_board.value">
 
 
 
@@ -532,7 +539,7 @@
                     <div class="names">Seams Where The Trunk and Hood Close Are Properly Aligned
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.swttahcapa.value">
 
 
 
@@ -541,7 +548,7 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.swttahcapa.description">
                     <div class="clearfix"></div>
                 </div>
 
@@ -549,7 +556,7 @@
                     <div class="names">Seams Where Doors and Fenders Meet Are Properly Aligned
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.swdafmapa.value">
 
 
 
@@ -558,7 +565,7 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.swdafmapa.description">
                     <div class="clearfix"></div>
                 </div>
 
@@ -566,7 +573,7 @@
                     <div class="names">Windshields Wipers and Blades Fully Functional
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.weabff.value">
 
 
 
@@ -575,7 +582,7 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.weabff.description">
                     <div class="clearfix"></div>
                 </div>
 
@@ -583,7 +590,7 @@
                     <div class="names">Headlights and Directional Lights Intact and Full Functional
                     </div>
 
-                    <input type="text" disabled class="form-control">
+                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.hadliaff.value">
 
 
 
@@ -592,7 +599,7 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.hadliaff.description">
                     <div class="clearfix"></div>
                 </div>
 
@@ -613,12 +620,12 @@
                 <div class="form-group">
                     <div class="names">Tyres Are a Reputable Brand Name</div>
 
-                    <input disabled class="form-control" type="text">
+                    <input type="text" class="form-control" disabled ng-model="addVehicle.inspection_report.tyres.brand_name.value">
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.description">
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">

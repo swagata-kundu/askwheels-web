@@ -84,6 +84,11 @@
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
+                                    <div class="names">Registration Number</div>
+                                    <input type="text" data-ng-model="addVehicle.basic_info.registration_number">
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
                                     <div class="names">Vin No</div>
                                     <input type="text" data-ng-model="addVehicle.basic_info.vin_number">
                                     <div class="clearfix"></div>
@@ -108,7 +113,7 @@
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
-                                <div class="clearfix"></div>
+                                <!-- <div class="clearfix"></div> -->
                                 <li>
                                     <div class="names">Fuel Type</div>
                                     <i class="fa fa-angle-down"></i>
@@ -226,7 +231,7 @@
                                     <div class="names">Meter seems to be tempered
                                     </div>
                                     <select data-ng-model="addVehicle.basic_info.meter_tampered">
-                                        <option value="">select</option>
+                                        <option value="">Select</option>
                                         <option value="yes">yes</option>
                                         <option value="no">no</option>
                                     </select>
@@ -325,12 +330,12 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.hood.value">
                                         <option value="">Select</option>
-
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
                                         <option>Rusted</option>
                                         <option>Changed</option>
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -345,12 +350,11 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.front_bumper.value">
                                         <option value="">Select</option>
-
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -365,12 +369,12 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.front_driver_side_fender.value">
                                         <option value="">Select</option>
-
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
                                         <option>Rusted</option>
                                         <option>Changed</option>
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -390,8 +394,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -410,8 +414,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -430,8 +434,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -450,8 +454,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -470,8 +474,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -490,8 +494,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -510,8 +514,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -530,8 +534,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -545,10 +549,13 @@
                                     <div class="names">Rear Door Driver Side</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.rear_door_driver_side.value">
-
+                                        <option value="">Select</option>
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -562,10 +569,13 @@
                                     <div class="names">Rear Door Passenger Side</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.rear_door_passanger_side.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -579,10 +589,13 @@
                                     <div class="names">Rear Driver Side Quarter Panel</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.rear_driver_side_quarter_paner.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -596,10 +609,13 @@
                                     <div class="names">Rear Passenger Side Quarter Panel</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.rear_passanger_side_quarter_paner.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -613,6 +629,7 @@
                                     <div class="names">Trunk/Boot</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.trunk_boot.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
@@ -631,10 +648,13 @@
                                     <div class="names">Boot Bumper</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.boot_bumper.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -648,10 +668,13 @@
                                     <div class="names">Roof</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.roof.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -668,7 +691,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                        <option>Changed</option>
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -682,12 +705,13 @@
                                     <div class="names">Driver Side Running Board</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.value">
+                                        <option value="">Select</option>
 
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -699,8 +723,8 @@
                                         <option>Repaired</option>
                                         <option>Original</option>
                                         <option>Dental</option>
-                                        <option>Rusted</option>
-                                        <option>Changed</option>
+
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -789,12 +813,12 @@
                             <ul class="stepthree">
                                 <li>
                                     <div class="names">Tyres Are a Reputable Brand Name</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.value">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text">
+                                    <input type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.description">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
@@ -1301,7 +1325,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                        <option value="Not Applicable">Not Applicable</option>
+                                        <option value="N/A">Not Applicable</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1318,7 +1342,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                        <option value="Not Applicable">Not Applicable</option>
+                                        <option value="N/A">Not Applicable</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1615,7 +1639,7 @@
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                        <option value="Not Applicable">Not Applicable</option>
+                                        <option value="N/A">Not Applicable</option>
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
@@ -1765,7 +1789,7 @@
                                 <li>
                                     <div class="names">Service And Repair Records Available</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.miscellaneous.service_records.value">
+                                    <select ng-model="addVehicle.inspection_report.miscellaneous.service_record.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1774,7 +1798,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.miscellaneous.service_records.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.miscellaneous.service_record.description">
                                     <div class="clearfix"></div>
                                 </li>
 
