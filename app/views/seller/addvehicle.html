@@ -158,10 +158,9 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select data-ng-model="addVehicle.basic_info.manufacturing_year">
                                         <option value="">Select</option>
-                                        <option>2017</option>
-                                        <option>2016</option>
-                                        <option>2015</option>
-                                        <option>2014</option>
+                                        <option ng-repeat="year in getYear() track by $index">{{1999+$index}}</option>
+                                        <option>{{currentYear}}</option>
+
                                     </select>
                                     <div class="clearfix"></div>
                                 </li>
