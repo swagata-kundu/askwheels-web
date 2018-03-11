@@ -31,7 +31,7 @@
                                     <tr role="row">
                                         <th>Type</th>
                                         <th>Bid Amount</th>
-                                        <th>Bid By</th>
+                                        <!-- <th>Bid By</th> -->
                                         <th>Vehicle</th>
                                         <th>Model</th>
                                         <th>Vehicle Status</th>
@@ -43,14 +43,14 @@
                                     <tr ng-repeat="noti in notifications">
                                         <td>{{noti.notificationType==1?'Bidding':noti.notificationType==2?'Add/Update':'Win'}}</td>
                                         <td>{{noti.bidAmount?noti.bidAmount:'NA'}}</td>
-                                        <td>{{noti.bidBy?noti.bidBy:'NA'}}</td>
+                                        <!-- <td>{{noti.bidBy?noti.bidBy:'NA'}}</td> -->
                                         <td>
                                             <a ui-sref="sellerAuctionDetail({vehicleId:'{{noti.vehicleId}}',model:'{{noti.vehicle_name}}'})">
                                                 {{noti.vehicle_name}}
                                             </a>
                                         </td>
                                         <td>{{noti.model}}</td>
-                                        <td>{{noti.vehicle_status==1?'Added':noti.vehicle_status==2?'Approved':'Rejected'}}</td>
+                                        <td>{{noti.vehicle_status==1?'Added':noti.vehicle_status==2?'Approved':noti.vehicle_status==3?'Rejected':'NA'}}</td>
                                         <td>{{noti.uploadedBy}}</td>
                                         <td>{{noti.dateCreated}}</td>
                                     </tr>

@@ -168,7 +168,7 @@
 
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="rightBoxMain">
-                            <div class="AddedBy">
+                            <div ng-if="userProfile.roleId <= 2" class="AddedBy">
                                 <div class="user_icon">
                                     <i class="fa fa-user"></i>
                                 </div>
@@ -274,7 +274,9 @@
                                     <span>highest bid :</span>
                                     <div class="Hbid_price">
                                         <i class="fa fa-inr"></i>
-                                        <span>{{auction.highestBid}} By {{auction.highestBidBy}}</span>
+                                        <!-- <span>{{auction.highestBid}} By {{auction.highestBidBy}}</span> -->
+                                        <span>{{auction.highestBid}}</span>
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -288,7 +290,9 @@
                                     <div ng-if="viewBid">
                                         <ul ng-if="auction.bids.length>0">
                                             <li ng-repeat="bid in auction.bids">
-                                                <i class="fa fa-inr"></i>{{bid.amount}} by {{bid.bidBy}}
+                                                <!-- <i class="fa fa-inr"></i>{{bid.amount}} by {{bid.bidBy}} -->
+                                                <i class="fa fa-inr"></i>{{bid.amount}}
+
                                                 <div class="clearfix"></div>
                                             </li>
                                         </ul>

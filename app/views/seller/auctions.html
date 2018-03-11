@@ -33,8 +33,10 @@
         <h3 ng-if="vehicle.auctionType===1 && vehicle.highestBid">
             <span class="bidHeading">Highest Bid :</span>
             <span class="bidBy">
-                <i class="fa fa-rupee"></i>{{vehicle.highestBid.toLocaleString()}}/- By {{vehicle.highestBidBy}}</span>
-        </h3>
+                <!-- <i class="fa fa-rupee"></i>{{vehicle.highestBid.toLocaleString()}}/- By {{vehicle.highestBidBy}}</span> -->
+                <i class="fa fa-rupee"></i>{{vehicle.highestBid.toLocaleString()}}/-</span>
+
+            </h3>
         <ul>
             <li>
                 <div class="name">Added By</div>
