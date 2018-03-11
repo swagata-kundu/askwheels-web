@@ -285,6 +285,9 @@ function getProperKey(key) {
     case "service_record": {
       return "Service And Repair Records Available";
     }
+    case "fpsf":{
+      return "Front Passenger Side Fender(FPSF)";
+    }
     default:
       return key;
   }

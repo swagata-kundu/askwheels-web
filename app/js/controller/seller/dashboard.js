@@ -342,7 +342,7 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          front_passanger_side_fender: {
+          fpsf: {
             description: "",
             value: ""
           },

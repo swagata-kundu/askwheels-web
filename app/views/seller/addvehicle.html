@@ -385,6 +385,27 @@
 
 
                                 <li>
+                                    <div class="names">Front Passenger Side Fender(FPSF)</div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="addVehicle.inspection_report.exterior.fpsf.value">
+                                        <option value="">Select</option>
+                                        <option>Repaired</option>
+                                        <option>Original</option>
+                                        <option>Dental</option>
+                                        <option>Rusted</option>
+                                        <option>Changed</option>
+
+                                    </select>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <div class="names">description</div>
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.fpsf.description">
+                                    <div class="clearfix"></div>
+                                </li>
+
+
+                                <li>
                                     <div class="names">Driver Side Apron</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.exterior.driver_side_apron.value">
