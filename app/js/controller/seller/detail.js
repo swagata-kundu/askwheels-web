@@ -87,7 +87,7 @@ app.controller("sellerAuctionDetail", [
         var now = moment();
         var duration;
         if (startDate.isBefore(now)) {
-          var newStart = startDate.add(1, "d");
+          var newStart = startDate.add(2.5, "h");
           duration = moment.duration(newStart.diff(now));
         } else {
           duration = moment.duration(startDate.diff(now));

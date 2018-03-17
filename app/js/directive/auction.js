@@ -18,7 +18,7 @@ app.directive("auctionSeller", function () {
             var startDate = moment(vehicle.auction_start_date);
             var now = moment();
             if (startDate.isBefore(now)) {
-              var newStart = startDate.add(1, "d");
+              var newStart = startDate.add(2.5, "h");
               var duration = moment.duration(newStart.diff(now));
               var hour = duration.hours();
               var minutes = duration.minutes();
@@ -59,7 +59,7 @@ app.directive("auctionDealer", function () {
             var startDate = moment(vehicle.auction_start_date);
             var now = moment();
             if (startDate.isBefore(now)) {
-              var newStart = startDate.add(1, "d");
+              var newStart = startDate.add(2.5, "h");
               var duration = moment.duration(newStart.diff(now));
               var hour = duration.hours();
               var minutes = duration.minutes();
