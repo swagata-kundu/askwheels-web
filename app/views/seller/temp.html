@@ -34,43 +34,52 @@
 
 
                 <li>
-                    <span class="Headings">Driver Side Fender</span>
+                    <span class="Headings">Front Bumper</span>
                     <span class="Headings_data">{{inspection_report.exterior.front_bumper.value}}/{{inspection_report.exterior.front_bumper.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
+
+
                 <li>
-                    <span class="Headings">Driver Side Front Pillar</span>
+                    <span class="Headings">Driver Side Fender</span>
                     <span class="Headings_data">{{inspection_report.exterior.front_driver_side_fender.value}}/{{inspection_report.exterior.front_driver_side_fender.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
+
                 <li>
-                    <span class="Headings">Driver Side Front Door</span>
+                    <span class="Headings">Driver Side Front Pillar</span>
                     <span class="Headings_data">{{inspection_report.exterior.front_driver_side_piller.value}}/{{inspection_report.exterior.front_driver_side_piller.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <span class="Headings">Driver Side B-Pillar</span>
+                    <span class="Headings">Driver Side Front Door</span>
                     <span class="Headings_data">{{inspection_report.exterior.front_driver_side_door.value}}/{{inspection_report.exterior.front_driver_side_door.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <span class="Headings">Driver Side Rear Door</span>
+                    <span class="Headings">Driver Side B-Pillar</span>
                     <span class="Headings_data">{{inspection_report.exterior.bpiller_driver_side.value}}/{{inspection_report.exterior.bpiller_driver_side.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <span class="Headings">Driver side Quarter Panel</span>
+                    <span class="Headings">Driver Side Rear Door</span>
                     <span class="Headings_data">{{inspection_report.exterior.rear_door_driver_side.value}}/{{inspection_report.exterior.rear_door_driver_side.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <span class="Headings">Driver side Running Board</span>
+                    <span class="Headings">Driver side Quarter Panel</span>
                     <span class="Headings_data">{{inspection_report.exterior.rear_driver_side_quarter_panel.value}}/{{inspection_report.exterior.rear_driver_side_quarter_panel.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
-                    <span class="Headings">Rear Bumper</span>
+                    <span class="Headings">Driver side Running Board</span>
                     <span class="Headings_data">{{inspection_report.exterior.driver_side_running_board.value}}/{{inspection_report.exterior.driver_side_running_board.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <span class="Headings">Rear Bumper</span>
+                    <span class="Headings_data">{{inspection_report.exterior.boot_bumper.value}}/{{inspection_report.exterior.boot_bumper.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
@@ -126,6 +135,17 @@
                     <div class="clearfix"></div>
                 </li>
                 <li>
+                    <span class="Headings">All doors opens and closes freely</span>
+                    <span class="Headings_data">{{inspection_report.exterior.doors_open_close_freely.value}}/{{inspection_report.exterior.doors_open_close_freely.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Trunk opens and closes freely</span>
+                    <span class="Headings_data">{{inspection_report.exterior.trunk_open_close_freely.value}}/{{inspection_report.exterior.trunk_open_close_freely.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                
+                <li>
                     <span class="Headings">Seams where Trunk and Hood closes are properly Aligned</span>
                     <span class="Headings_data">{{inspection_report.exterior.trunk_hood_aligned.value}}/{{inspection_report.exterior.trunk_hood_aligned.desc}}</span>
                     <div class="clearfix"></div>
@@ -136,23 +156,47 @@
                     <div class="clearfix"></div>
                 </li>
 
-                <li>
-                    <span class="Headings">Wind Shield wipers and Blades are fully Functional</span>
-                    <span class="Headings_data">{{inspection_report.exterior.wiper_blades_functional.value}}/{{inspection_report.exterior.wiper_blades_functional.desc}}</span>
-                    <div class="clearfix"></div>
-                </li>
 
-                <li>
-                    <span class="Headings">Head lights and Directional lights are fully functional</span>
-                    <span class="Headings_data">{{inspection_report.exterior.lights_functional.value}}/{{inspection_report.exterior.lights_functional.desc}}</span>
-                    <div class="clearfix"></div>
-                </li>
+               
                 <div class="clearfix"></div>
             </ul>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
+
+<div>
+    <div class="accordionButton">Frame</div>
+    <div class="accordionContent">
+        <div class="overView_main">
+            <ul>
+
+                <li>
+                    <span class="Headings">Chassis Is Neither Bent Not Cracked</span>
+                    <span class="Headings_data">{{inspection_report.frame.chassis_ok.value}}/{{inspection_report.frame.chassis_ok.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+
+                <li>
+                    <span class="Headings">Signs Of Crumpling Or Straightening Inside The Trunk</span>
+                    <span class="Headings_data">{{inspection_report.frame.no_crumpling_inside_trunk.value}}/{{inspection_report.frame.no_crumpling_inside_trunk.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <span class="Headings">Frame Holes Just Inside Outer Edge Clean And Free Of Scratches</span>
+                    <span class="Headings_data">{{inspection_report.frame.hole_without_scratches.value}}/{{inspection_report.frame.hole_without_scratches.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <div class="clearfix"></div>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
 
 <div>
     <div class="accordionButton">Tyres</div>
@@ -162,45 +206,45 @@
 
                 <li>
                     <span class="Headings">Tyres are a reputable brand name(Michelin, Bridge stone, Apollo, JK, Goodyear, Pirelli etc)</span>
-                    <span class="Headings_data">{{inspection_report.tyres.brand_name.value}}/{{inspection_report.exterior.brand_name.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.brand_name.value}}/{{inspection_report.tyres.brand_name.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
 
                 <li>
                     <span class="Headings">Percentage of tyres status</span>
-                    <span class="Headings_data">{{inspection_report.tyres.percentage_tyre_status.value}}/{{inspection_report.exterior.percentage_tyre_status.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.percentage_tyre_status.value}}/{{inspection_report.tyres.percentage_tyre_status.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
 
 
                 <li>
                     <span class="Headings">Tyres are all of same make</span>
-                    <span class="Headings_data">{{inspection_report.tyres.same_make.value}}/{{inspection_report.exterior.same_make.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.same_make.value}}/{{inspection_report.tyres.same_make.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
                     <span class="Headings">Tyres are free of cuts, bubbles and cracks</span>
-                    <span class="Headings_data">{{inspection_report.tyres.no_cuts_cracks.value}}/{{inspection_report.exterior.no_cuts_cracks.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.no_cuts_cracks.value}}/{{inspection_report.tyres.no_cuts_cracks.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
                     <span class="Headings">Tread Worn evenly(Uneven wear indicates alignment and suspension Problem)</span>
-                    <span class="Headings_data">{{inspection_report.tyres.thread_worn.value}}/{{inspection_report.exterior.thread_worn.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.thread_worn.value}}/{{inspection_report.tyres.thread_worn.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
                     <span class="Headings">Spare tyre jack and Lug wrench in car are fully functional</span>
-                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre.value}}/{{inspection_report.exterior.spare_tyre.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre.value}}/{{inspection_report.tyres.spare_tyre.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
                     <span class="Headings">Spare tyre inflated</span>
-                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre_inflated.value}}/{{inspection_report.exterior.spare_tyre_inflated.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre_inflated.value}}/{{inspection_report.tyres.spare_tyre_inflated.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <li>
                     <span class="Headings">Spare tyre Percentage</span>
-                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre_percentage.value}}/{{inspection_report.exterior.spare_tyre_percentage.desc}}</span>
+                    <span class="Headings_data">{{inspection_report.tyres.spare_tyre_percentage.value}}/{{inspection_report.tyres.spare_tyre_percentage.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
                 <div class="clearfix"></div>
@@ -307,9 +351,6 @@
 </div>
 
 
-
-
-
 <div>
     <div class="accordionButton">Steering, Suspension &Brakes</div>
     <div class="accordionContent">
@@ -364,6 +405,118 @@
                     <span class="Headings_data">{{inspection_report.steering_suspension_brakes.grinding_noise.value}}/{{inspection_report.steering_suspension_brakes.grinding_noise.desc}}</span>
                     <div class="clearfix"></div>
                 </li>
+
+                <div class="clearfix"></div>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <div class="accordionButton">Interior</div>
+    <div class="accordionContent">
+        <div class="overView_main">
+            <ul>
+
+                <li>
+                    <span class="Headings">Seats Unworn and free of cracks</span>
+                    <span class="Headings_data">{{inspection_report.interior.seats_unworn_no_cracks.value}}/{{inspection_report.interior.seats_unworn_no_cracks.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <span class="Headings">Stereo works</span>
+                    <span class="Headings_data">{{inspection_report.interior.stereo_works.value}}/{{inspection_report.interior.stereo_works.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Heater works</span>
+                    <span class="Headings_data">{{inspection_report.interior.heater_works.value}}/{{inspection_report.interior.heater_works.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">AC works</span>
+                    <span class="Headings_data">{{inspection_report.interior.ac_works.value}}/{{inspection_report.interior.ac_works.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">All seats equipped with functional Seats belts</span>
+                    <span class="Headings_data">{{inspection_report.interior.seats_equipped_seatbelt.value}}/{{inspection_report.interior.seats_equipped_seatbelt.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">All seats adjust properly</span>
+                    <span class="Headings_data">{{inspection_report.interior.seats_adjust_properly.value}}/{{inspection_report.interior.seats_adjust_properly.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Power windows operates properly(If Applicable)</span>
+                    <span class="Headings_data">{{inspection_report.interior.power_windows_operates_properly.value}}/{{inspection_report.interior.power_windows_operates_properly.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Sunroof opens and closes properly(If Applicable)</span>
+                    <span class="Headings_data">{{inspection_report.interior.sunroof_open_close_properly.value}}/{{inspection_report.interior.sunroof_open_close_properly.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Car Alarm works(If Applicable)</span>
+                    <span class="Headings_data">{{inspection_report.interior.car_alarm_works.value}}/{{inspection_report.interior.car_alarm_works.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Trunk and driver side door lock and unlock with key</span>
+                    <span class="Headings_data">{{inspection_report.interior.trunk_driver_door_lock_with_key.value}}/{{inspection_report.interior.trunk_driver_door_lock_with_key.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+                <li>
+                    <span class="Headings">Hazard light functional properly</span>
+                    <span class="Headings_data">{{inspection_report.interior.hazard_lights_function_properly.value}}/{{inspection_report.interior.hazard_lights_function_properly.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <div class="clearfix"></div>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="accordionButton">Miscellaneous</div>
+    <div class="accordionContent">
+        <div class="overView_main">
+            <ul>
+
+                <li>
+                    <span class="Headings">Car Manual Located In The Glove Compartment</span>
+                    <span class="Headings_data">{{inspection_report.miscellaneous.car_manual.value}}/{{inspection_report.miscellaneous.car_manual.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+
+                <li>
+                    <span class="Headings">Instructions Included For Any Accessories</span>
+                    <span class="Headings_data">{{inspection_report.miscellaneous.instructions.value}}/{{inspection_report.miscellaneous.instructions.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <span class="Headings">Service And Repair Records Available</span>
+                    <span class="Headings_data">{{inspection_report.miscellaneous.service_record.value}}/{{inspection_report.miscellaneous.service_record.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
+                <li>
+                    <span class="Headings">Keys available</span>
+                    <span class="Headings_data">{{inspection_report.miscellaneous.keys_available.value}}/{{inspection_report.miscellaneous.keys_available.desc}}</span>
+                    <div class="clearfix"></div>
+                </li>
+
 
                 <div class="clearfix"></div>
             </ul>

@@ -49,11 +49,13 @@ app.controller("sellerAuctionDetail", [
     };
     var clockInterval;
 
+    $scope.inspection_report = {};
+
     function getAuction() {
       auctionService.getAuctionDetail(vehicleId).then(function(result) {
         console.log(result.data.data);
         $scope.auction = result.data.data;
-        createInsPectionReport(result.data.data.inspection_report);
+        inspection_report = result.data.data.inspection_report;
         setSlider();
         clockInterval = $interval(calculateTime, 1000);
       });
@@ -362,8 +364,9 @@ function getProperKey(key) {
     }
     case "lacks_air_freshner_scent": {
       return "Lacks a heavy scent of air freshener(may indicate something is being concealed)";
-    }case "car_manual":{
-      return "Car Manual Located In The Glove Compartment"
+    }
+    case "car_manual": {
+      return "Car Manual Located In The Glove Compartment";
     }
     default:
       return key;
