@@ -58,7 +58,7 @@ app.controller("sellerAuctionDetail", [
         clockInterval = $interval(calculateTime, 1000);
       });
     }
-    getAuction()
+    getAuction();
     function setSlider() {
       setTimeout(function() {
         $("#content-slider").lightSlider({
@@ -126,7 +126,7 @@ app.controller("sellerAuctionDetail", [
       modalInstance.result.then(
         function() {
           $scope.bidAmount = 0;
-          getAuction()
+          getAuction();
         },
         function() {
           $scope.bidAmount = 0;
@@ -285,8 +285,85 @@ function getProperKey(key) {
     case "service_record": {
       return "Service And Repair Records Available";
     }
-    case "fpsf":{
+    case "fpsf": {
       return "Front Passenger Side Fender(FPSF)";
+    }
+    case "no_cuts_cracks": {
+      return "Tyres Are of Free of Any Cuts, Bubbles or Cracks";
+    }
+    case "thread_worn": {
+      return "Tread Worn Evenly (uneven wear indicates alignment and suspension problems)";
+    }
+    case "spare_tyre": {
+      return "Spare Tyre, Jack and Lug Wrench on Car And Fully Functional";
+    }
+    case "fluid_leaks": {
+      return "Free of fluids or oil leaks";
+    }
+    case "oil_filler": {
+      return "Oil Filler Neck Not Coated With Thick, Black Deposits";
+    }
+    case "battery_terminals_corrision": {
+      return "Battery terminal free of corrosion";
+    }
+    case "no_black_dark_oil": {
+      return "Oil dip stick free of dark, black color";
+    }
+    case "no_odors": {
+      return "Free of odors while engine is running";
+    }
+    case "fluid_clean": {
+      return "Transmission Fluid Looks Clean, Not Dirty or Gritty";
+    }
+    case "no_slips_delays": {
+      return "Transmission neither slips nor delay while driving";
+    }
+    case "grinding_noise": {
+      return "Grinding Noises When In Reverse";
+    }
+    case "cracking_noise": {
+      return "When bouncing the vehicle's corners no cracking noises are made";
+    }
+    case "same_bouncing": {
+      return "All corners respond the same when bouncing";
+    }
+    case "no_drift": {
+      return "Vehicle Does Not Drift To One Side Without Prodding";
+    }
+    case "stable": {
+      return "Vehicle is Stable; Any Shaking or Vibrating";
+    }
+    case "resistance": {
+      return "Resistance in The Steering Wheel When Turning";
+    }
+    case "clunking": {
+      return "Clicking or Clunking When Turning";
+    }
+    case "seats_unworn_no_cracks": {
+      return "Seats Unworn and free of cracks";
+    }
+    case "windshiels_wiper_works": {
+      return "Windshield wipers work properly";
+    }
+    case "wiper_fluid_dispenses_properly": {
+      return "Windshield Wiper Fluid Dispenses Properly";
+    }
+    case "seats_equipped_seatbelt": {
+      return "All seats equipped with functional Seats belts";
+    }
+    case "sunroof_open_close_properly": {
+      return "Sunroof opens and closes properly(if Applicable)";
+    }
+    case "trunk_driver_door_lock_with_key": {
+      return "Trunk and driver side door lock and unlock with key";
+    }
+    case "head_lights_work_properly": {
+      return "Headlights, Including Bright, Work Properly";
+    }
+    case "lacks_air_freshner_scent": {
+      return "Lacks a heavy scent of air freshener(may indicate something is being concealed)";
+    }case "car_manual":{
+      return "Car Manual Located In The Glove Compartment"
     }
     default:
       return key;
@@ -294,10 +371,9 @@ function getProperKey(key) {
 }
 
 function getHeaderSort(name) {
-  console.log(name);
   switch (name) {
     case "brakes": {
-      return 7;
+      return 5;
     }
     case "engine": {
       return 2;
@@ -306,22 +382,22 @@ function getHeaderSort(name) {
       return 0;
     }
     case "frame": {
-      return 5;
+      return 8;
     }
     case "interior": {
-      return 4;
+      return 7;
     }
     case "transmission": {
-      return 6;
+      return 3;
     }
     case "miscellaneous": {
       return 9;
     }
     case "steering": {
-      return 8;
+      return 6;
     }
     case "suspension": {
-      return 3;
+      return 4;
     }
     case "tyres": {
       return 1;

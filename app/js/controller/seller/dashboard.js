@@ -3,7 +3,7 @@ app.controller("sellerDashboard", [
   "$state",
   "sellerService",
   "$q",
-  function ($scope, $state, sellerService, $q) {
+  function($scope, $state, sellerService, $q) {
     $scope.tabinfo = {
       liveAuctions: [],
       pendingAuctions: [],
@@ -24,7 +24,7 @@ app.controller("sellerDashboard", [
       sortBy: ""
     };
 
-    $scope.loadUser = function () {
+    $scope.loadUser = function() {
       var deferred = $q.defer();
       deferred.resolve($scope.subsellers);
 
@@ -32,17 +32,17 @@ app.controller("sellerDashboard", [
     };
 
     sellerService.getDashboardInfo().then(
-      function (result) {
+      function(result) {
         $scope.tabinfo = result.data.data;
       },
-      function (error) {}
+      function(error) {}
     );
 
     let auctionParams = {
       auctionType: 1
     };
 
-    let getAuctions = function () {
+    let getAuctions = function() {
       $scope.auctions = [];
       let params = {};
 
@@ -66,22 +66,22 @@ app.controller("sellerDashboard", [
       params.sortBy = $scope.filter.sortBy;
       let sellerIds = [];
       if ($scope.subsellerSelections.length > 0) {
-        sellerIds = $scope.subsellerSelections.map(function (i) {
+        sellerIds = $scope.subsellerSelections.map(function(i) {
           return i.id;
         });
         params.sub_sellers = sellerIds.toString();
       }
       sellerService.getAuctionList(params).then(
-        function (result) {
+        function(result) {
           $scope.auctions = result.data.data;
         },
-        function (error) {
+        function(error) {
           $scope.auctions = [];
         }
       );
     };
 
-    $scope.tabChange = function (auctionType) {
+    $scope.tabChange = function(auctionType) {
       auctionParams.auctionType = auctionType;
       $scope.resetFilter();
     };
@@ -89,21 +89,21 @@ app.controller("sellerDashboard", [
     getAuctions();
 
     sellerService.subsellerListing({}).then(
-      function (result) {
-        $scope.subsellers = result.data.data.map(function (user) {
+      function(result) {
+        $scope.subsellers = result.data.data.map(function(user) {
           return {
             id: user.userId,
             text: user.firstName + " " + user.lastName
           };
         });
       },
-      function (error) {}
+      function(error) {}
     );
-    $scope.applyFilter = function () {
+    $scope.applyFilter = function() {
       getAuctions();
     };
 
-    $scope.resetFilter = function () {
+    $scope.resetFilter = function() {
       $scope.filter = {
         minPrice: "",
         maxPrice: "",
@@ -123,19 +123,18 @@ app.controller("sellerAddAuction", [
   "$state",
   "sellerService",
   "auctionService",
-  function ($scope, $state, sellerService, auctionService) {
-    $(function () {
+  function($scope, $state, sellerService, auctionService) {
+    $(function() {
       //jQuery time
       var current_fs, next_fs, previous_fs; //fieldsets
       var left, opacity, scale; //fieldset properties which we will animate
       var animating; //flag to prevent quick multi-click glitches
 
-      $(".next").click(function () {
+      $(".next").click(function() {
         if (animating) return false;
         animating = true;
 
         current_fs = $(this).parent();
-        debugger;
         next_fs = $(this)
           .parent()
           .next();
@@ -148,36 +147,39 @@ app.controller("sellerAddAuction", [
         //show the next fieldset
         next_fs.show();
         //hide the current fieldset with style
-        current_fs.animate({
-          opacity: 0
-        }, {
-          step: function (now, mx) {
-            //as the opacity of current_fs reduces to 0 - stored in "now"
-            //1. scale current_fs down to 80%
-            scale = 1 - (1 - now) * 0.2;
-            //2. bring next_fs from the right(50%)
-            left = now * 50 + "%";
-            //3. increase opacity of next_fs to 1 as it moves in
-            opacity = 1 - now;
-            current_fs.css({
-              transform: "scale(" + scale + ")"
-            });
-            next_fs.css({
-              left: left,
-              opacity: opacity
-            });
+        current_fs.animate(
+          {
+            opacity: 0
           },
-          duration: 800,
-          complete: function () {
-            current_fs.hide();
-            animating = false;
-          },
-          //this comes from the custom easing plugin
-          easing: "easeInOutBack"
-        });
+          {
+            step: function(now, mx) {
+              //as the opacity of current_fs reduces to 0 - stored in "now"
+              //1. scale current_fs down to 80%
+              scale = 1 - (1 - now) * 0.2;
+              //2. bring next_fs from the right(50%)
+              left = now * 50 + "%";
+              //3. increase opacity of next_fs to 1 as it moves in
+              opacity = 1 - now;
+              current_fs.css({
+                transform: "scale(" + scale + ")"
+              });
+              next_fs.css({
+                left: left,
+                opacity: opacity
+              });
+            },
+            duration: 800,
+            complete: function() {
+              current_fs.hide();
+              animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: "easeInOutBack"
+          }
+        );
       });
 
-      $(".previous").click(function () {
+      $(".previous").click(function() {
         if (animating) return false;
         animating = true;
 
@@ -194,36 +196,39 @@ app.controller("sellerAddAuction", [
         //show the previous fieldset
         previous_fs.show();
         //hide the current fieldset with style
-        current_fs.animate({
-          opacity: 0
-        }, {
-          step: function (now, mx) {
-            //as the opacity of current_fs reduces to 0 - stored in "now"
-            //1. scale previous_fs from 80% to 100%
-            scale = 0.8 + (1 - now) * 0.2;
-            //2. take current_fs to the right(50%) - from 0%
-            left = (1 - now) * 50 + "%";
-            //3. increase opacity of previous_fs to 1 as it moves in
-            opacity = 1 - now;
-            current_fs.css({
-              left: left
-            });
-            previous_fs.css({
-              transform: "scale(" + scale + ")",
-              opacity: opacity
-            });
+        current_fs.animate(
+          {
+            opacity: 0
           },
-          duration: 800,
-          complete: function () {
-            current_fs.hide();
-            animating = false;
-          },
-          //this comes from the custom easing plugin
-          easing: "easeInOutBack"
-        });
+          {
+            step: function(now, mx) {
+              //as the opacity of current_fs reduces to 0 - stored in "now"
+              //1. scale previous_fs from 80% to 100%
+              scale = 0.8 + (1 - now) * 0.2;
+              //2. take current_fs to the right(50%) - from 0%
+              left = (1 - now) * 50 + "%";
+              //3. increase opacity of previous_fs to 1 as it moves in
+              opacity = 1 - now;
+              current_fs.css({
+                left: left
+              });
+              previous_fs.css({
+                transform: "scale(" + scale + ")",
+                opacity: opacity
+              });
+            },
+            duration: 800,
+            complete: function() {
+              current_fs.hide();
+              animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: "easeInOutBack"
+          }
+        );
       });
 
-      $(".submit").click(function () {
+      $(".submit").click(function() {
         return false;
       });
     });
@@ -237,6 +242,7 @@ app.controller("sellerAddAuction", [
         start_bid: 0,
         vehicle_name: "",
         reg_date: "",
+        isRegistered: "false",
         vin_number: "",
         engine_number: "",
         fuel_type: "Petrol",
@@ -253,7 +259,8 @@ app.controller("sellerAddAuction", [
         insurance_policy: {
           hpa_status: "Yes",
           insurance_type: "",
-          insurance_validation: ""
+          insurance_validation: "",
+          isInsured: "false"
         }
       },
       inspection_report: {
@@ -620,18 +627,17 @@ app.controller("sellerAddAuction", [
       time: new Date(1970, 0, 1, 0, 0, 0)
     };
 
-    $scope.currentYear = parseInt(moment().format('YYYY'));
+    $scope.currentYear = parseInt(moment().format("YYYY"));
 
-    $scope.getYear = function () {
-      let range = parseInt(moment().format('YYYY')) - 1999
+    $scope.getYear = function() {
+      let range = parseInt(moment().format("YYYY")) - 1999;
       console.log(range);
-      return new Array(range)
-    }
-
+      return new Array(range);
+    };
 
     if ($scope.vehicleId) {
       auctionService.getAuctionDetail($scope.vehicleId).then(
-        function (data) {
+        function(data) {
           let vehicle = data.data.data;
 
           let newvehicle = {};
@@ -663,12 +669,12 @@ app.controller("sellerAddAuction", [
             "insurance_validation"
           ]);
 
-          _t.previous_owners = _t.previous_owners ?
-            _t.previous_owners.toString() :
-            "";
-          _t.manufacturing_year = _t.manufacturing_year ?
-            _t.manufacturing_year.toString() :
-            "";
+          _t.previous_owners = _t.previous_owners
+            ? _t.previous_owners.toString()
+            : "";
+          _t.manufacturing_year = _t.manufacturing_year
+            ? _t.manufacturing_year.toString()
+            : "";
           _t.passengers = _t.passengers ? _t.passengers.toString() : "";
 
           newvehicle.basic_info = _t;
@@ -692,19 +698,19 @@ app.controller("sellerAddAuction", [
 
           $scope.addVehicle = Object.assign({}, newvehicle);
         },
-        function (err) {}
+        function(err) {}
       );
     }
 
     $scope.selectedFiles = [];
 
-    $scope.uploadFiles = function (files) {
-      angular.forEach(files, function (file) {
+    $scope.uploadFiles = function(files) {
+      angular.forEach(files, function(file) {
         $scope.selectedFiles.push(file);
       });
     };
 
-    $scope.removeFile = function (index, isExisting) {
+    $scope.removeFile = function(index, isExisting) {
       if (!isExisting) {
         $scope.selectedFiles = [
           ...$scope.selectedFiles.slice(0, index),
@@ -718,7 +724,7 @@ app.controller("sellerAddAuction", [
       }
     };
 
-    $scope.saveVehicle = function () {
+    $scope.saveVehicle = function() {
       if (!$scope.addVehicleForm.$valid) {
         bootbox.alert("Please fill all required information");
         return;
@@ -727,21 +733,21 @@ app.controller("sellerAddAuction", [
       var images = [];
       async.series(
         [
-          function (cb) {
+          function(cb) {
             if ($scope.selectedFiles.length == 0) {
               return cb("No vehicle image is selected");
             }
             auctionService.uploadFiles($scope.selectedFiles).then(
-              function (result) {
+              function(result) {
                 images = result.data.data;
                 return cb(null);
               },
-              function (error) {
+              function(error) {
                 return cb("Error occoured while uploading image");
               }
             );
           },
-          function (cb) {
+          function(cb) {
             var vehicleObject = {};
             vehicleObject = angular.copy($scope.addVehicle);
             vehicleObject.basic_info.images = images;
@@ -752,16 +758,16 @@ app.controller("sellerAddAuction", [
               ":" +
               $scope.timings.time.getMinutes();
             auctionService.addAuction(vehicleObject).then(
-              function (result) {
+              function(result) {
                 return cb(null);
               },
-              function (error) {
+              function(error) {
                 return cb("Error occoured while adding new vehicle");
               }
             );
           }
         ],
-        function (err) {
+        function(err) {
           if (err) {
             bootbox.alert(err);
           } else {
@@ -772,7 +778,7 @@ app.controller("sellerAddAuction", [
       );
     };
 
-    $scope.updateVehicle = function () {
+    $scope.updateVehicle = function() {
       if (!$scope.addVehicleForm.$valid) {
         bootbox.alert("Please fill all required information");
         return;
@@ -782,7 +788,7 @@ app.controller("sellerAddAuction", [
 
       async.series(
         [
-          function (cb) {
+          function(cb) {
             if (
               $scope.selectedFiles.length == 0 &&
               $scope.alreadyUploadedImages.length == 0
@@ -793,16 +799,16 @@ app.controller("sellerAddAuction", [
               return cb(null);
             }
             auctionService.uploadFiles($scope.selectedFiles).then(
-              function (result) {
+              function(result) {
                 images = _.concat(images, result.data.data);
                 return cb(null);
               },
-              function (error) {
+              function(error) {
                 return cb("Error occoured while uploading image");
               }
             );
           },
-          function (cb) {
+          function(cb) {
             var vehicleObject = {};
             vehicleObject = angular.copy($scope.addVehicle);
             vehicleObject.basic_info.images = images;
@@ -813,16 +819,16 @@ app.controller("sellerAddAuction", [
               ":" +
               $scope.timings.time.getMinutes();
             auctionService.updateAuction(vehicleObject, $scope.vehicleId).then(
-              function (result) {
+              function(result) {
                 return cb(null);
               },
-              function (error) {
+              function(error) {
                 return cb("Error occoured while adding new vehicle");
               }
             );
           }
         ],
-        function (err) {
+        function(err) {
           if (err) {
             bootbox.alert(err);
           } else {
@@ -839,13 +845,13 @@ app.controller("sellerNotification", [
   "$scope",
   "$state",
   "sellerService",
-  function ($scope, $state, sellerService) {
+  function($scope, $state, sellerService) {
     $scope.notifications = [];
     sellerService
       .getNotification({
         markRead: true
       })
-      .then(function (result) {
+      .then(function(result) {
         $scope.notifications = result.data.data;
       });
   }
@@ -855,9 +861,9 @@ app.controller("sellerBids", [
   "$scope",
   "$state",
   "sellerService",
-  function ($scope, $state, sellerService) {
+  function($scope, $state, sellerService) {
     $scope.bids = [];
-    sellerService.getBids({}).then(function (result) {
+    sellerService.getBids({}).then(function(result) {
       $scope.bids = result.data.data;
     });
   }
@@ -867,9 +873,9 @@ app.controller("sellerClosedDeals", [
   "$scope",
   "$state",
   "sellerService",
-  function ($scope, $state, sellerService) {
+  function($scope, $state, sellerService) {
     $scope.notifications = [];
-    sellerService.getClosedBids({}).then(function (result) {
+    sellerService.getClosedBids({}).then(function(result) {
       $scope.notifications = result.data.data;
     });
   }
@@ -880,7 +886,7 @@ app.controller("sellerPayments", [
   "$state",
   "sellerService",
   "$q",
-  function ($scope, $state, sellerService, $q) {
+  function($scope, $state, sellerService, $q) {
     $scope.payments = [];
     $scope.subsellers = [];
     $scope.subsellerSelections = [];
@@ -897,13 +903,13 @@ app.controller("sellerPayments", [
 
       let sellerIds = [];
       if ($scope.subsellerSelections.length > 0) {
-        sellerIds = $scope.subsellerSelections.map(function (i) {
+        sellerIds = $scope.subsellerSelections.map(function(i) {
           return i.id;
         });
       }
       params.subSellers = sellerIds;
 
-      sellerService.getPayments(params).then(function (result) {
+      sellerService.getPayments(params).then(function(result) {
         $scope.payments = result.data.data;
       });
     }
@@ -911,28 +917,28 @@ app.controller("sellerPayments", [
     loadDate();
 
     sellerService.subsellerListing({}).then(
-      function (result) {
-        $scope.subsellers = result.data.data.map(function (user) {
+      function(result) {
+        $scope.subsellers = result.data.data.map(function(user) {
           return {
             id: user.userId,
             text: user.firstName + " " + user.lastName
           };
         });
       },
-      function (error) {}
+      function(error) {}
     );
-    $scope.loadUser = function () {
+    $scope.loadUser = function() {
       var deferred = $q.defer();
       deferred.resolve($scope.subsellers);
 
       return deferred.promise;
     };
 
-    $scope.applyFlter = function () {
+    $scope.applyFlter = function() {
       loadDate();
     };
 
-    $scope.resetFilter = function () {
+    $scope.resetFilter = function() {
       $scope.filter = {
         startDate: "",
         endDate: ""
