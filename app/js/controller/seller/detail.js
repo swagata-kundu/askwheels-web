@@ -55,8 +55,9 @@ app.controller("sellerAuctionDetail", [
       auctionService.getAuctionDetail(vehicleId).then(function(result) {
         console.log(result.data.data);
         $scope.auction = result.data.data;
-        inspection_report = result.data.data.inspection_report;
+        $scope.inspection_report = result.data.data.inspection_report;
         setSlider();
+        accordionButtonSet();
         clockInterval = $interval(calculateTime, 1000);
       });
     }

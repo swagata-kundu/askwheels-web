@@ -22,29 +22,143 @@
                 <h4 class="fs-title">Vehicle basic and registration details </h4>
                 <div class="form-group">
                     <div class="names">Bidding Starting Price
+
                     </div>
-                    <input disabled class="form-control" type="number" data-ng-model="addVehicle.start_bid">
+                    <input disabled class="form-control" type="number" data-ng-model="addVehicle.start_bid" required>
                     <div class="clearfix"></div>
                 </div>
+
+                <div class="form-group">
+                    <div class="names">Auction Start Date
+
+                    </div>
+                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model="timings.date" class="datepicker" required>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Auction Start Time
+
+                    </div>
+                    <input disabled class="form-control" type="text" data-ng-model="timings.time" placeholder="HH:mm:ss" class="datepicker" required>
+                    <div class="clearfix"></div>
+                </div>
+
                 <div class="form-group">
                     <div class="names">Vehicle Name
 
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.vehicle_name">
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.vehicle_name" required>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Color</div>
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.color">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Variant
+
+                    </div>
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.variant">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Fuel Type</div>
+
+                    <select disabled class="form-control" data-ng-model="addVehicle.fuel_type">
+                        <option value="">Select</option>
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                        <option>Hybrid</option>
+                        <option>LPG/Petrol</option>
+                        <option>CNG</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Transmission Type
+
+                    </div>
+
+                    <select disabled class="form-control" data-ng-model="addVehicle.transition_type" required>
+                        <option value="">Select</option>
+                        <option>Mannual</option>
+                        <option>Automatic</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Distance Travelled by Vehicle
+
+                    </div>
+                    <input disabled class="form-control" type="number" data-ng-model="addVehicle.distance_travelled">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Registeration
+
+                    </div>
+                    <select disabled class="form-control" type="text" data-ng-model="addVehicle.registration" required>
+                        <option value=" ">Select</option>
+                        <option value="Registered ">Registered</option>
+                        <option value="Un Registered ">Un Registered </option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Manufacturing Year
+
+                    </div>
+
+                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.manufacturing_year"/>
+                 
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">Registration Date
-
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.reg_date' class="datepicker">
+                    <input disabled class="form-control" type="text" data-ng-date futureDate="{{false}}" data-ng-model='addVehicle.reg_date'
+                        class="datepicker">
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
-                    <div class="names">Registration Number
+                    <div class="names">Number of Owners</div>
+
+                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.previous_owners"/>
+                       
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Evaluation Date
 
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.registration_number' class="datepicker">
+                    <input disabled class="form-control" type="text" data-ng-date todayDate data-ng-model='addVehicle.evaluation_date' class="datepicker"
+                        required>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Rc Status</div>
+                    <select disabled class="form-control" type="text" data-ng-model="addVehicle.rc_status">
+                        <option value="">Select</option>
+                        <option>Available</option>
+                        <option>Un Available </option>
+                        <select disabled class="form-control" />
+                        <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Current City
+
+                    </div>
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.location">
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -56,113 +170,62 @@
                     <div class="names">Engine No
 
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.engine_number">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Number of Owners</div>
-                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.previous_owners" />
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Fuel Type</div>
-                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.fuel_type" />
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Color</div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.color">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Model</div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.model">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Variant
-
-                    </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.variant">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Evaluation Date
-
-                    </div>
-                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.evaluation_date' class="datepicker">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Manufacturing Year
-
-                    </div>
-
-                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.manufacturing_year" />
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Rc Status</div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.rc_status">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Current City
-
-                    </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.location">
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.engine_number" required>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">Passengers</div>
 
-                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.passengers" />
-
+                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.passengers"/>
+                        
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
-                    <div class="names">Transition Type
+                    <div class="names">Meter seems to be tempered
                     </div>
-
-                    <input type="text" disabled class="form-control" data-ng-model="addVehicle.transition_type" />
+                    <select disabled class="form-control" data-ng-model="addVehicle.meter_tampered">
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
-
                 <div class="form-group">
-                    <div class="names">Distance Travelled by Vehicle
-
+                    <div class="names">Meter seems to be tempered (Description)
                     </div>
-                    <input disabled class="form-control" type="number" data-ng-model="addVehicle.distance_travelled">
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.meter_tempered_desc" />
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="form-group">
-                    <div class="names">Auction Start Date
 
-                    </div>
-                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model="timings.date">
-                    <div class="clearfix"></div>
-                </div>
 
-                <div class="form-group">
-                    <div class="names">Auction Start Time
 
-                    </div>
-                    <input disabled class="form-control" type="text" data-ng-model="timings.time" placeholder="HH:mm">
-                    <div class="clearfix"></div>
-                </div>
 
                 <div class="clearfix"></div>
             </fieldset>
             <!-- Insurance -->
             <fieldset>
                 <h4 class="fs-title">Insurance Policy</h4>
+
+
+
+                <div class="form-group">
+                    <div class="names">Insurance
+
+                    </div>
+                    <select disabled class="form-control" type="text" data-ng-model="addVehicle.insurance" required>
+                        <option value="">Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
                 <div class="form-group">
                     <div class="names">Insurance Validation
 
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.insurance_validation' class="datepicker">
+                    <input disabled class="form-control" type="text" data-ng-date='' data-ng-model='addVehicle.insurance_validation'
+                        class="datepicker" required>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -170,8 +233,12 @@
 
                     </div>
 
-                    <input type="text" disabled class="form-control" data-ng-model='addVehicle.insurance_type' />
-
+                    <select disabled class="form-control" data-ng-model='addVehicle.insurance_type' required>
+                        <option value="">Select</option>
+                        <option>Third Party</option>
+                        <option>Zero Depth</option>
+                        <option>Compheriencive</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -179,8 +246,11 @@
 
                     </div>
 
-                    <input type="text" disabled class="form-control" data-ng-model='addVehicle.hpa_status' />
-
+                    <select disabled class="form-control" data-ng-model='addVehicle.hpa_status' required>
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
@@ -188,18 +258,24 @@
 
             </fieldset>
             <!-- Inspection Report -->
-            <!-- Body -->
-
-
-
+            <!-- Exterior -->
 
             <fieldset>
 
                 <h4>Exterior</h4>
+
                 <div class="form-group">
                     <div class="names">Body type</div>
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.body_type.value">
-                    </input>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.body_type.value">
+                        <option value="">Select</option>
+                        <option>Sedan</option>
+                        <option>Coupe</option>
+                        <option>Convertible</option>
+                        <option>Suv</option>
+                        <option>Muv</option>
+                        <option>Hatchback</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -210,8 +286,15 @@
                 <div class="form-group">
                     <div class="names">Hood</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.hood.value">
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.hood.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -219,51 +302,20 @@
                     <input disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.hood.description" type="text">
                     <div class="clearfix"></div>
                 </div>
-
-                <div class="form-group">
-                    <div class="names">Front Bumper</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_bumper.value">
-
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_bumper.description" type="text">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Front Driver Side Fender(FDSF)</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_fender.value">
-
-
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_driver_side_fender.description">
-                    <div class="clearfix"></div>
-                </div>
-
-
                 <div class="form-group">
                     <div class="names">Driver Side Apron</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.driver_side_apron.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.driver_side_apron.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
 
 
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -275,11 +327,14 @@
                 <div class="form-group">
                     <div class="names">Passenger Side Apron</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -289,13 +344,60 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Front Driver Side Pillar</div>
+                    <div class="names">Front Bumper</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_piller.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_bumper.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
 
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_bumper.description" type="text">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Driver Side Fender(FDSF)</div>
 
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_fender.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_driver_side_fender.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Driver Side Front Pillar</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_piller.value">
+                        <option value="">Select</option>
+
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -305,30 +407,20 @@
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="form-group">
-                    <div class="names">Front Passenger Side Pillar</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_passanger_side_piller.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_passanger_side_piller.description">
-                    <div class="clearfix"></div>
-                </div>
 
                 <div class="form-group">
                     <div class="names">Front Driver Side Door</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_door.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_driver_side_door.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
-
-
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -337,14 +429,21 @@
                     <div class="clearfix"></div>
                 </div>
 
+
                 <div class="form-group">
-                    <div class="names">BPiller Driver Side</div>
+                    <div class="names">Driver Side B-Pillar</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.bpiller_driver_side.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.bpiller_driver_side.value">
+                        <option value="">Select</option>
+
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
 
-
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -353,32 +452,19 @@
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="form-group">
-                    <div class="names">BPiller Passenger Side
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.bpiller_passanger_side.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.bpiller_passanger_side.description">
-                    <div class="clearfix"></div>
-                </div>
 
                 <div class="form-group">
-                    <div class="names">Rear Door Driver Side
-                    </div>
+                    <div class="names">Driver Side Rear Door </div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_door_driver_side.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_door_driver_side.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
-
-
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -388,82 +474,56 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Rear Door Passenger Side
-                    </div>
+                    <div class="names">Driver side Quarter Panel </div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_door_passanger_side.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_driver_side_quarter_panel.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
 
-
-
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_door_passanger_side.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_driver_side_quarter_panel.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Rear Driver Side Quarter Panel
-                    </div>
+                    <div class="names">Driver Side Running Board</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_driver_side_quarter_paner.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_driver_side_quarter_paner.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Rear Passenger Side Quarter Panel
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_passanger_side_quarter_paner.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_passanger_side_quarter_paner.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Trunk/Boot</div>
+                    <div class="names">Rear Bumper</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.trunk_boot.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.boot_bumper.value">
+                        <option value="">Select</option>
 
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.trunk_boot.description">
-                    <div class="clearfix"></div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="names">Boot Bumper
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.boot_bumper.value">
-
-
-
-                    </input>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -473,13 +533,184 @@
                 </div>
 
                 <div class="form-group">
+                    <div class="names">Trunk/Boot</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.trunk_boot.value">
+                        <option value="">Select</option>
+
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.trunk_boot.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Quarter Panel</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_passenger_side_quarter_panel.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_passenger_side_quarter_panel.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Rear Door</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.rear_door_passenger_side.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.rear_door_passenger_side.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side B-Pillar</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.bpiller_passenger_side.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.bpiller_passenger_side.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Front Door</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_door.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_door.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Front Pillar</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_piller.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_piller.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Fender</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_fender.value">
+                        <option value="">Select</option>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.front_passenger_side_fender.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="names">Passenger Side Running Board</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passenger_side_running_board.value">
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.passenger_side_running_board.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
                     <div class="names">Roof</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.roof.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.roof.value">
+                        <option value="">Select</option>
 
-
-
-                    </input>
+                        <option>Repaired/Painted</option>
+                        <option>Original</option>
+                        <option>Dental</option>
+                        <option>Rusted</option>
+                        <option>Changed</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -488,16 +719,16 @@
                     <div class="clearfix"></div>
                 </div>
 
+
                 <div class="form-group">
-                    <div class="names">Windshield Free of Cracks
-                    </div>
+                    <div class="names">Windshield Free of Cracks</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.windshield_no_cracks.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.windshield_no_cracks.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
 
-
-
-
-                    </input>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -507,704 +738,87 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Driver Side Running Board
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.driver_side_running_board.value">
-
-
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Passenger Side Running Board
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passenger_side_running_board.value">
-
-
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="names">Seams Where The Trunk and Hood Close Are Properly Aligned
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.swttahcapa.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.swttahcapa.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Seams Where Doors and Fenders Meet Are Properly Aligned
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.swdafmapa.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.swdafmapa.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Windshields Wipers and Blades Fully Functional
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.weabff.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.weabff.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Headlights and Directional Lights Intact and Full Functional
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.hadliaff.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.hadliaff.description">
-                    <div class="clearfix"></div>
-                </div>
-
-
-
-                <div class="clearfix"></div>
-
-
-
-            </fieldset>
-
-
-
-            <!-- Tyres -->
-            <fieldset>
-
-                <h4>Tyres</h4>
-                <div class="form-group">
-                    <div class="names">Tyres Are a Reputable Brand Name</div>
-
-                    <input type="text" class="form-control" disabled ng-model="addVehicle.inspection_report.tyres.brand_name.value">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.description">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Tyres are all of the same make</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.same_make.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.same_make.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Tyres Are of Free of Any Cuts, Bubbles or Cracks</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.no_cuts_cracks.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.no_cuts_cracks.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Spare Tyre, Jack and Lug Wrench on Car And Fully Functional</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.spare_tyre.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Spare Tyres Inflated</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.spare_tyre_inflated.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre_inflated.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Tread Worn Evenly (uneven wear indicates alignment and suspension problems)
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.thread_worn.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.thread_worn.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="clearfix"></div>
-
-
-
-
-            </fieldset>
-            <!-- Engine -->
-
-            <fieldset>
-
-                <h4>ENGINE</h4>
-                <div class="form-group">
-                    <div class="names">Free of Fluid or Oil Leaks</div>
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.fluid_leaks.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.fluid_leaks.description">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">Oil Filler Neck Not Coated With Thick, Black Deposits</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.oil_filler.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.oil_filler.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Battery Terminals Free of Corrosion</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.battery_terminals_corrision.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.battery_terminals_corrision.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Oil Dip Stick Free of Dark, Black Oil</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.no_black_dark_oil.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.no_black_dark_oil.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Free of Odors While Engine is Running</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.no_odors.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.no_odors.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Exhaust Pipe Emissions Are Neither Blue (Indicates Engine Burns Oil) or Black (Indicate Excessive Oil
-                        Consumption)
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.engine.exhaust_pipe_emission.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine.exhaust_pipe_emission.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="clearfix"></div>
-
-
-
-            </fieldset>
-
-
-            <!-- SUSPENSION -->
-            <fieldset>
-
-                <h4>SUSPENSION</h4>
-                <div class="form-group">
-                    <div class="names">Vehicle Rests Levelly</div>
-
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.suspension.vehicle_rest_levelly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.suspension.vehicle_rest_levelly.description">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">When Bouncing The Vehicle's Corners, No Creaking Noises Are Made</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.suspension.cracking_noise.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.suspension.cracking_noise.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">All Corners Respond The Same When Bouncing</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.suspension.same_bouncing.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.suspension.same_bouncing.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="clearfix"></div>
-
-
-
-            </fieldset>
-
-            <!-- Interior -->
-            <fieldset>
-
-                <h4>INTERIOR</h4>
-                <div class="form-group">
-                    <div class="names">Seats Unworn and Free of Cracks</div>
-
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_unworn_no_cracks.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_unworn_no_cracks.description">
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
                     <div class="names">All Doors Open and Close Freely</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.doors_open_close_freely.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.doors_open_close_freely.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.doors_open_close_freely.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.doors_open_close_freely.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">All Gauges Work</div>
+                    <div class="names">Trunk opens and closes freely</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.all_gauge_works.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.all_gauge_works.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">No Dashboard Warning Lights Remain Illuminated</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.no_warning_light_remian_illuminated.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.trunk_open_close_freely.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.no_warning_light_remian_illuminated.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.trunk_open_close_freely.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Stereo Works</div>
+                    <div class="names">Seams where Trunk and Hood closes are properly Aligned</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.stereo_works.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.stereo_works.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Heater Works</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.heater_works.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.trunk_hood_aligned.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.heater_works.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.trunk_hood_aligned.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Air Conditioner Works</div>
+                    <div class="names">Seams where Doors and Fenders are properly Aligned</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.ac_works.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.ac_works.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Windshield Wipers Work</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.windshiels_wiper_works.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.door_fender_aligned.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.windshiels_wiper_works.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Windshield Wiper Fluid Dispenses Properly
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.wiper_fluid_dispenses_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.wiper_fluid_dispenses_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">All Seats Equipped With Functional Seat Belts</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_equipped_seatbelt.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_equipped_seatbelt.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">All Seats Adjust Properly
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_adjust_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_adjust_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Power Windows Operate Properly
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Sunroof Opens and Closes Properly (If Applicable)
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.sunroof_open_close_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.sunroof_open_close_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Car Alarm Works (If Applicable)
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.car_alarm_works.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.car_alarm_works.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Trunk And Driver-Dide Door Lock And Unlock With Key
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.trunk_driver_door_lock_with_key.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.trunk_driver_door_lock_with_key.description">
-                    <div class="clearfix"></div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="names">Hazard Lights Function Properly
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.hazard_lights_function_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.hazard_lights_function_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="names">Headlights, Including Bright, Work Properly
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.head_lights_work_properly.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.head_lights_work_properly.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Lacks a Heavy Scent of Air Freshener (May Indicate Something Is Being Concealed)
-                    </div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.interior.lacks_air_freshner_scent.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.lacks_air_freshner_scent.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.door_fender_aligned.description">
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
 
-
-
-
             </fieldset>
-
 
             <!-- Frame -->
 
             <fieldset>
 
                 <h4>FRAME</h4>
+
                 <div class="form-group">
                     <div class="names">Chassis is Neither Bent Not Cracked</div>
 
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.frame.chassis_ok.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.frame.chassis_ok.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -1215,11 +829,11 @@
                 <div class="form-group">
                     <div class="names">Signs of Crumpling or Straightening Inside The Trunk</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.frame.no_crumpling_inside_trunk.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.frame.no_crumpling_inside_trunk.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -1231,11 +845,11 @@
                 <div class="form-group">
                     <div class="names">Frame Holes Just Inside Outer Edge Clean And Free of Scratches</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.frame.hole_without_scratches.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.frame.hole_without_scratches.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -1247,250 +861,776 @@
 
                 <div class="clearfix"></div>
 
+            </fieldset>
 
 
+            <!-- Tyres -->
+            <fieldset>
+
+                <h4>Tyres</h4>
+
+                <div class="form-group">
+                    <div class="names">Tyres Are a Reputable Brand Name</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.value">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.brand_name.description">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Percentage of Tyre status</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.percentage_tyre_status.value">
+                        <option value="">Select</option>
+                        <option value="below  25%">Below 25%</option>
+                        <option value="25% to 50%">25% to 50%</option>
+                        <option value="50% to 75%">50% to 75%</option>
+                        <option value="75% to 100%">75% to 100%</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.percentage_tyre_status.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Tyres are all of the same make</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.same_make.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.same_make.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Tyres are free of cuts, bubbles and cracks</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.no_cuts_cracks.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.no_cuts_cracks.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Tread Worn Evenly (uneven wear indicates alignment and suspension problems)</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.thread_worn.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.thread_worn.description">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Spare Tyre, Jack and Lug Wrench on Car And Fully Functional</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.spare_tyre.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Spare Tyres Inflated</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.spare_tyre_inflated.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre_inflated.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="names">Percentage of Spare Tyre status</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.tyres.spare_tyre_percentage.value">
+                        <option value="">Select</option>
+                        <option value="below  25%">Below 25%</option>
+                        <option value="25% to 50%">25% to 50%</option>
+                        <option value="50% to 75%">50% to 75%</option>
+                        <option value="75% to 100%">75% to 100%</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.tyres.spare_tyre_percentage.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="clearfix"></div>
 
             </fieldset>
 
-            <!-- Automatic Transmission -->
+
+            <!-- Engine & Transmission-->
 
             <fieldset>
 
-                <h4>Transmission</h4>
+                <h4>ENGINE & TRANSMISSION</h4>
+
+                <div class="form-group">
+                    <div class="names">Free of fluids or oil leaks</div>
+
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.fluid_leaks.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.fluid_leaks.description">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">Oil Filler Neck Not Coated With Thick, Black Deposits</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.oil_filler.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.oil_filler.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Battery Terminals Free of Corrosion</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Transmission fluid looks clean not dirty and gritty(Indicates no possible internal transmission Oil dip
+                        stick free of dark, black color</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.no_black_dark_oil.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.no_black_dark_oil.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Free of Odors While Engine is Running</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.no_odors.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.no_odors.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Exhaust Pipe Emissions Are Neither Blue (Indicates Engine Burns Oil) or Black (Indicate Excessive Oil
+                        Consumption)
+                    </div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.exhaust_pipe_emission.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.exhaust_pipe_emission.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">All Gauges Work</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.all_gauge_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.all_gauge_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">No Dashboard Warning Lights Remain Illuminated</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.no_warning_light_remian_illuminated.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.no_warning_light_remian_illuminated.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Wind Shield wipers and Blades are fully Functional</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.wiper_blades_functional.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.wiper_blades_functional.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Windshield Wiper Fluid Dispenses Properly</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.wiper_fluid_dispenses_properly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.wiper_fluid_dispenses_properly.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Windshield Wipers Work properly</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.windshiels_wiper_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.windshiels_wiper_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Head lights and Directional lights are fully functional</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.lights_functional.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.lights_functional.description">
+                    <div class="clearfix"></div>
+                </div>
+
                 <div class="form-group">
                     <div class="names">Transmission Neither Slips Nor Delays When Driving</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.transmission.no_slips_delays.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.no_slips_delays.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.transmission.no_slips_delays.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.no_slips_delays.description">
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="form-group">
-                    <div class="names">Transmission Fluid Looks Clean, Not Dirty or Gritty (No indicates possible internal transmission problem)
-                    </div>
 
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.transmission.fluid_clean.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.transmission.fluid_clean.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="clearfix"></div>
                 <div class="form-group">
                     <div class="names">Each Gear Shifts Smoothly</div>
 
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.transmission.gear_shifts_smoothly.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.gear_shifts_smoothly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.transmission.gear_shifts_smoothly.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.gear_shifts_smoothly.description">
                     <div class="clearfix"></div>
                 </div>
+
+
                 <div class="form-group">
-                    <div class="names">Grinding Noises When In Reverse</div>
+                    <div class="names">Clutch Working</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.transmission.grinding_noise.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.clutch_working.value">
+                        <option value="">Select</option>
+                        <option value="Smooth">Smooth</option>
+                        <option value="Average">Average</option>
+                        <option value="Hard">Hard</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.transmission.grinding_noise.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.clutch_working.description">
                     <div class="clearfix"></div>
                 </div>
+
                 <div class="clearfix"></div>
-
-
 
             </fieldset>
 
-            <!-- brakes -->
+
+            <!-- steering_suspension_brakes -->
             <fieldset>
 
-                <h4>Brakes</h4>
-                <div class="form-group">
-                    <div class="names">Parking Brake Engages and Disengages Freely</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.brakes.pbedf.value">
+                <h4>Steering, Suspension &Brakes</h4>
 
 
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.brakes.pbedf.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Grinding Noises When Applying</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.brakes.grinding_noise.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.brakes.grinding_noise.description">
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="names">Wheels Lock When Applying Antilock Brakes (If applicable)</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.brakes.wlaab.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.brakes.wlaab.description">
-                    <div class="clearfix"></div>
-                </div>
                 <div class="form-group">
                     <div class="names">Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes</div>
 
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.brakes.vss.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.vss.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.brakes.vss.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.vss.description">
                     <div class="clearfix"></div>
                 </div>
 
-                <div class="clearfix"></div>
-
-
-
-            </fieldset>
-
-            <!-- Steering -->
-
-            <fieldset>
-
-                <h4>Steering</h4>
-                <div class="form-group">
-                    <div class="names">Vehicle Does Not Drift To One Side Without Prodding</div>
-
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.steering.no_drift.value">
-
-
-
-                    </input>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering.no_drift.description">
-                    <div class="clearfix"></div>
-                </div>
                 <div class="form-group">
                     <div class="names">Vehicle is Stable; Any Shaking or Vibrating</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.steering.stable.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.stable.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering.stable.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.stable.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="names">Resistance in The Steering Wheel When Turning</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.steering.resistance.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.resistance.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering.resistance.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.resistance.description">
                     <div class="clearfix"></div>
                 </div>
-
                 <div class="form-group">
-                    <div class="names">Clicking or Clunking When Turning</div>
-
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.steering.clunking.value">
+                    <div class="names">Vehicle Rests Levelly</div>
 
 
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.vehicle_rest_levelly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering.clunking.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.vehicle_rest_levelly.description">
                     <div class="clearfix"></div>
                 </div>
+
+                <div class="form-group">
+                    <div class="names">When Bouncing The Vehicle's Corners, No Creaking Noises Are Made</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.cracking_noise.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.cracking_noise.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">All Corners Respond The Same When Bouncing</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.same_bouncing.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.same_bouncing.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Brakes applies freely</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.brakes_applies_freely.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.brakes_applies_freely.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Parking Brake Engages and Disengages Freely</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.pbedf.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.pbedf.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Grinding Noises When Applying</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.grinding_noise.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.steering_suspension_brakes.grinding_noise.description">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+
+            </fieldset>
+
+
+            <!-- Interior -->
+            <fieldset>
+
+                <h4>INTERIOR</h4>
+
+                <div class="form-group">
+                    <div class="names">Seats Unworn and Free of Cracks</div>
+
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_unworn_no_cracks.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_unworn_no_cracks.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Stereo Works</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.stereo_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.stereo_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Heater Works</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.heater_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.heater_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Air Conditioner Works</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.ac_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.ac_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">All Seats Equipped With Functional Seat Belts</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_equipped_seatbelt.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_equipped_seatbelt.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">All Seats Adjust Properly</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.seats_adjust_properly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.seats_adjust_properly.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="names">Power Windows Operate Properly</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Sunroof Opens and Closes Properly (If Applicable)</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.sunroof_open_close_properly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="N/A">Not Applicable</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.sunroof_open_close_properly.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Car Alarm Works (If Applicable)</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.car_alarm_works.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="N/A">Not Applicable</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.car_alarm_works.description">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="names">Trunk And Driver-Dide Door Lock And Unlock With Key</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.trunk_driver_door_lock_with_key.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.trunk_driver_door_lock_with_key.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Hazard Lights Function Properly</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.hazard_lights_function_properly.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.interior.hazard_lights_function_properly.description">
+                    <div class="clearfix"></div>
+                </div>
+
 
                 <div class="clearfix"></div>
 
 
-
             </fieldset>
+
 
             <!-- Miscellaneous -->
             <fieldset>
 
                 <h4>Miscellaneous</h4>
+
                 <div class="form-group">
                     <div class="names">Car Manual Located In The Glove Compartment</div>
 
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -1501,11 +1641,11 @@
                 <div class="form-group">
                     <div class="names">Instructions Included For Any Accessories</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.instructions.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.instructions.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -1517,35 +1657,35 @@
                 <div class="form-group">
                     <div class="names">Service And Repair Records Available</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.car_manual.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.service_record.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.miscellaneous.car_manual.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.miscellaneous.service_record.description">
                     <div class="clearfix"></div>
                 </div>
+
 
                 <div class="form-group">
-                    <div class="names">Owner Has Title</div>
+                    <div class="names">Keys available</div>
 
-                    <input type="text" disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.owner_title.value">
-
-
-
-                    </input>
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.miscellaneous.keys_available.value">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                     <div class="clearfix"></div>
                 </div>
-                <div class="form-group">
-                    <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.miscellaneous.owner_title.description">
-                    <div class="clearfix"></div>
-                </div>
+
                 <div class="clearfix"></div>
+
+
             </fieldset>
 
         </form>

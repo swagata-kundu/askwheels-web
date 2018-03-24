@@ -142,6 +142,7 @@ app.controller("auctionDetail", [
           date: startTime.format("YYYY-MM-DD"),
           time: startTime.format("hh:mm")
         };
+        console.log($scope.timings)
       },
       function (err) {}
     );

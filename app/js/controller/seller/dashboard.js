@@ -242,7 +242,7 @@ app.controller("sellerAddAuction", [
         start_bid: 0,
         vehicle_name: "",
         reg_date: "",
-        isRegistered: "false",
+        registration: "",
         vin_number: "",
         engine_number: "",
         fuel_type: "Petrol",
@@ -260,54 +260,10 @@ app.controller("sellerAddAuction", [
           hpa_status: "Yes",
           insurance_type: "",
           insurance_validation: "",
-          isInsured: "false"
+          insurance: ""
         }
       },
       inspection_report: {
-        brakes: {
-          grinding_noise: {
-            description: "",
-            value: ""
-          },
-          pbedf: {
-            description: "",
-            value: ""
-          },
-          vss: {
-            description: "",
-            value: ""
-          },
-          wlaab: {
-            description: "",
-            value: ""
-          }
-        },
-        engine: {
-          battery_terminals_corrision: {
-            description: "",
-            value: ""
-          },
-          exhaust_pipe_emission: {
-            description: "",
-            value: ""
-          },
-          fluid_leaks: {
-            description: "",
-            value: ""
-          },
-          no_black_dark_oil: {
-            description: "",
-            value: ""
-          },
-          no_odors: {
-            description: "",
-            value: ""
-          },
-          oil_filler: {
-            description: "",
-            value: ""
-          }
-        },
         exterior: {
           body_type: {
             description: "",
@@ -321,11 +277,15 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          bpiller_passanger_side: {
+          bpiller_passenger_side: {
             description: "",
             value: ""
           },
           door_fender_aligned: {
+            description: "",
+            value: ""
+          },
+          doors_open_close_freely: {
             description: "",
             value: ""
           },
@@ -341,19 +301,7 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          front_passenger_side_door: {
-            description: "",
-            value: ""
-          },
           front_driver_side_fender: {
-            description: "",
-            value: ""
-          },
-          fpsf: {
-            description: "",
-            value: ""
-          },
-          front_passanger_side_piller: {
             description: "",
             value: ""
           },
@@ -361,11 +309,26 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
+          front_passenger_side_door: {
+            description: "",
+            value: ""
+          },
+          front_passenger_side_fender: {
+            description: ""
+          },
+          front_passenger_side_piller: {
+            description: "",
+            value: ""
+          },
           hood: {
             description: "",
             value: ""
           },
-          lights_functional: {
+          driver_side_running_board: {
+            description: "",
+            value: ""
+          },
+          passenger_side_running_board: {
             description: "",
             value: ""
           },
@@ -373,7 +336,7 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          passanger_side_apron: {
+          passenger_side_apron: {
             description: "",
             value: ""
           },
@@ -381,15 +344,15 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          rear_door_passanger_side: {
+          rear_door_passenger_side: {
             description: "",
             value: ""
           },
-          rear_driver_side_quarter_paner: {
+          rear_driver_side_quarter_panel: {
             description: "",
             value: ""
           },
-          rear_passanger_side_quarter_paner: {
+          rear_passenger_side_quarter_panel: {
             description: "",
             value: ""
           },
@@ -401,27 +364,11 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
+          trunk_open_close_freely: {
+            description: "",
+            value: ""
+          },
           windshield_no_cracks: {
-            description: "",
-            value: ""
-          },
-          wiper_blades_functional: {
-            description: "",
-            value: ""
-          },
-          swttahcapa: {
-            description: "",
-            value: ""
-          },
-          swdafmapa: {
-            description: "",
-            value: ""
-          },
-          weabff: {
-            description: "",
-            value: ""
-          },
-          hadliaff: {
             description: "",
             value: ""
           }
@@ -445,35 +392,14 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          all_gauge_works: {
-            description: "",
-            value: ""
-          },
           car_alarm_works: {
-            description: "",
-            value: ""
-          },
-          doors_open_close_freely: {
-            description: "",
-            value: ""
+            description: ""
           },
           hazard_lights_function_properly: {
             description: "",
             value: ""
           },
-          head_lights_work_properly: {
-            description: "",
-            value: ""
-          },
           heater_works: {
-            description: "",
-            value: ""
-          },
-          lacks_air_freshner_scent: {
-            description: "",
-            value: ""
-          },
-          no_warning_light_remian_illuminated: {
             description: "",
             value: ""
           },
@@ -498,14 +424,67 @@ app.controller("sellerAddAuction", [
             value: ""
           },
           sunroof_open_close_properly: {
-            description: "",
-            value: ""
+            description: ""
           },
           trunk_driver_door_lock_with_key: {
             description: "",
             value: ""
+          }
+        },
+        engine_transmission: {
+          all_gauge_works: {
+            description: "",
+            value: ""
           },
-          trunk_open_close_freely: {
+          battery_terminals_corrosion: {
+            description: "",
+            value: ""
+          },
+          clutch_working: {
+            description: "",
+            value: ""
+          },
+          exhaust_pipe_emission: {
+            description: "",
+            value: ""
+          },
+          fluid_clean: {
+            description: "",
+            value: ""
+          },
+          fluid_leaks: {
+            description: "",
+            value: ""
+          },
+          gear_shifts_smoothly: {
+            description: "",
+            value: ""
+          },
+          hd_functional: {
+            description: "",
+            value: ""
+          },
+          no_black_dark_oil: {
+            description: "",
+            value: ""
+          },
+          no_odors: {
+            description: "",
+            value: ""
+          },
+          no_slips_delays: {
+            description: "",
+            value: ""
+          },
+          no_warning_light_remian_illuminated: {
+            description: "",
+            value: ""
+          },
+          oil_filler: {
+            description: "",
+            value: ""
+          },
+          wb_functional: {
             description: "",
             value: ""
           },
@@ -516,22 +495,14 @@ app.controller("sellerAddAuction", [
           wiper_fluid_dispenses_properly: {
             description: "",
             value: ""
-          },
-          keys_available: {
-            description: "",
-            value: ""
           }
         },
-        transmission: {
-          fluid_clean: {
+        steering_suspension_brakes: {
+          brakes_applies_freely: {
             description: "",
             value: ""
           },
-          no_slips_delays: {
-            description: "",
-            value: ""
-          },
-          gear_shifts_smoothly: {
+          cracking_noise: {
             description: "",
             value: ""
           },
@@ -539,31 +510,7 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          clutch_working: {
-            description: "",
-            value: ""
-          }
-        },
-        miscellaneous: {
-          car_manual: {
-            description: "",
-            value: ""
-          },
-          instructions: {
-            description: "",
-            value: ""
-          },
-          owner_title: {
-            description: "",
-            value: ""
-          }
-        },
-        steering: {
-          clunking: {
-            description: "",
-            value: ""
-          },
-          no_drift: {
+          pbedf: {
             description: "",
             value: ""
           },
@@ -571,26 +518,45 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
-          stable: {
-            description: "",
-            value: ""
-          }
-        },
-        suspension: {
-          cracking_noise: {
+          same_bouncing: {
             description: "",
             value: ""
           },
-          same_bouncing: {
+          stable: {
             description: "",
             value: ""
           },
           vehicle_rest_levelly: {
             description: "",
             value: ""
+          },
+          vss: {
+            description: "",
+            value: ""
+          }
+        },
+        miscellaneous: {
+          instructions: {
+            car_manual: {
+              description: "",
+              value: ""
+            },
+            description: "",
+            value: ""
+          },
+          keys_available: {
+            description: "",
+            value: ""
+          },
+          service_record: {
+            description: "",
+            value: ""
           }
         },
         tyres: {
+          brand_name: {
+            value: ""
+          },
           no_cuts_cracks: {
             description: "",
             value: ""
@@ -607,15 +573,15 @@ app.controller("sellerAddAuction", [
             description: "",
             value: ""
           },
+          spare_tyre_percentage: {
+            description: "",
+            value: ""
+          },
           thread_worn: {
             description: "",
             value: ""
           },
-          percentage_tyre: {
-            description: "",
-            value: ""
-          },
-          spare_tyre_percentage: {
+          percentage_tyre_status: {
             description: "",
             value: ""
           }
@@ -631,7 +597,6 @@ app.controller("sellerAddAuction", [
 
     $scope.getYear = function() {
       let range = parseInt(moment().format("YYYY")) - 1999;
-      console.log(range);
       return new Array(range);
     };
 
@@ -664,6 +629,7 @@ app.controller("sellerAddAuction", [
             "admin_live_date",
             "images",
             "bids",
+            "insurance",
             "hpa_status",
             "insurance_type",
             "insurance_validation"
@@ -680,6 +646,7 @@ app.controller("sellerAddAuction", [
           newvehicle.basic_info = _t;
 
           newvehicle.basic_info.insurance_policy = {
+            insurance:vehicle.insurance,
             hpa_status: vehicle.hpa_status,
             insurance_type: vehicle.insurance_type,
             insurance_validation: vehicle.insurance_validation
