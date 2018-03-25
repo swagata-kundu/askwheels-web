@@ -91,6 +91,15 @@
                                     <div class="clearfix"></div>
                                 </li>
 
+
+                                <li>
+                                    <div class="names">Vehicle Make
+                                        <span>*</span>
+                                    </div>
+                                    <input type="text" data-ng-model="addVehicle.basic_info.model" required>
+                                    <div class="clearfix"></div>
+                                </li>
+
                                 <li>
                                     <div class="names">Color</div>
                                     <input type="text" data-ng-model="addVehicle.basic_info.color">
@@ -169,6 +178,12 @@
                                     <input type="text" data-ng-date futureDate="{{false}}" data-ng-model='addVehicle.basic_info.reg_date' class="datepicker">
                                     <div class="clearfix"></div>
                                 </li>
+
+                                <li>
+                                    <div class="names">Registration State</div>
+                                    <input type="text" data-ng-model="addVehicle.basic_info.registration_state">
+                                    <div class="clearfix"></div>
+                                </li>
                                 <li>
                                     <div class="names">Number of Owners</div>
                                     <i class="fa fa-angle-down"></i>
@@ -245,10 +260,10 @@
                                 <li>
                                     <div class="names">Meter seems to be tempered (Description)
                                     </div>
-                                    <input type="text" data-ng-model="addVehicle.basic_info.meter_tempered_desc" />
+                                    <input type="text" data-ng-model="addVehicle.basic_info.meter_tampered_desc" />
                                     <div class="clearfix"></div>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <div class="names">Registration Number</div>
                                     <input type="text" data-ng-model="addVehicle.basic_info.registration_number">
                                     <div class="clearfix"></div>
@@ -258,7 +273,7 @@
                                     <div class="names">Model</div>
                                     <input type="text" data-ng-model="addVehicle.basic_info.model">
                                     <div class="clearfix"></div>
-                                </li>
+                                </li> -->
                                 <div class="clearfix"></div>
                             </ul>
                             <input type="button" name="next" id="next" class="next action-button" value="Next" />
