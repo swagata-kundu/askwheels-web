@@ -262,10 +262,10 @@ function getProperKey(key) {
       return "Parking Brake Engages and Disengages Freely";
     }
     case "grinding_noise": {
-      return "Grinding Noises When Applying";
+      return "Grinding noises when applying Brakes";
     }
     case "vss": {
-      return "Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes";
+      return "Vehicle Steers Straight And Does Not Pull To One Side while driving";
     }
     case "swttahcapa": {
       return "Seams Where The Trunk and Hood Close Are Properly Aligned";
@@ -306,7 +306,7 @@ function getProperKey(key) {
     case "oil_filler": {
       return "Oil Filler Neck Not Coated With Thick, Black Deposits";
     }
-    case "battery_terminals_corrision": {
+    case "battery_terminals_corrosion": {
       return "Battery terminal free of corrosion";
     }
     case "no_black_dark_oil": {
@@ -358,7 +358,7 @@ function getProperKey(key) {
       return "Sunroof opens and closes properly(if Applicable)";
     }
     case "trunk_driver_door_lock_with_key": {
-      return "Trunk and driver side door lock and unlock with key";
+      return "Trunk And Driver-Side Door Lock And Unlock With Key";
     }
     case "head_lights_work_properly": {
       return "Headlights, Including Bright, Work Properly";

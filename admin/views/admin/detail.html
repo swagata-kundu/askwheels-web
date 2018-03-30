@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <div class="names">Vehicle Make
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.basic_info.model" required>
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.model" required>
                     <div class="clearfix"></div>
                 </div>
 
@@ -141,7 +141,7 @@
                 <div class="form-group">
                     <div class="names">Registration State
                     </div>
-                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.basic_info.registration_state" required>
+                    <input disabled class="form-control" type="text" data-ng-model="addVehicle.registration_state" required>
                     <div class="clearfix"></div>
                 </div>
                 <div class="form-group">
@@ -343,7 +343,7 @@
                 <div class="form-group">
                     <div class="names">Passenger Side Apron</div>
 
-                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.exterior.passenger_side_apron.value">
                         <option value="">Select</option>
                         <option>Repaired/Painted</option>
                         <option>Original</option>
@@ -355,7 +355,7 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.exterior.passenger_side_apron.description">
                     <div class="clearfix"></div>
                 </div>
 
@@ -1060,7 +1060,7 @@
                 <div class="form-group">
                     <div class="names">Battery Terminals Free of Corrosion</div>
 
-                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.value">
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrosion.value">
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -1069,13 +1069,29 @@
                 </div>
                 <div class="form-group">
                     <div class="names">description</div>
-                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.description">
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrosion.description">
                     <div class="clearfix"></div>
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Transmission fluid looks clean not dirty and gritty(Indicates no possible internal transmission Oil dip
-                        stick free of dark, black color</div>
+                    <div class="names">Transmission fluid looks clean not dirty and gritty(Indicates no possible internal transmission</div>
+
+                    <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.fluid_clean.value">
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <div class="names">description</div>
+                    <input disabled class="form-control" type="text" ng-model="addVehicle.inspection_report.engine_transmission.fluid_clean.description">
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="names">Oil dip stick free of dark, black color</div>
 
                     <select disabled class="form-control" ng-model="addVehicle.inspection_report.engine_transmission.no_black_dark_oil.value">
                         <option value="">Select</option>
@@ -1287,7 +1303,7 @@
 
 
                 <div class="form-group">
-                    <div class="names">Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes</div>
+                    <div class="names">Vehicle Steers Straight And Does Not Pull To One Side while driving</div>
 
 
                     <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.vss.value">
@@ -1418,7 +1434,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="names">Grinding Noises When Applying</div>
+                    <div class="names">Grinding noises when applying Brakes</div>
 
                     <select disabled class="form-control" ng-model="addVehicle.inspection_report.steering_suspension_brakes.grinding_noise.value">
                         <option value="">Select</option>
@@ -1544,12 +1560,13 @@
 
 
                 <div class="form-group">
-                    <div class="names">Power Windows Operate Properly</div>
+                    <div class="names">Power windows operates properly(If Applicable)</div>
 
                     <select disabled class="form-control" ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.value">
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="N/A">Not Applicable</option>
                     </select>
                     <div class="clearfix"></div>
                 </div>

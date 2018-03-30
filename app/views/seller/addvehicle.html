@@ -152,7 +152,9 @@
                                     <div class="names">Registeration
                                         <span>*</span>
                                     </div>
+                                    <i class="fa fa-angle-down"></i>
                                     <select type="text" data-ng-model="addVehicle.basic_info.registration" required>
+                                        <option value="">Select</option>
                                         <option value="Registered ">Registered</option>
                                         <option value="Un Registered ">Un Registered </option>
                                     </select>
@@ -296,18 +298,15 @@
                                 </li>
                                 <li>
                                     <div class="names">Insurance Validation
-                                        <span>*</span>
                                     </div>
-                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.insurance_policy.insurance_validation' class="datepicker"
-                                        required>
+                                    <input type="text" data-ng-date='' data-ng-model='addVehicle.basic_info.insurance_policy.insurance_validation' class="datepicker">
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
                                     <div class="names">Insurance Type
-                                        <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select data-ng-model='addVehicle.basic_info.insurance_policy.insurance_type' required>
+                                    <select data-ng-model='addVehicle.basic_info.insurance_policy.insurance_type'>
                                         <option value="">Select</option>
                                         <option>Third Party</option>
                                         <option>Zero Depth</option>
@@ -317,10 +316,9 @@
                                 </li>
                                 <li>
                                     <div class="names">HPA Status
-                                        <span>*</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select data-ng-model='addVehicle.basic_info.insurance_policy.hpa_status' required>
+                                    <select data-ng-model='addVehicle.basic_info.insurance_policy.hpa_status'>
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -404,7 +402,7 @@
                                 <li>
                                     <div class="names">Passenger Side Apron</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.value">
+                                    <select ng-model="addVehicle.inspection_report.exterior.passenger_side_apron.value">
                                         <option value="">Select</option>
 
                                         <option>Repaired/Painted</option>
@@ -420,7 +418,7 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.passanger_side_apron.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.exterior.passenger_side_apron.description">
                                     <div class="clearfix"></div>
                                 </li>
 
@@ -969,6 +967,21 @@
                                     <div class="clearfix"></div>
                                 </li>
                                 <li>
+                                    <div class="names">Tyres are all of the same make</div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="addVehicle.inspection_report.tyres.same_make.value">
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <div class="names">description</div>
+                                    <input type="text" ng-model="addVehicle.inspection_report.tyres.same_make.description">
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
                                     <div class="names">Percentage of Tyre status</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.tyres.percentage_tyre_status.value">
@@ -986,21 +999,7 @@
                                     <div class="clearfix"></div>
                                 </li>
 
-                                <li>
-                                    <div class="names">Tyres are all of the same make</div>
-                                    <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.tyres.same_make.value">
-                                        <option value="">Select</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <div class="clearfix"></div>
-                                </li>
-                                <li>
-                                    <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.tyres.same_make.description">
-                                    <div class="clearfix"></div>
-                                </li>
+
 
                                 <li>
                                     <div class="names">Tyres are free of cuts, bubbles and cracks</div>
@@ -1138,7 +1137,7 @@
                                 <li>
                                     <div class="names">Battery Terminals Free of Corrosion</div>
                                     <i class="fa fa-angle-down"></i>
-                                    <select ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.value">
+                                    <select ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrosion.value">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -1147,13 +1146,29 @@
                                 </li>
                                 <li>
                                     <div class="names">description</div>
-                                    <input type="text" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrision.description">
+                                    <input type="text" ng-model="addVehicle.inspection_report.engine_transmission.battery_terminals_corrosion.description">
                                     <div class="clearfix"></div>
                                 </li>
 
                                 <li>
-                                    <div class="names">Transmission fluid looks clean not dirty and gritty(Indicates no possible internal transmission
-                                        Oil dip stick free of dark, black color</div>
+                                    <div class="names">Transmission fluid looks clean not dirty and gritty(Indicates no possible internal transmission)</div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <select ng-model="addVehicle.inspection_report.engine_transmission.fluid_clean.value">
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <li>
+                                    <div class="names">description</div>
+                                    <input type="text" ng-model="addVehicle.inspection_report.engine_transmission.fluid_clean.description">
+                                    <div class="clearfix"></div>
+                                </li>
+
+
+                                <li>
+                                    <div class="names">Oil dip stick free of dark, black color</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.engine_transmission.no_black_dark_oil.value">
                                         <option value="">Select</option>
@@ -1369,7 +1384,7 @@
                             <ul class="stepthree">
 
                                 <li class="VehicleSteers">
-                                    <div class="names">Vehicle Steers Straight And Does Not Pull To One Side When Applying Brakes</div>
+                                    <div class="names">Vehicle Steers Straight And Does Not Pull To One Side while driving</div>
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering_suspension_brakes.vss.value">
@@ -1500,7 +1515,7 @@
                                 </li>
 
                                 <li>
-                                    <div class="names">Grinding Noises When Applying</div>
+                                    <div class="names">Grinding noises when applying Brakes</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.steering_suspension_brakes.grinding_noise.value">
                                         <option value="">Select</option>
@@ -1629,7 +1644,7 @@
 
 
                                 <li>
-                                    <div class="names">Power Windows Operate Properly</div>
+                                    <div class="names">Power windows operates properly(If Applicable)</div>
                                     <i class="fa fa-angle-down"></i>
                                     <select ng-model="addVehicle.inspection_report.interior.power_windows_operates_properly.value">
                                         <option value="">Select</option>

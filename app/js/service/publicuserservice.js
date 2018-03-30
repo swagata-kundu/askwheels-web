@@ -48,6 +48,8 @@ app.directive("ngDate", function () {
 
       $(element).datepicker({
         dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true,
         maxDate: attrs.hasOwnProperty("futuredate") ? d : attrs.hasOwnProperty("todaydate")?toDay:null,
         onSelect: function (date) {
           ctrl.$setViewValue(date);
