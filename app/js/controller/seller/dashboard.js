@@ -635,9 +635,6 @@ app.controller("sellerAddAuction", [
             "insurance_validation"
           ]);
 
-          _t.previous_owners = _t.previous_owners
-            ? _t.previous_owners.toString()
-            : "";
           _t.manufacturing_year = _t.manufacturing_year
             ? _t.manufacturing_year.toString()
             : "";
