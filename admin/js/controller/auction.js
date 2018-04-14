@@ -3,21 +3,39 @@ app.controller("auctionList", [
   "$state",
   "$rootScope",
   "auctionService",
-  function ($scope, $state, $rootScope, auctionService) {
+  function($scope, $state, $rootScope, auctionService) {
     //pagination variables
 
     $scope.params = $state.params;
 
-    $scope.sortType = "evaluation_date";
-    $scope.sortReverse = false;
+    $scope.filter = {
+      status: ""
+    };
+
+    $scope.sortType = "dateModified";
+    $scope.sortReverse = true;
     $scope.numPerPage = 20;
     $scope.currentPage = 1;
-    $scope.searchText = "";
 
-    $scope.getVehicleList = function (pageNo, pageSize) {
+    $scope.applyFilters = function() {
+      debugger;
+      if ($scope.filter.status) {
+        $scope.getVehicleList(1, $scope.numPerPage);
+      }
+    };
+    $scope.clearFilters = function() {
+      $scope.filter.status = "";
+      $scope.currentPage = 1;
+      $scope.sortReverse = true;
+      $scope.sortType = "dateModified";
+      $scope.getVehicleList(1, $scope.numPerPage);
+    };
+
+    $scope.getVehicleList = function(pageNo, pageSize) {
       var endUserListParams = {
         pageNo: pageNo,
         pageSize: pageSize,
+        status: $scope.filter.status,
         sortBy: $scope.sortType,
         sortOrder: $scope.sortReverse == true ? "DESC" : "ASC",
         searchText: $scope.searchText,
@@ -25,23 +43,26 @@ app.controller("auctionList", [
         subSellerId: $scope.params.subSellerId ? $scope.params.subSellerId : 0
       };
       auctionService.getVehicleList(endUserListParams).then(
-        function (endUserSuccess) {
-          $scope.vehicles = endUserSuccess.data.data;
+        function(endUserSuccess) {
+          $scope.vehicles = endUserSuccess.data.data.map(function(v) {
+            let obj = v;
+            obj.status_name = getStatusName(v.vehicle_live_status);
+            return obj;
+          });
           $scope.currentPage = pageNo;
           $scope.totalValues = endUserSuccess.data.count;
         },
-        function (endUserError) {
+        function(endUserError) {
           $scope.vehicles = [];
           $scope.totalValues = 0;
         }
       );
     };
 
-    //bind default list on page load
     $scope.getVehicleList($scope.currentPage, $scope.numPerPage);
 
-    //change vehicle status To block/unblock junior admin
-    $scope.changeVehicleStatus = function (id, status) {
+    $scope.changeVehicleStatus = function(id, status) {
+      debugger;
       if (status === 2) {
         approveVehicle(id, status);
       } else {
@@ -49,10 +70,10 @@ app.controller("auctionList", [
       }
     };
 
-    var approveVehicle = function (id, status) {
+    var approveVehicle = function(id, status) {
       bootbox.confirm(
         "Are you sure you want to change this vehicle status?",
-        function (checked) {
+        function(checked) {
           if (checked) {
             var blockParams = {
               vehicleId: id,
@@ -60,7 +81,7 @@ app.controller("auctionList", [
             };
 
             auctionService.changeVehicleStatus(blockParams).then(
-              function (response) {
+              function(response) {
                 bootbox.alert(response.data.message);
                 var pageNo = $scope.currentPage;
                 if ($scope.vehicles.length == 1) {
@@ -72,7 +93,7 @@ app.controller("auctionList", [
                 }
                 $scope.getVehicleList(pageNo, $scope.numPerPage);
               },
-              function (error) {
+              function(error) {
                 showErrorMessage(error);
               }
             );
@@ -81,11 +102,11 @@ app.controller("auctionList", [
       );
     };
 
-    var rejectVehicle = function (id, status) {
+    var rejectVehicle = function(id, status) {
       bootbox.prompt({
         title: "Please enter the rejection reason.",
         inputType: "textarea",
-        callback: function (reason) {
+        callback: function(reason) {
           if (reason) {
             var blockParams = {
               vehicleId: id,
@@ -94,7 +115,7 @@ app.controller("auctionList", [
             };
 
             auctionService.changeVehicleStatus(blockParams).then(
-              function (response) {
+              function(response) {
                 bootbox.alert(response.data.message);
                 var pageNo = $scope.currentPage;
                 if ($scope.vehicles.length == 1) {
@@ -106,7 +127,7 @@ app.controller("auctionList", [
                 }
                 $scope.getVehicleList(pageNo, $scope.numPerPage);
               },
-              function (error) {
+              function(error) {
                 showErrorMessage(error);
               }
             );
@@ -123,7 +144,7 @@ app.controller("auctionDetail", [
   "$rootScope",
   "auctionService",
   "$uibModal",
-  function ($scope, $state, $rootScope, auctionService, $uibModal) {
+  function($scope, $state, $rootScope, auctionService, $uibModal) {
     var auctionId = $state.params.vehicleId;
     var startTime = "";
 
@@ -135,22 +156,19 @@ app.controller("auctionDetail", [
       inspection_report: {}
     };
     auctionService.getAuctionDetail(auctionId).then(
-      function (data) {
+      function(data) {
         $scope.addVehicle = data.data.data;
         startTime = moment($scope.addVehicle.auction_start_date);
         $scope.timings = {
           date: startTime.format("YYYY-MM-DD"),
           time: startTime.format("hh:mm")
         };
-        console.log($scope.timings)
+        console.log($scope.timings);
       },
-      function (err) {}
+      function(err) {}
     );
 
-
-
-
-    $scope.viewImage = function (image) {
+    $scope.viewImage = function(image) {
       var modalInstance = $uibModal.open({
         animation: true,
         template: `<div class="modal-body" style="text-align:center">
@@ -158,9 +176,9 @@ app.controller("auctionDetail", [
     </div>`,
         controller: "imageViewer",
         size: "lg",
-        windowClass: 'custom-modal view-image',
+        windowClass: "custom-modal view-image",
         resolve: {
-          image: function () {
+          image: function() {
             return image;
           }
         }
@@ -173,11 +191,38 @@ app.controller("imageViewer", [
   "$scope",
   "$uibModalInstance",
   "image",
-  function ($scope, $uibModalInstance, image) {
-    $scope.cancel = function () {
+  function($scope, $uibModalInstance, image) {
+    $scope.cancel = function() {
       $uibModalInstance.dismiss("cancel");
     };
     $scope.selectedImage = "";
     $scope.selectedImage = image;
   }
 ]);
+
+function getStatusName(vehicle_live_status) {
+  let status_name = "";
+  switch (vehicle_live_status) {
+    case 1: {
+      status_name = "Live";
+      break;
+    }
+    case 2: {
+      status_name = "Upcoming";
+      break;
+    }
+    case 3: {
+      status_name = "New";
+      break;
+    }
+    case 4: {
+      status_name = "Rejected";
+      break;
+    }
+    case 5: {
+      status_name = "Closed";
+      break;
+    }
+  }
+  return status_name;
+}

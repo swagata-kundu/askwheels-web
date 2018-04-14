@@ -14,8 +14,8 @@ app.controller("sellerListing", [
     $scope.admin.allEndUsers = [];
 
     //pagination variables
-    $scope.sortType = "firstName";
-    $scope.sortReverse = false;
+    $scope.sortType = "dateCreated";
+    $scope.sortReverse = true;
     $scope.numPerPage = 20;
     $scope.currentPage = 1;
     $scope.searchText = "";
@@ -109,9 +109,9 @@ app.controller("sellerListing", [
     $scope.clearFilters = function () {
       $scope.searchText = "";
       $scope.currentPage = 1;
-      $scope.sortReverse = false;
-      $scope.sortType = "firstName";
-      $scope.getSellerList($scope.currentPage, $scope.numPerPage);
+      $scope.sortReverse = true;
+      $scope.sortType = "dateCreated";
+      $scope.getSellerList(1, $scope.numPerPage);
     };
 
 
@@ -147,8 +147,8 @@ app.controller("subSellerListing", [
     $scope.admin.allEndUsers = [];
 
     //pagination variables
-    $scope.sortType = "firstName";
-    $scope.sortReverse = false;
+    $scope.sortType = "dateCreated";
+    $scope.sortReverse = true;
     $scope.numPerPage = 20;
     $scope.currentPage = 1;
     $scope.searchText = "";
@@ -243,9 +243,9 @@ app.controller("subSellerListing", [
     $scope.clearFilters = function () {
       $scope.searchText = "";
       $scope.currentPage = 1;
-      $scope.sortReverse = false;
-      $scope.sortType = "firstName";
-      $scope.getSellerList($scope.currentPage, $scope.numPerPage);
+      $scope.sortReverse = true;
+      $scope.sortType = "dateCreated";
+      $scope.getSellerList(1, $scope.numPerPage);
     };
 
     $scope.changePassword = function (userId) {
@@ -290,8 +290,8 @@ app.controller("dealerListing", [
     $scope.admin.allEndUsers = [];
 
     //pagination variables
-    $scope.sortType = "firstName";
-    $scope.sortReverse = false;
+    $scope.sortType = "dateCreated";
+    $scope.sortReverse = true;
     $scope.numPerPage = 20;
     $scope.currentPage = 1;
     $scope.searchText = "";
@@ -390,9 +390,9 @@ app.controller("dealerListing", [
     $scope.clearFilters = function () {
       $scope.searchText = "";
       $scope.currentPage = 1;
-      $scope.sortReverse = false;
-      $scope.sortType = "firstName";
-      $scope.getSellerList($scope.currentPage, $scope.numPerPage);
+      $scope.sortReverse = true;
+      $scope.sortType = "dateCreated";
+      $scope.getSellerList(1, $scope.numPerPage);
     };
     $scope.changePassword = function (userId) {
       var modalInstance = $uibModal.open({
