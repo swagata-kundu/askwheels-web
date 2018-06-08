@@ -3,7 +3,7 @@
 var app = app || {};
 
 
-var domain = "http://13.126.18.137:5000/";
+var domain = "http://api.car.swagatak.one/";
 // var domain = 'http://localhost:5100/';
 
 app.constant("serviceURI", {
